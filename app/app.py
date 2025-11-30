@@ -269,7 +269,9 @@ app_ui = ui.page_fluid(
         ui.row(
             ui.column(6,
             ui.tags.h1("Architectures of Problem Solving"),
-            ui.tags.p("An educational interactive tool for an agent-based model created to study how different network topologies affect decision making."),
+            ui.tags.p("An educational interactive app for an agent-based model created to study how different network topologies affect decision making."),
+            ui.tags.p("Click on 'How to use?' tab below for information about the model and instructions for using the app"),
+
             class_="header-title"
             ),
             ui.column(3,
@@ -538,6 +540,7 @@ app_ui = ui.page_fluid(
 
                         Welcome to this **Agent-Based Simulation** tool for exploring collective problem-solving in networks.
                         For more details about how the ABM works. You can go to Acknowledgements below and access full report. 
+                        
                         ---
 
                         ##  Quick Start
@@ -667,7 +670,7 @@ app_ui = ui.page_fluid(
 
                         ## Acknowledgments
 
-                        For detailed acknowledgements and references see the report. [Clink Here](https://github.com/atiyabzafar/architecturesofproblemsolving/blob/main/report/Report.pdf) for the pdf. 
+                        For detailed acknowledgements and references see the report. [Click Here](https://www.github.com/atiyabzafar/architecturesofproblemsolving/blob/main/report/Report.pdf?raw=true) for the pdf. 
                     """
                 )
             ),
@@ -893,8 +896,8 @@ def server(input, output, session):
         
         # Reset state
         model_data.set(None)
-        simulation_progress.set(0)
-        network_html_cache.set(None)
+        # simulation_progress.set(0)
+        # network_html_cache.set(None)
 
         simulation_progress.set(0)
         network_html_cache.set(None)  # Clear cache on new setup
@@ -1052,6 +1055,8 @@ def server(input, output, session):
                 'agent_df': agent_df,
                 'model': model,
             })
+            print("Run Completed")
+            network_html_cache.set(None)
             return
         
         # ✅ KEY FIX: Run 5 steps per batch (adjust based on speed)
@@ -1394,7 +1399,13 @@ def server(input, output, session):
         )
         
         return fig
-
+    
+    @reactive.Effect
+    @reactive.event(input.refresh_network)
+    def refresh_network_viz():
+        """Force network visualization to regenerate with updated agent states."""
+        network_html_cache.set(None)
+        ui.notification_show("Network refreshed with current agent states", type="info", duration=2)
 
 
     # Create a reactive calc for the network HTML
@@ -1402,10 +1413,15 @@ def server(input, output, session):
     def network_html():
         """Generate network HTML only when model changes"""
         net_model = network_model()
-        
+
+        sim_results = model_data() 
+
         if net_model is None:
             return None
         
+        # Use updated model if available
+        if sim_results is not None and 'model' in sim_results:
+            net_model = sim_results['model']
         G = net_model.network
         
         # Get centrality range
@@ -1444,7 +1460,7 @@ def server(input, output, session):
                     shape = 'circle'
                 
                 hover = f"Agent {node}\nCentrality: {centrality:.3f}\nDegree: {degree}\nViolations: {agent.true_violations}\nKB Size: {len(agent.kb)}"
-                
+                #print(hover)
                 G.nodes[node]['color'] = color
                 G.nodes[node]['size'] = size
                 G.nodes[node]['label'] = str(node)
