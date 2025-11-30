@@ -1,0 +1,186 @@
+/* Global typography and background */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header card */
+.header-title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+.header-title h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.header-title p {
+  margin: 10px 0 0 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Section titles in sidebar */
+.side-title,
+h3,
+h4 {
+  color: #667eea;
+  font-weight: bold;
+  margin-top: 0;
+}
+.side-title {
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 10px;
+}
+
+/* Stat cards under network */
+.network-stat-box,
+.stat-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin: 10px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.stat-number {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.stat-label {
+  font-size: 13px;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Gradient buttons */
+.btn-setup {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border: none;
+  color: white;
+  width: 100%;
+}
+.btn-run {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  border: none;
+  color: white;
+  width: 100%;
+}
+.btn-stop {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  border: none;
+  color: white;
+  width: 100%;
+}
+
+/* Progress bar */
+.progress-outer {
+  background: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 10px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+.progress-inner {
+  height: 10px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.2s ease;
+}
+
+/* Tabs and graphs */
+.tab-content {
+  background: #ffffff;
+  border-radius: 8px;
+}
+.js-plotly-plot, .dash-graph, .dcc-graph {
+  background: #f8f9fa !important;
+  border-radius: 8px;
+}
+
+/* Network container */
+#network_graph {
+  background: #f8f9fa;
+  border-radius: 8px;
+  position: relative;
+}
+#d3_force_container {
+  width: 100%;
+  height: 700px;
+}
+
+/* Form controls */
+.rc-slider-track {
+  background-color: #667eea !important;
+}
+.rc-slider-handle {
+  border-color: #667eea !important;
+}
+.rc-slider-dot-active {
+  border-color: #667eea !important;
+}
+.Select-control,
+.Select--single > .Select-control .Select-value,
+.Select-menu-outer {
+  border-color: #e1e1e1;
+}
+
+/* Tables */
+.table {
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.table thead th {
+  background: #f0f2ff;
+  color: #4b5bdc;
+  border-bottom: 1px solid #e9ecff;
+}
+.table tbody tr:hover {
+  background: #fafbff;
+}
+
+/* Badges/status */
+.badge.bg-primary { background-color: #667eea !important; }
+.badge.bg-success { background-color: #28a745 !important; }
+.badge.bg-warning { background-color: #ffc107 !important; color: #333 !important; }
+.badge.bg-danger  { background-color: #dc3545 !important; }
+.badge.bg-secondary { background-color: #6c757d !important; }
+
+/* Utility spacers */
+.mt-0 { margin-top: 0 !important; }
+.mt-1 { margin-top: .25rem !important; }
+.mt-2 { margin-top: .5rem !important; }
+.mt-3 { margin-top: 1rem !important; }
+.mt-4 { margin-top: 1.5rem !important; }
+.mb-0 { margin-bottom: 0 !important; }
+.mb-1 { margin-bottom: .25rem !important; }
+.mb-2 { margin-bottom: .5rem !important; }
+.mb-3 { margin-bottom: 1rem !important; }
+.mb-4 { margin-bottom: 1.5rem !important; }
+
+/* Responsive tweaks */
+@media (max-width: 992px) {
+  .stat-number { font-size: 28px; }
+  #d3_force_container { height: 520px; }
+}
+@media (max-width: 576px) {
+  .header-title { padding: 24px; }
+  .header-title h1 { font-size: 24px; }
+  #d3_force_container { height: 420px; }
+}
+

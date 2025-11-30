@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+
+  <!-- property keys -->
+  <key id="key0" for="node" attr.name="_pos" attr.type="vector_float" />
+  <key id="key1" for="graph" attr.name="citation" attr.type="string" />
+  <key id="key2" for="graph" attr.name="description" attr.type="string" />
+  <key id="key3" for="graph" attr.name="directed" attr.type="float" />
+  <key id="key4" for="node" attr.name="label" attr.type="string" />
+  <key id="key5" for="graph" attr.name="name" attr.type="string" />
+  <key id="key6" for="graph" attr.name="tags" attr.type="vector_string" />
+  <key id="key7" for="graph" attr.name="url" attr.type="string" />
+
+  <graph id="G" edgedefault="undirected" parse.nodeids="canonical" parse.edgeids="canonical" parse.order="nodesfirst">
+
+   <!-- graph properties -->
+   <data key="key1">[&apos;D. Lusseau et al., &quot;The bottlenose dolphin community of Doubtful Sound features a large proportion of long-lasting associations.&quot; Behavioral Ecology and Sociobiology 54(4), 396-405 (2003)., http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.174.3721&amp;rep=rep1&amp;type=pdf&apos;]</data>
+   <data key="key2">An undirected social network of frequent associations observed among 62 dolphins (Tursiops) in a community living off Doubtful Sound, New Zealand, from 1994-2001.</data>
+   <data key="key3">0</data>
+   <data key="key5">dolphins</data>
+   <data key="key6">Social, Animal, Unweighted</data>
+   <data key="key7">http://www-personal.umich.edu/~mejn/netdata/</data>
+
+   <!-- vertices -->
+    <node id="n0">
+      <data key="key0">8.210452475094506, -3.456724658963207</data>
+      <data key="key4">Beak</data>
+    </node>
+    <node id="n1">
+      <data key="key0">8.3157292762951212, -3.2638787217247236</data>
+      <data key="key4">Beescratch</data>
+    </node>
+    <node id="n2">
+      <data key="key0">8.0566387332421545, -3.5565827620867734</data>
+      <data key="key4">Bumper</data>
+    </node>
+    <node id="n3">
+      <data key="key0">8.3188789290887009, -3.46875410298524</data>
+      <data key="key4">CCL</data>
+    </node>
+    <node id="n4">
+      <data key="key0">8.4714848746445828, -3.6745368059831223</data>
+      <data key="key4">Cross</data>
+    </node>
+    <node id="n5">
+      <data key="key0">8.2289019168657092, -3.0284358357487435</data>
+      <data key="key4">DN16</data>
+    </node>
+    <node id="n6">
+      <data key="key0">8.3125407786010896, -3.0861139010298491</data>
+      <data key="key4">DN21</data>
+    </node>
+    <node id="n7">
+      <data key="key0">8.2774507616571853, -3.3218365295889636</data>
+      <data key="key4">DN63</data>
+    </node>
+    <node id="n8">
+      <data key="key0">8.2832380390425868, -3.4889828543899544</data>
+      <data key="key4">Double</data>
+    </node>
+    <node id="n9">
+      <data key="key0">8.2855674740716285, -3.0487513289969788</data>
+      <data key="key4">Feather</data>
+    </node>
+    <node id="n10">
+      <data key="key0">8.1374355494271509, -3.5079949168630971</data>
+      <data key="key4">Fish</data>
+    </node>
+    <node id="n11">
+      <data key="key0">8.4182407584935497, -3.730684607844089</data>
+      <data key="key4">Five</data>
+    </node>
+    <node id="n12">
+      <data key="key0">8.049935349177991, -3.6692899163460373</data>
+      <data key="key4">Fork</data>
+    </node>
+    <node id="n13">
+      <data key="key0">8.2597711658419648, -3.0844787249464027</data>
+      <data key="key4">Gallatin</data>
+    </node>
+    <node id="n14">
+      <data key="key0">8.2052082429714268, -3.5607592830320658</data>
+      <data key="key4">Grin</data>
+    </node>
+    <node id="n15">
+      <data key="key0">8.3283712967028674, -3.5311918245131206</data>
+      <data key="key4">Haecksel</data>
+    </node>
+    <node id="n16">
+      <data key="key0">8.1607700494733226, -3.5461867437400723</data>
+      <data key="key4">Hook</data>
+    </node>
+    <node id="n17">
+      <data key="key0">8.3551033972132629, -3.1294649344940089</data>
+      <data key="key4">Jet</data>
+    </node>
+    <node id="n18">
+      <data key="key0">8.283237274915022, -3.5912436268076764</data>
+      <data key="key4">Jonah</data>
+    </node>
+    <node id="n19">
+      <data key="key0">8.2537920916415324, -3.2662855229027628</data>
+      <data key="key4">Knit</data>
+    </node>
+    <node id="n20">
+      <data key="key0">8.1921327012247005, -3.4927272110407483</data>
+      <data key="key4">Kringel</data>
+    </node>
+    <node id="n21">
+      <data key="key0">8.2834034825960696, -3.6616460976627625</data>
+      <data key="key4">MN105</data>
+    </node>
+    <node id="n22">
+      <data key="key0">8.4613605882233145, -3.0940066500154599</data>
+      <data key="key4">MN23</data>
+    </node>
+    <node id="n23">
+      <data key="key0">8.3888271039652125, -3.5252836897112867</data>
+      <data key="key4">MN60</data>
+    </node>
+    <node id="n24">
+      <data key="key0">8.3129277414648044, -3.6238419888360855</data>
+      <data key="key4">MN83</data>
+    </node>
+    <node id="n25">
+      <data key="key0">8.4304534284274837, -3.1806279728599338</data>
+      <data key="key4">Mus</data>
+    </node>
+    <node id="n26">
+      <data key="key0">8.4222389852906794, -3.2495849305490987</data>
+      <data key="key4">Notch</data>
+    </node>
+    <node id="n27">
+      <data key="key0">8.3660673280710789, -3.2274648943302755</data>
+      <data key="key4">Number1</data>
+    </node>
+    <node id="n28">
+      <data key="key0">8.238189291803625, -3.3818940070014549</data>
+      <data key="key4">Oscar</data>
+    </node>
+    <node id="n29">
+      <data key="key0">8.2447611972403205, -3.6398584503603626</data>
+      <data key="key4">Patchback</data>
+    </node>
+    <node id="n30">
+      <data key="key0">8.1840614176391124, -3.3442112818349941</data>
+      <data key="key4">PL</data>
+    </node>
+    <node id="n31">
+      <data key="key0">8.4176096650550267, -3.0358280808698761</data>
+      <data key="key4">Quasi</data>
+    </node>
+    <node id="n32">
+      <data key="key0">8.238382340304037, -2.9649309464149036</data>
+      <data key="key4">Ripplefluke</data>
+    </node>
+    <node id="n33">
+      <data key="key0">8.1778460310312386, -3.6207727200714093</data>
+      <data key="key4">Scabs</data>
+    </node>
+    <node id="n34">
+      <data key="key0">8.10674155458908, -3.623170264420601</data>
+      <data key="key4">Shmuddel</data>
+    </node>
+    <node id="n35">
+      <data key="key0">8.2734169193168157, -3.7600623852590589</data>
+      <data key="key4">SMN5</data>
+    </node>
+    <node id="n36">
+      <data key="key0">8.282900328019732, -3.4213630808517221</data>
+      <data key="key4">SN100</data>
+    </node>
+    <node id="n37">
+      <data key="key0">8.2238322067287282, -3.5884469428604708</data>
+      <data key="key4">SN4</data>
+    </node>
+    <node id="n38">
+      <data key="key0">8.1091627497787862, -3.5767313016282896</data>
+      <data key="key4">SN63</data>
+    </node>
+    <node id="n39">
+      <data key="key0">8.2065823169664718, -3.2660221932890825</data>
+      <data key="key4">SN89</data>
+    </node>
+    <node id="n40">
+      <data key="key0">8.2392416711953533, -3.4958036444755769</data>
+      <data key="key4">SN9</data>
+    </node>
+    <node id="n41">
+      <data key="key0">8.2904848880187512, -3.1466088721867314</data>
+      <data key="key4">SN90</data>
+    </node>
+    <node id="n42">
+      <data key="key0">8.1332496892503787, -3.4545365186547601</data>
+      <data key="key4">SN96</data>
+    </node>
+    <node id="n43">
+      <data key="key0">8.1684880521425551, -3.6780143609130405</data>
+      <data key="key4">Stripes</data>
+    </node>
+    <node id="n44">
+      <data key="key0">8.0737498812283661, -3.5149045873336742</data>
+      <data key="key4">Thumper</data>
+    </node>
+    <node id="n45">
+      <data key="key0">8.323196919101342, -3.5737431038676304</data>
+      <data key="key4">Topless</data>
+    </node>
+    <node id="n46">
+      <data key="key0">8.0856509479799499, -3.7742628646576399</data>
+      <data key="key4">TR120</data>
+    </node>
+    <node id="n47">
+      <data key="key0">8.1583200730762115, -3.4096338896848448</data>
+      <data key="key4">TR77</data>
+    </node>
+    <node id="n48">
+      <data key="key0">8.1358350611920702, -3.0906293850896547</data>
+      <data key="key4">TR82</data>
+    </node>
+    <node id="n49">
+      <data key="key0">8.0294809929924114, -3.7305768592951631</data>
+      <data key="key4">TR88</data>
+    </node>
+    <node id="n50">
+      <data key="key0">8.2455719034644321, -3.5480668370198938</data>
+      <data key="key4">TR99</data>
+    </node>
+    <node id="n51">
+      <data key="key0">8.3628253743871266, -3.6305167440830468</data>
+      <data key="key4">Trigger</data>
+    </node>
+    <node id="n52">
+      <data key="key0">8.1654268540569976, -3.5874071060249375</data>
+      <data key="key4">TSN103</data>
+    </node>
+    <node id="n53">
+      <data key="key0">8.1507965708063139, -3.7624708179341235</data>
+      <data key="key4">TSN83</data>
+    </node>
+    <node id="n54">
+      <data key="key0">8.2712138580309524, -3.1932851522075465</data>
+      <data key="key4">Upbang</data>
+    </node>
+    <node id="n55">
+      <data key="key0">8.4324633458219385, -3.5865693131197869</data>
+      <data key="key4">Vau</data>
+    </node>
+    <node id="n56">
+      <data key="key0">8.3097368245443288, -2.9851243762193063</data>
+      <data key="key4">Wave</data>
+    </node>
+    <node id="n57">
+      <data key="key0">8.2360863788033321, -3.1274612195352054</data>
+      <data key="key4">Web</data>
+    </node>
+    <node id="n58">
+      <data key="key0">7.9798643934550988, -3.5837345874015929</data>
+      <data key="key4">Whitetip</data>
+    </node>
+    <node id="n59">
+      <data key="key0">8.3663486482554088, -3.4713046711525077</data>
+      <data key="key4">Zap</data>
+    </node>
+    <node id="n60">
+      <data key="key0">8.2133009468182294, -2.8714104378447063</data>
+      <data key="key4">Zig</data>
+    </node>
+    <node id="n61">
+      <data key="key0">8.1161654743860527, -3.6743730954755627</data>
+      <data key="key4">Zipfel</data>
+    </node>
+
+   <!-- edges -->
+    <edge id="e0" source="n8" target="n3">
+    </edge>
+    <edge id="e1" source="n9" target="n5">
+    </edge>
+    <edge id="e2" source="n9" target="n6">
+    </edge>
+    <edge id="e3" source="n10" target="n0">
+    </edge>
+    <edge id="e4" source="n10" target="n2">
+    </edge>
+    <edge id="e5" source="n13" target="n5">
+    </edge>
+    <edge id="e6" source="n13" target="n6">
+    </edge>
+    <edge id="e7" source="n13" target="n9">
+    </edge>
+    <edge id="e8" source="n14" target="n0">
+    </edge>
+    <edge id="e9" source="n14" target="n3">
+    </edge>
+    <edge id="e10" source="n15" target="n0">
+    </edge>
+    <edge id="e11" source="n16" target="n14">
+    </edge>
+    <edge id="e12" source="n17" target="n1">
+    </edge>
+    <edge id="e13" source="n17" target="n6">
+    </edge>
+    <edge id="e14" source="n17" target="n9">
+    </edge>
+    <edge id="e15" source="n17" target="n13">
+    </edge>
+    <edge id="e16" source="n18" target="n15">
+    </edge>
+    <edge id="e17" source="n19" target="n1">
+    </edge>
+    <edge id="e18" source="n19" target="n7">
+    </edge>
+    <edge id="e19" source="n20" target="n8">
+    </edge>
+    <edge id="e20" source="n20" target="n16">
+    </edge>
+    <edge id="e21" source="n20" target="n18">
+    </edge>
+    <edge id="e22" source="n21" target="n18">
+    </edge>
+    <edge id="e23" source="n22" target="n17">
+    </edge>
+    <edge id="e24" source="n24" target="n14">
+    </edge>
+    <edge id="e25" source="n24" target="n15">
+    </edge>
+    <edge id="e26" source="n24" target="n18">
+    </edge>
+    <edge id="e27" source="n25" target="n17">
+    </edge>
+    <edge id="e28" source="n26" target="n1">
+    </edge>
+    <edge id="e29" source="n26" target="n25">
+    </edge>
+    <edge id="e30" source="n27" target="n1">
+    </edge>
+    <edge id="e31" source="n27" target="n7">
+    </edge>
+    <edge id="e32" source="n27" target="n17">
+    </edge>
+    <edge id="e33" source="n27" target="n25">
+    </edge>
+    <edge id="e34" source="n27" target="n26">
+    </edge>
+    <edge id="e35" source="n28" target="n1">
+    </edge>
+    <edge id="e36" source="n28" target="n8">
+    </edge>
+    <edge id="e37" source="n28" target="n20">
+    </edge>
+    <edge id="e38" source="n29" target="n10">
+    </edge>
+    <edge id="e39" source="n29" target="n18">
+    </edge>
+    <edge id="e40" source="n29" target="n21">
+    </edge>
+    <edge id="e41" source="n29" target="n24">
+    </edge>
+    <edge id="e42" source="n30" target="n7">
+    </edge>
+    <edge id="e43" source="n30" target="n19">
+    </edge>
+    <edge id="e44" source="n30" target="n28">
+    </edge>
+    <edge id="e45" source="n31" target="n17">
+    </edge>
+    <edge id="e46" source="n32" target="n9">
+    </edge>
+    <edge id="e47" source="n32" target="n13">
+    </edge>
+    <edge id="e48" source="n33" target="n12">
+    </edge>
+    <edge id="e49" source="n33" target="n14">
+    </edge>
+    <edge id="e50" source="n33" target="n16">
+    </edge>
+    <edge id="e51" source="n33" target="n21">
+    </edge>
+    <edge id="e52" source="n34" target="n14">
+    </edge>
+    <edge id="e53" source="n34" target="n33">
+    </edge>
+    <edge id="e54" source="n35" target="n29">
+    </edge>
+    <edge id="e55" source="n36" target="n1">
+    </edge>
+    <edge id="e56" source="n36" target="n20">
+    </edge>
+    <edge id="e57" source="n36" target="n23">
+    </edge>
+    <edge id="e58" source="n37" target="n8">
+    </edge>
+    <edge id="e59" source="n37" target="n14">
+    </edge>
+    <edge id="e60" source="n37" target="n16">
+    </edge>
+    <edge id="e61" source="n37" target="n21">
+    </edge>
+    <edge id="e62" source="n37" target="n33">
+    </edge>
+    <edge id="e63" source="n37" target="n34">
+    </edge>
+    <edge id="e64" source="n37" target="n36">
+    </edge>
+    <edge id="e65" source="n38" target="n14">
+    </edge>
+    <edge id="e66" source="n38" target="n16">
+    </edge>
+    <edge id="e67" source="n38" target="n20">
+    </edge>
+    <edge id="e68" source="n38" target="n33">
+    </edge>
+    <edge id="e69" source="n39" target="n36">
+    </edge>
+    <edge id="e70" source="n40" target="n0">
+    </edge>
+    <edge id="e71" source="n40" target="n7">
+    </edge>
+    <edge id="e72" source="n40" target="n14">
+    </edge>
+    <edge id="e73" source="n40" target="n15">
+    </edge>
+    <edge id="e74" source="n40" target="n33">
+    </edge>
+    <edge id="e75" source="n40" target="n36">
+    </edge>
+    <edge id="e76" source="n40" target="n37">
+    </edge>
+    <edge id="e77" source="n41" target="n1">
+    </edge>
+    <edge id="e78" source="n41" target="n9">
+    </edge>
+    <edge id="e79" source="n41" target="n13">
+    </edge>
+    <edge id="e80" source="n42" target="n0">
+    </edge>
+    <edge id="e81" source="n42" target="n2">
+    </edge>
+    <edge id="e82" source="n42" target="n10">
+    </edge>
+    <edge id="e83" source="n42" target="n30">
+    </edge>
+    <edge id="e84" source="n43" target="n14">
+    </edge>
+    <edge id="e85" source="n43" target="n29">
+    </edge>
+    <edge id="e86" source="n43" target="n33">
+    </edge>
+    <edge id="e87" source="n43" target="n37">
+    </edge>
+    <edge id="e88" source="n43" target="n38">
+    </edge>
+    <edge id="e89" source="n44" target="n2">
+    </edge>
+    <edge id="e90" source="n44" target="n20">
+    </edge>
+    <edge id="e91" source="n44" target="n34">
+    </edge>
+    <edge id="e92" source="n44" target="n38">
+    </edge>
+    <edge id="e93" source="n45" target="n8">
+    </edge>
+    <edge id="e94" source="n45" target="n15">
+    </edge>
+    <edge id="e95" source="n45" target="n18">
+    </edge>
+    <edge id="e96" source="n45" target="n21">
+    </edge>
+    <edge id="e97" source="n45" target="n23">
+    </edge>
+    <edge id="e98" source="n45" target="n24">
+    </edge>
+    <edge id="e99" source="n45" target="n29">
+    </edge>
+    <edge id="e100" source="n45" target="n37">
+    </edge>
+    <edge id="e101" source="n46" target="n43">
+    </edge>
+    <edge id="e102" source="n47" target="n0">
+    </edge>
+    <edge id="e103" source="n47" target="n10">
+    </edge>
+    <edge id="e104" source="n47" target="n20">
+    </edge>
+    <edge id="e105" source="n47" target="n28">
+    </edge>
+    <edge id="e106" source="n47" target="n30">
+    </edge>
+    <edge id="e107" source="n47" target="n42">
+    </edge>
+    <edge id="e108" source="n49" target="n34">
+    </edge>
+    <edge id="e109" source="n49" target="n46">
+    </edge>
+    <edge id="e110" source="n50" target="n14">
+    </edge>
+    <edge id="e111" source="n50" target="n16">
+    </edge>
+    <edge id="e112" source="n50" target="n20">
+    </edge>
+    <edge id="e113" source="n50" target="n33">
+    </edge>
+    <edge id="e114" source="n50" target="n42">
+    </edge>
+    <edge id="e115" source="n50" target="n45">
+    </edge>
+    <edge id="e116" source="n51" target="n4">
+    </edge>
+    <edge id="e117" source="n51" target="n11">
+    </edge>
+    <edge id="e118" source="n51" target="n18">
+    </edge>
+    <edge id="e119" source="n51" target="n21">
+    </edge>
+    <edge id="e120" source="n51" target="n23">
+    </edge>
+    <edge id="e121" source="n51" target="n24">
+    </edge>
+    <edge id="e122" source="n51" target="n29">
+    </edge>
+    <edge id="e123" source="n51" target="n45">
+    </edge>
+    <edge id="e124" source="n51" target="n50">
+    </edge>
+    <edge id="e125" source="n52" target="n14">
+    </edge>
+    <edge id="e126" source="n52" target="n29">
+    </edge>
+    <edge id="e127" source="n52" target="n38">
+    </edge>
+    <edge id="e128" source="n52" target="n40">
+    </edge>
+    <edge id="e129" source="n53" target="n43">
+    </edge>
+    <edge id="e130" source="n54" target="n1">
+    </edge>
+    <edge id="e131" source="n54" target="n6">
+    </edge>
+    <edge id="e132" source="n54" target="n7">
+    </edge>
+    <edge id="e133" source="n54" target="n13">
+    </edge>
+    <edge id="e134" source="n54" target="n19">
+    </edge>
+    <edge id="e135" source="n54" target="n41">
+    </edge>
+    <edge id="e136" source="n55" target="n15">
+    </edge>
+    <edge id="e137" source="n55" target="n51">
+    </edge>
+    <edge id="e138" source="n56" target="n5">
+    </edge>
+    <edge id="e139" source="n56" target="n6">
+    </edge>
+    <edge id="e140" source="n57" target="n5">
+    </edge>
+    <edge id="e141" source="n57" target="n6">
+    </edge>
+    <edge id="e142" source="n57" target="n9">
+    </edge>
+    <edge id="e143" source="n57" target="n13">
+    </edge>
+    <edge id="e144" source="n57" target="n17">
+    </edge>
+    <edge id="e145" source="n57" target="n39">
+    </edge>
+    <edge id="e146" source="n57" target="n41">
+    </edge>
+    <edge id="e147" source="n57" target="n48">
+    </edge>
+    <edge id="e148" source="n57" target="n54">
+    </edge>
+    <edge id="e149" source="n58" target="n38">
+    </edge>
+    <edge id="e150" source="n59" target="n3">
+    </edge>
+    <edge id="e151" source="n59" target="n8">
+    </edge>
+    <edge id="e152" source="n59" target="n15">
+    </edge>
+    <edge id="e153" source="n59" target="n36">
+    </edge>
+    <edge id="e154" source="n59" target="n45">
+    </edge>
+    <edge id="e155" source="n60" target="n32">
+    </edge>
+    <edge id="e156" source="n61" target="n2">
+    </edge>
+    <edge id="e157" source="n61" target="n37">
+    </edge>
+    <edge id="e158" source="n61" target="n53">
+    </edge>
+
+  </graph>
+</graphml>

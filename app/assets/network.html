@@ -1,0 +1,120 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <style>
+            body { margin: 0; padding: 10px; font-family: Arial; }
+            #chart { width: 100%; height: 600px; }
+            .tooltip { position: absolute; padding: 8px; background: rgba(0, 0, 0, 0.8); color: white; 
+                        border-radius: 4px; pointer-events: none; font-size: 12px; display: none; z-index: 1000; }
+        </style>
+    </head>
+    <body>
+        <div id="chart"></div>
+        <div id="tooltip" class="tooltip"></div>
+
+        <script>
+            var data = {
+                nodes: [{"id": 1, "centrality": 0.2567459318119591}, {"id": 2, "centrality": 0.07198363872084387}, {"id": 3, "centrality": 0.4709578401091218}, {"id": 4, "centrality": 0.2335005399749418}, {"id": 5, "centrality": 0.08634927206432907}, {"id": 6, "centrality": 0.16595086512135504}, {"id": 7, "centrality": 0.19907288146986998}, {"id": 8, "centrality": 0.2345985794129082}, {"id": 9, "centrality": 1.8603819048098454e-13}, {"id": 10, "centrality": 0.1879933527323039}, {"id": 11, "centrality": 0.3037146356062479}, {"id": 12, "centrality": 1.8603819048098454e-13}, {"id": 13, "centrality": 0.1952107582371375}, {"id": 14, "centrality": 0.3748934997114628}, {"id": 15, "centrality": 0.24305070044615837}, {"id": 16, "centrality": 0.03745447188944864}, {"id": 17, "centrality": 0.14288087604019659}, {"id": 18, "centrality": 0.08634927206005019}, {"id": 19, "centrality": 0.3262360085398605}, {"id": 20, "centrality": 0.14798543459484417}],
+                links: [{"source": 3, "target": 11}, {"source": 4, "target": 1}, {"source": 4, "target": 3}, {"source": 4, "target": 7}, {"source": 5, "target": 1}, {"source": 5, "target": 10}, {"source": 5, "target": 16}, {"source": 5, "target": 19}, {"source": 6, "target": 2}, {"source": 6, "target": 3}, {"source": 6, "target": 8}, {"source": 7, "target": 5}, {"source": 7, "target": 10}, {"source": 7, "target": 18}, {"source": 8, "target": 1}, {"source": 8, "target": 3}, {"source": 8, "target": 4}, {"source": 8, "target": 6}, {"source": 9, "target": 1}, {"source": 9, "target": 2}, {"source": 9, "target": 3}, {"source": 9, "target": 14}, {"source": 9, "target": 15}, {"source": 9, "target": 16}, {"source": 10, "target": 7}, {"source": 11, "target": 3}, {"source": 11, "target": 4}, {"source": 11, "target": 14}, {"source": 11, "target": 20}, {"source": 12, "target": 4}, {"source": 12, "target": 5}, {"source": 12, "target": 7}, {"source": 12, "target": 14}, {"source": 14, "target": 8}, {"source": 14, "target": 15}, {"source": 14, "target": 19}, {"source": 15, "target": 17}, {"source": 16, "target": 1}, {"source": 16, "target": 7}, {"source": 16, "target": 13}, {"source": 16, "target": 15}, {"source": 16, "target": 20}, {"source": 17, "target": 11}, {"source": 17, "target": 19}, {"source": 18, "target": 11}, {"source": 18, "target": 13}, {"source": 18, "target": 14}, {"source": 18, "target": 17}, {"source": 19, "target": 13}, {"source": 19, "target": 14}, {"source": 20, "target": 3}, {"source": 20, "target": 6}, {"source": 20, "target": 10}, {"source": 20, "target": 14}, {"source": 20, "target": 15}, {"source": 20, "target": 19}]
+            };
+
+            var width = document.getElementById('chart').offsetWidth || 900;
+            var height = 600;
+
+            var svg = d3.select('#chart')
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height)
+                .style('background', '#fafafa');
+
+            var simulation = d3.forceSimulation(data.nodes)
+                .force('link', d3.forceLink(data.links)
+                    .id(function(d) { return d.id; })
+                    .distance(50)
+                    .strength(0.3))
+                .force('charge', d3.forceManyBody().strength(-150))
+                .force('center', d3.forceCenter(width / 2, height / 2))
+                .force('collision', d3.forceCollide().radius(15));
+
+            // Links
+            var link = svg.selectAll('line')
+                .data(data.links)
+                .enter()
+                .append('line')
+                .attr('stroke', '#999')
+                .attr('stroke-opacity', 0.5)
+                .attr('stroke-width', 1.5);
+
+            // Nodes
+            var node = svg.selectAll('circle')
+                .data(data.nodes)
+                .enter()
+                .append('circle')
+                .attr('r', function(d) { return 5 + d.centrality * 12; })
+                .attr('fill', function(d) { return d3.interpolatePlasma(d.centrality); })
+                .attr('stroke', 'white')
+                .attr('stroke-width', 2)
+                .style('cursor', 'pointer')
+                .call(d3.drag()
+                    .on('start', dragstarted)
+                    .on('drag', dragged)
+                    .on('end', dragended));
+
+            var tooltip = document.getElementById('tooltip');
+
+            node.on('mouseover', function(event, d) {
+                d3.select(this)
+                    .attr('r', function(d) { return 8 + d.centrality * 12; })
+                    .attr('stroke-width', 3);
+
+                tooltip.innerHTML = 'Agent ' + d.id + '<br/>Centrality: ' + d.centrality.toFixed(3);
+                tooltip.style.left = (event.pageX + 10) + 'px';
+                tooltip.style.top = (event.pageY - 10) + 'px';
+                tooltip.style.display = 'block';
+            })
+            .on('mouseout', function(d) {
+                d3.select(this)
+                    .attr('r', function(d) { return 5 + d.centrality * 12; })
+                    .attr('stroke-width', 2);
+                tooltip.style.display = 'none';
+            })
+            .on('mousemove', function(event) {
+                tooltip.style.left = (event.pageX + 10) + 'px';
+                tooltip.style.top = (event.pageY - 10) + 'px';
+            });
+
+            simulation.on('tick', function() {
+                link
+                    .attr('x1', function(d) { return d.source.x; })
+                    .attr('y1', function(d) { return d.source.y; })
+                    .attr('x2', function(d) { return d.target.x; })
+                    .attr('y2', function(d) { return d.target.y; });
+
+                node
+                    .attr('cx', function(d) { return d.x; })
+                    .attr('cy', function(d) { return d.y; });
+            });
+
+            function dragstarted(event, d) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                d.fx = d.x;
+                d.fy = d.y;
+            }
+
+            function dragged(event, d) {
+                d.fx = event.x;
+                d.fy = event.y;
+            }
+
+            function dragended(event, d) {
+                if (!event.active) simulation.alphaTarget(0);
+                d.fx = null;
+                d.fy = null;
+            }
+        </script>
+    </body>
+    </html>
+    
