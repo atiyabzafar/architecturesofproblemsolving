@@ -5,3 +5,5 @@ pandas>=2.0.0
 numpy>=1.24.0
 networkx>=3.0
 mesa>=2.0.0
+gravis
+matplotlib
