@@ -16,7 +16,7 @@ from model import ProblemSolvingModel
 
 os.makedirs("output", exist_ok=True)
 
-T=200 # things were hard-coded somewhere before, so I'm placing this knob here for convenience
+T=5000 # things were hard-coded somewhere before, so I'm placing this knob here for convenience
 
 # ============================================================
 # Simulation worker  (same signature as network_comparison.py)
