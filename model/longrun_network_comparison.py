@@ -16,8 +16,7 @@ from model import ProblemSolvingModel
 
 os.makedirs("output", exist_ok=True)
 
-T=10000 # things were hard-coded somewhere before, so I'm placing this knob here for convenience
-
+T=200 # things were hard-coded somewhere before, so I'm placing this knob here for convenience
 
 # ============================================================
 # Simulation worker  (same signature as network_comparison.py)
@@ -72,7 +71,7 @@ network_names = {
     "EmailManufacturing-copy.xml":  "Email Manufacturing",
 }
 
-seeds  = range(42, 42 + 5)   # 50 seeds per network
+seeds  = range(42, 42 + 2)   # 50 seeds per network
 params = [(f, s) for f in graphfiles for s in seeds]
 
 
@@ -83,7 +82,8 @@ params = [(f, s) for f in graphfiles for s in seeds]
 if __name__ == '__main__':
 
     # --- Run simulations in parallel ---
-    print(f"Running parallel simulations (T={T}, R={R}) ...")
+    print(f"Running parallel simulations (T={T} ...")
+
     with Pool(processes=10) as pool:
         results = list(tqdm(pool.imap(run_network_simulation, params),
                             total=len(params)))
@@ -96,7 +96,7 @@ if __name__ == '__main__':
     df['network'] = df['network'].map(network_names)
 
     # Save raw data
-   df.to_csv(f"output/longrun_network_comparison_{T}.csv", index=False)
+    df.to_csv(f"output/longrun_network_comparison_{T}.csv", index=False)
     print(f"Data saved → output/longrun_network_comparison_{T}.csv")
 
     # ----------------------------------------------------------
