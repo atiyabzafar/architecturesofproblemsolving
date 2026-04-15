@@ -16,6 +16,8 @@ from model import ProblemSolvingModel
 
 os.makedirs("output", exist_ok=True)
 
+T=10000 # things were hard-coded somewhere before, so I'm placing this knob here for convenience
+
 
 # ============================================================
 # Simulation worker  (same signature as network_comparison.py)
@@ -31,17 +33,17 @@ def run_network_simulation(params):
             alpha=2,
             obs_prob=0.01,
             clause_interval=10,   # kept from network_comparison.py
-            R=10000,
+            R=T,
             setup_source="dataset",
             file_path=filepath,
             seed=seed,
         )
 
         metrics = []
-        for _ in range(10000):
+        for _ in range(T):
             model.step()
             metrics.append({
-                'step':           model.schedule.steps,
+                'step':           model.steps,
                 'avg_violations': model.avg_true_V,
                 'min_violations': model.min_true_V,
                 'homogeneity':    model.homogeneity,
@@ -81,7 +83,7 @@ params = [(f, s) for f in graphfiles for s in seeds]
 if __name__ == '__main__':
 
     # --- Run simulations in parallel ---
-    print("Running parallel simulations (T=10000, R=10000) ...")
+    print(f"Running parallel simulations (T={T}, R={R}) ...")
     with Pool(processes=10) as pool:
         results = list(tqdm(pool.imap(run_network_simulation, params),
                             total=len(params)))
@@ -94,8 +96,8 @@ if __name__ == '__main__':
     df['network'] = df['network'].map(network_names)
 
     # Save raw data
-    df.to_csv("output/longrun_network_comparison_10000.csv", index=False)
-    print("Data saved → output/longrun_network_comparison_10000.csv")
+   df.to_csv(f"output/longrun_network_comparison_{T}.csv", index=False)
+    print(f"Data saved → output/longrun_network_comparison_{T}.csv")
 
     # ----------------------------------------------------------
     # Plot 1 – three-panel overview  (style from network_comparison.py)
@@ -125,13 +127,13 @@ if __name__ == '__main__':
         if idx == 0:
             axes[idx].legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 
-    plt.suptitle('Network Comparison: Evolution of Metrics Over Time  (T=10000)')
+    plt.suptitle(f'Network Comparison: Evolution of Metrics Over Time  (T={T})')
     plt.tight_layout()
 
     print("Saving plots...")
-    fig.savefig("output/longrun_network_comparison_10000_overview.png",
+    fig.savefig(f"output/longrun_network_comparison_{T}_overview.png",
                 dpi=300, bbox_inches='tight')
-    fig.savefig("output/longrun_network_comparison_10000_overview.pdf",
+    fig.savefig(f"output/longrun_network_comparison_{T}_overview.pdf",
                 bbox_inches='tight')
     plt.close(fig)
 
@@ -210,12 +212,12 @@ if __name__ == '__main__':
                bbox_to_anchor=(0.5, -0.05),
                ncol=len(df['network'].unique()) // 2 or 1)
 
-    plt.suptitle('Network Comparison: Evolution of Metrics Over Time  (T=10000)')
+    plt.suptitle(f'Network Comparison: Evolution of Metrics Over Time  (T={T})')
     plt.tight_layout()
 
-    fig.savefig("output/longrun_network_comparison_10000_publication.png",
+    fig.savefig(f"output/longrun_network_comparison_{T}_publication.png",
                 dpi=300, bbox_inches='tight')
-    fig.savefig("output/longrun_network_comparison_10000_publication.pdf",
+    fig.savefig(f"output/longrun_network_comparison_{T}_publication.pdf",
                 dpi=300, bbox_inches='tight')
     plt.close(fig)
 

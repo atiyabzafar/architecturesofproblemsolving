@@ -29,7 +29,7 @@ def run_network_simulation(params):
         for _ in range(500):
             model.step()
             metrics.append({
-                'step': model.schedule.steps,
+                'step': model.steps,
                 'avg_violations': model.avg_true_V,
                 'min_violations': model.min_true_V,
                 'homogeneity': model.homogeneity,
