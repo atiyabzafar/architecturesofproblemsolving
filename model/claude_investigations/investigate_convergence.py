@@ -10,6 +10,11 @@ match the CURRENT universal clause set, as opposed to stale ones from before
 clause replacement).
 """
 
+import sys
+from pathlib import Path
+# Allow `from model import ...` when this script is run from a subfolder.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 import numpy as np
 import pandas as pd
 from model import ProblemSolvingModel

@@ -18,6 +18,11 @@ of different topologies, measuring the CROSS-NETWORK SPREAD of avg_V at a
 long-run step. Larger spread = more network differentiation.
 """
 
+import sys
+from pathlib import Path
+# Allow `from model import ...` when this script is run from a subfolder.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 import numpy as np
 import pandas as pd
 from model import ProblemSolvingModel

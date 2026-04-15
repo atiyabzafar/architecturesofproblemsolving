@@ -142,12 +142,12 @@ class Person(Agent):
         if random.random() < self.model.obs_prob:
             obs_clause = random.choice(self.model.C)
 
-            self.add_clause_to_kb(obs_clause)
-            self.local_update_around(obs_clause)
-            my_kb_set.add(obs_clause)
-            # if obs_clause not in self.kb:
-            #     self.kb.add(obs_clause)
-            #     self.local_update_around(obs_clause)
+            # Observations can land on clauses the agent already knows;
+            # in that case nothing changes (no append, no re-optimisation).
+            if obs_clause not in my_kb_set:
+                self.add_clause_to_kb(obs_clause)
+                self.local_update_around(obs_clause)
+                my_kb_set.add(obs_clause)
 
         # 2) Communication - proportional to in-degree
         # Get all incoming edges (predecessors)
