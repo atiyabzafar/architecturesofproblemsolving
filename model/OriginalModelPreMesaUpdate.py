@@ -1,6 +1,7 @@
 import numpy as np
 import networkx as nx
 from mesa import Agent, Model
+from mesa.time import RandomActivation
 from mesa.datacollection import DataCollector
 import random
 from typing import List, Tuple, Set
@@ -15,11 +16,7 @@ class Person(Agent):
     a knowledge base (kb) of clauses.
     """
     def __init__(self, unique_id, model, K):
-        # Mesa 3+: Agent.__init__ takes only `model`; unique_id is auto-assigned
-        # starting from 1. We override it to keep 0..N-1 indexing that the
-        # network code relies on.
-        super().__init__(model)
-        self.unique_id = unique_id
+        super().__init__(unique_id, model)
         self.K = K
         # Initialize random binary assignment for K variables
         self.x = [random.choice([0, 1]) for _ in range(K)]
@@ -142,12 +139,12 @@ class Person(Agent):
         if random.random() < self.model.obs_prob:
             obs_clause = random.choice(self.model.C)
 
-            # Observations can land on clauses the agent already knows;
-            # in that case nothing changes (no append, no re-optimisation).
-            if obs_clause not in my_kb_set:
-                self.add_clause_to_kb(obs_clause)
-                self.local_update_around(obs_clause)
-                my_kb_set.add(obs_clause)
+            self.add_clause_to_kb(obs_clause)
+            self.local_update_around(obs_clause)
+            my_kb_set.add(obs_clause)
+            # if obs_clause not in self.kb:
+            #     self.kb.add(obs_clause)
+            #     self.local_update_around(obs_clause)
 
         # 2) Communication - proportional to in-degree
         # Get all incoming edges (predecessors)
@@ -208,7 +205,7 @@ class Person(Agent):
         # Extract variable indices and shuffle (matches NetLogo)
         operator, var_indices = clause
         indices = list(var_indices)
-        random.shuffle(indices)  # 
+        random.shuffle(indices)  # ✓ ADDED
         
         # Find clauses that mention any of these variables
         related_kb = [cl for cl in self.kb 
@@ -225,7 +222,7 @@ class Person(Agent):
             old = self.x[idx]
             
             # Clauses affected by flipping j
-            # Use cl[1] to access variables in (operator, vars) format
+            # ✓ FIXED: Use cl[1] to access variables in (operator, vars) format
             affected_kb = [cl for cl in related_kb if j in cl[1]]
             
             # Old violations
@@ -387,17 +384,16 @@ class ProblemSolvingModel(Model):
             raise ValueError("file_path must be specified when setup_source='file'")
 
 
-        # Mesa 3+: no scheduler object. Agents auto-register with the model
-        # when they call super().__init__(model). We iterate over self.agents
-        # (an AgentSet) directly, using .shuffle_do("step") for random activation.
-
+        # Scheduler
+        self.schedule = RandomActivation(self)
+        
         # Data collector
         self.datacollector = DataCollector(
             model_reporters={
                 "avg_violations": lambda m: m.avg_true_V,
                 "min_violations": lambda m: m.min_true_V,
                 "homogeneity": lambda m: m.homogeneity,
-                "avg_centrality": lambda m: np.mean([a.centr for a in m.agents]),
+                "avg_centrality": lambda m: np.mean([a.centr for a in m.schedule.agents]),
             },
             agent_reporters={
                 "violations": "true_violations",
@@ -466,7 +462,7 @@ class ProblemSolvingModel(Model):
             self.agent_list = [None] * self.N
             for i in range(self.N):
                 agent = Person(i, self, self.K)
-                # Mesa 3+: agent auto-registers on construction, no .add() needed
+                self.schedule.add(agent)
                 self.agent_list[i] = agent
             if self.type_network == "Random":
                 self.setup_random_network()
@@ -487,8 +483,8 @@ class ProblemSolvingModel(Model):
         
         else:
             raise ValueError(f"Unknown setup_source: {self.setup_source}")
-
-        for agent in self.agents:
+        
+        for agent in self.schedule.agents:
             agent.cache_neighbors()
 
         # Compute communication scale
@@ -692,10 +688,12 @@ class ProblemSolvingModel(Model):
             # Bulk add nodes to NetworkX graph
             self.network.add_nodes_from(range(self.N))
 
-            # Create all Person agents at once (as a list).
-            # Mesa 3+: each Person auto-registers with the model on construction,
-            # so no explicit scheduler.add() loop is needed.
+            # Create all Person agents at once (as a list)
             self.agent_list = [Person(i, self, self.K) for i in range(self.N)]
+#            agents = [Person(i, self, self.K) for i in range(self.N)]
+            # Add to the scheduler if possible in a batch, or within a fast loop
+            for agent in self.agent_list:
+                self.schedule.add(agent)
             edge_list = [ (node_mapping[orig_u], node_mapping[orig_v])
               for orig_u, orig_v in loaded_graph.edges() ]
 
@@ -776,10 +774,10 @@ class ProblemSolvingModel(Model):
         self.network.add_nodes_from(range(self.N))
         
         # Create all Person agents at once
-        # Mesa 3+: agent auto-registers on construction, no .add() needed
         self.agent_list = [None] * self.N
         for i in range(self.N):
             agent = Person(i, self, self.K)
+            self.schedule.add(agent)
             self.agent_list[i] = agent
         
         print(f"  Created {self.N} agents with indices 0..{self.N-1}")
@@ -821,20 +819,18 @@ class ProblemSolvingModel(Model):
             max_strength = max(max_strength, 1.0)
             
             for agent_id, in_strength in enumerate(in_strengths):
-                # Mesa 3+: AgentSet is not indexable; use self.agent_list (our
-                # own id->agent list) for O(1) lookup by integer id
-                agent = self.agent_list[agent_id]
+                agent = self.schedule.agents[agent_id]
                 agent.centr = in_strength / max_strength
-
+        
         else:
             # Unweighted: compute in-degree
             in_degrees = [self.network.in_degree(agent_id) for agent_id in range(self.N)]
-
+            
             max_degree = max(in_degrees) if in_degrees else 1.0
             max_degree = max(max_degree, 1.0)
-
+            
             for agent_id, in_degree in enumerate(in_degrees):
-                agent = self.agent_list[agent_id]
+                agent = self.schedule.agents[agent_id]
                 agent.centr = in_degree / max_degree
 
 
@@ -867,10 +863,9 @@ class ProblemSolvingModel(Model):
         self.comm_scale = (1.0 / avg_base_inflow) if avg_base_inflow > 0 else 0.0
 
     def calc_performances(self):
-        # Mesa 3+: iterate via self.agents (AgentSet) instead of self.schedule.agents
-        for agent in self.agents:
+        for agent in self.schedule.agents:
             agent.true_violations = agent.violation_count(self.C,agent.x)
-        violations = [agent.true_violations for agent in self.agents]
+        violations = [agent.true_violations for agent in self.schedule.agents]
         self.avg_true_V = np.mean(violations) if violations else 0
         self.min_true_V = min(violations) if violations else 0
         self.homogeneity = self.compute_homogeneity()
@@ -878,13 +873,13 @@ class ProblemSolvingModel(Model):
     def compute_homogeneity(self):
         if self.N == 0:
             return 0
-
+        
         total = 0
         for j in range(self.K):
-            ones = sum(1 for agent in self.agents if agent.x[j] == 1)
+            ones = sum(1 for agent in self.schedule.agents if agent.x[j] == 1)
             zeros = self.N - ones
             total += max(ones, zeros) / self.N
-
+        
         return total / self.K
     
     def replace_universal_clause(self):
@@ -904,29 +899,26 @@ class ProblemSolvingModel(Model):
         Corresponds to NetLogo's go procedure.
         """
 #        self.compute_comm_scale()
-        # Mesa 3+: AgentSet.shuffle_do("step") is the replacement for
-        # RandomActivation — it shuffles agents and calls .step() on each.
-        self.agents.shuffle_do("step")
-
-        # Mesa 3+: self.steps is auto-incremented by Mesa before this user
-        # step method runs, so it already reflects the current tick number.
+        # All agents perform learning step
+        self.schedule.step()
+        
         # Periodically replace a universal clause
-        if self.steps % self.clause_interval == 0:
+        if self.schedule.steps % self.clause_interval == 0:
             cid, old_c, new_c = self.replace_universal_clause()
             # Note: clause network updates would go here if visualizing
-
+        
         # Update metrics
         self.calc_performances()
-
+        
         # Collect data
         self.datacollector.collect(self)
-
+    
     def run(self, steps=None):
         """Run the model for specified number of steps (or until R)."""
         if steps is None:
             steps = self.R
-
+        
         for _ in range(steps):
-            if self.steps >= self.R:
+            if self.schedule.steps >= self.R:
                 break
             self.step()
