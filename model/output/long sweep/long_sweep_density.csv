@@ -1,0 +1,5 @@
+density,SF_avg,SF_avg_std,Rand_avg,Rand_avg_std,gap_avg,SF_min,SF_min_std,Rand_min,Rand_min_std,gap_min
+low,31.975,,30.962,,1.013,22.0,,23.0,,-1.0
+med-low,31.175,,30.775,,0.4,22.0,,23.0,,-1.0
+med-high,30.525,,28.762,,1.762,22.0,,20.0,,2.0
+high,29.1,,30.112,,-1.012,19.0,,21.0,,-2.0

@@ -1,0 +1,274 @@
+
+======================================================================
+SWEEP 1: alpha (constraint density)
+======================================================================
+  [  1/24] alpha=1  Scale Free  seed=42  avgV= 14.09  minV=  7.00
+  [  2/24] alpha=1  Scale Free  seed=43  avgV= 11.79  minV=  7.00
+  [  3/24] alpha=1  Scale Free  seed=44  avgV= 13.10  minV=  7.00
+  [  4/24] alpha=1  Random      seed=42  avgV= 13.30  minV=  9.00
+  [  5/24] alpha=1  Random      seed=43  avgV= 13.10  minV=  8.00
+  [  6/24] alpha=1  Random      seed=44  avgV= 14.95  minV=  8.00
+  [  7/24] alpha=2  Scale Free  seed=42  avgV= 26.38  minV= 18.00
+  [  8/24] alpha=2  Scale Free  seed=43  avgV= 26.86  minV= 21.00
+  [  9/24] alpha=2  Scale Free  seed=44  avgV= 23.06  minV= 16.00
+  [ 10/24] alpha=2  Random      seed=42  avgV= 25.04  minV= 17.00
+  [ 11/24] alpha=2  Random      seed=43  avgV= 25.39  minV= 20.00
+  [ 12/24] alpha=2  Random      seed=44  avgV= 25.50  minV= 17.00
+  [ 13/24] alpha=4  Scale Free  seed=42  avgV= 52.51  minV= 44.00
+  [ 14/24] alpha=4  Scale Free  seed=43  avgV= 53.23  minV= 42.00
+  [ 15/24] alpha=4  Scale Free  seed=44  avgV= 54.83  minV= 45.00
+  [ 16/24] alpha=4  Random      seed=42  avgV= 46.76  minV= 43.00
+  [ 17/24] alpha=4  Random      seed=43  avgV= 49.79  minV= 43.00
+  [ 18/24] alpha=4  Random      seed=44  avgV= 47.33  minV= 42.00
+  [ 19/24] alpha=8  Scale Free  seed=42  avgV=107.33  minV= 99.00
+  [ 20/24] alpha=8  Scale Free  seed=43  avgV=110.45  minV= 98.00
+  [ 21/24] alpha=8  Scale Free  seed=44  avgV=110.62  minV= 94.00
+  [ 22/24] alpha=8  Random      seed=42  avgV=101.96  minV= 97.00
+  [ 23/24] alpha=8  Random      seed=43  avgV=106.61  minV=103.00
+  [ 24/24] alpha=8  Random      seed=44  avgV=114.00  minV=101.00
+
+======================================================================
+SWEEP 2: xor_prop (clause-type mix)
+======================================================================
+  [  1/30] xor_prop=0.0  Scale Free  seed=42  avgV=  4.65  minV=  0.00
+  [  2/30] xor_prop=0.0  Scale Free  seed=43  avgV=  5.64  minV=  0.00
+  [  3/30] xor_prop=0.0  Scale Free  seed=44  avgV=  4.53  minV=  0.00
+  [  4/30] xor_prop=0.0  Random      seed=42  avgV=  0.00  minV=  0.00
+  [  5/30] xor_prop=0.0  Random      seed=43  avgV=  0.00  minV=  0.00
+  [  6/30] xor_prop=0.0  Random      seed=44  avgV=  0.00  minV=  0.00
+  [  7/30] xor_prop=0.25  Scale Free  seed=42  avgV= 18.82  minV= 11.00
+  [  8/30] xor_prop=0.25  Scale Free  seed=43  avgV= 20.60  minV= 11.00
+  [  9/30] xor_prop=0.25  Scale Free  seed=44  avgV= 17.95  minV= 11.00
+  [ 10/30] xor_prop=0.25  Random      seed=42  avgV= 14.94  minV= 12.00
+  [ 11/30] xor_prop=0.25  Random      seed=43  avgV= 13.68  minV= 10.00
+  [ 12/30] xor_prop=0.25  Random      seed=44  avgV= 15.30  minV= 12.00
+  [ 13/30] xor_prop=0.5  Scale Free  seed=42  avgV= 25.98  minV= 18.00
+  [ 14/30] xor_prop=0.5  Scale Free  seed=43  avgV= 27.75  minV= 20.00
+  [ 15/30] xor_prop=0.5  Scale Free  seed=44  avgV= 24.59  minV= 15.00
+  [ 16/30] xor_prop=0.5  Random      seed=42  avgV= 24.51  minV= 18.00
+  [ 17/30] xor_prop=0.5  Random      seed=43  avgV= 27.73  minV= 21.00
+  [ 18/30] xor_prop=0.5  Random      seed=44  avgV= 26.74  minV= 20.00
+  [ 19/30] xor_prop=0.75  Scale Free  seed=42  avgV= 26.07  minV= 19.00
+  [ 20/30] xor_prop=0.75  Scale Free  seed=43  avgV= 28.66  minV= 20.00
+  [ 21/30] xor_prop=0.75  Scale Free  seed=44  avgV= 27.74  minV= 18.00
+  [ 22/30] xor_prop=0.75  Random      seed=42  avgV= 28.05  minV= 20.00
+  [ 23/30] xor_prop=0.75  Random      seed=43  avgV= 26.34  minV= 18.00
+  [ 24/30] xor_prop=0.75  Random      seed=44  avgV= 26.79  minV= 15.00
+  [ 25/30] xor_prop=1.0  Scale Free  seed=42  avgV= 22.43  minV= 11.00
+  [ 26/30] xor_prop=1.0  Scale Free  seed=43  avgV= 21.98  minV= 15.00
+  [ 27/30] xor_prop=1.0  Scale Free  seed=44  avgV= 20.73  minV= 15.00
+  [ 28/30] xor_prop=1.0  Random      seed=42  avgV= 24.39  minV= 16.00
+  [ 29/30] xor_prop=1.0  Random      seed=43  avgV= 20.12  minV= 15.00
+  [ 30/30] xor_prop=1.0  Random      seed=44  avgV= 20.19  minV= 13.00
+
+======================================================================
+SWEEP 3: obs_prob (private-channel rate)
+======================================================================
+  [  1/30] obs_prob=0.001  Scale Free  seed=42  avgV= 27.05  minV= 23.00
+  [  2/30] obs_prob=0.001  Scale Free  seed=43  avgV= 28.19  minV= 19.00
+  [  3/30] obs_prob=0.001  Scale Free  seed=44  avgV= 30.69  minV= 22.00
+  [  4/30] obs_prob=0.001  Random      seed=42  avgV= 29.21  minV= 23.00
+  [  5/30] obs_prob=0.001  Random      seed=43  avgV= 25.41  minV= 19.00
+  [  6/30] obs_prob=0.001  Random      seed=44  avgV= 25.84  minV= 18.00
+  [  7/30] obs_prob=0.005  Scale Free  seed=42  avgV= 24.65  minV= 16.00
+  [  8/30] obs_prob=0.005  Scale Free  seed=43  avgV= 28.14  minV= 18.00
+  [  9/30] obs_prob=0.005  Scale Free  seed=44  avgV= 26.57  minV= 18.00
+  [ 10/30] obs_prob=0.005  Random      seed=42  avgV= 26.31  minV= 18.00
+  [ 11/30] obs_prob=0.005  Random      seed=43  avgV= 28.44  minV= 21.00
+  [ 12/30] obs_prob=0.005  Random      seed=44  avgV= 29.23  minV= 24.00
+  [ 13/30] obs_prob=0.01  Scale Free  seed=42  avgV= 29.15  minV= 22.00
+  [ 14/30] obs_prob=0.01  Scale Free  seed=43  avgV= 29.32  minV= 21.00
+  [ 15/30] obs_prob=0.01  Scale Free  seed=44  avgV= 26.35  minV= 21.00
+  [ 16/30] obs_prob=0.01  Random      seed=42  avgV= 22.66  minV= 18.00
+  [ 17/30] obs_prob=0.01  Random      seed=43  avgV= 21.07  minV= 16.00
+  [ 18/30] obs_prob=0.01  Random      seed=44  avgV= 28.02  minV= 22.00
+  [ 19/30] obs_prob=0.05  Scale Free  seed=42  avgV= 28.84  minV= 24.00
+  [ 20/30] obs_prob=0.05  Scale Free  seed=43  avgV= 23.82  minV= 17.00
+  [ 21/30] obs_prob=0.05  Scale Free  seed=44  avgV= 26.29  minV= 19.00
+  [ 22/30] obs_prob=0.05  Random      seed=42  avgV= 26.81  minV= 20.00
+  [ 23/30] obs_prob=0.05  Random      seed=43  avgV= 24.43  minV= 17.00
+  [ 24/30] obs_prob=0.05  Random      seed=44  avgV= 25.95  minV= 18.00
+  [ 25/30] obs_prob=0.1  Scale Free  seed=42  avgV= 24.65  minV= 18.00
+  [ 26/30] obs_prob=0.1  Scale Free  seed=43  avgV= 24.98  minV= 18.00
+  [ 27/30] obs_prob=0.1  Scale Free  seed=44  avgV= 25.24  minV= 19.00
+  [ 28/30] obs_prob=0.1  Random      seed=42  avgV= 25.88  minV= 20.00
+  [ 29/30] obs_prob=0.1  Random      seed=43  avgV= 24.94  minV= 19.00
+  [ 30/30] obs_prob=0.1  Random      seed=44  avgV= 25.44  minV= 19.00
+
+======================================================================
+SWEEP 4: N (population size)
+======================================================================
+  [  1/24] N=40  Scale Free  seed=42  avgV= 26.77  minV= 20.00
+  [  2/24] N=40  Scale Free  seed=43  avgV= 26.30  minV= 20.00
+  [  3/24] N=40  Scale Free  seed=44  avgV= 29.02  minV= 18.00
+  [  4/24] N=40  Random      seed=42  avgV= 24.70  minV= 18.00
+  [  5/24] N=40  Random      seed=43  avgV= 23.05  minV= 18.00
+  [  6/24] N=40  Random      seed=44  avgV= 21.20  minV= 16.00
+  [  7/24] N=80  Scale Free  seed=42  avgV= 25.61  minV= 19.00
+  [  8/24] N=80  Scale Free  seed=43  avgV= 27.51  minV= 21.00
+  [  9/24] N=80  Scale Free  seed=44  avgV= 26.34  minV= 19.00
+  [ 10/24] N=80  Random      seed=42  avgV= 29.46  minV= 22.00
+  [ 11/24] N=80  Random      seed=43  avgV= 25.40  minV= 16.00
+  [ 12/24] N=80  Random      seed=44  avgV= 25.01  minV= 17.00
+  [ 13/24] N=160  Scale Free  seed=42  avgV= 25.73  minV= 15.00
+  [ 14/24] N=160  Scale Free  seed=43  avgV= 27.19  minV= 17.00
+  [ 15/24] N=160  Scale Free  seed=44  avgV= 25.92  minV= 16.00
+  [ 16/24] N=160  Random      seed=42  avgV= 27.26  minV= 20.00
+  [ 17/24] N=160  Random      seed=43  avgV= 24.58  minV= 17.00
+  [ 18/24] N=160  Random      seed=44  avgV= 25.84  minV= 17.00
+  [ 19/24] N=320  Scale Free  seed=42  avgV= 26.17  minV= 17.00
+  [ 20/24] N=320  Scale Free  seed=43  avgV= 25.10  minV= 17.00
+  [ 21/24] N=320  Scale Free  seed=44  avgV= 26.51  minV= 18.00
+  [ 22/24] N=320  Random      seed=42  avgV= 29.63  minV= 21.00
+  [ 23/24] N=320  Random      seed=43  avgV= 25.41  minV= 18.00
+  [ 24/24] N=320  Random      seed=44  avgV= 29.70  minV= 21.00
+
+======================================================================
+SWEEP 5: density (matched Random/SF pairs)
+======================================================================
+  [  1/24] density=low       Scale Free  seed=42  avgV= 27.36  minV= 22.00
+  [  2/24] density=low       Scale Free  seed=43  avgV= 30.62  minV= 22.00
+  [  3/24] density=low       Scale Free  seed=44  avgV= 27.39  minV= 19.00
+  [  4/24] density=low       Random      seed=42  avgV= 28.70  minV= 16.00
+  [  5/24] density=low       Random      seed=43  avgV= 26.35  minV= 19.00
+  [  6/24] density=low       Random      seed=44  avgV= 26.60  minV= 20.00
+  [  7/24] density=med-low   Scale Free  seed=42  avgV= 26.06  minV= 17.00
+  [  8/24] density=med-low   Scale Free  seed=43  avgV= 25.71  minV= 16.00
+  [  9/24] density=med-low   Scale Free  seed=44  avgV= 28.01  minV= 22.00
+  [ 10/24] density=med-low   Random      seed=42  avgV= 27.89  minV= 21.00
+  [ 11/24] density=med-low   Random      seed=43  avgV= 25.40  minV= 20.00
+  [ 12/24] density=med-low   Random      seed=44  avgV= 28.05  minV= 20.00
+  [ 13/24] density=med-high  Scale Free  seed=42  avgV= 26.95  minV= 19.00
+  [ 14/24] density=med-high  Scale Free  seed=43  avgV= 29.61  minV= 23.00
+  [ 15/24] density=med-high  Scale Free  seed=44  avgV= 25.94  minV= 18.00
+  [ 16/24] density=med-high  Random      seed=42  avgV= 23.94  minV= 17.00
+  [ 17/24] density=med-high  Random      seed=43  avgV= 22.74  minV= 15.00
+  [ 18/24] density=med-high  Random      seed=44  avgV= 23.44  minV= 15.00
+  [ 19/24] density=high      Scale Free  seed=42  avgV= 25.19  minV= 16.00
+  [ 20/24] density=high      Scale Free  seed=43  avgV= 24.30  minV= 17.00
+  [ 21/24] density=high      Scale Free  seed=44  avgV= 26.93  minV= 18.00
+  [ 22/24] density=high      Random      seed=42  avgV= 25.75  minV= 18.00
+  [ 23/24] density=high      Random      seed=43  avgV= 24.05  minV= 15.00
+  [ 24/24] density=high      Random      seed=44  avgV= 30.19  minV= 21.00
+
+======================================================================
+SWEEP 6: clause_interval (exogenous change rate)
+======================================================================
+  [  1/30] clause_interval=1  Scale Free  seed=42  avgV= 31.06  minV= 22.00
+  [  2/30] clause_interval=1  Scale Free  seed=43  avgV= 33.12  minV= 24.00
+  [  3/30] clause_interval=1  Scale Free  seed=44  avgV= 33.23  minV= 19.00
+  [  4/30] clause_interval=1  Random      seed=42  avgV= 29.60  minV= 21.00
+  [  5/30] clause_interval=1  Random      seed=43  avgV= 33.02  minV= 27.00
+  [  6/30] clause_interval=1  Random      seed=44  avgV= 30.40  minV= 22.00
+  [  7/30] clause_interval=5  Scale Free  seed=42  avgV= 32.61  minV= 22.00
+  [  8/30] clause_interval=5  Scale Free  seed=43  avgV= 30.88  minV= 22.00
+  [  9/30] clause_interval=5  Scale Free  seed=44  avgV= 31.99  minV= 22.00
+  [ 10/30] clause_interval=5  Random      seed=42  avgV= 27.80  minV= 20.00
+  [ 11/30] clause_interval=5  Random      seed=43  avgV= 29.12  minV= 22.00
+  [ 12/30] clause_interval=5  Random      seed=44  avgV= 31.71  minV= 23.00
+  [ 13/30] clause_interval=10  Scale Free  seed=42  avgV= 31.65  minV= 24.00
+  [ 14/30] clause_interval=10  Scale Free  seed=43  avgV= 25.49  minV= 19.00
+  [ 15/30] clause_interval=10  Scale Free  seed=44  avgV= 26.29  minV= 20.00
+  [ 16/30] clause_interval=10  Random      seed=42  avgV= 26.19  minV= 19.00
+  [ 17/30] clause_interval=10  Random      seed=43  avgV= 25.51  minV= 19.00
+  [ 18/30] clause_interval=10  Random      seed=44  avgV= 24.35  minV= 17.00
+  [ 19/30] clause_interval=25  Scale Free  seed=42  avgV= 21.26  minV= 16.00
+  [ 20/30] clause_interval=25  Scale Free  seed=43  avgV= 22.45  minV= 13.00
+  [ 21/30] clause_interval=25  Scale Free  seed=44  avgV= 24.14  minV= 18.00
+  [ 22/30] clause_interval=25  Random      seed=42  avgV= 25.20  minV= 19.00
+  [ 23/30] clause_interval=25  Random      seed=43  avgV= 20.06  minV= 15.00
+  [ 24/30] clause_interval=25  Random      seed=44  avgV= 21.29  minV= 16.00
+  [ 25/30] clause_interval=100  Scale Free  seed=42  avgV= 20.62  minV= 15.00
+  [ 26/30] clause_interval=100  Scale Free  seed=43  avgV= 18.73  minV= 13.00
+  [ 27/30] clause_interval=100  Scale Free  seed=44  avgV= 20.24  minV= 16.00
+  [ 28/30] clause_interval=100  Random      seed=42  avgV= 16.68  minV= 12.00
+  [ 29/30] clause_interval=100  Random      seed=43  avgV= 16.71  minV= 12.00
+  [ 30/30] clause_interval=100  Random      seed=44  avgV= 16.00  minV= 14.00
+
+======================================================================
+SWEEP 7: local-search passes (optimisation intensity)
+======================================================================
+  [  1/18] ls_passes=1  Scale Free  seed=42  avgV= 25.24  minV= 15.00
+  [  2/18] ls_passes=1  Scale Free  seed=43  avgV= 27.57  minV= 18.00
+  [  3/18] ls_passes=1  Scale Free  seed=44  avgV= 27.76  minV= 23.00
+  [  4/18] ls_passes=1  Random      seed=42  avgV= 26.85  minV= 19.00
+  [  5/18] ls_passes=1  Random      seed=43  avgV= 24.82  minV= 20.00
+  [  6/18] ls_passes=1  Random      seed=44  avgV= 28.73  minV= 21.00
+  [  7/18] ls_passes=2  Scale Free  seed=42  avgV= 23.81  minV= 16.00
+  [  8/18] ls_passes=2  Scale Free  seed=43  avgV= 28.21  minV= 22.00
+  [  9/18] ls_passes=2  Scale Free  seed=44  avgV= 28.26  minV= 22.00
+  [ 10/18] ls_passes=2  Random      seed=42  avgV= 23.06  minV= 17.00
+  [ 11/18] ls_passes=2  Random      seed=43  avgV= 24.93  minV= 19.00
+  [ 12/18] ls_passes=2  Random      seed=44  avgV= 24.59  minV= 20.00
+  [ 13/18] ls_passes=5  Scale Free  seed=42  avgV= 26.52  minV= 20.00
+  [ 14/18] ls_passes=5  Scale Free  seed=43  avgV= 26.82  minV= 20.00
+  [ 15/18] ls_passes=5  Scale Free  seed=44  avgV= 26.46  minV= 20.00
+  [ 16/18] ls_passes=5  Random      seed=42  avgV= 27.74  minV= 20.00
+  [ 17/18] ls_passes=5  Random      seed=43  avgV= 21.57  minV= 16.00
+  [ 18/18] ls_passes=5  Random      seed=44  avgV= 22.69  minV= 16.00
+
+
+######################################################################
+# FINAL TABLES  (SF means Scale Free, Rand means Random dense)
+# gap = SF - Random.  Positive gap = SF worse than Random.
+######################################################################
+
+--- Sweep: alpha ---
+       SF_avg  Rand_avg  gap_avg  SF_min  Rand_min  gap_min
+alpha                                                      
+1       12.99     13.78    -0.79    7.00      8.33    -1.33
+2       25.43     25.31     0.12   18.33     18.00     0.33
+4       53.52     47.96     5.56   43.67     42.67     1.00
+8      109.47    107.52     1.94   97.00    100.33    -3.33
+
+--- Sweep: xor_prop ---
+          SF_avg  Rand_avg  gap_avg  SF_min  Rand_min  gap_min
+xor_prop                                                      
+0.00        4.94      0.00     4.94    0.00      0.00     0.00
+0.25       19.12     14.64     4.49   11.00     11.33    -0.33
+0.50       26.10     26.32    -0.22   17.67     19.67    -2.00
+0.75       27.49     27.06     0.43   19.00     17.67     1.33
+1.00       21.71     21.57     0.14   13.67     14.67    -1.00
+
+--- Sweep: obs_prob ---
+          SF_avg  Rand_avg  gap_avg  SF_min  Rand_min  gap_min
+obs_prob                                                      
+0.001      28.64     26.82     1.82   21.33     20.00     1.33
+0.005      26.45     27.99    -1.54   17.33     21.00    -3.67
+0.010      28.28     23.92     4.35   21.33     18.67     2.67
+0.050      26.32     25.73     0.59   20.00     18.33     1.67
+0.100      24.95     25.42    -0.46   18.33     19.33    -1.00
+
+--- Sweep: N ---
+     SF_avg  Rand_avg  gap_avg  SF_min  Rand_min  gap_min
+N                                                        
+40    27.37     22.98     4.38   19.33     17.33     2.00
+80    26.49     26.62    -0.14   19.67     18.33     1.33
+160   26.28     25.89     0.39   16.00     18.00    -2.00
+320   25.93     28.24    -2.32   17.33     20.00    -2.67
+
+--- Sweep: density ---
+          SF_avg  Rand_avg  gap_avg  SF_min  Rand_min  gap_min
+density                                                       
+low        28.46     27.22     1.24   21.00     18.33     2.67
+med-low    26.60     27.11    -0.52   18.33     20.33    -2.00
+med-high   27.50     23.37     4.13   20.00     15.67     4.33
+high       25.47     26.66    -1.19   17.00     18.00    -1.00
+
+--- Sweep: clause_interval ---
+                 SF_avg  Rand_avg  gap_avg  SF_min  Rand_min  gap_min
+clause_interval                                                      
+1                 32.47     31.01     1.46   21.67     23.33    -1.67
+5                 31.82     29.55     2.28   22.00     21.67     0.33
+10                27.81     25.35     2.46   21.00     18.33     2.67
+25                22.62     22.18     0.43   15.67     16.67    -1.00
+100               19.86     16.46     3.40   14.67     12.67     2.00
+
+--- Sweep: ls_passes ---
+           SF_avg  Rand_avg  gap_avg  SF_min  Rand_min  gap_min
+ls_passes                                                      
+1           26.86     26.80     0.06   18.67     20.00    -1.33
+2           26.76     24.19     2.57   20.00     18.67     1.33
+5           26.60     24.00     2.60   20.00     17.33     2.67
+
+CSV outputs saved to G:\My Drive\phd works\santafe project\architecturesofproblemsolving\model\claude_investigations\output
