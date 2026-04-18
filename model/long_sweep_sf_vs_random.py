@@ -12,17 +12,23 @@ What "gap" means:
     Positive gap -> Scale Free is worse (more unsatisfied clauses).
     Negative gap -> Scale Free is better.
 
-Outputs (all in output/):
+Outputs (all in output/long sweep/):
     long_sweep_results.xlsx             -- single spreadsheet containing:
                                              * one tab per parameter sweep
                                              * an "all_summaries" tab
                                              * a "raw" tab with every single run
-                                             * one tab per time-series config
+                                             * ts_default  -- time-series tab at baseline
+                                             * ts_combined -- time-series tab with
+                                                 alpha=8, xor_prop=1, obs_prob=0.01,
+                                                 N=300, density=med-high,
+                                                 clause_interval=10
     plots/sweep_<param>_raw.png         -- raw violations vs parameter (SF vs Random)
     plots/sweep_<param>_gap.png         -- SF-Random gap vs parameter
     plots/overview.png                  -- 6-panel summary of all gaps
-    plots/timeseries_<config>_avg.png   -- avg violations over time with SE band
-    plots/timeseries_<config>_min.png   -- min violations over time with SE band
+    plots/timeseries_default_avg.png    -- avg violations over time, baseline
+    plots/timeseries_default_min.png    -- min violations over time, baseline
+    plots/timeseries_combined_avg.png   -- avg violations over time, combined config
+    plots/timeseries_combined_min.png   -- min violations over time, combined config
 
 Error bands are the standard error of the mean (std / sqrt(n_seeds)).
 
@@ -456,10 +462,11 @@ def plot_timeseries_one(ts_df, metric_prefix, config_name, outfile, ylabel):
 
 def main():
     # ---- 8a. Prepare output folders --------------------------
-    out_dir   = Path(__file__).parent / "output"
+    # Everything (the xlsx and all PNG plots) goes under output/long sweep/.
+    out_dir   = Path(__file__).parent / "output" / "long sweep"
     plots_dir = out_dir / "plots"
-    out_dir.mkdir(exist_ok=True)
-    plots_dir.mkdir(exist_ok=True)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    plots_dir.mkdir(parents=True, exist_ok=True)
     print(f"Outputs will be saved under: {out_dir}", flush=True)
 
     # ---- 8b. Define the six parameter sweeps ----------------
@@ -503,18 +510,24 @@ def main():
 
     # ---- 8c. Define the time-series configurations ----------
     # These produce the "classic" avg/min violations over time plots.
+    # Two configs:
+    #   "default"  -- all parameters at baseline
+    #   "combined" -- single run with ALL of:
+    #                   alpha=8, xor_prop=1, obs_prob=0.01, N=300,
+    #                   density=med-high, clause_interval=10
+    # (obs_prob and clause_interval already equal their default values, but
+    # we pass them explicitly so the combined config is self-documenting.)
     # Each entry: (label, overrides, SF-network-kwargs, Random-network-kwargs)
     MED_HIGH_SF   = dict(type_network="Scale Free", min_deg=5)
     MED_HIGH_RAND = dict(type_network="Random",     connect_prob=0.30)
 
     timeseries_configs = [
-        ("default",            {},                             SF_DEFAULT, RAND_DEFAULT),
-        ("alpha_8",            {"model": {"alpha": 8}},        SF_DEFAULT, RAND_DEFAULT),
-        ("xor_prop_1",         {"xor_prop": 1.0},              SF_DEFAULT, RAND_DEFAULT),
-        ("obs_prob_0.01",      {"model": {"obs_prob": 0.01}},  SF_DEFAULT, RAND_DEFAULT),
-        ("N_300",              {"model": {"N": 300}},          SF_DEFAULT, RAND_DEFAULT),
-        ("density_med-high",   {},                             MED_HIGH_SF, MED_HIGH_RAND),
-        ("clause_interval_10", {"model": {"clause_interval": 10}}, SF_DEFAULT, RAND_DEFAULT),
+        ("default",  {},                                   SF_DEFAULT,   RAND_DEFAULT),
+        ("combined", {"xor_prop": 1.0,
+                      "model": {"alpha":           8,
+                                "N":               300,
+                                "obs_prob":        0.01,
+                                "clause_interval": 10}},   MED_HIGH_SF,  MED_HIGH_RAND),
     ]
 
     # ---- 8d. Run each parameter sweep -----------------------
