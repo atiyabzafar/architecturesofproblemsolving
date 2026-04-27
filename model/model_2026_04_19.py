@@ -465,8 +465,7 @@ class ProblemSolvingModel(Model):
             #     self.schedule.add(agent)
             self.agent_list = [None] * self.N
             for i in range(self.N):
-#                agent = Person(i, self, self.K)
-                agent = Person(self, i, self.K)
+                agent = Person(i, self, self.K)
                 # Mesa 3+: agent auto-registers on construction, no .add() needed
                 self.agent_list[i] = agent
             if self.type_network == "Random":
@@ -511,7 +510,6 @@ class ProblemSolvingModel(Model):
     
     def setup_small_world_network(self):
         """Create Watts-Strogatz small world network (converted to directed)."""
-        self.network.add_nodes_from(range(self.N))
         # Create ring lattice - only one direction per edge
         for i in range(self.N):
             for offset in range(1, self.n_size + 1):
@@ -574,7 +572,6 @@ class ProblemSolvingModel(Model):
 
     def setup_hierarchical_network(self):
         """Create hierarchical layered network."""
-        self.network.add_nodes_from(range(self.N))
         # Determine layer sizes
         if self.random_layersize:
             layer_sizes = [0] * self.nlayers
