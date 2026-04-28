@@ -1,0 +1,2 @@
+model/output/*.csv
+model/output/**/*.csv

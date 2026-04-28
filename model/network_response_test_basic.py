@@ -1,47 +1,5 @@
 """
-network_response_test.py
-========================
-A controlled test of how network topology affects collective adaptation
-to an oscillating clause environment.
-
-Scientific question
--------------------
-Does network topology change (a) the *amplitude* of violation oscillations,
-(b) the *phase lag* of the response relative to the AND-bias forcing, and
-(c) steady-state *homogeneity* — when agents only have partial direct access
-to the global clause pool?
-
-Design
-------
-* Two network types: Scale-Free (SF) vs density-matched Random (RD).
-* local_obs_fraction sweep: [0.1, 0.3, 0.5, 1.0]
-  - At 1.0 → every agent sees all of C directly (old behaviour, no topology effect expected)
-  - At lower values → agents must acquire foreign clauses via communication,
-    so topology starts to matter.
-* commscale = 1.0 throughout (NOT re-normalised), so denser networks
-  genuinely deliver more clauses per step.
-* Static control condition (clause_interval=0) alongside dynamic (clause_interval=1)
-  to separate oscillation from topology effect.
-* Metrics extracted:
-  - violation_mean, violation_std  (cycle-average and amplitude proxy)
-  - response_amplitude             (half peak-to-peak of phase-binned violations)
-  - phase_lag                      (phase of violation minimum relative to AND-bias minimum)
-  - homogeneity_mean
-  - kb_fill_rate                   (mean fraction of kb capacity actually used, as sanity check)
-
-Usage
------
-    python network_response_test.py
-
-Outputs (all in output/network_response_test/)
------------------------------------------------
-  full_trajectories.csv   — raw per-step data
-  late_summary.csv        — per-(network, obs_fraction, condition, seed) summary
-  sweep_summary.csv       — aggregated over seeds, one row per (network, obs_fraction, condition)
-  amplitude_heatmap.png   — amplitude vs obs_fraction x network, static vs dynamic
-  phaselag_plot.png       — phase lag vs obs_fraction
-  homogeneity_plot.png    — homogeneity vs obs_fraction
-  violations_timeseries.png — representative timeseries at obs_fraction=0.3
+test
 """
 
 import os
@@ -58,7 +16,7 @@ import seaborn as sns
 from tqdm import tqdm
 
 # ── Load model from file ──────────────────────────────────────────────────────
-MODEL_PATH = "model_2026_04_24.py"
+MODEL_PATH = "model_2026_04_26.py"
 spec = importlib.util.spec_from_file_location("dynamic_model", MODEL_PATH)
 mod  = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(mod)
@@ -96,21 +54,27 @@ LATE_WINDOW   = 3000        # steps used for late-time statistics
 N_SEEDS       = 10
 SEEDS         = list(range(100, 100 + N_SEEDS))
 N_PROCS       = min(os.cpu_count() or 2, 16)
-KB_FRACTION   = 0.2
-SIN_FREQ      = 0.75        # matches model default
+KB_FRACTION   = 1
+SIN_FREQ      = 0.75       # matches model default
+OBS_FRACTIONS = [1] 
+
 
 SF_MIN_DEG    = 3
 TARGET_EDGES  = SF_MIN_DEG * (N - SF_MIN_DEG)
 RAND_P        = TARGET_EDGES / (N * (N - 1))
 
 
+# Set this to "basic" or "oscillatory" or "binary"
+RUN_MODE="oscillatory"
+
+
 # The key sweep variable
 #OBS_FRACTIONS = [0.1, 0.3, 0.5, 1.0]
-OBS_FRACTIONS = [0.1]
+#OBS_FRACTIONS = [1]
 # Conditions: dynamic clause pool vs static (control)
 CONDITIONS = {
-    "dynamic": {"clause_interval": 1},
-    "static":  {"clause_interval": 100000},   # no clause replacement → fixed landscape
+    "dynamic": {"clause_interval": 20},
+  #  "static":  {"clause_interval": 100000},   # no clause replacement → fixed landscape
 }
 
 NETWORK_CONFIGS = {
@@ -118,14 +82,14 @@ NETWORK_CONFIGS = {
     "Random":     {"type_network": "Random",     "connect_prob": RAND_P},
 }
 
-OUTDIR = Path("output/network_response_test")
+OUTDIR = Path("output/network_response_test/other")
 OUTDIR.mkdir(parents=True, exist_ok=True)
 
 PALETTE = {"Random": "#01696f", "Scale Free": "#964219"}
 
 # ── Worker ────────────────────────────────────────────────────────────────────
 def run_simulation(args):
-    label, net_kwargs, obs_frac, condition_name, cond_kwargs, seed = args
+    label, net_kwargs, obs_frac, condition_name, cond_kwargs, seed, run_mode = args
     try:
         model = ProblemSolvingModel(
             N=N, K=K, alpha=ALPHA,
@@ -135,17 +99,19 @@ def run_simulation(args):
             seed=seed,
             kb_fraction=KB_FRACTION,
             local_obs_fraction=obs_frac,
+            run_mode=run_mode,
+            #sin_freq=4,
             **net_kwargs,
             **cond_kwargs,
         )
         # Force commscale = 1.0 (do NOT normalise by inflow)
-        model.comm_scale = 1.0
+        #model.comm_scale = 1.0
 
         rows = []
         for _ in range(T_STEPS):
             model.step()
             step     = int(model.steps)
-            and_bias = 1.0 - np.sin(SIN_FREQ * step * 2.0)
+            and_bias = (1.0 - np.sin(SIN_FREQ * step)) / 2.0
             kb_sizes = [len(a.kb) for a in model.agents]
             rows.append({
                 "step":          step,
@@ -203,11 +169,12 @@ if __name__ == "__main__":
 
     # Build job list
     jobs = [
-        (label, net_kw, obs_frac, cond_name, cond_kw, seed)
+        (label, net_kw, obs_frac, cond_name, cond_kw, seed, run_mode)
         for label,     net_kw    in NETWORK_CONFIGS.items()
         for obs_frac              in OBS_FRACTIONS
         for cond_name, cond_kw   in CONDITIONS.items()
         for seed                  in SEEDS
+        for run_mode              in [RUN_MODE]
     ]
     print(f"Total jobs: {len(jobs)}")
 
@@ -221,12 +188,13 @@ if __name__ == "__main__":
     if df.empty:
         raise RuntimeError("No simulation rows produced — check earlier errors.")
 
-    csv_path = OUTDIR / "full_trajectories.csv"
+    csv_path = OUTDIR / f"full_trajectories_{RUN_MODE}_{OBS_FRACTIONS[0]}.csv"
+    #csv_path = OUTDIR / "full_trajectories
     df.to_csv(csv_path, index=False)
     print(f"\nFull data → {csv_path}  ({len(df):,} rows)")
 
     # ── Late-window statistics ────────────────────────────────────────────────
-    late = df[df["step"] > T_STEPS - LATE_WINDOW].copy()
+   # late = df[df["step"] > T_STEPS - LATE_WINDOW].copy()
 
     # # Phase binning within the late window
     # N_BINS = 24
@@ -371,7 +339,8 @@ if __name__ == "__main__":
     # plt.close()
 
     # 5. Representative timeseries at obs_fraction = 0.3, dynamic condition
-    REP_FRAC = 0.3
+    REP_FRAC = OBS_FRACTIONS[0]
+    sns.set_theme(style="whitegrid", font_scale=1.1)
     fig, axes = plt.subplots(3, 1, figsize=(13, 10), sharex=True)
     traj = (
         df[(df["obs_fraction"] == REP_FRAC) & (df["condition"] == "dynamic")]
@@ -384,6 +353,11 @@ if __name__ == "__main__":
         )
         .reset_index()
     )
+    if traj.empty:
+        raise RuntimeError(
+            f"No rows found for representative plot: obs_fraction={REP_FRAC}, condition='dynamic'. "
+            f"Available obs_fraction values: {sorted(df['obs_fraction'].unique())}"
+        )
     for net, grp in traj.groupby("network"):
         axes[0].plot(grp["step"], grp["avg_violations"],
                      label=net, color=PALETTE[net], linewidth=1.5)
@@ -392,7 +366,7 @@ if __name__ == "__main__":
     ax2.plot(ref["step"], ref["AND_bias"], color="gray", alpha=0.3,
              linestyle="--", linewidth=1, label="AND bias")
     axes[0].set_ylabel("Avg violations")
-    axes[0].set_title(f"Timeseries (obs_fraction={REP_FRAC}, dynamic)")
+    axes[0].set_title(f"Timeseries (obs_fraction={REP_FRAC}, run_mode={RUN_MODE}, condition=dynamic)")
     axes[0].legend(loc="upper left")
 
     for net, grp in traj.groupby("network"):
@@ -409,14 +383,8 @@ if __name__ == "__main__":
     axes[2].legend(loc="lower right")
 
     plt.tight_layout()
-    plt.savefig(OUTDIR / "violations_timeseries.png", dpi=200)
+    plt.savefig(OUTDIR / f"violations_timeseries_{RUN_MODE}_{REP_FRAC}.png", dpi=200)
+#    plt.savefig(OUTDIR / "violations_timeseries_basic.png",dpi=200)
     plt.close()
 
     print(f"\nAll outputs saved to {OUTDIR}/")
-    print("\nInterpretation guide:")
-    print("  amplitude_plot   : if SF < Random → SF dampens oscillations (better tracking)")
-    print("  phase_lag_plot   : larger lag → slower adaptation to env change")
-    print("  homogeneity_plot : higher = agents more aligned")
-    print("  violations_mean  : lower = better collective performance")
-    print("  kb_fill_timeseries: if << 1.0 at low obs_fraction, knowledge is genuinely scarce")
-    print("  At obs_fraction=1.0 both networks should converge to same metrics (sanity check)")
