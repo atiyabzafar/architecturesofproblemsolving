@@ -178,7 +178,7 @@ class ProblemSolvingModel(Model):
                  intra_layer_connectance=0.5,  # For Hierarchical
                  inter_layer_connectance=0.1,  # For Hierarchical
                  random_layersize=False,  # For Hierarchical
-                 kb_fraction=0.2,         # for fractional size of the knowledge base
+                 kb_fraction=1.0,         # for fractional size of the knowledge base
                  local_obs_fraction=0.3,  # fraction of C each agent can directly observe
                  run_mode="basic",        # "basic" or "oscillatory or "binary"
                  seed=None):
