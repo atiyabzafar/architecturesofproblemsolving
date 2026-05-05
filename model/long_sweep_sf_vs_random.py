@@ -22,13 +22,14 @@ Outputs (all in output/long sweep/):
                                                  alpha=8, xor_prop=1, obs_prob=0.01,
                                                  N=300, density=med-high,
                                                  clause_interval=10
-    plots/sweep_<param>_raw.png         -- raw violations vs parameter (SF vs Random)
-    plots/sweep_<param>_gap.png         -- SF-Random gap vs parameter
-    plots/overview.png                  -- 6-panel summary of all gaps
-    plots/timeseries_default_avg.png    -- avg violations over time, baseline
-    plots/timeseries_default_min.png    -- min violations over time, baseline
-    plots/timeseries_combined_avg.png   -- avg violations over time, combined config
-    plots/timeseries_combined_min.png   -- min violations over time, combined config
+    sweep_<param>_raw.png               -- raw violations vs parameter (SF vs Random)
+    sweep_<param>_gap.png               -- SF-Random gap vs parameter
+    overview_avg.png                    -- 6-panel summary of raw averages
+    overview_gap.png                    -- 6-panel summary of all gaps
+    timeseries_default_avg.png          -- avg violations over time, baseline
+    timeseries_default_min.png          -- min violations over time, baseline
+    timeseries_combined_avg.png         -- avg violations over time, combined config
+    timeseries_combined_min.png         -- min violations over time, combined config
 
 Error bands are the standard error of the mean (std / sqrt(n_seeds)).
 
@@ -274,18 +275,30 @@ def net_kw_density(v, which):
 # For each sweep we save TWO independent files (each a single-panel figure):
 #   sweep_<param>_raw.png  -- SF_avg and Rand_avg vs parameter, +/-1 SE shaded
 #   sweep_<param>_gap.png  -- gap_avg and gap_min vs parameter, with zero line
-# We also save a 6-panel overview showing all gaps together.
+# We also save TWO 6-panel overviews (one for averages, one for gaps).
 # SE bands = mean +/- standard error (std / sqrt(n_seeds)).
+#
+# Colour conventions (consistent across raw / gap / overview plots):
+#   Averages: Scale Free = blue (C0),    Random = orange (C1)
+#   Gaps:     gap_avg    = tab:purple,   gap_min = tab:green
 # ============================================================
 
+# Color constants so averages and gaps are visually distinct everywhere.
+COLOR_SF       = "tab:blue"
+COLOR_RAND     = "tab:orange"
+COLOR_GAP_AVG  = "tab:purple"
+COLOR_GAP_MIN  = "tab:green"
+
 def _xaxis_setup(ax, summary):
-    """Shared X-axis handling: numeric on a linear axis, categorical by index."""
+    """Shared X-axis handling: numeric on a linear axis, categorical by index.
+    Categorical labels (e.g. density: low/med-low/med-high/high) are rendered
+    horizontally."""
     x_raw = summary.index.tolist()
     numeric = all(isinstance(x, (int, float, np.integer, np.floating)) for x in x_raw)
     x = x_raw if numeric else list(range(len(x_raw)))
     if not numeric:
         ax.set_xticks(x)
-        ax.set_xticklabels([str(v) for v in x_raw], rotation=20)
+        ax.set_xticklabels([str(v) for v in x_raw], rotation=0)
     return x
 
 
@@ -295,19 +308,19 @@ def plot_sweep_raw(summary, param_name, outfile, title=None):
     fig, ax = plt.subplots(figsize=(6.5, 4.2))
     x = _xaxis_setup(ax, summary)
 
-    # Scale Free
-    ax.plot(x, summary["SF_avg"], marker="o", label="Scale Free")
+    # Scale Free (blue)
+    ax.plot(x, summary["SF_avg"], marker="o", color=COLOR_SF, label="Scale Free")
     ax.fill_between(x,
                     summary["SF_avg"] - summary["SF_avg_sem"],
                     summary["SF_avg"] + summary["SF_avg_sem"],
-                    alpha=0.2)
+                    alpha=0.2, color=COLOR_SF)
 
-    # Random
-    ax.plot(x, summary["Rand_avg"], marker="s", label="Random")
+    # Random (orange)
+    ax.plot(x, summary["Rand_avg"], marker="s", color=COLOR_RAND, label="Random")
     ax.fill_between(x,
                     summary["Rand_avg"] - summary["Rand_avg_sem"],
                     summary["Rand_avg"] + summary["Rand_avg_sem"],
-                    alpha=0.2)
+                    alpha=0.2, color=COLOR_RAND)
 
     ax.set_xlabel(param_name)
     ax.set_ylabel(f"avg violations at T={T}")
@@ -321,13 +334,16 @@ def plot_sweep_raw(summary, param_name, outfile, title=None):
 
 def plot_sweep_gap(summary, param_name, outfile, title=None):
     """Save a single-panel plot: gap_avg and gap_min vs parameter, with zero
-    reference line. Gap = SF - Random (positive = SF worse)."""
+    reference line. Gap = SF - Random (positive = SF worse).
+    Uses distinct colours (purple/green) to separate visually from raw plots."""
     fig, ax = plt.subplots(figsize=(6.5, 4.2))
     x = _xaxis_setup(ax, summary)
 
     ax.axhline(0, color="k", lw=0.5)
-    ax.plot(x, summary["gap_avg"], marker="o", label="gap_avg (SF - Random)")
-    ax.plot(x, summary["gap_min"], marker="s", label="gap_min (SF - Random)")
+    ax.plot(x, summary["gap_avg"], marker="o", color=COLOR_GAP_AVG,
+            label="gap_avg (SF - Random)")
+    ax.plot(x, summary["gap_min"], marker="s", color=COLOR_GAP_MIN,
+            label="gap_min (SF - Random)")
 
     ax.set_xlabel(param_name)
     ax.set_ylabel("violation gap")
@@ -339,14 +355,49 @@ def plot_sweep_gap(summary, param_name, outfile, title=None):
     plt.close(fig)
 
 
-def plot_overview(summaries, outfile):
-    """6-panel overview: one subplot per sweep, showing only the gaps."""
+def plot_overview_avg(summaries, outfile):
+    """6-panel overview: one subplot per sweep, showing raw SF_avg and Rand_avg
+    with SE shading. Colours match the per-sweep raw plots (blue / orange)."""
+    fig, axes = plt.subplots(2, 3, figsize=(15, 8))
+    for ax, (pname, summary) in zip(axes.flatten(), summaries.items()):
+        x = _xaxis_setup(ax, summary)
+
+        # Scale Free
+        ax.plot(x, summary["SF_avg"], marker="o", color=COLOR_SF, label="Scale Free")
+        ax.fill_between(x,
+                        summary["SF_avg"] - summary["SF_avg_sem"],
+                        summary["SF_avg"] + summary["SF_avg_sem"],
+                        alpha=0.2, color=COLOR_SF)
+
+        # Random
+        ax.plot(x, summary["Rand_avg"], marker="s", color=COLOR_RAND, label="Random")
+        ax.fill_between(x,
+                        summary["Rand_avg"] - summary["Rand_avg_sem"],
+                        summary["Rand_avg"] + summary["Rand_avg_sem"],
+                        alpha=0.2, color=COLOR_RAND)
+
+        ax.set_title(pname)
+        ax.set_xlabel(pname)
+        ax.set_ylabel("avg violations")
+        ax.grid(alpha=0.3)
+        ax.legend(fontsize=8)
+    fig.suptitle(f"Raw avg violations across all six sweeps  "
+                 f"(T={T}, {len(SEEDS)} seeds, shaded = +/- 1 SE)",
+                 fontsize=13)
+    fig.tight_layout()
+    fig.savefig(outfile, dpi=140)
+    plt.close(fig)
+
+
+def plot_overview_gap(summaries, outfile):
+    """6-panel overview: one subplot per sweep, showing the gaps only.
+    Colours match the per-sweep gap plots (purple / green)."""
     fig, axes = plt.subplots(2, 3, figsize=(15, 8))
     for ax, (pname, summary) in zip(axes.flatten(), summaries.items()):
         x = _xaxis_setup(ax, summary)
         ax.axhline(0, color="k", lw=0.5)
-        ax.plot(x, summary["gap_avg"], marker="o", label="gap_avg")
-        ax.plot(x, summary["gap_min"], marker="s", label="gap_min")
+        ax.plot(x, summary["gap_avg"], marker="o", color=COLOR_GAP_AVG, label="gap_avg")
+        ax.plot(x, summary["gap_min"], marker="s", color=COLOR_GAP_MIN, label="gap_min")
         ax.set_title(pname)
         ax.set_xlabel(pname)
         ax.set_ylabel("SF - Random")
@@ -434,17 +485,17 @@ def plot_timeseries_one(ts_df, metric_prefix, config_name, outfile, ylabel):
     t = ts_df["tick"].values
     fig, ax = plt.subplots(figsize=(7.5, 4.2))
 
-    # Scale Free
+    # Scale Free (blue)
     mean = ts_df[f"SF_{metric_prefix}_mean"].values
     sem  = ts_df[f"SF_{metric_prefix}_sem"].values
-    ax.plot(t, mean, label="Scale Free", color="C0")
-    ax.fill_between(t, mean - sem, mean + sem, alpha=0.25, color="C0")
+    ax.plot(t, mean, label="Scale Free", color=COLOR_SF)
+    ax.fill_between(t, mean - sem, mean + sem, alpha=0.25, color=COLOR_SF)
 
-    # Random
+    # Random (orange)
     mean = ts_df[f"Rand_{metric_prefix}_mean"].values
     sem  = ts_df[f"Rand_{metric_prefix}_sem"].values
-    ax.plot(t, mean, label="Random", color="C1")
-    ax.fill_between(t, mean - sem, mean + sem, alpha=0.25, color="C1")
+    ax.plot(t, mean, label="Random", color=COLOR_RAND)
+    ax.fill_between(t, mean - sem, mean + sem, alpha=0.25, color=COLOR_RAND)
 
     ax.set_xlabel("tick")
     ax.set_ylabel(ylabel)
@@ -462,11 +513,11 @@ def plot_timeseries_one(ts_df, metric_prefix, config_name, outfile, ylabel):
 
 def main():
     # ---- 8a. Prepare output folders --------------------------
-    # Everything (the xlsx and all PNG plots) goes under output/long sweep/.
+    # Everything -- the xlsx AND all PNG plots -- goes straight into
+    # output/long sweep/. No "plots" subfolder.
     out_dir   = Path(__file__).parent / "output" / "long sweep"
-    plots_dir = out_dir / "plots"
+    plots_dir = out_dir                                 # plots live alongside the xlsx
     out_dir.mkdir(parents=True, exist_ok=True)
-    plots_dir.mkdir(parents=True, exist_ok=True)
     print(f"Outputs will be saved under: {out_dir}", flush=True)
 
     # ---- 8b. Define the six parameter sweeps ----------------
@@ -608,10 +659,11 @@ def main():
         plot_sweep_gap(summary, name,
                        outfile=plots_dir / f"sweep_{name}_gap.png",
                        title=f"{name}: SF - Random gap  (T={T}, {len(SEEDS)} seeds)")
-        print(f"-> saved plots/sweep_{name}_raw.png and _gap.png", flush=True)
+        print(f"-> saved sweep_{name}_raw.png and _gap.png", flush=True)
 
-    plot_overview(summaries, outfile=plots_dir / "overview.png")
-    print("-> saved plots/overview.png", flush=True)
+    plot_overview_avg(summaries, outfile=plots_dir / "overview_avg.png")
+    plot_overview_gap(summaries, outfile=plots_dir / "overview_gap.png")
+    print("-> saved overview_avg.png and overview_gap.png", flush=True)
 
     # ---- 8h. Save individual time-series plots --------------
     for label, ts_df in ts_frames.items():
@@ -621,7 +673,7 @@ def main():
         plot_timeseries_one(ts_df, "min", label,
                             outfile=plots_dir / f"timeseries_{label}_min.png",
                             ylabel="min violations")
-        print(f"-> saved plots/timeseries_{label}_avg.png and _min.png", flush=True)
+        print(f"-> saved timeseries_{label}_avg.png and _min.png", flush=True)
 
     # ---- 8i. Print the final tables to stdout ---------------
     print("\n" + "#" * 70)

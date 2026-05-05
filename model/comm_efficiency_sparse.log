@@ -1,0 +1,7 @@
+Outputs will be saved under: G:\My Drive\phd works\santafe project\architecturesofproblemsolving\model\output\comm_efficiency
+Patch OK: agents are InstrumentedPerson
+
+Edge counts (across the 5 seeds used in this run):
+  Scale Free   edges = [218, 217, 221, 226, 206]  (mean 218)
+  Random       edges = [222, 224, 233, 236, 201]  (mean 223)
+

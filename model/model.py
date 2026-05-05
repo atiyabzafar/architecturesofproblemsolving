@@ -152,7 +152,7 @@ class Person(Agent):
         # 2) Communication - proportional to in-degree
         # Get all incoming edges (predecessors)
         in_neighbors = self.in_neighbors
-        
+
         if in_neighbors:
             comm_scale = self.model.comm_scale
             for nbr_id in in_neighbors:
@@ -162,7 +162,7 @@ class Person(Agent):
 
                 # Calculate probability for this link
                 link_probability = min(1.0, comm_scale * link_weight)
-                
+
                 if random.random() < link_probability:
                     nbr_agent = self.model.agent_list[nbr_id]  # Use fast array/index, not lookup
                     if nbr_agent.kb:  # Only if neighbor knows something
@@ -502,6 +502,12 @@ class ProblemSolvingModel(Model):
         
     def setup_random_network(self):
         """Create Erdős-Rényi random directed network."""
+<<<<<<< Updated upstream
+=======
+        # Ensure every node exists before adding edges; otherwise sparse
+        # networks may produce isolated nodes that never get added, which
+        # later breaks cache_neighbors() with a KeyError.
+>>>>>>> Stashed changes
         self.network.add_nodes_from(range(self.N))
         for i in range(self.N):
             for j in range(self.N):
