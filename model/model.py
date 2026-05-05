@@ -438,11 +438,11 @@ class ProblemSolvingModel(Model):
         """Create random AND or XOR clause over 2 variables."""
         L = 2  # Always 2 variables
         indices = random.sample(range(1, self.K + 1), L)
-        
+
         # 50% AND, 50% XOR
         operator = "AND" if random.random() < 0.5 else "XOR"
         clause = (operator, tuple(indices))
-        
+
         return self.canonicalise_clause(clause)
 
     def canonicalise_clause(self, clause):
@@ -465,8 +465,7 @@ class ProblemSolvingModel(Model):
             #     self.schedule.add(agent)
             self.agent_list = [None] * self.N
             for i in range(self.N):
-#                agent = Person(i, self, self.K)
-                agent = Person(self, i, self.K)
+                agent = Person(i, self, self.K)
                 # Mesa 3+: agent auto-registers on construction, no .add() needed
                 self.agent_list[i] = agent
             if self.type_network == "Random":
@@ -502,18 +501,14 @@ class ProblemSolvingModel(Model):
         
     def setup_random_network(self):
         """Create Erdős-Rényi random directed network."""
-<<<<<<< Updated upstream
-=======
         # Ensure every node exists before adding edges; otherwise sparse
         # networks may produce isolated nodes that never get added, which
         # later breaks cache_neighbors() with a KeyError.
->>>>>>> Stashed changes
         self.network.add_nodes_from(range(self.N))
         for i in range(self.N):
             for j in range(self.N):
                 if i != j and random.random() < self.connect_prob:
-                    weight = 0.0001 + random.random() * 0.9999
-                    self.network.add_edge(i, j, weight=weight)
+                    self.network.add_edge(i, j, weight=1.0)
     
     def setup_small_world_network(self):
         """Create Watts-Strogatz small world network (converted to directed)."""
@@ -534,8 +529,7 @@ class ProblemSolvingModel(Model):
             if random.random() < self.rewire_prob:
                 self.network.remove_edge(i, j)
                 k = random.choice([n for n in range(self.N) if n != i and not self.network.has_edge(i, n)])
-                weight = 0.0001 + random.random() * 0.9999
-                self.network.add_edge(i, k, weight=weight)
+                self.network.add_edge(i, k, weight=1.0)
 
     def setup_scale_free_network(self):
         """Create Barabási-Albert scale-free network (converted to directed)."""
@@ -570,12 +564,11 @@ class ProblemSolvingModel(Model):
                 
                 if target not in targets:
                     targets.append(target)
-                    weight = 0.0001 + random.random() * 0.9999
                     # Create only ONE directed edge with random direction
                     if random.random() < 0.5:
-                        self.network.add_edge(i, target, weight=weight)
+                        self.network.add_edge(i, target, weight=1.0)
                     else:
-                        self.network.add_edge(target, i, weight=weight)
+                        self.network.add_edge(target, i, weight=1.0)
 
 
     def setup_hierarchical_network(self):
@@ -612,8 +605,7 @@ class ProblemSolvingModel(Model):
             for i in layer:
                 for j in layer:
                     if i != j and random.random() < self.intra_layer_connectance:
-                        weight = 0.0001 + random.random() * 0.9999
-                        self.network.add_edge(i, j, weight=weight)
+                        self.network.add_edge(i, j, weight=1.0)
         
         # Inter-layer directed links
         for a in range(len(layers)):
@@ -622,8 +614,7 @@ class ProblemSolvingModel(Model):
                     for i in layers[a]:
                         for j in layers[b]:
                             if random.random() < self.inter_layer_connectance:
-                                weight = 0.0001 + random.random() * 0.9999
-                                self.network.add_edge(i, j, weight=weight)
+                                self.network.add_edge(i, j, weight=1.0)
 
     def convert_undirected_to_asymmetric_directed(self, undirected_graph):
         """
@@ -669,7 +660,7 @@ class ProblemSolvingModel(Model):
         ------
         - Loads only the network topology (which nodes connect to which)
         - Node IDs are remapped to 0, 1, 2, ..., N-1
-        - Weights are randomly assigned (0.0001 to 1.0)
+        - All edge weights are set to 1.0 (uniform)
         - Converts undirected graphs to directed
         """
         import os
@@ -710,10 +701,8 @@ class ProblemSolvingModel(Model):
             edge_list = [ (node_mapping[orig_u], node_mapping[orig_v])
               for orig_u, orig_v in loaded_graph.edges() ]
 
-            # Generate all weights at once
-            random_weights = 0.0001 + np.random.rand(len(edge_list)) * 0.9999
-
-            edge_tuples = [ (u, v, {'weight': w}) for (u, v), w in zip(edge_list, random_weights) ]
+            # Uniform unit weights
+            edge_tuples = [(u, v, {'weight': 1.0}) for (u, v) in edge_list]
 
             self.network.add_edges_from(edge_tuples)
             # # Create nodes with integer indices and corresponding agents
@@ -734,8 +723,8 @@ class ProblemSolvingModel(Model):
             #     self.network.add_edge(u_idx, v_idx, weight=weight)
             
             print(f"  Created {self.N} agents with indices 0..{self.N-1}")
-            print(f"  Added {self.network.number_of_edges()} directed edges with random weights")
-            
+            print(f"  Added {self.network.number_of_edges()} directed edges with uniform weights")
+
         except Exception as e:
             raise IOError(f"Error loading GraphML file: {str(e)}")
 
@@ -754,7 +743,7 @@ class ProblemSolvingModel(Model):
         ------
         - Loads only the network topology (which nodes connect to which)
         - Node IDs are remapped to 0, 1, 2, ..., N-1
-        - Weights are randomly assigned (0.0001 to 1.0)
+        - All edge weights are set to 1.0 (uniform)
         - Converts undirected graphs to directed (one random direction per edge)
         - Creates agents matching the number of nodes in the graph
         """
@@ -795,18 +784,16 @@ class ProblemSolvingModel(Model):
         
         print(f"  Created {self.N} agents with indices 0..{self.N-1}")
         
-        # Prepare all edges with mapped indices and random weights
-        edge_list = [(node_mapping[orig_u], node_mapping[orig_v]) 
+        # Prepare all edges with mapped indices and uniform unit weights
+        edge_list = [(node_mapping[orig_u], node_mapping[orig_v])
                     for orig_u, orig_v in loaded_graph.edges()]
-        
-        # Generate all weights at once (using NumPy for speed)
-        random_weights = 0.0001 + np.random.rand(len(edge_list)) * 0.9999
-        edge_tuples = [(u, v, {'weight': w}) for (u, v), w in zip(edge_list, random_weights)]
-        
+
+        edge_tuples = [(u, v, {'weight': 1.0}) for (u, v) in edge_list]
+
         # Bulk add edges
         self.network.add_edges_from(edge_tuples)
-        
-        print(f"  Added {self.network.number_of_edges()} directed edges with random weights")
+
+        print(f"  Added {self.network.number_of_edges()} directed edges with uniform weights")
 
 
     def compute_centrality(self):
