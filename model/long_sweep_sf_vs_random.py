@@ -30,6 +30,8 @@ Outputs (all in output/long sweep/):
     timeseries_default_min.png          -- min violations over time, baseline
     timeseries_combined_avg.png         -- avg violations over time, combined config
     timeseries_combined_min.png         -- min violations over time, combined config
+    timeseries_low_comm_avg.png         -- avg violations over time, low-comm (rate=0.1)
+    timeseries_low_comm_min.png         -- min violations over time, low-comm (rate=0.1)
 
 Error bands are the standard error of the mean (std / sqrt(n_seeds)).
 
@@ -59,7 +61,7 @@ SEEDS = [42, 43, 44, 45, 46]          # five seeds per cell
 # ---- baseline parameters (all sweeps hold everything else at these) ----
 BASE = dict(
     N=80,                 # number of agents
-    K=30,                 # number of boolean variables
+    K=80,                 # number of boolean variables
     alpha=2,              # ratio of clauses to variables (M = alpha*K)
     obs_prob=0.01,        # prob an agent observes the environment this tick
     clause_interval=10,   # ticks between replacements of one universal clause
@@ -84,11 +86,20 @@ RAND_DEFAULT = dict(type_network="Random",     connect_prob=0.20)
 # ============================================================
 
 class ConfigModel(ProblemSolvingModel):
-    """ProblemSolvingModel with a configurable XOR-clause proportion."""
+    """ProblemSolvingModel with two extra knobs:
+       - xor_prop:  fraction of generated clauses that are XOR (default 0.5)
+       - comm_rate: multiplicative scaling on self.comm_scale (default 1.0).
+                    The stock model normalises so the average per-agent
+                    successful elicitation rate is ~1/tick. Setting
+                    comm_rate=0.1 rescales that average to ~0.1/tick.
+    """
 
-    def __init__(self, *args, xor_prop=0.5, **kwargs):
+    def __init__(self, *args, xor_prop=0.5, comm_rate=1.0, **kwargs):
         self.xor_prop = xor_prop
         super().__init__(*args, **kwargs)
+        # super().__init__ -> setup_network -> compute_comm_scale, which
+        # has just set self.comm_scale = 1 / avg_in_strength. Rescale it.
+        self.comm_scale *= comm_rate
 
     def random_clause(self):
         """Pick 2 distinct variable indices; emit XOR with prob xor_prop, AND otherwise."""
@@ -111,8 +122,10 @@ def run_one(network_kwargs, seed, overrides):
         network_kwargs : dict of network-topology args, e.g. {"type_network": "Random", "connect_prob": 0.2}
         seed           : integer RNG seed for this run
         overrides      : dict that may contain:
-                            "model":    dict of kwargs to pass to ProblemSolvingModel
-                            "xor_prop": float, the XOR fraction for this run
+                            "model":     dict of kwargs to pass to ProblemSolvingModel
+                            "xor_prop":  float, the XOR fraction for this run
+                            "comm_rate": float, multiplicative scaling on comm_scale
+                                         (default 1.0; <1 means agents communicate less)
     """
     # Start from the baseline, drop the subclass-only knob, let overrides win.
     kwargs = {k: v for k, v in BASE.items() if k != "xor_prop"}
@@ -124,9 +137,10 @@ def run_one(network_kwargs, seed, overrides):
     })
     kwargs.update(overrides.get("model", {}))   # per-sweep model-arg overrides
 
-    xor_prop = overrides.get("xor_prop", BASE["xor_prop"])
+    xor_prop  = overrides.get("xor_prop",  BASE["xor_prop"])
+    comm_rate = overrides.get("comm_rate", 1.0)
 
-    m = ConfigModel(**kwargs, xor_prop=xor_prop)
+    m = ConfigModel(**kwargs, xor_prop=xor_prop, comm_rate=comm_rate)
     for _ in range(T):
         m.step()
 
@@ -427,9 +441,10 @@ def run_one_timeseries(network_kwargs, seed, overrides):
     kwargs.update(network_kwargs)
     kwargs.update({"setup_source": "generate", "R": T, "seed": seed})
     kwargs.update(overrides.get("model", {}))
-    xor_prop = overrides.get("xor_prop", BASE["xor_prop"])
+    xor_prop  = overrides.get("xor_prop",  BASE["xor_prop"])
+    comm_rate = overrides.get("comm_rate", 1.0)
 
-    m = ConfigModel(**kwargs, xor_prop=xor_prop)
+    m = ConfigModel(**kwargs, xor_prop=xor_prop, comm_rate=comm_rate)
     avg_hist = np.zeros(T, dtype=float)
     min_hist = np.zeros(T, dtype=float)
     for t in range(T):
@@ -579,6 +594,10 @@ def main():
                                 "N":               300,
                                 "obs_prob":        0.01,
                                 "clause_interval": 10}},   MED_HIGH_SF,  MED_HIGH_RAND),
+        # Default parameters (incl. obs_prob=0.01) but average per-agent
+        # successful elicitation rate scaled down to ~0.1/tick instead of ~1.
+        # Tests whether topology effects re-emerge under low-communication.
+        ("low_comm", {"comm_rate": 0.1},                   SF_DEFAULT,   RAND_DEFAULT),
     ]
 
     # ---- 8d. Run each parameter sweep -----------------------
