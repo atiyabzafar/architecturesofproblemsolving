@@ -189,12 +189,12 @@ Two structured patterns emerge:
 
 To make the transient comparison concrete, we perturb each network's equilibrium and measure how quickly it recovers. After the system has equilibrated ($t > T_\text{shock} = 5000$ ticks), we replace $30\%$ of the clauses in $\mathcal{C}$ at once. Agents do not automatically forget any clause they had learned, so the perturbation acts as an exogenous shift of the constraint environment, comparable to a sudden regulatory change or a market regime shift in an organisational setting. We track $\bar V^{\text{true}}$ for the next $5000$ ticks and report (i) the immediate \emph{peak jump} in $\bar V$ over the post-shock baseline, and (ii) the \emph{recovery time}, the number of ticks until $\bar V$ first dips back within $5\%$ of its pre-shock baseline.
 
-%\begin{figure}[H]
-%   \centering
-%  \includegraphics[width=0.85\linewidth]{output/figures/shock_recovery.png}
-% \caption{Average violations around a clause-set perturbation at $t=5000$ (vertical dashed line). $30\%$ of the universal clause %set is replaced at once. The five topologies differ noticeably in both their initial response (peak jump) and recovery dynamics.}
-%   \label{fig:shock}
-%\end{figure}
+\begin{figure}[H]
+   \centering
+  \includegraphics[width=0.85\linewidth]{output/figures/shock_recovery.png}
+ \caption{Average violations around a clause-set perturbation at $t=5000$ (vertical dashed line). $30\%$ of the universal clause set is replaced at once. The five topologies differ noticeably in both their initial response (peak jump) and recovery dynamics.}
+   \label{fig:shock}
+\end{figure}
 
 The shock results recapitulate the asymmetry observed in the unperturbed transient: hierarchical and small-world networks recover faster (their faster-mixing channels propagate the new constraints quickly), modular networks recover most slowly, and the random and scale-free networks lie between the two. Notably, the rank-ordering of topologies under shock recovery is essentially the same as the rank-ordering under initial convergence --- suggesting that ``recoverability'' and ``trainability'' are governed by the same structural features of the network, principally its diameter and the presence of fast cross-cluster paths.
 
