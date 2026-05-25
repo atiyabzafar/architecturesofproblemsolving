@@ -16,11 +16,14 @@ Outputs in output/policy_distribution/:
     final_f_distribution.png -- bar chart of f_j across variables at the final tick
 """
 
+import sys
 from pathlib import Path
 
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Locate model.py one level up (this script lives in _other/).
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from model import ProblemSolvingModel
 
 

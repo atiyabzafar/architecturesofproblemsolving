@@ -34,7 +34,8 @@ Report, after T = 1000 rounds, 3 seeds:
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+# model.py lives at the grandparent folder (this script is in _other/claude_investigations/).
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 import math
 import random

@@ -61,6 +61,7 @@ Outputs (all in output/comm_efficiency/):
 """
 
 import random
+import sys
 import time
 from pathlib import Path
 
@@ -68,6 +69,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# Locate model.py one level up (this script lives in _other/).
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 # Monkey-patch requires importing the module so we can overwrite Person.
 import model as _mm
 from model import Person, ProblemSolvingModel

@@ -4,20 +4,24 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from tqdm import tqdm
+import sys
+from pathlib import Path
 
-from model_new_1 import ProblemSolvingModel
-"""
+# Locate model.py one level up (this script lives in _other/).
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from model import ProblemSolvingModel
+
 
 def run_network_simulation(params):
-    #Run a single simulation for a network dataset
+    """Run a single simulation for a network dataset"""
     filepath, seed = params
     
     try:
         model = ProblemSolvingModel(
             K=50,
-            alpha=2.0,
+            alpha=2,
             obs_prob=0.01,
-            clause_interval=10,
+            clause_interval=1,
             R=500,
             setup_source="dataset",
             file_path=filepath,
@@ -26,7 +30,7 @@ def run_network_simulation(params):
         
         # Store metrics at each timestep
         metrics = []
-        for _ in range(500):
+        for _ in range(2000):
             model.step()
             metrics.append({
                 'step': model.steps,
@@ -45,51 +49,87 @@ def run_network_simulation(params):
 
 # Setup parameters
 graphfiles = [
-    "data/PolBlogsGiant.xml",
-    "data/PolBlogsGiant_random_trad_0.1.graphml",
-    "data/PolBlogsGiant_random_0.1.xml",
+    "data/2024ArchMessages_Spaces_etherpad.graphml",
+    "data/2025ArchMessages_Spaces.graphml", 
 ]
 
 network_names = {
-    "PolBlogsGiant.xml": "Political Blogs",
-    "PolBlogsGiant_random_trad_0.1.graphml" : "Political Blogs Randomised",
-    "PolBlogsGiant_random_0.1.xml" : "Political Blogs Randomised (hierarchy)",
+    "2024ArchMessages_Spaces_etherpad.graphml" : "2024 CGS",
+    "2025ArchMessages_Spaces.graphml" : "2025 CGS", 
 }
 
-seeds = range(42, 42+10)  # 10 seeds per network
+seeds = range(42, 42+50)  # 50 seeds per network
 params = [(f, s) for f in graphfiles for s in seeds]
 
-# Run simulations in parallel
-print("Running parallel simulations...")
-with Pool(processes=20) as pool:
-    results = list(tqdm(pool.imap(run_network_simulation, params), total=len(params)))
+if __name__ == '__main__':
+    # Run simulations in parallel
+    print("Running parallel simulations...")
+    with Pool(processes=10) as pool:
+        results = list(tqdm(pool.imap(run_network_simulation, params), total=len(params)))
+    
+    # Flatten results
+    all_results = [item for sublist in results for item in sublist]
+    df = pd.DataFrame(all_results)
+    
+    # Replace filenames with readable names
+    df['network'] = df['network'].map(network_names)
+    
+    # Create plots
+    metrics = ['avg_violations', 'min_violations', 'homogeneity']
+    fig, axes = plt.subplots(1, 3, figsize=(20, 6))
+    
+    for idx, metric in enumerate(metrics):
+        # Calculate mean and std per timestep for each network
+        stats = df.groupby(['network', 'step'])[metric].agg(['mean', 'std']).reset_index()
+        
+        # Plot each network
+        for network in df['network'].unique():
+            network_data = stats[stats['network'] == network]
+            
+            # Plot mean line
+            axes[idx].plot(network_data['step'], 
+                         network_data['mean'], 
+                         label=network)
+            
+            # Add error bands
+            axes[idx].fill_between(network_data['step'],
+                                 network_data['mean'] - network_data['std'],
+                                 network_data['mean'] + network_data['std'],
+                                 alpha=0.2)
+        
+        # Customize plot
+        axes[idx].set_xlabel('Time Steps')
+        axes[idx].set_ylabel(metric.replace('_', ' ').title())
+        axes[idx].grid(True)
+        if idx == 0:  # Only show legend on first plot
+            axes[idx].legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+    
+    plt.suptitle('CGS Comparison: Evolution of Metrics Over Time')
+    plt.tight_layout()
+    
+    # Save plots
+    print("Saving plots...")
+    fig.savefig("output/50_CGS_comparison_500_01_1.png", dpi=300, bbox_inches='tight')
+    fig.savefig("output/50_CGS_comparison_500_01_1.pdf",  bbox_inches='tight')
+    
+    # Print summary statistics
+    print("\nFinal timestep statistics:")
+    final_stats = df[df['step'] == df['step'].max()].groupby('network').agg({
+        'avg_violations': ['mean', 'std'],
+        'min_violations': ['mean', 'std'],
+        'homogeneity': ['mean', 'std']
+    })
+    print(final_stats)
+    
+    # Save data
+    df.to_csv("output/50_CGS_simulation_results_500_01_1.csv", index=False)
 
-# Flatten results
-all_results = [item for sublist in results for item in sublist]
-df = pd.DataFrame(all_results)
-"""
-df=pd.read_csv("output/diffrandomPolitical_Blogs_01_10.csv")
-graphfiles = [
-    "data/PolBlogsGiant.xml",
-    "data/PolBlogsGiant_random_trad_0.1.graphml",
-    "data/PolBlogsGiant_random_0.1.xml",
-]
-
-network_names = {
-    "PolBlogsGiant.xml": "Political Blogs",
-    "PolBlogsGiant_random_trad_0.1.graphml" : "Political Blogs Randomised",
-    "PolBlogsGiant_random_0.1.xml" : "Political Blogs Randomised (hierarchy)",
-}
-# Replace filenames with readable names
-df['network'] = df['network'].map(network_names)
-
-
-
-import scienceplots
-plt.style.use(['science','nature'])
+#df=pd.read_csv("output/50_conference_simulation_results_2000_01_10associated.csv")
 
 # Create plots
 metrics = ['avg_violations', 'homogeneity']
+import scienceplots
+plt.style.use(['science','nature'])
 fig, axes = plt.subplots(1, 2, figsize=(12, 6))
 
 # Store colors for each network
@@ -161,11 +201,12 @@ plt.tight_layout()
 
 # Save plots
 #print("Saving plots...")
-fig.savefig("output/diffrandomPolitical_Blogs_01_10.png", dpi=300, bbox_inches='tight')
-fig.savefig("output/diffrandomPolitical_Blogs_01_10.pdf", dpi=300, bbox_inches='tight')
+
+fig.savefig("output/50_CGS_comparison_all_500_01_1.png", dpi=300, bbox_inches='tight')
+fig.savefig("output/50_CGS_comparison_all_500_01_1.pdf", dpi=300, bbox_inches='tight')
 
 #fig.savefig("output/network_comparison_three_01_1.eps", format='eps', bbox_inches='tight')
-fig
+#fig
 
 # Print summary statistics
 print("\nFinal timestep statistics:")
@@ -177,4 +218,4 @@ final_stats = df[df['step'] == df['step'].max()].groupby('network').agg({
 print(final_stats)
     
 # Save data
-#df.to_csv("output/diffrandomPolitical_Blogs_01_10.csv", index=False)
+#df.to_csv("output/newmodel_network_comparison_results_all_01_10.csv", index=False)

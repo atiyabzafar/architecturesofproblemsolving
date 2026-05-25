@@ -55,8 +55,8 @@ import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
 
-# Make the parent folder's model.py importable
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+# Find model.py at the grandparent folder (this script is at _other/260508 draft/).
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from model import ProblemSolvingModel
 
 

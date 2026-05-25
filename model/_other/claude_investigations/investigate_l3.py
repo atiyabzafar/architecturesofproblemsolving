@@ -23,8 +23,9 @@ values, and report per-network avg_V plus cross-network spread.
 
 import sys
 from pathlib import Path
-# Allow `from model import ...` when this script is run from a subfolder.
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+# Allow `from model import ...` -- model.py is at the grandparent folder
+# (this script lives in _other/claude_investigations/).
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 import random
 import numpy as np

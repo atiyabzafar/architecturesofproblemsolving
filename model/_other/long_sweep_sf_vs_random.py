@@ -43,6 +43,7 @@ This will take a while to run.
 # ============================================================
 
 import random
+import sys
 import time
 from pathlib import Path
 
@@ -50,6 +51,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# Locate model.py one level up (this script lives in _other/).
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from model import ProblemSolvingModel
 
 

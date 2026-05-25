@@ -11,7 +11,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from tqdm import tqdm
 import os
+import sys
+from pathlib import Path
 
+# Locate model.py one level up (this script lives in _other/).
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from model import ProblemSolvingModel
 
 os.makedirs("output", exist_ok=True)
