@@ -1,2 +1,5 @@
 model/output/*.csv
 model/output/**/*.csv
+model/__pycache__/model.cpython-311.pyc
+model/__pycache__/model_2026_04_26.cpython-311.pyc
+model/__pycache__/model_2026_04_26.cpython-311.pyc
