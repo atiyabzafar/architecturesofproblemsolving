@@ -584,7 +584,7 @@ PAGE = r"""<!doctype html>
   body  { margin: 0; padding: 18px 24px; font-family: -apple-system, system-ui, sans-serif;
           background: #0b0d10; color: #ddd; }
   h1    { font-size: 18px; margin: 0 0 4px 0; color: #fff; font-weight: 500; }
-  p.subtitle { font-size: 13px; line-height: 1.5; max-width: 950px; color: #aaa; margin: 0 0 14px 0; }
+  p.subtitle { font-size: 13px; line-height: 1.5; color: #aaa; margin: 0 0 14px 0; }
 
   details.form-card { background: #15181c; border-radius: 8px; padding: 8px 14px; margin-bottom: 14px; }
   details.form-card summary { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em;
@@ -692,6 +692,9 @@ PAGE = r"""<!doctype html>
 <body>
 
 <h1>Problem-solving model -- interactive</h1>
+<!-- The intro line and the parameters card below describe the Live network view.
+     A script (search "relocate") moves them into the #tab-live section at load, so
+     they render under the tab bar and only while the Live network tab is selected. -->
 <p class="subtitle">
   Set parameters below, click <strong>Generate</strong>, then explore the run.
   Node <strong>size</strong> = clauses learned. Node <strong>colour</strong>: green = accurate, red = many violations.
@@ -783,13 +786,12 @@ PAGE = r"""<!doctype html>
 
     <h2 style="color:#fff;">Running a simulation</h2>
     <ol>
-      <li>Open the <strong>parameters</strong> bar at the top. Pick a <strong>network type</strong>
-      and its parameters, and set the model parameters (N agents, K variables, α clause density,
-      <code>clause_interval</code> drift speed, T ticks).</li>
+      <li>Go to the <strong>Live network</strong> tab and open the <strong>parameters</strong> bar
+      at the top of it. Pick a <strong>network type</strong> and its parameters, and set the model
+      parameters (N agents, K variables, α clause density, <code>clause_interval</code> drift speed, T ticks).</li>
       <li>Leave <strong>seed</strong> blank to get a fresh random network every time, or type a
       number to reproduce a specific one (the seed used is shown after each run and in the run label).</li>
-      <li>Click <strong>Generate</strong>. The run computes on the server; you are then taken to the
-      <strong>Live network</strong> tab and playback begins.</li>
+      <li>Click <strong>Generate</strong>. The run computes on the server and playback begins.</li>
     </ol>
 
     <h2 style="color:#fff;">The four switches</h2>
@@ -1646,6 +1648,16 @@ function showTab(which) {
 document.getElementById('tabbtn-help').addEventListener('click', () => showTab('help'));
 document.getElementById('tabbtn-live').addEventListener('click', () => showTab('live'));
 document.getElementById('tabbtn-perf').addEventListener('click', () => showTab('perf'));
+
+// relocate the intro line + parameters card into the Live network tab, so they
+// belong to that view (shown under the tabs, only when Live network is active).
+(() => {
+  const live = document.getElementById('tab-live');
+  const form = document.querySelector('details.form-card');
+  const sub  = document.querySelector('p.subtitle');
+  if (live && form) live.insertBefore(form, live.firstChild);
+  if (live && sub)  live.insertBefore(sub, live.firstChild);
+})();
 
 // --- snapshot persistence (localStorage) ---
 function loadSnaps() {
