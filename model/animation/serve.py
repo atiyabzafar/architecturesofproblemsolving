@@ -1792,8 +1792,9 @@ document.querySelectorAll('.chart-actions button').forEach(b => b.addEventListen
 // Drive the animation at ~60fps with a timer (idles until DATA arrives).
 setInterval(frame, 1000 / 60);
 
-// Auto-run once on load so the network is visible immediately, no click needed.
-window.addEventListener('load', runGeneration);
+// No auto-run on load: the page opens on the Instructions tab and the visitor
+// clicks Generate when ready. (Auto-running suited local use but not the hosted
+// free tier, where a full T=2000 run is ~a minute of throttled CPU on load.)
 </script>
 </body>
 </html>
