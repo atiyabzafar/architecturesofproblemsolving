@@ -1,0 +1,2021 @@
+condition,indeg,meanV
+recency + learning by testing,1,34.046
+recency + learning by testing,1,31.704
+recency + learning by testing,2,32.754
+recency + learning by testing,3,31.04
+recency + learning by testing,4,34.21
+recency + learning by testing,5,32.02
+recency + learning by testing,6,30.626
+recency + learning by testing,7,32.906
+recency + learning by testing,8,31.596
+recency + learning by testing,9,30.412
+recency + learning by testing,10,32.756
+recency + learning by testing,11,29.822
+recency + learning by testing,12,31.436
+recency + learning by testing,13,31.014
+recency + learning by testing,14,27.504
+recency + learning by testing,15,29.264
+recency + learning by testing,16,31.916
+recency + learning by testing,17,27.682
+recency + learning by testing,18,31.352
+recency + learning by testing,19,28.638
+recency + learning by testing,20,29.002
+recency + learning by testing,21,29.52
+recency + learning by testing,22,31.36
+recency + learning by testing,23,32.044
+recency + learning by testing,24,31.184
+recency + learning by testing,25,30.482
+recency + learning by testing,26,28.98
+recency + learning by testing,27,30.012
+recency + learning by testing,28,30.954
+recency + learning by testing,29,28.978
+recency + learning by testing,30,30.548
+recency + learning by testing,31,32.776
+recency + learning by testing,32,31.212
+recency + learning by testing,33,30.278
+recency + learning by testing,34,32.056
+recency + learning by testing,35,31.17
+recency + learning by testing,36,31.002
+recency + learning by testing,37,30.154
+recency + learning by testing,38,28.866
+recency + learning by testing,39,31.294
+recency + learning by testing,40,32.598
+recency + learning by testing,41,28.998
+recency + learning by testing,42,30.036
+recency + learning by testing,43,30.732
+recency + learning by testing,44,34.474
+recency + learning by testing,45,32.38
+recency + learning by testing,46,29.918
+recency + learning by testing,47,29.126
+recency + learning by testing,48,27.28
+recency + learning by testing,49,29.226
+recency + learning by testing,50,28.196
+recency + learning by testing,51,30.158
+recency + learning by testing,52,28.474
+recency + learning by testing,53,32.362
+recency + learning by testing,54,28.792
+recency + learning by testing,55,31.798
+recency + learning by testing,56,30.738
+recency + learning by testing,57,30.842
+recency + learning by testing,58,29.38
+recency + learning by testing,59,28.054
+recency + learning by testing,60,29.294
+recency + learning by testing,61,29.304
+recency + learning by testing,62,28.696
+recency + learning by testing,63,29.496
+recency + learning by testing,64,28.82
+recency + learning by testing,65,26.858
+recency + learning by testing,66,31.816
+recency + learning by testing,67,30.648
+recency + learning by testing,68,29.03
+recency + learning by testing,69,29.12
+recency + learning by testing,70,28.018
+recency + learning by testing,71,28.02
+recency + learning by testing,72,30.852
+recency + learning by testing,73,30.776
+recency + learning by testing,74,29.348
+recency + learning by testing,75,29.926
+recency + learning by testing,76,29.332
+recency + learning by testing,77,32.276
+recency + learning by testing,78,29.12
+recency + learning by testing,79,30.09
+recency + learning by testing,80,28.376
+recency + learning by testing,81,28.67
+recency + learning by testing,82,30.652
+recency + learning by testing,83,27.996
+recency + learning by testing,84,31.348
+recency + learning by testing,85,27.872
+recency + learning by testing,86,28.6
+recency + learning by testing,87,28.004
+recency + learning by testing,88,29.384
+recency + learning by testing,89,29.626
+recency + learning by testing,90,29.072
+recency + learning by testing,91,28.214
+recency + learning by testing,92,27.432
+recency + learning by testing,93,29.688
+recency + learning by testing,94,29.298
+recency + learning by testing,95,29.722
+recency + learning by testing,96,27.808
+recency + learning by testing,97,27.304
+recency + learning by testing,98,27.09
+recency + learning by testing,99,29.572
+recency + learning by testing,100,28.936
+recency + learning by testing,1,30.662
+recency + learning by testing,1,31.042
+recency + learning by testing,2,31.64
+recency + learning by testing,3,35.148
+recency + learning by testing,4,34.174
+recency + learning by testing,5,28.232
+recency + learning by testing,6,32.548
+recency + learning by testing,7,31.248
+recency + learning by testing,8,27.622
+recency + learning by testing,9,28.518
+recency + learning by testing,10,32.126
+recency + learning by testing,11,30.026
+recency + learning by testing,12,36.262
+recency + learning by testing,13,31.124
+recency + learning by testing,14,32.848
+recency + learning by testing,15,33.694
+recency + learning by testing,16,30.368
+recency + learning by testing,17,33.96
+recency + learning by testing,18,31.1
+recency + learning by testing,19,33.0
+recency + learning by testing,20,30.122
+recency + learning by testing,21,28.386
+recency + learning by testing,22,29.762
+recency + learning by testing,23,32.74
+recency + learning by testing,24,33.662
+recency + learning by testing,25,31.846
+recency + learning by testing,26,31.484
+recency + learning by testing,27,28.996
+recency + learning by testing,28,32.9
+recency + learning by testing,29,31.282
+recency + learning by testing,30,32.67
+recency + learning by testing,31,30.144
+recency + learning by testing,32,30.708
+recency + learning by testing,33,28.996
+recency + learning by testing,34,31.854
+recency + learning by testing,35,28.014
+recency + learning by testing,36,30.932
+recency + learning by testing,37,30.03
+recency + learning by testing,38,33.264
+recency + learning by testing,39,31.782
+recency + learning by testing,40,30.784
+recency + learning by testing,41,33.214
+recency + learning by testing,42,29.358
+recency + learning by testing,43,29.464
+recency + learning by testing,44,28.71
+recency + learning by testing,45,29.936
+recency + learning by testing,46,30.268
+recency + learning by testing,47,31.388
+recency + learning by testing,48,27.096
+recency + learning by testing,49,30.516
+recency + learning by testing,50,30.954
+recency + learning by testing,51,30.844
+recency + learning by testing,52,28.878
+recency + learning by testing,53,30.976
+recency + learning by testing,54,31.12
+recency + learning by testing,55,31.676
+recency + learning by testing,56,27.774
+recency + learning by testing,57,29.302
+recency + learning by testing,58,29.758
+recency + learning by testing,59,28.772
+recency + learning by testing,60,28.624
+recency + learning by testing,61,27.168
+recency + learning by testing,62,28.17
+recency + learning by testing,63,28.204
+recency + learning by testing,64,27.772
+recency + learning by testing,65,28.668
+recency + learning by testing,66,26.456
+recency + learning by testing,67,29.428
+recency + learning by testing,68,29.178
+recency + learning by testing,69,31.626
+recency + learning by testing,70,28.764
+recency + learning by testing,71,31.394
+recency + learning by testing,72,30.718
+recency + learning by testing,73,29.272
+recency + learning by testing,74,31.19
+recency + learning by testing,75,28.246
+recency + learning by testing,76,29.544
+recency + learning by testing,77,30.968
+recency + learning by testing,78,31.642
+recency + learning by testing,79,26.35
+recency + learning by testing,80,28.112
+recency + learning by testing,81,27.934
+recency + learning by testing,82,29.084
+recency + learning by testing,83,28.066
+recency + learning by testing,84,27.318
+recency + learning by testing,85,30.4
+recency + learning by testing,86,29.918
+recency + learning by testing,87,28.522
+recency + learning by testing,88,26.62
+recency + learning by testing,89,26.666
+recency + learning by testing,90,27.438
+recency + learning by testing,91,27.744
+recency + learning by testing,92,29.752
+recency + learning by testing,93,28.54
+recency + learning by testing,94,28.714
+recency + learning by testing,95,28.212
+recency + learning by testing,96,27.728
+recency + learning by testing,97,27.496
+recency + learning by testing,98,30.246
+recency + learning by testing,99,25.856
+recency + learning by testing,100,28.068
+recency + learning by testing,1,33.722
+recency + learning by testing,1,36.528
+recency + learning by testing,2,31.794
+recency + learning by testing,3,33.912
+recency + learning by testing,4,34.034
+recency + learning by testing,5,32.438
+recency + learning by testing,6,30.24
+recency + learning by testing,7,31.966
+recency + learning by testing,8,32.678
+recency + learning by testing,9,30.778
+recency + learning by testing,10,29.544
+recency + learning by testing,11,33.88
+recency + learning by testing,12,30.374
+recency + learning by testing,13,33.854
+recency + learning by testing,14,29.324
+recency + learning by testing,15,31.334
+recency + learning by testing,16,31.026
+recency + learning by testing,17,32.502
+recency + learning by testing,18,30.014
+recency + learning by testing,19,30.66
+recency + learning by testing,20,31.904
+recency + learning by testing,21,32.568
+recency + learning by testing,22,29.26
+recency + learning by testing,23,29.25
+recency + learning by testing,24,29.066
+recency + learning by testing,25,31.964
+recency + learning by testing,26,28.154
+recency + learning by testing,27,30.51
+recency + learning by testing,28,29.954
+recency + learning by testing,29,31.132
+recency + learning by testing,30,29.974
+recency + learning by testing,31,33.052
+recency + learning by testing,32,28.296
+recency + learning by testing,33,27.474
+recency + learning by testing,34,30.4
+recency + learning by testing,35,30.68
+recency + learning by testing,36,29.508
+recency + learning by testing,37,29.076
+recency + learning by testing,38,29.75
+recency + learning by testing,39,29.386
+recency + learning by testing,40,27.518
+recency + learning by testing,41,31.948
+recency + learning by testing,42,30.188
+recency + learning by testing,43,30.32
+recency + learning by testing,44,28.664
+recency + learning by testing,45,27.692
+recency + learning by testing,46,32.34
+recency + learning by testing,47,30.526
+recency + learning by testing,48,32.92
+recency + learning by testing,49,26.752
+recency + learning by testing,50,28.026
+recency + learning by testing,51,27.736
+recency + learning by testing,52,31.024
+recency + learning by testing,53,32.092
+recency + learning by testing,54,29.23
+recency + learning by testing,55,28.308
+recency + learning by testing,56,31.356
+recency + learning by testing,57,29.484
+recency + learning by testing,58,32.896
+recency + learning by testing,59,31.316
+recency + learning by testing,60,27.324
+recency + learning by testing,61,28.212
+recency + learning by testing,62,27.506
+recency + learning by testing,63,28.186
+recency + learning by testing,64,29.62
+recency + learning by testing,65,28.406
+recency + learning by testing,66,31.078
+recency + learning by testing,67,30.468
+recency + learning by testing,68,30.26
+recency + learning by testing,69,28.282
+recency + learning by testing,70,27.36
+recency + learning by testing,71,27.05
+recency + learning by testing,72,29.388
+recency + learning by testing,73,29.126
+recency + learning by testing,74,30.22
+recency + learning by testing,75,28.43
+recency + learning by testing,76,29.05
+recency + learning by testing,77,29.262
+recency + learning by testing,78,28.654
+recency + learning by testing,79,32.154
+recency + learning by testing,80,30.72
+recency + learning by testing,81,32.222
+recency + learning by testing,82,28.99
+recency + learning by testing,83,30.342
+recency + learning by testing,84,27.68
+recency + learning by testing,85,28.126
+recency + learning by testing,86,27.852
+recency + learning by testing,87,29.434
+recency + learning by testing,88,25.778
+recency + learning by testing,89,29.022
+recency + learning by testing,90,27.106
+recency + learning by testing,91,29.46
+recency + learning by testing,92,27.816
+recency + learning by testing,93,26.75
+recency + learning by testing,94,27.514
+recency + learning by testing,95,26.518
+recency + learning by testing,96,29.362
+recency + learning by testing,97,30.876
+recency + learning by testing,98,26.788
+recency + learning by testing,99,29.054
+recency + learning by testing,100,27.84
+recency + learning by testing,1,32.288
+recency + learning by testing,1,30.26
+recency + learning by testing,2,32.464
+recency + learning by testing,3,28.556
+recency + learning by testing,4,30.252
+recency + learning by testing,5,32.54
+recency + learning by testing,6,33.392
+recency + learning by testing,7,34.032
+recency + learning by testing,8,31.024
+recency + learning by testing,9,28.996
+recency + learning by testing,10,32.65
+recency + learning by testing,11,31.23
+recency + learning by testing,12,30.304
+recency + learning by testing,13,34.41
+recency + learning by testing,14,30.402
+recency + learning by testing,15,29.96
+recency + learning by testing,16,28.116
+recency + learning by testing,17,30.468
+recency + learning by testing,18,32.162
+recency + learning by testing,19,31.354
+recency + learning by testing,20,32.396
+recency + learning by testing,21,28.498
+recency + learning by testing,22,33.07
+recency + learning by testing,23,30.578
+recency + learning by testing,24,32.426
+recency + learning by testing,25,32.828
+recency + learning by testing,26,32.036
+recency + learning by testing,27,32.3
+recency + learning by testing,28,31.014
+recency + learning by testing,29,29.03
+recency + learning by testing,30,30.686
+recency + learning by testing,31,35.33
+recency + learning by testing,32,31.988
+recency + learning by testing,33,31.318
+recency + learning by testing,34,30.174
+recency + learning by testing,35,29.504
+recency + learning by testing,36,29.596
+recency + learning by testing,37,30.488
+recency + learning by testing,38,29.336
+recency + learning by testing,39,29.62
+recency + learning by testing,40,31.372
+recency + learning by testing,41,31.772
+recency + learning by testing,42,30.3
+recency + learning by testing,43,28.528
+recency + learning by testing,44,29.67
+recency + learning by testing,45,30.044
+recency + learning by testing,46,28.868
+recency + learning by testing,47,29.086
+recency + learning by testing,48,29.416
+recency + learning by testing,49,31.126
+recency + learning by testing,50,31.066
+recency + learning by testing,51,30.5
+recency + learning by testing,52,30.202
+recency + learning by testing,53,29.34
+recency + learning by testing,54,29.496
+recency + learning by testing,55,31.026
+recency + learning by testing,56,30.018
+recency + learning by testing,57,30.484
+recency + learning by testing,58,28.14
+recency + learning by testing,59,30.506
+recency + learning by testing,60,27.148
+recency + learning by testing,61,30.5
+recency + learning by testing,62,28.0
+recency + learning by testing,63,30.904
+recency + learning by testing,64,30.576
+recency + learning by testing,65,31.226
+recency + learning by testing,66,27.722
+recency + learning by testing,67,30.974
+recency + learning by testing,68,30.604
+recency + learning by testing,69,30.026
+recency + learning by testing,70,29.23
+recency + learning by testing,71,31.694
+recency + learning by testing,72,29.552
+recency + learning by testing,73,26.78
+recency + learning by testing,74,29.938
+recency + learning by testing,75,29.41
+recency + learning by testing,76,30.66
+recency + learning by testing,77,29.074
+recency + learning by testing,78,29.304
+recency + learning by testing,79,28.862
+recency + learning by testing,80,28.926
+recency + learning by testing,81,30.164
+recency + learning by testing,82,27.63
+recency + learning by testing,83,29.208
+recency + learning by testing,84,32.224
+recency + learning by testing,85,27.446
+recency + learning by testing,86,27.946
+recency + learning by testing,87,28.106
+recency + learning by testing,88,27.048
+recency + learning by testing,89,29.854
+recency + learning by testing,90,27.114
+recency + learning by testing,91,27.49
+recency + learning by testing,92,26.782
+recency + learning by testing,93,30.046
+recency + learning by testing,94,27.228
+recency + learning by testing,95,27.78
+recency + learning by testing,96,28.564
+recency + learning by testing,97,29.8
+recency + learning by testing,98,26.426
+recency + learning by testing,99,27.494
+recency + learning by testing,100,26.518
+recency + learning by testing,1,31.994
+recency + learning by testing,1,31.488
+recency + learning by testing,2,29.828
+recency + learning by testing,3,31.25
+recency + learning by testing,4,34.706
+recency + learning by testing,5,32.222
+recency + learning by testing,6,29.916
+recency + learning by testing,7,30.178
+recency + learning by testing,8,31.73
+recency + learning by testing,9,29.226
+recency + learning by testing,10,28.844
+recency + learning by testing,11,31.6
+recency + learning by testing,12,30.068
+recency + learning by testing,13,30.428
+recency + learning by testing,14,31.582
+recency + learning by testing,15,33.02
+recency + learning by testing,16,29.626
+recency + learning by testing,17,31.718
+recency + learning by testing,18,32.556
+recency + learning by testing,19,30.874
+recency + learning by testing,20,30.026
+recency + learning by testing,21,31.792
+recency + learning by testing,22,29.39
+recency + learning by testing,23,28.416
+recency + learning by testing,24,29.438
+recency + learning by testing,25,29.246
+recency + learning by testing,26,28.87
+recency + learning by testing,27,30.516
+recency + learning by testing,28,27.622
+recency + learning by testing,29,28.174
+recency + learning by testing,30,31.884
+recency + learning by testing,31,31.308
+recency + learning by testing,32,30.212
+recency + learning by testing,33,30.972
+recency + learning by testing,34,33.502
+recency + learning by testing,35,29.53
+recency + learning by testing,36,29.968
+recency + learning by testing,37,29.016
+recency + learning by testing,38,33.016
+recency + learning by testing,39,29.984
+recency + learning by testing,40,26.8
+recency + learning by testing,41,28.104
+recency + learning by testing,42,31.058
+recency + learning by testing,43,27.198
+recency + learning by testing,44,27.716
+recency + learning by testing,45,30.108
+recency + learning by testing,46,29.412
+recency + learning by testing,47,32.17
+recency + learning by testing,48,31.122
+recency + learning by testing,49,27.44
+recency + learning by testing,50,30.642
+recency + learning by testing,51,27.412
+recency + learning by testing,52,29.816
+recency + learning by testing,53,29.04
+recency + learning by testing,54,30.166
+recency + learning by testing,55,26.636
+recency + learning by testing,56,29.092
+recency + learning by testing,57,29.698
+recency + learning by testing,58,28.458
+recency + learning by testing,59,29.602
+recency + learning by testing,60,30.976
+recency + learning by testing,61,27.994
+recency + learning by testing,62,26.13
+recency + learning by testing,63,27.644
+recency + learning by testing,64,28.996
+recency + learning by testing,65,27.336
+recency + learning by testing,66,29.952
+recency + learning by testing,67,28.962
+recency + learning by testing,68,29.87
+recency + learning by testing,69,26.742
+recency + learning by testing,70,29.276
+recency + learning by testing,71,30.336
+recency + learning by testing,72,28.546
+recency + learning by testing,73,28.424
+recency + learning by testing,74,26.94
+recency + learning by testing,75,27.128
+recency + learning by testing,76,27.378
+recency + learning by testing,77,28.308
+recency + learning by testing,78,28.298
+recency + learning by testing,79,26.754
+recency + learning by testing,80,30.972
+recency + learning by testing,81,30.952
+recency + learning by testing,82,28.676
+recency + learning by testing,83,28.646
+recency + learning by testing,84,27.982
+recency + learning by testing,85,29.866
+recency + learning by testing,86,28.74
+recency + learning by testing,87,29.3
+recency + learning by testing,88,29.924
+recency + learning by testing,89,28.378
+recency + learning by testing,90,28.208
+recency + learning by testing,91,28.494
+recency + learning by testing,92,29.58
+recency + learning by testing,93,27.06
+recency + learning by testing,94,28.518
+recency + learning by testing,95,28.06
+recency + learning by testing,96,27.914
+recency + learning by testing,97,28.448
+recency + learning by testing,98,27.392
+recency + learning by testing,99,27.402
+recency + learning by testing,100,26.748
+recency + learning by testing,1,33.448
+recency + learning by testing,1,30.922
+recency + learning by testing,2,32.224
+recency + learning by testing,3,30.052
+recency + learning by testing,4,33.142
+recency + learning by testing,5,33.058
+recency + learning by testing,6,28.68
+recency + learning by testing,7,28.578
+recency + learning by testing,8,28.884
+recency + learning by testing,9,31.83
+recency + learning by testing,10,29.224
+recency + learning by testing,11,30.7
+recency + learning by testing,12,29.152
+recency + learning by testing,13,33.252
+recency + learning by testing,14,33.538
+recency + learning by testing,15,27.274
+recency + learning by testing,16,30.056
+recency + learning by testing,17,31.302
+recency + learning by testing,18,30.206
+recency + learning by testing,19,29.69
+recency + learning by testing,20,29.504
+recency + learning by testing,21,30.756
+recency + learning by testing,22,28.128
+recency + learning by testing,23,29.152
+recency + learning by testing,24,31.184
+recency + learning by testing,25,31.262
+recency + learning by testing,26,28.96
+recency + learning by testing,27,29.35
+recency + learning by testing,28,30.004
+recency + learning by testing,29,29.32
+recency + learning by testing,30,28.498
+recency + learning by testing,31,28.074
+recency + learning by testing,32,26.934
+recency + learning by testing,33,29.73
+recency + learning by testing,34,26.49
+recency + learning by testing,35,27.386
+recency + learning by testing,36,29.308
+recency + learning by testing,37,27.86
+recency + learning by testing,38,27.732
+recency + learning by testing,39,30.088
+recency + learning by testing,40,25.57
+recency + learning by testing,41,26.438
+recency + learning by testing,42,27.114
+recency + learning by testing,43,29.706
+recency + learning by testing,44,29.184
+recency + learning by testing,45,27.506
+recency + learning by testing,46,29.904
+recency + learning by testing,47,29.19
+recency + learning by testing,48,29.442
+recency + learning by testing,49,31.324
+recency + learning by testing,50,31.514
+recency + learning by testing,51,28.678
+recency + learning by testing,52,28.386
+recency + learning by testing,53,28.17
+recency + learning by testing,54,26.274
+recency + learning by testing,55,30.702
+recency + learning by testing,56,27.77
+recency + learning by testing,57,30.12
+recency + learning by testing,58,31.55
+recency + learning by testing,59,28.176
+recency + learning by testing,60,27.19
+recency + learning by testing,61,29.096
+recency + learning by testing,62,30.758
+recency + learning by testing,63,28.152
+recency + learning by testing,64,28.75
+recency + learning by testing,65,26.082
+recency + learning by testing,66,27.69
+recency + learning by testing,67,30.556
+recency + learning by testing,68,28.278
+recency + learning by testing,69,31.598
+recency + learning by testing,70,28.556
+recency + learning by testing,71,30.4
+recency + learning by testing,72,29.486
+recency + learning by testing,73,28.396
+recency + learning by testing,74,29.914
+recency + learning by testing,75,26.346
+recency + learning by testing,76,27.294
+recency + learning by testing,77,29.624
+recency + learning by testing,78,28.216
+recency + learning by testing,79,26.404
+recency + learning by testing,80,26.902
+recency + learning by testing,81,26.458
+recency + learning by testing,82,26.858
+recency + learning by testing,83,27.54
+recency + learning by testing,84,29.534
+recency + learning by testing,85,28.478
+recency + learning by testing,86,28.668
+recency + learning by testing,87,26.254
+recency + learning by testing,88,29.132
+recency + learning by testing,89,26.688
+recency + learning by testing,90,27.316
+recency + learning by testing,91,28.496
+recency + learning by testing,92,27.3
+recency + learning by testing,93,27.54
+recency + learning by testing,94,28.134
+recency + learning by testing,95,28.702
+recency + learning by testing,96,27.33
+recency + learning by testing,97,28.888
+recency + learning by testing,98,28.586
+recency + learning by testing,99,28.398
+recency + learning by testing,100,27.156
+recency + learning by testing,1,31.834
+recency + learning by testing,1,31.984
+recency + learning by testing,2,30.38
+recency + learning by testing,3,31.826
+recency + learning by testing,4,33.126
+recency + learning by testing,5,33.004
+recency + learning by testing,6,32.106
+recency + learning by testing,7,34.3
+recency + learning by testing,8,31.294
+recency + learning by testing,9,31.916
+recency + learning by testing,10,30.536
+recency + learning by testing,11,32.504
+recency + learning by testing,12,32.672
+recency + learning by testing,13,31.364
+recency + learning by testing,14,31.844
+recency + learning by testing,15,27.142
+recency + learning by testing,16,29.43
+recency + learning by testing,17,27.108
+recency + learning by testing,18,29.082
+recency + learning by testing,19,29.936
+recency + learning by testing,20,30.648
+recency + learning by testing,21,29.006
+recency + learning by testing,22,32.13
+recency + learning by testing,23,32.23
+recency + learning by testing,24,31.158
+recency + learning by testing,25,28.676
+recency + learning by testing,26,29.342
+recency + learning by testing,27,32.368
+recency + learning by testing,28,31.71
+recency + learning by testing,29,31.762
+recency + learning by testing,30,27.014
+recency + learning by testing,31,31.594
+recency + learning by testing,32,30.484
+recency + learning by testing,33,27.964
+recency + learning by testing,34,29.19
+recency + learning by testing,35,29.896
+recency + learning by testing,36,30.486
+recency + learning by testing,37,29.714
+recency + learning by testing,38,28.526
+recency + learning by testing,39,28.42
+recency + learning by testing,40,27.96
+recency + learning by testing,41,30.19
+recency + learning by testing,42,29.232
+recency + learning by testing,43,27.188
+recency + learning by testing,44,28.022
+recency + learning by testing,45,29.062
+recency + learning by testing,46,28.582
+recency + learning by testing,47,27.454
+recency + learning by testing,48,28.47
+recency + learning by testing,49,27.534
+recency + learning by testing,50,28.39
+recency + learning by testing,51,26.702
+recency + learning by testing,52,29.392
+recency + learning by testing,53,28.876
+recency + learning by testing,54,26.738
+recency + learning by testing,55,29.814
+recency + learning by testing,56,28.418
+recency + learning by testing,57,28.756
+recency + learning by testing,58,26.996
+recency + learning by testing,59,28.026
+recency + learning by testing,60,27.992
+recency + learning by testing,61,27.288
+recency + learning by testing,62,27.652
+recency + learning by testing,63,29.378
+recency + learning by testing,64,28.258
+recency + learning by testing,65,26.46
+recency + learning by testing,66,29.094
+recency + learning by testing,67,29.466
+recency + learning by testing,68,28.284
+recency + learning by testing,69,27.418
+recency + learning by testing,70,28.154
+recency + learning by testing,71,27.556
+recency + learning by testing,72,29.302
+recency + learning by testing,73,28.026
+recency + learning by testing,74,28.476
+recency + learning by testing,75,27.76
+recency + learning by testing,76,28.566
+recency + learning by testing,77,30.244
+recency + learning by testing,78,31.056
+recency + learning by testing,79,28.552
+recency + learning by testing,80,28.002
+recency + learning by testing,81,25.244
+recency + learning by testing,82,28.784
+recency + learning by testing,83,27.458
+recency + learning by testing,84,29.928
+recency + learning by testing,85,28.842
+recency + learning by testing,86,27.064
+recency + learning by testing,87,25.458
+recency + learning by testing,88,29.452
+recency + learning by testing,89,28.31
+recency + learning by testing,90,28.448
+recency + learning by testing,91,25.42
+recency + learning by testing,92,27.564
+recency + learning by testing,93,25.368
+recency + learning by testing,94,29.642
+recency + learning by testing,95,28.784
+recency + learning by testing,96,28.286
+recency + learning by testing,97,25.848
+recency + learning by testing,98,27.518
+recency + learning by testing,99,27.99
+recency + learning by testing,100,26.808
+recency + learning by testing,1,33.664
+recency + learning by testing,1,31.196
+recency + learning by testing,2,29.094
+recency + learning by testing,3,33.26
+recency + learning by testing,4,33.116
+recency + learning by testing,5,30.678
+recency + learning by testing,6,34.878
+recency + learning by testing,7,29.424
+recency + learning by testing,8,31.838
+recency + learning by testing,9,32.262
+recency + learning by testing,10,31.356
+recency + learning by testing,11,30.022
+recency + learning by testing,12,33.652
+recency + learning by testing,13,31.696
+recency + learning by testing,14,30.362
+recency + learning by testing,15,31.288
+recency + learning by testing,16,31.096
+recency + learning by testing,17,29.87
+recency + learning by testing,18,33.224
+recency + learning by testing,19,30.954
+recency + learning by testing,20,33.45
+recency + learning by testing,21,31.776
+recency + learning by testing,22,32.608
+recency + learning by testing,23,30.64
+recency + learning by testing,24,29.288
+recency + learning by testing,25,27.924
+recency + learning by testing,26,30.98
+recency + learning by testing,27,30.784
+recency + learning by testing,28,28.71
+recency + learning by testing,29,29.396
+recency + learning by testing,30,29.702
+recency + learning by testing,31,31.884
+recency + learning by testing,32,29.18
+recency + learning by testing,33,30.644
+recency + learning by testing,34,31.266
+recency + learning by testing,35,28.166
+recency + learning by testing,36,30.232
+recency + learning by testing,37,29.642
+recency + learning by testing,38,30.68
+recency + learning by testing,39,31.398
+recency + learning by testing,40,29.47
+recency + learning by testing,41,31.656
+recency + learning by testing,42,28.37
+recency + learning by testing,43,30.218
+recency + learning by testing,44,30.318
+recency + learning by testing,45,29.796
+recency + learning by testing,46,31.204
+recency + learning by testing,47,28.6
+recency + learning by testing,48,28.852
+recency + learning by testing,49,32.742
+recency + learning by testing,50,29.398
+recency + learning by testing,51,30.498
+recency + learning by testing,52,30.122
+recency + learning by testing,53,29.66
+recency + learning by testing,54,28.392
+recency + learning by testing,55,26.94
+recency + learning by testing,56,30.138
+recency + learning by testing,57,29.09
+recency + learning by testing,58,25.2
+recency + learning by testing,59,30.51
+recency + learning by testing,60,29.47
+recency + learning by testing,61,32.152
+recency + learning by testing,62,31.324
+recency + learning by testing,63,30.18
+recency + learning by testing,64,29.524
+recency + learning by testing,65,27.974
+recency + learning by testing,66,26.518
+recency + learning by testing,67,29.964
+recency + learning by testing,68,29.086
+recency + learning by testing,69,32.172
+recency + learning by testing,70,28.59
+recency + learning by testing,71,29.042
+recency + learning by testing,72,30.49
+recency + learning by testing,73,27.348
+recency + learning by testing,74,30.548
+recency + learning by testing,75,29.85
+recency + learning by testing,76,28.43
+recency + learning by testing,77,27.866
+recency + learning by testing,78,30.638
+recency + learning by testing,79,27.668
+recency + learning by testing,80,28.488
+recency + learning by testing,81,29.656
+recency + learning by testing,82,27.874
+recency + learning by testing,83,29.24
+recency + learning by testing,84,28.464
+recency + learning by testing,85,28.538
+recency + learning by testing,86,28.422
+recency + learning by testing,87,27.238
+recency + learning by testing,88,27.168
+recency + learning by testing,89,27.932
+recency + learning by testing,90,25.16
+recency + learning by testing,91,27.424
+recency + learning by testing,92,28.322
+recency + learning by testing,93,29.208
+recency + learning by testing,94,28.78
+recency + learning by testing,95,30.02
+recency + learning by testing,96,28.396
+recency + learning by testing,97,30.078
+recency + learning by testing,98,28.032
+recency + learning by testing,99,27.78
+recency + learning by testing,100,25.726
+recency + learning by testing,1,29.412
+recency + learning by testing,1,33.264
+recency + learning by testing,2,32.746
+recency + learning by testing,3,28.12
+recency + learning by testing,4,30.652
+recency + learning by testing,5,30.362
+recency + learning by testing,6,32.714
+recency + learning by testing,7,31.712
+recency + learning by testing,8,31.548
+recency + learning by testing,9,30.508
+recency + learning by testing,10,31.614
+recency + learning by testing,11,29.576
+recency + learning by testing,12,31.64
+recency + learning by testing,13,31.856
+recency + learning by testing,14,33.246
+recency + learning by testing,15,32.956
+recency + learning by testing,16,33.888
+recency + learning by testing,17,34.336
+recency + learning by testing,18,30.446
+recency + learning by testing,19,31.936
+recency + learning by testing,20,27.352
+recency + learning by testing,21,34.804
+recency + learning by testing,22,28.214
+recency + learning by testing,23,30.81
+recency + learning by testing,24,30.6
+recency + learning by testing,25,30.358
+recency + learning by testing,26,30.686
+recency + learning by testing,27,31.994
+recency + learning by testing,28,32.162
+recency + learning by testing,29,28.24
+recency + learning by testing,30,31.608
+recency + learning by testing,31,28.234
+recency + learning by testing,32,27.392
+recency + learning by testing,33,32.048
+recency + learning by testing,34,30.292
+recency + learning by testing,35,32.33
+recency + learning by testing,36,29.34
+recency + learning by testing,37,31.648
+recency + learning by testing,38,29.09
+recency + learning by testing,39,30.456
+recency + learning by testing,40,30.494
+recency + learning by testing,41,27.68
+recency + learning by testing,42,29.272
+recency + learning by testing,43,28.204
+recency + learning by testing,44,31.696
+recency + learning by testing,45,29.02
+recency + learning by testing,46,29.192
+recency + learning by testing,47,28.252
+recency + learning by testing,48,29.434
+recency + learning by testing,49,33.09
+recency + learning by testing,50,31.228
+recency + learning by testing,51,27.732
+recency + learning by testing,52,31.726
+recency + learning by testing,53,29.868
+recency + learning by testing,54,29.934
+recency + learning by testing,55,30.442
+recency + learning by testing,56,30.68
+recency + learning by testing,57,30.924
+recency + learning by testing,58,31.02
+recency + learning by testing,59,31.274
+recency + learning by testing,60,29.566
+recency + learning by testing,61,29.578
+recency + learning by testing,62,28.972
+recency + learning by testing,63,30.06
+recency + learning by testing,64,30.246
+recency + learning by testing,65,29.316
+recency + learning by testing,66,30.77
+recency + learning by testing,67,30.968
+recency + learning by testing,68,29.364
+recency + learning by testing,69,30.122
+recency + learning by testing,70,30.114
+recency + learning by testing,71,26.992
+recency + learning by testing,72,28.064
+recency + learning by testing,73,29.36
+recency + learning by testing,74,29.196
+recency + learning by testing,75,29.83
+recency + learning by testing,76,28.732
+recency + learning by testing,77,27.304
+recency + learning by testing,78,28.622
+recency + learning by testing,79,31.386
+recency + learning by testing,80,27.81
+recency + learning by testing,81,30.17
+recency + learning by testing,82,28.136
+recency + learning by testing,83,31.224
+recency + learning by testing,84,26.492
+recency + learning by testing,85,27.706
+recency + learning by testing,86,27.298
+recency + learning by testing,87,30.94
+recency + learning by testing,88,29.442
+recency + learning by testing,89,27.268
+recency + learning by testing,90,28.634
+recency + learning by testing,91,29.566
+recency + learning by testing,92,29.05
+recency + learning by testing,93,26.666
+recency + learning by testing,94,29.292
+recency + learning by testing,95,30.446
+recency + learning by testing,96,27.894
+recency + learning by testing,97,26.584
+recency + learning by testing,98,28.462
+recency + learning by testing,99,27.228
+recency + learning by testing,100,30.01
+recency + learning by testing,1,35.416
+recency + learning by testing,1,31.038
+recency + learning by testing,2,34.646
+recency + learning by testing,3,33.77
+recency + learning by testing,4,30.244
+recency + learning by testing,5,28.598
+recency + learning by testing,6,31.718
+recency + learning by testing,7,32.336
+recency + learning by testing,8,33.438
+recency + learning by testing,9,33.212
+recency + learning by testing,10,32.728
+recency + learning by testing,11,32.326
+recency + learning by testing,12,29.318
+recency + learning by testing,13,33.378
+recency + learning by testing,14,30.404
+recency + learning by testing,15,29.596
+recency + learning by testing,16,30.084
+recency + learning by testing,17,31.504
+recency + learning by testing,18,33.682
+recency + learning by testing,19,32.406
+recency + learning by testing,20,36.206
+recency + learning by testing,21,30.144
+recency + learning by testing,22,28.832
+recency + learning by testing,23,33.636
+recency + learning by testing,24,29.25
+recency + learning by testing,25,29.238
+recency + learning by testing,26,30.662
+recency + learning by testing,27,32.566
+recency + learning by testing,28,32.114
+recency + learning by testing,29,27.264
+recency + learning by testing,30,29.036
+recency + learning by testing,31,32.232
+recency + learning by testing,32,28.424
+recency + learning by testing,33,30.274
+recency + learning by testing,34,31.576
+recency + learning by testing,35,30.686
+recency + learning by testing,36,28.876
+recency + learning by testing,37,27.98
+recency + learning by testing,38,29.212
+recency + learning by testing,39,28.986
+recency + learning by testing,40,31.188
+recency + learning by testing,41,29.06
+recency + learning by testing,42,30.206
+recency + learning by testing,43,28.43
+recency + learning by testing,44,30.118
+recency + learning by testing,45,33.032
+recency + learning by testing,46,29.024
+recency + learning by testing,47,29.632
+recency + learning by testing,48,27.318
+recency + learning by testing,49,31.122
+recency + learning by testing,50,30.248
+recency + learning by testing,51,27.648
+recency + learning by testing,52,29.78
+recency + learning by testing,53,28.264
+recency + learning by testing,54,29.442
+recency + learning by testing,55,27.744
+recency + learning by testing,56,27.44
+recency + learning by testing,57,30.308
+recency + learning by testing,58,30.474
+recency + learning by testing,59,29.492
+recency + learning by testing,60,32.112
+recency + learning by testing,61,28.908
+recency + learning by testing,62,29.128
+recency + learning by testing,63,28.86
+recency + learning by testing,64,31.928
+recency + learning by testing,65,28.994
+recency + learning by testing,66,27.966
+recency + learning by testing,67,28.1
+recency + learning by testing,68,30.8
+recency + learning by testing,69,27.332
+recency + learning by testing,70,28.118
+recency + learning by testing,71,29.324
+recency + learning by testing,72,28.774
+recency + learning by testing,73,30.218
+recency + learning by testing,74,28.658
+recency + learning by testing,75,29.654
+recency + learning by testing,76,26.512
+recency + learning by testing,77,29.528
+recency + learning by testing,78,29.236
+recency + learning by testing,79,28.482
+recency + learning by testing,80,26.626
+recency + learning by testing,81,27.924
+recency + learning by testing,82,27.714
+recency + learning by testing,83,27.206
+recency + learning by testing,84,27.262
+recency + learning by testing,85,29.522
+recency + learning by testing,86,31.086
+recency + learning by testing,87,28.534
+recency + learning by testing,88,28.226
+recency + learning by testing,89,26.866
+recency + learning by testing,90,28.292
+recency + learning by testing,91,27.98
+recency + learning by testing,92,27.148
+recency + learning by testing,93,27.668
+recency + learning by testing,94,28.21
+recency + learning by testing,95,30.432
+recency + learning by testing,96,27.142
+recency + learning by testing,97,27.202
+recency + learning by testing,98,28.32
+recency + learning by testing,99,28.26
+recency + learning by testing,100,26.114
+original model,1,33.924
+original model,1,37.578
+original model,2,35.13
+original model,3,34.08
+original model,4,33.048
+original model,5,34.362
+original model,6,34.47
+original model,7,33.972
+original model,8,32.506
+original model,9,33.504
+original model,10,32.916
+original model,11,33.648
+original model,12,32.876
+original model,13,31.472
+original model,14,32.036
+original model,15,33.228
+original model,16,33.936
+original model,17,33.24
+original model,18,34.106
+original model,19,32.604
+original model,20,35.828
+original model,21,34.536
+original model,22,35.892
+original model,23,30.732
+original model,24,32.236
+original model,25,31.648
+original model,26,32.944
+original model,27,33.562
+original model,28,36.518
+original model,29,33.49
+original model,30,33.098
+original model,31,35.07
+original model,32,31.784
+original model,33,32.042
+original model,34,33.194
+original model,35,33.252
+original model,36,33.598
+original model,37,32.774
+original model,38,32.46
+original model,39,31.786
+original model,40,32.344
+original model,41,32.33
+original model,42,32.27
+original model,43,36.224
+original model,44,31.604
+original model,45,33.63
+original model,46,33.466
+original model,47,33.738
+original model,48,33.096
+original model,49,32.778
+original model,50,33.402
+original model,51,32.256
+original model,52,32.986
+original model,53,34.358
+original model,54,34.806
+original model,55,32.726
+original model,56,30.872
+original model,57,33.972
+original model,58,32.82
+original model,59,31.942
+original model,60,33.294
+original model,61,32.478
+original model,62,31.732
+original model,63,31.284
+original model,64,30.944
+original model,65,31.732
+original model,66,31.456
+original model,67,32.142
+original model,68,33.91
+original model,69,33.232
+original model,70,32.344
+original model,71,34.002
+original model,72,32.698
+original model,73,31.368
+original model,74,32.302
+original model,75,34.044
+original model,76,32.138
+original model,77,32.864
+original model,78,32.904
+original model,79,32.9
+original model,80,33.416
+original model,81,33.784
+original model,82,31.974
+original model,83,32.484
+original model,84,31.488
+original model,85,33.296
+original model,86,33.822
+original model,87,33.596
+original model,88,33.142
+original model,89,33.798
+original model,90,31.602
+original model,91,33.162
+original model,92,32.524
+original model,93,32.06
+original model,94,32.788
+original model,95,32.04
+original model,96,34.734
+original model,97,32.84
+original model,98,34.034
+original model,99,33.65
+original model,100,32.792
+original model,1,32.158
+original model,1,28.894
+original model,2,32.188
+original model,3,29.85
+original model,4,32.018
+original model,5,27.878
+original model,6,30.306
+original model,7,30.416
+original model,8,31.124
+original model,9,32.332
+original model,10,28.312
+original model,11,33.572
+original model,12,29.382
+original model,13,29.186
+original model,14,33.24
+original model,15,27.536
+original model,16,29.754
+original model,17,31.41
+original model,18,33.138
+original model,19,29.534
+original model,20,30.996
+original model,21,30.552
+original model,22,31.98
+original model,23,30.952
+original model,24,29.84
+original model,25,29.11
+original model,26,30.504
+original model,27,28.552
+original model,28,32.154
+original model,29,32.73
+original model,30,30.326
+original model,31,30.26
+original model,32,33.914
+original model,33,31.564
+original model,34,31.34
+original model,35,33.068
+original model,36,31.752
+original model,37,31.688
+original model,38,30.928
+original model,39,29.74
+original model,40,32.312
+original model,41,32.616
+original model,42,28.08
+original model,43,31.268
+original model,44,31.37
+original model,45,30.258
+original model,46,28.914
+original model,47,29.922
+original model,48,31.29
+original model,49,31.456
+original model,50,30.85
+original model,51,31.71
+original model,52,30.03
+original model,53,29.03
+original model,54,30.08
+original model,55,32.042
+original model,56,32.264
+original model,57,30.368
+original model,58,31.434
+original model,59,30.848
+original model,60,31.57
+original model,61,29.258
+original model,62,29.596
+original model,63,28.632
+original model,64,33.112
+original model,65,30.37
+original model,66,31.242
+original model,67,30.692
+original model,68,31.126
+original model,69,30.162
+original model,70,31.582
+original model,71,30.582
+original model,72,29.634
+original model,73,32.948
+original model,74,30.2
+original model,75,29.692
+original model,76,29.408
+original model,77,31.838
+original model,78,29.838
+original model,79,30.278
+original model,80,30.42
+original model,81,31.13
+original model,82,30.34
+original model,83,30.46
+original model,84,31.68
+original model,85,31.388
+original model,86,30.908
+original model,87,30.7
+original model,88,29.174
+original model,89,30.384
+original model,90,30.61
+original model,91,29.988
+original model,92,29.834
+original model,93,29.6
+original model,94,28.714
+original model,95,31.758
+original model,96,29.826
+original model,97,31.62
+original model,98,30.65
+original model,99,30.352
+original model,100,31.532
+original model,1,31.976
+original model,1,34.204
+original model,2,31.762
+original model,3,32.924
+original model,4,31.432
+original model,5,36.596
+original model,6,32.95
+original model,7,32.262
+original model,8,31.352
+original model,9,32.586
+original model,10,32.626
+original model,11,32.554
+original model,12,36.06
+original model,13,30.58
+original model,14,32.052
+original model,15,30.692
+original model,16,33.87
+original model,17,29.94
+original model,18,33.468
+original model,19,31.452
+original model,20,30.052
+original model,21,31.122
+original model,22,31.968
+original model,23,30.06
+original model,24,30.626
+original model,25,32.034
+original model,26,33.004
+original model,27,31.466
+original model,28,31.056
+original model,29,30.868
+original model,30,33.796
+original model,31,33.68
+original model,32,30.008
+original model,33,29.83
+original model,34,32.398
+original model,35,32.658
+original model,36,33.426
+original model,37,32.272
+original model,38,30.67
+original model,39,33.84
+original model,40,34.486
+original model,41,34.938
+original model,42,32.516
+original model,43,32.088
+original model,44,32.154
+original model,45,33.046
+original model,46,34.55
+original model,47,34.304
+original model,48,32.674
+original model,49,32.84
+original model,50,31.37
+original model,51,30.754
+original model,52,31.668
+original model,53,33.384
+original model,54,31.092
+original model,55,32.764
+original model,56,32.462
+original model,57,31.052
+original model,58,34.138
+original model,59,30.404
+original model,60,33.202
+original model,61,31.834
+original model,62,30.586
+original model,63,29.894
+original model,64,32.008
+original model,65,32.3
+original model,66,31.266
+original model,67,30.132
+original model,68,32.122
+original model,69,31.818
+original model,70,31.746
+original model,71,31.392
+original model,72,32.26
+original model,73,31.748
+original model,74,33.06
+original model,75,33.822
+original model,76,31.088
+original model,77,34.132
+original model,78,31.422
+original model,79,32.204
+original model,80,33.798
+original model,81,31.18
+original model,82,33.552
+original model,83,32.498
+original model,84,34.276
+original model,85,30.566
+original model,86,32.06
+original model,87,32.932
+original model,88,34.468
+original model,89,32.192
+original model,90,32.108
+original model,91,31.48
+original model,92,31.228
+original model,93,32.336
+original model,94,31.626
+original model,95,32.876
+original model,96,32.3
+original model,97,32.394
+original model,98,31.56
+original model,99,32.084
+original model,100,31.96
+original model,1,33.29
+original model,1,32.196
+original model,2,31.788
+original model,3,32.53
+original model,4,31.066
+original model,5,34.652
+original model,6,32.406
+original model,7,29.656
+original model,8,30.992
+original model,9,32.678
+original model,10,32.226
+original model,11,32.144
+original model,12,32.232
+original model,13,29.736
+original model,14,29.852
+original model,15,29.98
+original model,16,33.532
+original model,17,32.492
+original model,18,33.542
+original model,19,28.246
+original model,20,30.28
+original model,21,32.836
+original model,22,28.714
+original model,23,32.932
+original model,24,32.2
+original model,25,30.796
+original model,26,32.356
+original model,27,28.764
+original model,28,31.974
+original model,29,28.612
+original model,30,30.64
+original model,31,33.362
+original model,32,30.444
+original model,33,30.076
+original model,34,30.752
+original model,35,29.518
+original model,36,31.504
+original model,37,29.496
+original model,38,30.972
+original model,39,29.406
+original model,40,33.534
+original model,41,30.68
+original model,42,30.756
+original model,43,30.996
+original model,44,30.792
+original model,45,31.908
+original model,46,31.514
+original model,47,29.456
+original model,48,31.78
+original model,49,33.732
+original model,50,30.572
+original model,51,31.302
+original model,52,30.264
+original model,53,33.514
+original model,54,29.168
+original model,55,31.342
+original model,56,32.118
+original model,57,30.692
+original model,58,31.212
+original model,59,31.786
+original model,60,32.178
+original model,61,31.364
+original model,62,30.136
+original model,63,31.496
+original model,64,32.776
+original model,65,30.296
+original model,66,29.75
+original model,67,29.416
+original model,68,30.282
+original model,69,31.492
+original model,70,31.302
+original model,71,30.262
+original model,72,32.14
+original model,73,31.612
+original model,74,30.938
+original model,75,28.502
+original model,76,32.998
+original model,77,30.054
+original model,78,31.854
+original model,79,31.514
+original model,80,33.224
+original model,81,30.11
+original model,82,31.118
+original model,83,29.506
+original model,84,29.432
+original model,85,30.106
+original model,86,31.686
+original model,87,30.68
+original model,88,32.916
+original model,89,30.586
+original model,90,32.448
+original model,91,31.924
+original model,92,30.124
+original model,93,31.782
+original model,94,29.36
+original model,95,31.218
+original model,96,31.044
+original model,97,31.818
+original model,98,30.79
+original model,99,30.202
+original model,100,29.712
+original model,1,33.604
+original model,1,30.488
+original model,2,31.61
+original model,3,32.812
+original model,4,34.306
+original model,5,31.282
+original model,6,35.318
+original model,7,30.504
+original model,8,31.416
+original model,9,32.9
+original model,10,34.724
+original model,11,34.61
+original model,12,33.656
+original model,13,34.99
+original model,14,35.01
+original model,15,32.332
+original model,16,32.334
+original model,17,33.0
+original model,18,34.698
+original model,19,31.63
+original model,20,33.016
+original model,21,32.812
+original model,22,32.568
+original model,23,35.302
+original model,24,34.57
+original model,25,31.476
+original model,26,34.328
+original model,27,31.376
+original model,28,32.436
+original model,29,33.124
+original model,30,31.87
+original model,31,35.116
+original model,32,30.726
+original model,33,33.876
+original model,34,32.95
+original model,35,33.754
+original model,36,32.984
+original model,37,32.538
+original model,38,32.082
+original model,39,32.82
+original model,40,30.512
+original model,41,33.9
+original model,42,33.796
+original model,43,33.692
+original model,44,32.328
+original model,45,34.968
+original model,46,33.38
+original model,47,35.566
+original model,48,29.53
+original model,49,32.932
+original model,50,35.014
+original model,51,33.372
+original model,52,34.788
+original model,53,31.65
+original model,54,32.112
+original model,55,33.33
+original model,56,31.024
+original model,57,34.086
+original model,58,35.418
+original model,59,33.646
+original model,60,31.562
+original model,61,30.782
+original model,62,33.288
+original model,63,34.076
+original model,64,32.104
+original model,65,32.13
+original model,66,33.608
+original model,67,32.868
+original model,68,33.552
+original model,69,30.956
+original model,70,32.5
+original model,71,34.504
+original model,72,32.498
+original model,73,31.748
+original model,74,32.39
+original model,75,31.394
+original model,76,31.788
+original model,77,32.31
+original model,78,31.014
+original model,79,31.198
+original model,80,32.974
+original model,81,32.174
+original model,82,33.368
+original model,83,34.808
+original model,84,33.304
+original model,85,31.048
+original model,86,32.81
+original model,87,32.6
+original model,88,31.162
+original model,89,32.992
+original model,90,33.05
+original model,91,31.936
+original model,92,32.296
+original model,93,34.334
+original model,94,34.188
+original model,95,32.814
+original model,96,31.486
+original model,97,33.658
+original model,98,34.788
+original model,99,31.674
+original model,100,31.704
+original model,1,30.93
+original model,1,31.938
+original model,2,31.398
+original model,3,34.538
+original model,4,30.22
+original model,5,30.532
+original model,6,30.968
+original model,7,32.37
+original model,8,32.452
+original model,9,31.96
+original model,10,29.546
+original model,11,34.642
+original model,12,32.168
+original model,13,34.464
+original model,14,34.798
+original model,15,33.0
+original model,16,30.36
+original model,17,33.038
+original model,18,33.31
+original model,19,32.546
+original model,20,33.956
+original model,21,30.774
+original model,22,34.454
+original model,23,28.188
+original model,24,32.818
+original model,25,29.966
+original model,26,33.52
+original model,27,33.398
+original model,28,31.634
+original model,29,31.25
+original model,30,33.27
+original model,31,30.274
+original model,32,31.016
+original model,33,31.244
+original model,34,32.086
+original model,35,33.034
+original model,36,31.296
+original model,37,29.604
+original model,38,32.794
+original model,39,33.16
+original model,40,34.068
+original model,41,32.49
+original model,42,34.094
+original model,43,33.37
+original model,44,31.548
+original model,45,31.054
+original model,46,33.702
+original model,47,30.942
+original model,48,33.388
+original model,49,32.812
+original model,50,32.84
+original model,51,32.486
+original model,52,32.31
+original model,53,32.614
+original model,54,31.588
+original model,55,33.106
+original model,56,30.69
+original model,57,31.274
+original model,58,32.194
+original model,59,32.378
+original model,60,31.52
+original model,61,32.452
+original model,62,32.506
+original model,63,31.602
+original model,64,32.29
+original model,65,31.096
+original model,66,34.36
+original model,67,32.678
+original model,68,32.39
+original model,69,32.294
+original model,70,31.736
+original model,71,32.752
+original model,72,31.096
+original model,73,30.558
+original model,74,33.264
+original model,75,31.204
+original model,76,32.342
+original model,77,33.49
+original model,78,32.542
+original model,79,33.316
+original model,80,32.536
+original model,81,30.38
+original model,82,30.588
+original model,83,32.476
+original model,84,32.456
+original model,85,34.74
+original model,86,32.366
+original model,87,31.268
+original model,88,31.624
+original model,89,31.798
+original model,90,32.346
+original model,91,32.482
+original model,92,31.654
+original model,93,31.432
+original model,94,33.188
+original model,95,33.504
+original model,96,32.5
+original model,97,32.508
+original model,98,32.208
+original model,99,31.692
+original model,100,31.246
+original model,1,34.416
+original model,1,32.4
+original model,2,30.304
+original model,3,33.904
+original model,4,32.33
+original model,5,32.682
+original model,6,29.968
+original model,7,32.84
+original model,8,33.888
+original model,9,33.886
+original model,10,31.808
+original model,11,33.492
+original model,12,34.562
+original model,13,33.958
+original model,14,32.028
+original model,15,33.372
+original model,16,32.266
+original model,17,33.748
+original model,18,32.85
+original model,19,31.88
+original model,20,31.728
+original model,21,34.226
+original model,22,34.718
+original model,23,31.732
+original model,24,33.156
+original model,25,32.746
+original model,26,28.038
+original model,27,31.26
+original model,28,32.262
+original model,29,31.702
+original model,30,31.892
+original model,31,31.438
+original model,32,32.348
+original model,33,30.682
+original model,34,32.712
+original model,35,32.546
+original model,36,33.092
+original model,37,32.85
+original model,38,28.332
+original model,39,32.524
+original model,40,32.054
+original model,41,31.968
+original model,42,32.034
+original model,43,33.022
+original model,44,28.762
+original model,45,31.424
+original model,46,34.27
+original model,47,33.076
+original model,48,32.36
+original model,49,32.758
+original model,50,31.692
+original model,51,30.424
+original model,52,31.526
+original model,53,32.208
+original model,54,30.44
+original model,55,31.55
+original model,56,31.942
+original model,57,33.224
+original model,58,32.524
+original model,59,32.328
+original model,60,32.686
+original model,61,32.704
+original model,62,31.346
+original model,63,32.344
+original model,64,32.07
+original model,65,31.936
+original model,66,30.486
+original model,67,32.846
+original model,68,32.534
+original model,69,33.456
+original model,70,31.386
+original model,71,32.136
+original model,72,30.59
+original model,73,31.436
+original model,74,30.372
+original model,75,32.158
+original model,76,32.778
+original model,77,31.254
+original model,78,30.4
+original model,79,31.602
+original model,80,32.518
+original model,81,32.598
+original model,82,31.47
+original model,83,30.81
+original model,84,32.146
+original model,85,31.418
+original model,86,33.564
+original model,87,30.478
+original model,88,31.292
+original model,89,31.36
+original model,90,32.922
+original model,91,30.936
+original model,92,31.492
+original model,93,30.98
+original model,94,33.07
+original model,95,32.396
+original model,96,30.932
+original model,97,31.886
+original model,98,32.336
+original model,99,33.33
+original model,100,32.646
+original model,1,33.276
+original model,1,32.662
+original model,2,32.226
+original model,3,32.378
+original model,4,32.946
+original model,5,30.444
+original model,6,30.802
+original model,7,33.702
+original model,8,32.538
+original model,9,30.542
+original model,10,31.498
+original model,11,32.51
+original model,12,33.556
+original model,13,31.554
+original model,14,31.41
+original model,15,32.43
+original model,16,32.46
+original model,17,32.124
+original model,18,31.482
+original model,19,35.846
+original model,20,31.364
+original model,21,35.618
+original model,22,33.288
+original model,23,31.914
+original model,24,35.896
+original model,25,31.684
+original model,26,32.576
+original model,27,32.388
+original model,28,31.106
+original model,29,31.482
+original model,30,33.084
+original model,31,33.762
+original model,32,32.758
+original model,33,29.818
+original model,34,32.546
+original model,35,32.924
+original model,36,33.368
+original model,37,34.088
+original model,38,32.202
+original model,39,32.046
+original model,40,32.962
+original model,41,31.054
+original model,42,32.22
+original model,43,32.6
+original model,44,31.914
+original model,45,34.518
+original model,46,31.04
+original model,47,30.576
+original model,48,33.2
+original model,49,33.358
+original model,50,33.288
+original model,51,32.328
+original model,52,32.31
+original model,53,30.754
+original model,54,32.666
+original model,55,34.244
+original model,56,31.794
+original model,57,32.296
+original model,58,31.514
+original model,59,31.754
+original model,60,31.608
+original model,61,32.938
+original model,62,31.17
+original model,63,32.706
+original model,64,32.026
+original model,65,32.05
+original model,66,32.14
+original model,67,31.82
+original model,68,33.098
+original model,69,30.658
+original model,70,32.052
+original model,71,32.332
+original model,72,32.55
+original model,73,30.852
+original model,74,33.188
+original model,75,31.718
+original model,76,31.656
+original model,77,32.688
+original model,78,32.418
+original model,79,32.626
+original model,80,31.494
+original model,81,32.444
+original model,82,32.052
+original model,83,34.23
+original model,84,31.504
+original model,85,33.342
+original model,86,31.26
+original model,87,31.524
+original model,88,31.714
+original model,89,31.02
+original model,90,31.932
+original model,91,32.376
+original model,92,32.126
+original model,93,31.362
+original model,94,33.072
+original model,95,32.35
+original model,96,33.888
+original model,97,32.268
+original model,98,34.21
+original model,99,32.136
+original model,100,32.304
+original model,1,31.626
+original model,1,32.526
+original model,2,33.378
+original model,3,31.758
+original model,4,34.87
+original model,5,32.872
+original model,6,34.688
+original model,7,29.3
+original model,8,32.668
+original model,9,35.044
+original model,10,33.748
+original model,11,31.686
+original model,12,33.5
+original model,13,31.814
+original model,14,32.284
+original model,15,30.984
+original model,16,31.474
+original model,17,35.398
+original model,18,33.072
+original model,19,29.682
+original model,20,34.41
+original model,21,30.872
+original model,22,29.97
+original model,23,33.382
+original model,24,32.878
+original model,25,32.498
+original model,26,32.516
+original model,27,31.408
+original model,28,32.858
+original model,29,31.806
+original model,30,32.64
+original model,31,34.344
+original model,32,33.162
+original model,33,31.128
+original model,34,31.732
+original model,35,34.634
+original model,36,30.47
+original model,37,32.286
+original model,38,32.966
+original model,39,32.504
+original model,40,33.184
+original model,41,33.614
+original model,42,31.228
+original model,43,31.404
+original model,44,31.034
+original model,45,30.796
+original model,46,31.662
+original model,47,32.21
+original model,48,31.574
+original model,49,33.114
+original model,50,31.812
+original model,51,32.276
+original model,52,32.09
+original model,53,32.676
+original model,54,31.752
+original model,55,32.712
+original model,56,31.23
+original model,57,34.142
+original model,58,32.596
+original model,59,32.814
+original model,60,34.454
+original model,61,31.3
+original model,62,32.746
+original model,63,31.48
+original model,64,33.428
+original model,65,32.304
+original model,66,31.592
+original model,67,32.488
+original model,68,33.15
+original model,69,33.754
+original model,70,30.254
+original model,71,32.494
+original model,72,31.89
+original model,73,32.242
+original model,74,32.154
+original model,75,33.168
+original model,76,32.466
+original model,77,31.396
+original model,78,32.382
+original model,79,32.264
+original model,80,31.116
+original model,81,33.108
+original model,82,31.838
+original model,83,32.51
+original model,84,32.796
+original model,85,31.734
+original model,86,31.8
+original model,87,33.944
+original model,88,32.404
+original model,89,32.392
+original model,90,32.852
+original model,91,33.716
+original model,92,30.924
+original model,93,32.638
+original model,94,32.002
+original model,95,31.904
+original model,96,31.69
+original model,97,32.322
+original model,98,31.742
+original model,99,32.768
+original model,100,32.314
+original model,1,32.742
+original model,1,36.492
+original model,2,30.794
+original model,3,33.16
+original model,4,32.154
+original model,5,32.032
+original model,6,30.602
+original model,7,32.004
+original model,8,33.672
+original model,9,30.814
+original model,10,31.754
+original model,11,31.75
+original model,12,32.016
+original model,13,29.7
+original model,14,30.032
+original model,15,33.38
+original model,16,31.844
+original model,17,30.654
+original model,18,31.236
+original model,19,33.648
+original model,20,33.68
+original model,21,31.514
+original model,22,32.478
+original model,23,29.458
+original model,24,32.576
+original model,25,33.492
+original model,26,31.59
+original model,27,32.64
+original model,28,31.71
+original model,29,32.466
+original model,30,32.506
+original model,31,33.124
+original model,32,34.526
+original model,33,33.392
+original model,34,32.154
+original model,35,32.924
+original model,36,31.34
+original model,37,32.754
+original model,38,31.804
+original model,39,31.082
+original model,40,33.11
+original model,41,31.416
+original model,42,34.21
+original model,43,32.256
+original model,44,32.256
+original model,45,31.196
+original model,46,31.898
+original model,47,33.258
+original model,48,32.92
+original model,49,31.52
+original model,50,30.172
+original model,51,32.876
+original model,52,33.632
+original model,53,32.624
+original model,54,33.014
+original model,55,31.96
+original model,56,32.306
+original model,57,31.73
+original model,58,29.458
+original model,59,32.534
+original model,60,30.686
+original model,61,31.02
+original model,62,29.848
+original model,63,33.974
+original model,64,33.482
+original model,65,32.966
+original model,66,29.78
+original model,67,32.204
+original model,68,32.914
+original model,69,31.27
+original model,70,32.26
+original model,71,31.402
+original model,72,32.618
+original model,73,31.232
+original model,74,32.626
+original model,75,32.988
+original model,76,31.084
+original model,77,32.106
+original model,78,32.062
+original model,79,31.208
+original model,80,32.86
+original model,81,33.85
+original model,82,31.476
+original model,83,32.228
+original model,84,31.48
+original model,85,31.5
+original model,86,32.22
+original model,87,32.022
+original model,88,32.23
+original model,89,31.148
+original model,90,33.208
+original model,91,33.106
+original model,92,32.172
+original model,93,33.666
+original model,94,34.126
+original model,95,32.33
+original model,96,30.946
+original model,97,31.124
+original model,98,31.668
+original model,99,31.714
+original model,100,32.006

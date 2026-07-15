@@ -1,0 +1,3201 @@
+topo,seed,agent,indeg,meanV
+Scale Free,42,0,20,28.836
+Scale Free,42,1,16,29.094
+Scale Free,42,2,15,29.518
+Scale Free,42,3,17,28.738
+Scale Free,42,4,4,31.248
+Scale Free,42,5,7,29.266
+Scale Free,42,6,3,30.054
+Scale Free,42,7,0,37.138
+Scale Free,42,8,3,31.498
+Scale Free,42,9,4,28.63
+Scale Free,42,10,8,28.702
+Scale Free,42,11,8,30.794
+Scale Free,42,12,2,31.374
+Scale Free,42,13,0,37.79
+Scale Free,42,14,5,30.206
+Scale Free,42,15,8,27.686
+Scale Free,42,16,0,32.424
+Scale Free,42,17,3,29.23
+Scale Free,42,18,3,28.578
+Scale Free,42,19,5,29.188
+Scale Free,42,20,6,28.472
+Scale Free,42,21,2,32.44
+Scale Free,42,22,1,31.022
+Scale Free,42,23,6,28.404
+Scale Free,42,24,4,29.978
+Scale Free,42,25,5,29.5
+Scale Free,42,26,0,34.56
+Scale Free,42,27,1,31.156
+Scale Free,42,28,7,29.876
+Scale Free,42,29,5,29.32
+Scale Free,42,30,2,30.656
+Scale Free,42,31,4,29.142
+Scale Free,42,32,8,27.998
+Scale Free,42,33,4,29.736
+Scale Free,42,34,0,38.152
+Scale Free,42,35,5,28.8
+Scale Free,42,36,3,30.318
+Scale Free,42,37,4,30.132
+Scale Free,42,38,1,29.854
+Scale Free,42,39,4,28.694
+Scale Free,42,40,3,29.238
+Scale Free,42,41,2,30.482
+Scale Free,42,42,2,32.75
+Scale Free,42,43,3,30.616
+Scale Free,42,44,4,29.026
+Scale Free,42,45,0,33.73
+Scale Free,42,46,1,32.834
+Scale Free,42,47,3,28.568
+Scale Free,42,48,0,32.732
+Scale Free,42,49,2,30.772
+Scale Free,42,50,1,32.286
+Scale Free,42,51,3,33.642
+Scale Free,42,52,1,33.442
+Scale Free,42,53,5,28.908
+Scale Free,42,54,1,32.868
+Scale Free,42,55,2,30.212
+Scale Free,42,56,1,31.022
+Scale Free,42,57,3,29.812
+Scale Free,42,58,3,32.212
+Scale Free,42,59,1,29.414
+Scale Free,42,60,3,30.796
+Scale Free,42,61,1,30.886
+Scale Free,42,62,1,30.756
+Scale Free,42,63,1,31.96
+Scale Free,42,64,3,30.202
+Scale Free,42,65,2,31.032
+Scale Free,42,66,4,28.226
+Scale Free,42,67,1,31.854
+Scale Free,42,68,4,30.088
+Scale Free,42,69,1,32.552
+Scale Free,42,70,3,28.43
+Scale Free,42,71,1,31.08
+Scale Free,42,72,2,30.76
+Scale Free,42,73,4,29.156
+Scale Free,42,74,4,27.886
+Scale Free,42,75,1,31.902
+Scale Free,42,76,1,29.64
+Scale Free,42,77,2,30.528
+Scale Free,42,78,4,29.286
+Scale Free,42,79,1,31.834
+Scale Free,43,0,12,30.272
+Scale Free,43,1,19,30.176
+Scale Free,43,2,21,30.38
+Scale Free,43,3,16,29.996
+Scale Free,43,4,4,32.486
+Scale Free,43,5,11,29.328
+Scale Free,43,6,5,31.042
+Scale Free,43,7,3,32.082
+Scale Free,43,8,3,31.824
+Scale Free,43,9,0,30.308
+Scale Free,43,10,5,30.812
+Scale Free,43,11,8,31.146
+Scale Free,43,12,2,31.052
+Scale Free,43,13,7,30.954
+Scale Free,43,14,5,30.522
+Scale Free,43,15,6,30.52
+Scale Free,43,16,0,36.932
+Scale Free,43,17,11,31.2
+Scale Free,43,18,6,31.456
+Scale Free,43,19,0,37.344
+Scale Free,43,20,4,30.57
+Scale Free,43,21,8,28.54
+Scale Free,43,22,0,35.97
+Scale Free,43,23,8,30.37
+Scale Free,43,24,3,30.484
+Scale Free,43,25,0,28.178
+Scale Free,43,26,7,30.918
+Scale Free,43,27,0,35.146
+Scale Free,43,28,2,31.07
+Scale Free,43,29,2,31.16
+Scale Free,43,30,5,30.98
+Scale Free,43,31,2,32.44
+Scale Free,43,32,5,31.706
+Scale Free,43,33,1,30.878
+Scale Free,43,34,4,32.612
+Scale Free,43,35,6,31.318
+Scale Free,43,36,3,30.674
+Scale Free,43,37,1,31.842
+Scale Free,43,38,2,32.346
+Scale Free,43,39,4,31.368
+Scale Free,43,40,1,32.48
+Scale Free,43,41,2,33.152
+Scale Free,43,42,3,32.536
+Scale Free,43,43,3,30.006
+Scale Free,43,44,1,31.16
+Scale Free,43,45,3,30.54
+Scale Free,43,46,1,34.726
+Scale Free,43,47,7,30.994
+Scale Free,43,48,3,32.21
+Scale Free,43,49,2,31.878
+Scale Free,43,50,1,31.64
+Scale Free,43,51,0,37.838
+Scale Free,43,52,1,33.426
+Scale Free,43,53,2,32.844
+Scale Free,43,54,3,32.352
+Scale Free,43,55,1,31.878
+Scale Free,43,56,4,32.59
+Scale Free,43,57,1,33.196
+Scale Free,43,58,0,35.844
+Scale Free,43,59,3,30.76
+Scale Free,43,60,2,32.976
+Scale Free,43,61,2,31.952
+Scale Free,43,62,1,30.582
+Scale Free,43,63,0,31.358
+Scale Free,43,64,1,31.068
+Scale Free,43,65,1,33.38
+Scale Free,43,66,1,33.03
+Scale Free,43,67,1,34.328
+Scale Free,43,68,5,33.01
+Scale Free,43,69,1,30.482
+Scale Free,43,70,1,31.202
+Scale Free,43,71,2,32.878
+Scale Free,43,72,2,32.35
+Scale Free,43,73,3,31.264
+Scale Free,43,74,3,32.18
+Scale Free,43,75,2,32.502
+Scale Free,43,76,4,31.754
+Scale Free,43,77,1,31.782
+Scale Free,43,78,2,32.962
+Scale Free,43,79,3,31.144
+Scale Free,44,0,30,28.24
+Scale Free,44,1,10,28.134
+Scale Free,44,2,14,28.192
+Scale Free,44,3,11,28.19
+Scale Free,44,4,12,28.612
+Scale Free,44,5,1,30.75
+Scale Free,44,6,3,28.554
+Scale Free,44,7,14,29.116
+Scale Free,44,8,5,28.322
+Scale Free,44,9,10,30.13
+Scale Free,44,10,9,29.014
+Scale Free,44,11,0,36.028
+Scale Free,44,12,4,30.12
+Scale Free,44,13,1,27.346
+Scale Free,44,14,4,27.788
+Scale Free,44,15,5,29.312
+Scale Free,44,16,5,28.022
+Scale Free,44,17,5,27.878
+Scale Free,44,18,1,30.77
+Scale Free,44,19,4,32.21
+Scale Free,44,20,1,27.06
+Scale Free,44,21,4,30.706
+Scale Free,44,22,7,27.486
+Scale Free,44,23,6,28.524
+Scale Free,44,24,0,43.46
+Scale Free,44,25,3,27.532
+Scale Free,44,26,8,28.366
+Scale Free,44,27,4,30.24
+Scale Free,44,28,4,31.48
+Scale Free,44,29,0,35.06
+Scale Free,44,30,2,30.114
+Scale Free,44,31,0,30.696
+Scale Free,44,32,3,31.076
+Scale Free,44,33,2,31.184
+Scale Free,44,34,4,29.898
+Scale Free,44,35,1,29.8
+Scale Free,44,36,1,31.248
+Scale Free,44,37,4,29.998
+Scale Free,44,38,6,29.734
+Scale Free,44,39,2,28.14
+Scale Free,44,40,1,32.108
+Scale Free,44,41,1,34.89
+Scale Free,44,42,2,28.382
+Scale Free,44,43,0,34.868
+Scale Free,44,44,0,35.798
+Scale Free,44,45,4,29.038
+Scale Free,44,46,1,31.144
+Scale Free,44,47,3,27.756
+Scale Free,44,48,1,33.846
+Scale Free,44,49,0,33.346
+Scale Free,44,50,6,29.944
+Scale Free,44,51,2,28.5
+Scale Free,44,52,2,29.042
+Scale Free,44,53,3,29.89
+Scale Free,44,54,2,30.79
+Scale Free,44,55,0,37.776
+Scale Free,44,56,2,29.324
+Scale Free,44,57,1,31.876
+Scale Free,44,58,1,30.022
+Scale Free,44,59,2,29.024
+Scale Free,44,60,3,29.614
+Scale Free,44,61,1,31.208
+Scale Free,44,62,2,31.046
+Scale Free,44,63,2,29.138
+Scale Free,44,64,0,38.52
+Scale Free,44,65,1,30.222
+Scale Free,44,66,1,30.87
+Scale Free,44,67,3,30.768
+Scale Free,44,68,3,29.566
+Scale Free,44,69,1,30.808
+Scale Free,44,70,1,30.066
+Scale Free,44,71,2,30.268
+Scale Free,44,72,2,31.07
+Scale Free,44,73,6,30.486
+Scale Free,44,74,2,29.82
+Scale Free,44,75,3,30.858
+Scale Free,44,76,4,30.554
+Scale Free,44,77,2,30.03
+Scale Free,44,78,1,28.986
+Scale Free,44,79,2,30.034
+Scale Free,45,0,24,30.972
+Scale Free,45,1,15,31.504
+Scale Free,45,2,9,31.792
+Scale Free,45,3,14,31.974
+Scale Free,45,4,4,31.366
+Scale Free,45,5,4,33.082
+Scale Free,45,6,0,36.306
+Scale Free,45,7,6,31.986
+Scale Free,45,8,9,29.438
+Scale Free,45,9,9,31.69
+Scale Free,45,10,5,30.15
+Scale Free,45,11,11,31.198
+Scale Free,45,12,0,31.63
+Scale Free,45,13,0,33.12
+Scale Free,45,14,8,31.636
+Scale Free,45,15,6,29.804
+Scale Free,45,16,4,30.59
+Scale Free,45,17,5,33.56
+Scale Free,45,18,1,32.976
+Scale Free,45,19,3,33.088
+Scale Free,45,20,6,33.658
+Scale Free,45,21,3,32.472
+Scale Free,45,22,6,30.238
+Scale Free,45,23,5,33.912
+Scale Free,45,24,1,31.618
+Scale Free,45,25,12,31.218
+Scale Free,45,26,5,31.55
+Scale Free,45,27,2,32.804
+Scale Free,45,28,1,33.21
+Scale Free,45,29,5,31.56
+Scale Free,45,30,3,31.976
+Scale Free,45,31,3,32.116
+Scale Free,45,32,5,31.324
+Scale Free,45,33,1,32.358
+Scale Free,45,34,1,32.582
+Scale Free,45,35,6,33.474
+Scale Free,45,36,2,32.418
+Scale Free,45,37,0,35.484
+Scale Free,45,38,2,31.588
+Scale Free,45,39,5,31.018
+Scale Free,45,40,1,30.906
+Scale Free,45,41,4,31.726
+Scale Free,45,42,4,31.73
+Scale Free,45,43,1,33.276
+Scale Free,45,44,5,31.18
+Scale Free,45,45,5,31.216
+Scale Free,45,46,1,30.744
+Scale Free,45,47,0,32.506
+Scale Free,45,48,4,31.906
+Scale Free,45,49,1,33.264
+Scale Free,45,50,4,31.906
+Scale Free,45,51,2,33.072
+Scale Free,45,52,1,34.922
+Scale Free,45,53,3,32.696
+Scale Free,45,54,0,31.308
+Scale Free,45,55,0,36.572
+Scale Free,45,56,2,33.418
+Scale Free,45,57,1,32.184
+Scale Free,45,58,1,31.908
+Scale Free,45,59,1,32.918
+Scale Free,45,60,1,34.016
+Scale Free,45,61,3,32.766
+Scale Free,45,62,0,34.338
+Scale Free,45,63,2,33.112
+Scale Free,45,64,2,31.56
+Scale Free,45,65,3,32.854
+Scale Free,45,66,1,32.574
+Scale Free,45,67,0,33.448
+Scale Free,45,68,1,34.822
+Scale Free,45,69,3,31.048
+Scale Free,45,70,1,32.006
+Scale Free,45,71,1,32.952
+Scale Free,45,72,3,32.268
+Scale Free,45,73,3,32.132
+Scale Free,45,74,4,32.802
+Scale Free,45,75,1,31.036
+Scale Free,45,76,0,31.988
+Scale Free,45,77,1,32.49
+Scale Free,45,78,2,31.894
+Scale Free,45,79,2,33.222
+Scale Free,46,0,21,27.422
+Scale Free,46,1,21,27.32
+Scale Free,46,2,12,27.732
+Scale Free,46,3,16,28.164
+Scale Free,46,4,3,30.602
+Scale Free,46,5,5,27.2
+Scale Free,46,6,3,31.97
+Scale Free,46,7,6,29.46
+Scale Free,46,8,7,27.68
+Scale Free,46,9,6,28.074
+Scale Free,46,10,3,29.378
+Scale Free,46,11,10,29.594
+Scale Free,46,12,3,30.336
+Scale Free,46,13,10,30.26
+Scale Free,46,14,0,30.77
+Scale Free,46,15,3,27.42
+Scale Free,46,16,5,27.47
+Scale Free,46,17,3,29.26
+Scale Free,46,18,3,29.38
+Scale Free,46,19,2,30.38
+Scale Free,46,20,6,28.842
+Scale Free,46,21,9,28.866
+Scale Free,46,22,10,28.692
+Scale Free,46,23,6,27.834
+Scale Free,46,24,3,30.036
+Scale Free,46,25,2,30.86
+Scale Free,46,26,3,31.31
+Scale Free,46,27,0,31.46
+Scale Free,46,28,1,29.97
+Scale Free,46,29,1,31.644
+Scale Free,46,30,6,28.542
+Scale Free,46,31,3,30.512
+Scale Free,46,32,1,30.42
+Scale Free,46,33,8,31.026
+Scale Free,46,34,4,27.134
+Scale Free,46,35,3,28.992
+Scale Free,46,36,5,30.156
+Scale Free,46,37,0,35.796
+Scale Free,46,38,1,30.936
+Scale Free,46,39,3,31.11
+Scale Free,46,40,3,31.074
+Scale Free,46,41,2,32.894
+Scale Free,46,42,0,38.334
+Scale Free,46,43,7,28.606
+Scale Free,46,44,2,29.272
+Scale Free,46,45,4,29.628
+Scale Free,46,46,1,32.066
+Scale Free,46,47,0,33.428
+Scale Free,46,48,1,27.1
+Scale Free,46,49,4,26.67
+Scale Free,46,50,3,28.748
+Scale Free,46,51,3,30.192
+Scale Free,46,52,2,28.498
+Scale Free,46,53,0,31.356
+Scale Free,46,54,1,31.934
+Scale Free,46,55,3,31.072
+Scale Free,46,56,0,34.922
+Scale Free,46,57,0,33.478
+Scale Free,46,58,2,29.988
+Scale Free,46,59,4,28.748
+Scale Free,46,60,3,28.298
+Scale Free,46,61,2,28.896
+Scale Free,46,62,4,30.558
+Scale Free,46,63,1,32.15
+Scale Free,46,64,2,32.204
+Scale Free,46,65,2,30.33
+Scale Free,46,66,3,29.128
+Scale Free,46,67,2,30.552
+Scale Free,46,68,3,27.52
+Scale Free,46,69,2,30.418
+Scale Free,46,70,1,33.684
+Scale Free,46,71,3,29.364
+Scale Free,46,72,1,30.846
+Scale Free,46,73,3,29.906
+Scale Free,46,74,1,30.664
+Scale Free,46,75,1,31.064
+Scale Free,46,76,1,30.928
+Scale Free,46,77,1,32.078
+Scale Free,46,78,0,39.452
+Scale Free,46,79,1,32.764
+Scale Free,47,0,15,28.918
+Scale Free,47,1,24,27.452
+Scale Free,47,2,19,28.586
+Scale Free,47,3,17,28.19
+Scale Free,47,4,2,27.902
+Scale Free,47,5,0,39.614
+Scale Free,47,6,0,35.6
+Scale Free,47,7,6,30.426
+Scale Free,47,8,7,28.786
+Scale Free,47,9,3,28.868
+Scale Free,47,10,2,30.894
+Scale Free,47,11,3,30.472
+Scale Free,47,12,4,28.562
+Scale Free,47,13,7,29.326
+Scale Free,47,14,5,28.518
+Scale Free,47,15,5,29.514
+Scale Free,47,16,0,34.172
+Scale Free,47,17,2,30.566
+Scale Free,47,18,5,28.404
+Scale Free,47,19,6,27.612
+Scale Free,47,20,3,31.366
+Scale Free,47,21,4,28.976
+Scale Free,47,22,5,27.344
+Scale Free,47,23,3,29.92
+Scale Free,47,24,10,28.276
+Scale Free,47,25,1,31.774
+Scale Free,47,26,0,34.652
+Scale Free,47,27,2,31.378
+Scale Free,47,28,0,31.706
+Scale Free,47,29,3,30.042
+Scale Free,47,30,0,32.692
+Scale Free,47,31,2,30.288
+Scale Free,47,32,7,29.186
+Scale Free,47,33,5,27.764
+Scale Free,47,34,4,28.316
+Scale Free,47,35,4,29.444
+Scale Free,47,36,2,27.806
+Scale Free,47,37,0,32.956
+Scale Free,47,38,3,30.406
+Scale Free,47,39,1,30.368
+Scale Free,47,40,4,27.604
+Scale Free,47,41,2,30.042
+Scale Free,47,42,5,27.56
+Scale Free,47,43,5,30.748
+Scale Free,47,44,3,31.202
+Scale Free,47,45,2,28.85
+Scale Free,47,46,3,29.158
+Scale Free,47,47,3,29.75
+Scale Free,47,48,5,28.952
+Scale Free,47,49,1,29.25
+Scale Free,47,50,3,29.216
+Scale Free,47,51,4,28.47
+Scale Free,47,52,6,28.89
+Scale Free,47,53,2,30.196
+Scale Free,47,54,1,27.836
+Scale Free,47,55,2,30.366
+Scale Free,47,56,2,30.25
+Scale Free,47,57,0,33.89
+Scale Free,47,58,2,31.254
+Scale Free,47,59,3,30.3
+Scale Free,47,60,2,28.952
+Scale Free,47,61,2,29.216
+Scale Free,47,62,1,29.308
+Scale Free,47,63,2,29.846
+Scale Free,47,64,3,29.118
+Scale Free,47,65,1,28.478
+Scale Free,47,66,2,31.484
+Scale Free,47,67,3,32.608
+Scale Free,47,68,0,31.744
+Scale Free,47,69,1,30.408
+Scale Free,47,70,1,27.85
+Scale Free,47,71,2,28.918
+Scale Free,47,72,4,29.834
+Scale Free,47,73,2,29.162
+Scale Free,47,74,1,29.87
+Scale Free,47,75,2,31.006
+Scale Free,47,76,2,30.662
+Scale Free,47,77,2,28.09
+Scale Free,47,78,2,29.352
+Scale Free,47,79,2,30.762
+Scale Free,48,0,8,31.662
+Scale Free,48,1,16,32.938
+Scale Free,48,2,16,30.998
+Scale Free,48,3,16,31.576
+Scale Free,48,4,0,36.668
+Scale Free,48,5,6,33.3
+Scale Free,48,6,1,31.96
+Scale Free,48,7,8,32.472
+Scale Free,48,8,1,33.278
+Scale Free,48,9,1,31.636
+Scale Free,48,10,3,32.854
+Scale Free,48,11,4,30.22
+Scale Free,48,12,2,33.008
+Scale Free,48,13,2,33.564
+Scale Free,48,14,11,32.022
+Scale Free,48,15,4,32.398
+Scale Free,48,16,8,31.022
+Scale Free,48,17,6,32.98
+Scale Free,48,18,6,32.956
+Scale Free,48,19,0,33.11
+Scale Free,48,20,5,33.244
+Scale Free,48,21,0,33.802
+Scale Free,48,22,8,30.894
+Scale Free,48,23,5,34.352
+Scale Free,48,24,3,33.042
+Scale Free,48,25,8,31.324
+Scale Free,48,26,1,33.024
+Scale Free,48,27,3,35.424
+Scale Free,48,28,1,34.198
+Scale Free,48,29,3,32.586
+Scale Free,48,30,4,31.128
+Scale Free,48,31,2,34.436
+Scale Free,48,32,3,33.776
+Scale Free,48,33,3,32.924
+Scale Free,48,34,4,33.824
+Scale Free,48,35,4,30.956
+Scale Free,48,36,3,33.462
+Scale Free,48,37,1,31.818
+Scale Free,48,38,3,33.94
+Scale Free,48,39,1,36.014
+Scale Free,48,40,2,32.75
+Scale Free,48,41,1,34.264
+Scale Free,48,42,2,31.902
+Scale Free,48,43,2,34.036
+Scale Free,48,44,5,31.286
+Scale Free,48,45,4,32.88
+Scale Free,48,46,5,31.0
+Scale Free,48,47,1,32.052
+Scale Free,48,48,4,31.212
+Scale Free,48,49,2,32.106
+Scale Free,48,50,2,32.926
+Scale Free,48,51,2,31.104
+Scale Free,48,52,2,33.572
+Scale Free,48,53,4,32.558
+Scale Free,48,54,5,30.57
+Scale Free,48,55,5,32.634
+Scale Free,48,56,2,33.438
+Scale Free,48,57,3,31.92
+Scale Free,48,58,3,32.682
+Scale Free,48,59,7,32.666
+Scale Free,48,60,3,32.464
+Scale Free,48,61,4,34.632
+Scale Free,48,62,1,31.258
+Scale Free,48,63,4,32.998
+Scale Free,48,64,1,36.526
+Scale Free,48,65,3,32.114
+Scale Free,48,66,1,33.172
+Scale Free,48,67,2,31.966
+Scale Free,48,68,2,34.1
+Scale Free,48,69,4,31.506
+Scale Free,48,70,3,33.456
+Scale Free,48,71,2,31.228
+Scale Free,48,72,2,33.622
+Scale Free,48,73,2,32.596
+Scale Free,48,74,2,30.204
+Scale Free,48,75,1,33.846
+Scale Free,48,76,3,32.648
+Scale Free,48,77,2,31.794
+Scale Free,48,78,2,34.37
+Scale Free,48,79,1,32.628
+Scale Free,49,0,10,30.252
+Scale Free,49,1,10,30.166
+Scale Free,49,2,10,30.318
+Scale Free,49,3,10,31.172
+Scale Free,49,4,1,29.454
+Scale Free,49,5,14,30.284
+Scale Free,49,6,13,29.68
+Scale Free,49,7,10,30.368
+Scale Free,49,8,9,29.602
+Scale Free,49,9,2,31.53
+Scale Free,49,10,7,29.684
+Scale Free,49,11,5,31.22
+Scale Free,49,12,2,31.226
+Scale Free,49,13,9,30.472
+Scale Free,49,14,1,32.826
+Scale Free,49,15,0,31.988
+Scale Free,49,16,11,30.728
+Scale Free,49,17,2,33.254
+Scale Free,49,18,5,30.696
+Scale Free,49,19,2,29.758
+Scale Free,49,20,0,31.85
+Scale Free,49,21,8,30.234
+Scale Free,49,22,9,29.614
+Scale Free,49,23,3,31.544
+Scale Free,49,24,2,29.0
+Scale Free,49,25,2,31.344
+Scale Free,49,26,4,28.27
+Scale Free,49,27,1,32.446
+Scale Free,49,28,6,30.734
+Scale Free,49,29,1,31.71
+Scale Free,49,30,5,29.902
+Scale Free,49,31,4,29.886
+Scale Free,49,32,3,28.226
+Scale Free,49,33,2,30.47
+Scale Free,49,34,1,31.396
+Scale Free,49,35,2,32.156
+Scale Free,49,36,4,29.412
+Scale Free,49,37,3,31.318
+Scale Free,49,38,2,30.84
+Scale Free,49,39,2,32.004
+Scale Free,49,40,1,32.528
+Scale Free,49,41,2,30.348
+Scale Free,49,42,1,31.14
+Scale Free,49,43,6,32.066
+Scale Free,49,44,3,30.308
+Scale Free,49,45,6,32.048
+Scale Free,49,46,2,30.834
+Scale Free,49,47,4,31.502
+Scale Free,49,48,0,34.566
+Scale Free,49,49,3,31.118
+Scale Free,49,50,4,30.068
+Scale Free,49,51,2,30.264
+Scale Free,49,52,2,30.244
+Scale Free,49,53,3,31.88
+Scale Free,49,54,2,31.464
+Scale Free,49,55,3,29.686
+Scale Free,49,56,1,30.744
+Scale Free,49,57,2,31.638
+Scale Free,49,58,0,38.87
+Scale Free,49,59,2,29.798
+Scale Free,49,60,2,28.974
+Scale Free,49,61,2,31.108
+Scale Free,49,62,3,29.63
+Scale Free,49,63,3,28.464
+Scale Free,49,64,4,30.306
+Scale Free,49,65,2,31.958
+Scale Free,49,66,0,39.072
+Scale Free,49,67,1,30.824
+Scale Free,49,68,3,30.894
+Scale Free,49,69,2,31.176
+Scale Free,49,70,2,31.152
+Scale Free,49,71,3,30.926
+Scale Free,49,72,3,31.314
+Scale Free,49,73,1,31.962
+Scale Free,49,74,2,29.726
+Scale Free,49,75,4,31.198
+Scale Free,49,76,1,31.332
+Scale Free,49,77,3,31.53
+Scale Free,49,78,5,31.39
+Scale Free,49,79,2,30.576
+Scale Free,50,0,11,29.876
+Scale Free,50,1,12,29.126
+Scale Free,50,2,10,28.686
+Scale Free,50,3,10,29.51
+Scale Free,50,4,1,33.656
+Scale Free,50,5,10,29.55
+Scale Free,50,6,7,30.458
+Scale Free,50,7,12,30.532
+Scale Free,50,8,4,29.842
+Scale Free,50,9,4,31.858
+Scale Free,50,10,6,30.838
+Scale Free,50,11,3,31.016
+Scale Free,50,12,7,30.176
+Scale Free,50,13,2,30.942
+Scale Free,50,14,9,29.444
+Scale Free,50,15,1,30.744
+Scale Free,50,16,2,30.67
+Scale Free,50,17,2,31.73
+Scale Free,50,18,4,29.894
+Scale Free,50,19,0,33.556
+Scale Free,50,20,3,29.936
+Scale Free,50,21,1,32.722
+Scale Free,50,22,3,29.678
+Scale Free,50,23,6,31.05
+Scale Free,50,24,3,30.238
+Scale Free,50,25,5,32.48
+Scale Free,50,26,6,30.016
+Scale Free,50,27,6,30.394
+Scale Free,50,28,3,33.176
+Scale Free,50,29,3,28.728
+Scale Free,50,30,7,30.724
+Scale Free,50,31,3,28.68
+Scale Free,50,32,8,29.26
+Scale Free,50,33,3,30.226
+Scale Free,50,34,2,32.76
+Scale Free,50,35,2,32.582
+Scale Free,50,36,2,28.384
+Scale Free,50,37,4,30.862
+Scale Free,50,38,1,30.226
+Scale Free,50,39,0,39.708
+Scale Free,50,40,2,29.314
+Scale Free,50,41,4,28.946
+Scale Free,50,42,0,33.402
+Scale Free,50,43,3,31.558
+Scale Free,50,44,2,30.714
+Scale Free,50,45,3,30.53
+Scale Free,50,46,4,29.752
+Scale Free,50,47,1,31.642
+Scale Free,50,48,4,31.004
+Scale Free,50,49,4,30.76
+Scale Free,50,50,5,31.464
+Scale Free,50,51,2,31.358
+Scale Free,50,52,1,32.322
+Scale Free,50,53,1,30.4
+Scale Free,50,54,1,30.79
+Scale Free,50,55,3,30.352
+Scale Free,50,56,7,29.996
+Scale Free,50,57,2,33.07
+Scale Free,50,58,4,29.134
+Scale Free,50,59,3,28.696
+Scale Free,50,60,3,30.73
+Scale Free,50,61,2,30.962
+Scale Free,50,62,2,28.642
+Scale Free,50,63,2,32.092
+Scale Free,50,64,1,33.162
+Scale Free,50,65,2,29.79
+Scale Free,50,66,1,31.986
+Scale Free,50,67,1,33.59
+Scale Free,50,68,3,28.888
+Scale Free,50,69,5,30.676
+Scale Free,50,70,4,31.522
+Scale Free,50,71,2,32.022
+Scale Free,50,72,2,31.676
+Scale Free,50,73,1,31.64
+Scale Free,50,74,4,30.064
+Scale Free,50,75,2,29.758
+Scale Free,50,76,1,31.898
+Scale Free,50,77,1,32.826
+Scale Free,50,78,2,31.342
+Scale Free,50,79,3,30.232
+Scale Free,51,0,11,29.314
+Scale Free,51,1,12,29.688
+Scale Free,51,2,9,30.626
+Scale Free,51,3,8,30.808
+Scale Free,51,4,7,30.926
+Scale Free,51,5,16,30.206
+Scale Free,51,6,9,31.984
+Scale Free,51,7,5,31.03
+Scale Free,51,8,4,32.352
+Scale Free,51,9,6,31.19
+Scale Free,51,10,9,30.532
+Scale Free,51,11,2,32.316
+Scale Free,51,12,10,30.772
+Scale Free,51,13,0,36.198
+Scale Free,51,14,1,30.22
+Scale Free,51,15,4,30.208
+Scale Free,51,16,8,29.112
+Scale Free,51,17,6,31.27
+Scale Free,51,18,3,31.978
+Scale Free,51,19,12,29.936
+Scale Free,51,20,2,32.026
+Scale Free,51,21,2,29.418
+Scale Free,51,22,4,30.598
+Scale Free,51,23,2,32.086
+Scale Free,51,24,9,30.154
+Scale Free,51,25,6,29.248
+Scale Free,51,26,8,29.98
+Scale Free,51,27,3,29.38
+Scale Free,51,28,2,30.61
+Scale Free,51,29,1,32.984
+Scale Free,51,30,1,30.928
+Scale Free,51,31,3,31.416
+Scale Free,51,32,0,32.762
+Scale Free,51,33,6,29.088
+Scale Free,51,34,2,30.004
+Scale Free,51,35,4,30.572
+Scale Free,51,36,4,30.91
+Scale Free,51,37,3,30.484
+Scale Free,51,38,6,29.452
+Scale Free,51,39,3,29.564
+Scale Free,51,40,3,31.374
+Scale Free,51,41,3,28.884
+Scale Free,51,42,1,33.33
+Scale Free,51,43,4,28.768
+Scale Free,51,44,1,31.092
+Scale Free,51,45,0,32.248
+Scale Free,51,46,0,35.318
+Scale Free,51,47,2,28.688
+Scale Free,51,48,1,32.232
+Scale Free,51,49,2,29.15
+Scale Free,51,50,1,30.154
+Scale Free,51,51,2,31.55
+Scale Free,51,52,3,31.96
+Scale Free,51,53,2,30.468
+Scale Free,51,54,4,30.432
+Scale Free,51,55,1,30.82
+Scale Free,51,56,3,31.386
+Scale Free,51,57,1,31.128
+Scale Free,51,58,6,30.0
+Scale Free,51,59,2,30.636
+Scale Free,51,60,2,29.42
+Scale Free,51,61,1,29.808
+Scale Free,51,62,2,31.366
+Scale Free,51,63,2,30.984
+Scale Free,51,64,3,30.558
+Scale Free,51,65,6,30.476
+Scale Free,51,66,4,29.444
+Scale Free,51,67,3,31.126
+Scale Free,51,68,3,29.478
+Scale Free,51,69,3,31.862
+Scale Free,51,70,1,28.324
+Scale Free,51,71,2,30.84
+Scale Free,51,72,1,30.346
+Scale Free,51,73,3,29.756
+Scale Free,51,74,1,29.65
+Scale Free,51,75,1,32.078
+Scale Free,51,76,3,31.12
+Scale Free,51,77,3,29.988
+Scale Free,51,78,1,30.246
+Scale Free,51,79,1,33.138
+Random,42,0,6,31.134
+Random,42,1,3,32.394
+Random,42,2,7,29.478
+Random,42,3,9,29.59
+Random,42,4,5,29.428
+Random,42,5,9,31.126
+Random,42,6,2,30.604
+Random,42,7,4,30.282
+Random,42,8,4,29.658
+Random,42,9,3,34.454
+Random,42,10,4,31.976
+Random,42,11,0,31.594
+Random,42,12,4,30.658
+Random,42,13,6,30.14
+Random,42,14,4,32.576
+Random,42,15,5,30.214
+Random,42,16,6,30.008
+Random,42,17,3,31.016
+Random,42,18,4,30.31
+Random,42,19,6,30.268
+Random,42,20,1,33.08
+Random,42,21,2,32.97
+Random,42,22,2,33.28
+Random,42,23,5,31.174
+Random,42,24,3,30.894
+Random,42,25,1,32.942
+Random,42,26,6,31.342
+Random,42,27,5,29.208
+Random,42,28,5,30.434
+Random,42,29,6,29.37
+Random,42,30,5,29.422
+Random,42,31,5,30.992
+Random,42,32,3,31.176
+Random,42,33,2,32.244
+Random,42,34,1,33.246
+Random,42,35,4,29.926
+Random,42,36,2,31.774
+Random,42,37,7,29.616
+Random,42,38,4,30.38
+Random,42,39,3,29.642
+Random,42,40,6,29.91
+Random,42,41,1,30.974
+Random,42,42,3,31.216
+Random,42,43,4,30.798
+Random,42,44,7,30.902
+Random,42,45,3,32.09
+Random,42,46,1,30.958
+Random,42,47,4,30.98
+Random,42,48,4,30.682
+Random,42,49,5,31.022
+Random,42,50,3,32.522
+Random,42,51,2,33.058
+Random,42,52,5,31.518
+Random,42,53,0,32.928
+Random,42,54,5,28.788
+Random,42,55,2,30.288
+Random,42,56,5,28.962
+Random,42,57,5,30.706
+Random,42,58,2,32.026
+Random,42,59,4,30.44
+Random,42,60,0,31.396
+Random,42,61,5,30.896
+Random,42,62,4,30.634
+Random,42,63,3,27.518
+Random,42,64,5,30.214
+Random,42,65,2,31.498
+Random,42,66,6,28.972
+Random,42,67,7,30.052
+Random,42,68,3,28.824
+Random,42,69,5,30.712
+Random,42,70,6,32.258
+Random,42,71,5,30.302
+Random,42,72,3,31.988
+Random,42,73,3,31.016
+Random,42,74,2,32.084
+Random,42,75,5,29.662
+Random,42,76,3,31.348
+Random,42,77,3,31.336
+Random,42,78,5,32.544
+Random,42,79,1,31.936
+Random,43,0,6,32.99
+Random,43,1,3,32.858
+Random,43,2,3,32.918
+Random,43,3,4,31.9
+Random,43,4,5,31.932
+Random,43,5,5,32.534
+Random,43,6,1,33.082
+Random,43,7,5,31.778
+Random,43,8,5,32.338
+Random,43,9,0,33.044
+Random,43,10,3,33.016
+Random,43,11,3,30.616
+Random,43,12,2,32.382
+Random,43,13,2,31.692
+Random,43,14,3,33.764
+Random,43,15,2,31.638
+Random,43,16,6,32.114
+Random,43,17,6,31.064
+Random,43,18,3,30.89
+Random,43,19,2,31.452
+Random,43,20,3,32.444
+Random,43,21,7,32.678
+Random,43,22,6,31.172
+Random,43,23,1,33.072
+Random,43,24,2,34.54
+Random,43,25,7,32.312
+Random,43,26,1,29.524
+Random,43,27,2,33.458
+Random,43,28,5,32.928
+Random,43,29,5,32.436
+Random,43,30,3,31.604
+Random,43,31,7,31.614
+Random,43,32,4,29.186
+Random,43,33,6,31.158
+Random,43,34,5,31.67
+Random,43,35,4,33.27
+Random,43,36,0,35.618
+Random,43,37,4,30.674
+Random,43,38,7,32.418
+Random,43,39,7,31.79
+Random,43,40,3,32.21
+Random,43,41,2,33.036
+Random,43,42,6,30.652
+Random,43,43,5,31.962
+Random,43,44,3,34.088
+Random,43,45,3,34.34
+Random,43,46,1,29.964
+Random,43,47,5,32.418
+Random,43,48,2,33.162
+Random,43,49,2,30.878
+Random,43,50,6,32.306
+Random,43,51,7,32.348
+Random,43,52,8,31.774
+Random,43,53,6,31.858
+Random,43,54,5,31.372
+Random,43,55,4,30.362
+Random,43,56,2,33.49
+Random,43,57,4,31.082
+Random,43,58,1,30.514
+Random,43,59,5,30.598
+Random,43,60,5,32.37
+Random,43,61,4,31.146
+Random,43,62,4,31.636
+Random,43,63,7,31.554
+Random,43,64,8,32.106
+Random,43,65,5,30.62
+Random,43,66,4,32.102
+Random,43,67,2,33.512
+Random,43,68,3,31.454
+Random,43,69,2,31.63
+Random,43,70,3,33.024
+Random,43,71,6,31.63
+Random,43,72,0,34.878
+Random,43,73,3,33.032
+Random,43,74,3,32.564
+Random,43,75,1,33.068
+Random,43,76,6,31.116
+Random,43,77,2,32.364
+Random,43,78,4,32.864
+Random,43,79,2,33.812
+Random,44,0,7,30.01
+Random,44,1,2,30.662
+Random,44,2,2,30.0
+Random,44,3,1,30.862
+Random,44,4,7,28.004
+Random,44,5,6,29.34
+Random,44,6,9,30.116
+Random,44,7,2,30.618
+Random,44,8,3,30.742
+Random,44,9,4,28.652
+Random,44,10,6,28.788
+Random,44,11,4,29.552
+Random,44,12,1,29.73
+Random,44,13,5,29.662
+Random,44,14,1,31.634
+Random,44,15,4,30.54
+Random,44,16,5,31.286
+Random,44,17,2,33.13
+Random,44,18,7,29.114
+Random,44,19,3,29.138
+Random,44,20,3,30.848
+Random,44,21,6,29.928
+Random,44,22,2,30.286
+Random,44,23,3,30.322
+Random,44,24,5,28.926
+Random,44,25,4,29.43
+Random,44,26,2,30.26
+Random,44,27,4,29.166
+Random,44,28,5,28.7
+Random,44,29,4,29.702
+Random,44,30,6,31.276
+Random,44,31,2,31.584
+Random,44,32,1,32.654
+Random,44,33,2,30.398
+Random,44,34,2,29.018
+Random,44,35,9,29.074
+Random,44,36,4,28.436
+Random,44,37,5,29.412
+Random,44,38,2,32.442
+Random,44,39,6,31.302
+Random,44,40,6,28.664
+Random,44,41,2,30.454
+Random,44,42,4,30.118
+Random,44,43,5,30.046
+Random,44,44,3,28.67
+Random,44,45,4,29.6
+Random,44,46,4,29.388
+Random,44,47,6,28.248
+Random,44,48,3,31.922
+Random,44,49,5,30.204
+Random,44,50,5,27.762
+Random,44,51,5,28.912
+Random,44,52,3,29.35
+Random,44,53,1,31.802
+Random,44,54,4,28.22
+Random,44,55,8,30.666
+Random,44,56,9,29.684
+Random,44,57,3,30.316
+Random,44,58,3,29.736
+Random,44,59,1,29.338
+Random,44,60,3,30.504
+Random,44,61,5,28.702
+Random,44,62,5,28.262
+Random,44,63,7,29.018
+Random,44,64,4,30.784
+Random,44,65,4,29.316
+Random,44,66,6,29.466
+Random,44,67,0,38.568
+Random,44,68,7,29.866
+Random,44,69,8,30.12
+Random,44,70,5,28.328
+Random,44,71,6,29.698
+Random,44,72,1,30.274
+Random,44,73,5,30.21
+Random,44,74,4,29.45
+Random,44,75,5,30.646
+Random,44,76,6,30.974
+Random,44,77,3,29.72
+Random,44,78,2,29.83
+Random,44,79,1,33.164
+Random,45,0,3,30.924
+Random,45,1,2,31.516
+Random,45,2,6,29.682
+Random,45,3,3,32.234
+Random,45,4,8,29.902
+Random,45,5,5,29.038
+Random,45,6,4,33.772
+Random,45,7,2,32.422
+Random,45,8,2,30.266
+Random,45,9,3,29.566
+Random,45,10,2,32.338
+Random,45,11,3,29.774
+Random,45,12,6,31.284
+Random,45,13,2,32.224
+Random,45,14,4,30.144
+Random,45,15,6,30.474
+Random,45,16,6,32.292
+Random,45,17,3,31.644
+Random,45,18,2,33.54
+Random,45,19,6,30.594
+Random,45,20,4,31.774
+Random,45,21,7,30.236
+Random,45,22,5,31.136
+Random,45,23,5,29.772
+Random,45,24,5,28.444
+Random,45,25,5,30.366
+Random,45,26,8,30.264
+Random,45,27,2,32.03
+Random,45,28,3,31.338
+Random,45,29,4,31.076
+Random,45,30,6,31.444
+Random,45,31,3,30.732
+Random,45,32,4,31.248
+Random,45,33,5,30.228
+Random,45,34,3,31.81
+Random,45,35,5,30.514
+Random,45,36,3,30.064
+Random,45,37,4,31.404
+Random,45,38,3,31.684
+Random,45,39,4,30.896
+Random,45,40,5,31.836
+Random,45,41,3,31.71
+Random,45,42,5,31.816
+Random,45,43,7,31.976
+Random,45,44,6,30.566
+Random,45,45,4,28.37
+Random,45,46,2,31.75
+Random,45,47,5,30.54
+Random,45,48,4,30.772
+Random,45,49,4,29.99
+Random,45,50,5,29.64
+Random,45,51,6,30.674
+Random,45,52,3,29.646
+Random,45,53,5,30.948
+Random,45,54,3,32.394
+Random,45,55,5,30.758
+Random,45,56,4,32.86
+Random,45,57,6,30.406
+Random,45,58,5,31.508
+Random,45,59,3,29.8
+Random,45,60,3,30.742
+Random,45,61,5,30.956
+Random,45,62,3,31.85
+Random,45,63,4,29.692
+Random,45,64,1,31.306
+Random,45,65,5,31.502
+Random,45,66,1,32.1
+Random,45,67,5,31.164
+Random,45,68,5,28.516
+Random,45,69,1,32.45
+Random,45,70,6,30.844
+Random,45,71,4,30.974
+Random,45,72,5,30.304
+Random,45,73,2,32.562
+Random,45,74,4,30.512
+Random,45,75,6,28.824
+Random,45,76,1,33.356
+Random,45,77,3,32.726
+Random,45,78,3,32.714
+Random,45,79,2,32.186
+Random,46,0,5,31.914
+Random,46,1,2,28.716
+Random,46,2,7,31.072
+Random,46,3,2,30.528
+Random,46,4,6,28.948
+Random,46,5,8,30.516
+Random,46,6,3,30.492
+Random,46,7,2,29.352
+Random,46,8,6,26.858
+Random,46,9,2,29.152
+Random,46,10,4,28.514
+Random,46,11,3,30.516
+Random,46,12,5,27.436
+Random,46,13,4,30.83
+Random,46,14,3,31.166
+Random,46,15,4,31.592
+Random,46,16,2,28.926
+Random,46,17,4,28.086
+Random,46,18,5,29.124
+Random,46,19,7,29.654
+Random,46,20,6,30.742
+Random,46,21,4,29.264
+Random,46,22,7,28.624
+Random,46,23,3,30.044
+Random,46,24,2,29.82
+Random,46,25,1,32.612
+Random,46,26,5,27.92
+Random,46,27,5,29.952
+Random,46,28,4,29.278
+Random,46,29,2,29.766
+Random,46,30,1,27.836
+Random,46,31,2,28.8
+Random,46,32,6,28.624
+Random,46,33,4,31.264
+Random,46,34,5,29.044
+Random,46,35,5,30.322
+Random,46,36,4,30.266
+Random,46,37,4,28.722
+Random,46,38,4,30.434
+Random,46,39,4,30.98
+Random,46,40,4,30.468
+Random,46,41,0,35.582
+Random,46,42,2,30.46
+Random,46,43,3,30.1
+Random,46,44,3,31.382
+Random,46,45,5,30.208
+Random,46,46,1,33.848
+Random,46,47,6,31.244
+Random,46,48,0,34.112
+Random,46,49,3,31.618
+Random,46,50,6,28.296
+Random,46,51,3,31.502
+Random,46,52,6,29.478
+Random,46,53,2,26.284
+Random,46,54,1,29.506
+Random,46,55,4,26.852
+Random,46,56,0,33.534
+Random,46,57,3,30.896
+Random,46,58,3,30.422
+Random,46,59,4,30.516
+Random,46,60,6,31.474
+Random,46,61,6,29.546
+Random,46,62,4,29.59
+Random,46,63,5,28.418
+Random,46,64,2,25.94
+Random,46,65,4,31.95
+Random,46,66,3,30.662
+Random,46,67,5,27.748
+Random,46,68,3,27.466
+Random,46,69,7,29.236
+Random,46,70,7,28.986
+Random,46,71,2,28.416
+Random,46,72,0,37.876
+Random,46,73,3,29.14
+Random,46,74,1,30.634
+Random,46,75,3,30.578
+Random,46,76,5,31.646
+Random,46,77,4,31.986
+Random,46,78,4,28.954
+Random,46,79,2,29.188
+Random,47,0,4,32.968
+Random,47,1,3,28.482
+Random,47,2,7,30.866
+Random,47,3,3,32.046
+Random,47,4,7,30.364
+Random,47,5,3,31.64
+Random,47,6,2,27.892
+Random,47,7,4,30.888
+Random,47,8,6,30.94
+Random,47,9,4,31.502
+Random,47,10,7,30.61
+Random,47,11,8,30.594
+Random,47,12,2,30.18
+Random,47,13,2,30.844
+Random,47,14,2,31.796
+Random,47,15,3,34.58
+Random,47,16,3,30.34
+Random,47,17,4,31.442
+Random,47,18,3,31.754
+Random,47,19,6,31.546
+Random,47,20,3,30.472
+Random,47,21,5,31.152
+Random,47,22,6,32.074
+Random,47,23,5,28.95
+Random,47,24,3,31.808
+Random,47,25,6,31.518
+Random,47,26,3,32.29
+Random,47,27,6,30.848
+Random,47,28,4,30.042
+Random,47,29,0,32.646
+Random,47,30,7,29.97
+Random,47,31,3,30.158
+Random,47,32,6,30.868
+Random,47,33,4,31.872
+Random,47,34,1,32.49
+Random,47,35,5,30.444
+Random,47,36,4,31.992
+Random,47,37,1,34.668
+Random,47,38,5,31.808
+Random,47,39,3,31.348
+Random,47,40,2,30.994
+Random,47,41,4,30.936
+Random,47,42,3,32.084
+Random,47,43,2,30.176
+Random,47,44,6,30.736
+Random,47,45,1,33.396
+Random,47,46,6,29.318
+Random,47,47,1,32.982
+Random,47,48,9,30.664
+Random,47,49,4,31.476
+Random,47,50,4,32.78
+Random,47,51,5,29.636
+Random,47,52,3,29.854
+Random,47,53,3,30.894
+Random,47,54,2,32.17
+Random,47,55,6,29.536
+Random,47,56,2,27.902
+Random,47,57,5,30.874
+Random,47,58,3,31.308
+Random,47,59,1,31.506
+Random,47,60,2,31.6
+Random,47,61,9,30.768
+Random,47,62,4,31.068
+Random,47,63,4,30.23
+Random,47,64,4,31.77
+Random,47,65,3,30.74
+Random,47,66,5,31.72
+Random,47,67,3,30.77
+Random,47,68,4,31.934
+Random,47,69,2,31.478
+Random,47,70,3,33.214
+Random,47,71,3,32.174
+Random,47,72,7,32.042
+Random,47,73,2,31.056
+Random,47,74,3,31.832
+Random,47,75,2,28.666
+Random,47,76,6,29.574
+Random,47,77,3,30.88
+Random,47,78,3,29.136
+Random,47,79,4,31.308
+Random,48,0,4,29.926
+Random,48,1,2,29.062
+Random,48,2,3,28.426
+Random,48,3,4,28.604
+Random,48,4,1,28.968
+Random,48,5,3,30.812
+Random,48,6,1,29.084
+Random,48,7,3,29.496
+Random,48,8,3,28.214
+Random,48,9,3,28.098
+Random,48,10,3,30.398
+Random,48,11,5,29.464
+Random,48,12,2,29.95
+Random,48,13,4,29.564
+Random,48,14,5,29.508
+Random,48,15,3,29.842
+Random,48,16,2,29.214
+Random,48,17,6,29.062
+Random,48,18,5,30.532
+Random,48,19,5,27.688
+Random,48,20,2,30.608
+Random,48,21,1,32.852
+Random,48,22,6,28.574
+Random,48,23,5,29.458
+Random,48,24,5,27.908
+Random,48,25,2,32.502
+Random,48,26,2,30.422
+Random,48,27,2,29.548
+Random,48,28,1,33.558
+Random,48,29,5,28.908
+Random,48,30,1,32.226
+Random,48,31,6,28.586
+Random,48,32,4,29.542
+Random,48,33,4,29.89
+Random,48,34,5,29.508
+Random,48,35,3,29.23
+Random,48,36,5,28.344
+Random,48,37,5,28.07
+Random,48,38,2,30.776
+Random,48,39,1,30.09
+Random,48,40,4,30.274
+Random,48,41,4,29.734
+Random,48,42,7,28.282
+Random,48,43,2,28.724
+Random,48,44,1,30.88
+Random,48,45,4,30.116
+Random,48,46,1,30.61
+Random,48,47,4,29.742
+Random,48,48,4,29.308
+Random,48,49,3,29.808
+Random,48,50,4,29.636
+Random,48,51,2,31.722
+Random,48,52,1,28.53
+Random,48,53,1,32.076
+Random,48,54,5,29.926
+Random,48,55,2,28.596
+Random,48,56,4,27.966
+Random,48,57,3,29.964
+Random,48,58,0,35.066
+Random,48,59,4,28.12
+Random,48,60,4,28.484
+Random,48,61,6,29.086
+Random,48,62,2,30.726
+Random,48,63,4,29.032
+Random,48,64,4,28.936
+Random,48,65,1,33.886
+Random,48,66,9,28.552
+Random,48,67,5,30.486
+Random,48,68,7,30.062
+Random,48,69,6,28.076
+Random,48,70,3,29.012
+Random,48,71,3,28.31
+Random,48,72,2,29.88
+Random,48,73,5,30.67
+Random,48,74,6,29.358
+Random,48,75,4,30.602
+Random,48,76,1,30.848
+Random,48,77,4,29.77
+Random,48,78,2,30.026
+Random,48,79,5,29.382
+Random,49,0,2,29.07
+Random,49,1,3,30.112
+Random,49,2,2,28.958
+Random,49,3,6,29.03
+Random,49,4,5,28.202
+Random,49,5,2,29.212
+Random,49,6,6,29.316
+Random,49,7,6,28.526
+Random,49,8,5,28.674
+Random,49,9,5,30.812
+Random,49,10,2,30.948
+Random,49,11,2,29.642
+Random,49,12,6,27.132
+Random,49,13,2,27.988
+Random,49,14,3,29.3
+Random,49,15,4,29.288
+Random,49,16,3,30.804
+Random,49,17,4,28.71
+Random,49,18,3,30.09
+Random,49,19,3,29.552
+Random,49,20,3,32.646
+Random,49,21,6,28.02
+Random,49,22,5,27.176
+Random,49,23,5,27.72
+Random,49,24,2,29.322
+Random,49,25,4,26.302
+Random,49,26,8,27.968
+Random,49,27,5,29.688
+Random,49,28,4,28.702
+Random,49,29,3,27.876
+Random,49,30,3,29.532
+Random,49,31,2,29.458
+Random,49,32,3,27.43
+Random,49,33,5,28.548
+Random,49,34,4,27.41
+Random,49,35,1,30.85
+Random,49,36,6,29.232
+Random,49,37,2,29.864
+Random,49,38,3,31.776
+Random,49,39,7,27.572
+Random,49,40,3,28.108
+Random,49,41,1,31.046
+Random,49,42,3,27.878
+Random,49,43,8,27.994
+Random,49,44,2,30.326
+Random,49,45,5,28.832
+Random,49,46,1,31.424
+Random,49,47,5,27.978
+Random,49,48,4,28.21
+Random,49,49,4,27.79
+Random,49,50,3,28.608
+Random,49,51,4,27.854
+Random,49,52,5,28.04
+Random,49,53,1,28.938
+Random,49,54,1,31.612
+Random,49,55,4,28.364
+Random,49,56,1,28.84
+Random,49,57,4,29.224
+Random,49,58,5,28.77
+Random,49,59,5,28.826
+Random,49,60,3,29.592
+Random,49,61,5,27.776
+Random,49,62,0,32.138
+Random,49,63,8,27.924
+Random,49,64,4,28.262
+Random,49,65,5,28.65
+Random,49,66,7,28.596
+Random,49,67,5,28.192
+Random,49,68,3,30.514
+Random,49,69,6,28.396
+Random,49,70,0,30.824
+Random,49,71,5,28.244
+Random,49,72,3,29.054
+Random,49,73,5,28.75
+Random,49,74,5,28.916
+Random,49,75,6,28.004
+Random,49,76,4,29.862
+Random,49,77,3,28.43
+Random,49,78,5,29.22
+Random,49,79,2,31.138
+Random,50,0,3,30.396
+Random,50,1,7,30.306
+Random,50,2,2,32.36
+Random,50,3,2,30.632
+Random,50,4,5,30.152
+Random,50,5,4,28.954
+Random,50,6,4,28.154
+Random,50,7,6,30.71
+Random,50,8,4,30.266
+Random,50,9,7,29.678
+Random,50,10,3,29.812
+Random,50,11,2,30.97
+Random,50,12,4,32.328
+Random,50,13,6,28.75
+Random,50,14,10,30.002
+Random,50,15,1,31.006
+Random,50,16,3,30.024
+Random,50,17,4,32.502
+Random,50,18,2,29.77
+Random,50,19,6,29.158
+Random,50,20,4,30.846
+Random,50,21,7,28.294
+Random,50,22,0,37.792
+Random,50,23,8,29.924
+Random,50,24,5,29.926
+Random,50,25,2,28.872
+Random,50,26,2,30.78
+Random,50,27,2,34.888
+Random,50,28,2,30.752
+Random,50,29,7,29.3
+Random,50,30,1,31.684
+Random,50,31,6,30.662
+Random,50,32,4,29.764
+Random,50,33,3,32.02
+Random,50,34,2,31.616
+Random,50,35,5,29.742
+Random,50,36,4,30.41
+Random,50,37,1,33.402
+Random,50,38,7,31.228
+Random,50,39,5,29.71
+Random,50,40,4,29.628
+Random,50,41,6,30.664
+Random,50,42,11,29.204
+Random,50,43,0,33.33
+Random,50,44,5,30.07
+Random,50,45,3,30.71
+Random,50,46,3,33.5
+Random,50,47,5,29.226
+Random,50,48,4,29.204
+Random,50,49,4,30.012
+Random,50,50,2,29.998
+Random,50,51,6,28.1
+Random,50,52,2,31.784
+Random,50,53,5,30.316
+Random,50,54,4,28.51
+Random,50,55,5,30.284
+Random,50,56,5,31.688
+Random,50,57,3,30.124
+Random,50,58,0,34.004
+Random,50,59,4,29.24
+Random,50,60,4,31.602
+Random,50,61,5,30.108
+Random,50,62,2,30.518
+Random,50,63,3,29.022
+Random,50,64,1,33.256
+Random,50,65,2,32.174
+Random,50,66,5,32.05
+Random,50,67,1,29.712
+Random,50,68,2,30.784
+Random,50,69,3,28.824
+Random,50,70,2,30.028
+Random,50,71,2,30.648
+Random,50,72,8,29.362
+Random,50,73,3,29.684
+Random,50,74,5,30.092
+Random,50,75,5,31.74
+Random,50,76,2,30.394
+Random,50,77,9,29.248
+Random,50,78,6,31.446
+Random,50,79,5,29.9
+Random,51,0,3,28.29
+Random,51,1,5,28.57
+Random,51,2,3,30.788
+Random,51,3,4,29.624
+Random,51,4,2,30.766
+Random,51,5,5,30.312
+Random,51,6,3,30.308
+Random,51,7,4,29.204
+Random,51,8,3,30.022
+Random,51,9,4,30.264
+Random,51,10,1,28.476
+Random,51,11,3,28.542
+Random,51,12,3,29.046
+Random,51,13,2,30.93
+Random,51,14,3,29.676
+Random,51,15,5,30.448
+Random,51,16,4,29.388
+Random,51,17,3,29.74
+Random,51,18,5,29.878
+Random,51,19,6,27.598
+Random,51,20,2,30.608
+Random,51,21,8,29.16
+Random,51,22,4,29.736
+Random,51,23,5,29.214
+Random,51,24,4,28.794
+Random,51,25,6,29.398
+Random,51,26,3,31.116
+Random,51,27,6,28.372
+Random,51,28,4,30.386
+Random,51,29,3,29.72
+Random,51,30,2,29.92
+Random,51,31,3,30.146
+Random,51,32,4,30.29
+Random,51,33,6,29.978
+Random,51,34,1,29.774
+Random,51,35,2,32.144
+Random,51,36,3,29.436
+Random,51,37,4,29.27
+Random,51,38,5,29.132
+Random,51,39,5,28.6
+Random,51,40,8,29.526
+Random,51,41,1,31.084
+Random,51,42,2,31.198
+Random,51,43,3,28.292
+Random,51,44,5,28.052
+Random,51,45,1,32.158
+Random,51,46,3,29.254
+Random,51,47,6,29.706
+Random,51,48,1,31.982
+Random,51,49,7,29.206
+Random,51,50,2,28.182
+Random,51,51,5,28.538
+Random,51,52,4,30.188
+Random,51,53,3,30.27
+Random,51,54,7,30.056
+Random,51,55,4,29.912
+Random,51,56,5,29.862
+Random,51,57,4,27.33
+Random,51,58,2,31.332
+Random,51,59,6,30.08
+Random,51,60,3,28.706
+Random,51,61,3,28.79
+Random,51,62,6,27.946
+Random,51,63,6,31.034
+Random,51,64,2,30.132
+Random,51,65,3,30.978
+Random,51,66,3,28.966
+Random,51,67,4,30.982
+Random,51,68,4,30.126
+Random,51,69,3,32.886
+Random,51,70,4,30.282
+Random,51,71,5,29.68
+Random,51,72,1,31.106
+Random,51,73,8,29.416
+Random,51,74,6,27.948
+Random,51,75,5,29.514
+Random,51,76,6,29.882
+Random,51,77,3,30.648
+Random,51,78,5,29.164
+Random,51,79,5,28.666
+Small World,42,0,4,29.748
+Small World,42,1,5,27.982
+Small World,42,2,5,28.938
+Small World,42,3,6,30.614
+Small World,42,4,6,27.634
+Small World,42,5,2,29.358
+Small World,42,6,4,30.734
+Small World,42,7,4,30.156
+Small World,42,8,3,30.066
+Small World,42,9,3,30.398
+Small World,42,10,5,31.246
+Small World,42,11,7,30.25
+Small World,42,12,4,28.9
+Small World,42,13,3,29.612
+Small World,42,14,3,31.284
+Small World,42,15,2,29.03
+Small World,42,16,6,29.708
+Small World,42,17,5,28.634
+Small World,42,18,3,29.136
+Small World,42,19,4,30.466
+Small World,42,20,5,30.2
+Small World,42,21,4,28.916
+Small World,42,22,3,30.674
+Small World,42,23,4,30.62
+Small World,42,24,4,29.468
+Small World,42,25,5,29.996
+Small World,42,26,3,29.744
+Small World,42,27,2,28.846
+Small World,42,28,4,30.332
+Small World,42,29,6,28.442
+Small World,42,30,5,29.65
+Small World,42,31,2,28.922
+Small World,42,32,4,30.104
+Small World,42,33,3,29.274
+Small World,42,34,5,28.072
+Small World,42,35,4,29.704
+Small World,42,36,5,31.242
+Small World,42,37,4,30.12
+Small World,42,38,5,29.918
+Small World,42,39,2,30.95
+Small World,42,40,5,31.252
+Small World,42,41,1,30.318
+Small World,42,42,4,30.114
+Small World,42,43,5,29.042
+Small World,42,44,3,29.024
+Small World,42,45,5,29.252
+Small World,42,46,4,29.97
+Small World,42,47,5,29.514
+Small World,42,48,3,30.31
+Small World,42,49,4,28.918
+Small World,42,50,5,28.002
+Small World,42,51,6,30.158
+Small World,42,52,4,27.778
+Small World,42,53,3,29.708
+Small World,42,54,2,29.968
+Small World,42,55,6,27.156
+Small World,42,56,2,30.216
+Small World,42,57,4,28.53
+Small World,42,58,6,29.296
+Small World,42,59,4,30.114
+Small World,42,60,4,28.756
+Small World,42,61,3,26.354
+Small World,42,62,6,29.092
+Small World,42,63,1,29.948
+Small World,42,64,4,26.884
+Small World,42,65,6,29.942
+Small World,42,66,5,29.096
+Small World,42,67,4,28.538
+Small World,42,68,3,29.296
+Small World,42,69,4,27.688
+Small World,42,70,4,28.976
+Small World,42,71,1,29.78
+Small World,42,72,4,28.906
+Small World,42,73,6,27.988
+Small World,42,74,5,28.73
+Small World,42,75,2,31.738
+Small World,42,76,4,29.302
+Small World,42,77,2,30.008
+Small World,42,78,2,29.332
+Small World,42,79,6,29.0
+Small World,43,0,3,29.858
+Small World,43,1,3,30.7
+Small World,43,2,6,32.722
+Small World,43,3,3,30.58
+Small World,43,4,4,32.4
+Small World,43,5,3,30.454
+Small World,43,6,4,31.77
+Small World,43,7,2,31.472
+Small World,43,8,7,29.876
+Small World,43,9,2,31.048
+Small World,43,10,1,32.098
+Small World,43,11,7,32.374
+Small World,43,12,3,31.39
+Small World,43,13,3,31.5
+Small World,43,14,6,31.252
+Small World,43,15,6,31.854
+Small World,43,16,3,32.256
+Small World,43,17,5,32.67
+Small World,43,18,7,29.32
+Small World,43,19,2,35.348
+Small World,43,20,5,31.918
+Small World,43,21,3,31.742
+Small World,43,22,2,30.732
+Small World,43,23,3,28.774
+Small World,43,24,5,30.822
+Small World,43,25,5,29.848
+Small World,43,26,7,30.488
+Small World,43,27,1,32.04
+Small World,43,28,6,30.684
+Small World,43,29,3,31.072
+Small World,43,30,3,29.57
+Small World,43,31,5,31.558
+Small World,43,32,3,30.91
+Small World,43,33,5,29.998
+Small World,43,34,0,36.382
+Small World,43,35,4,31.132
+Small World,43,36,5,32.482
+Small World,43,37,7,31.234
+Small World,43,38,1,32.86
+Small World,43,39,3,32.73
+Small World,43,40,4,31.774
+Small World,43,41,6,28.58
+Small World,43,42,6,28.452
+Small World,43,43,2,31.33
+Small World,43,44,4,30.838
+Small World,43,45,6,30.07
+Small World,43,46,5,32.064
+Small World,43,47,5,32.162
+Small World,43,48,5,29.432
+Small World,43,49,4,31.372
+Small World,43,50,6,31.898
+Small World,43,51,2,31.198
+Small World,43,52,4,31.632
+Small World,43,53,2,31.348
+Small World,43,54,2,29.464
+Small World,43,55,5,31.008
+Small World,43,56,6,30.48
+Small World,43,57,7,30.17
+Small World,43,58,7,29.334
+Small World,43,59,3,30.068
+Small World,43,60,4,32.484
+Small World,43,61,2,31.51
+Small World,43,62,5,32.208
+Small World,43,63,1,32.18
+Small World,43,64,4,29.724
+Small World,43,65,5,31.674
+Small World,43,66,5,29.348
+Small World,43,67,4,30.434
+Small World,43,68,3,30.526
+Small World,43,69,4,31.572
+Small World,43,70,2,30.782
+Small World,43,71,4,29.986
+Small World,43,72,5,29.322
+Small World,43,73,2,30.72
+Small World,43,74,7,30.416
+Small World,43,75,5,32.652
+Small World,43,76,2,32.276
+Small World,43,77,4,31.848
+Small World,43,78,2,33.326
+Small World,43,79,3,30.824
+Small World,44,0,3,30.84
+Small World,44,1,5,29.432
+Small World,44,2,4,27.752
+Small World,44,3,4,30.042
+Small World,44,4,2,30.45
+Small World,44,5,3,29.804
+Small World,44,6,3,30.536
+Small World,44,7,5,29.222
+Small World,44,8,5,30.72
+Small World,44,9,4,28.02
+Small World,44,10,4,28.78
+Small World,44,11,5,28.62
+Small World,44,12,3,28.836
+Small World,44,13,4,29.144
+Small World,44,14,0,32.068
+Small World,44,15,5,28.932
+Small World,44,16,2,30.484
+Small World,44,17,6,29.306
+Small World,44,18,5,29.078
+Small World,44,19,5,29.026
+Small World,44,20,4,28.458
+Small World,44,21,2,29.118
+Small World,44,22,4,29.576
+Small World,44,23,5,29.312
+Small World,44,24,4,29.522
+Small World,44,25,5,27.872
+Small World,44,26,1,31.0
+Small World,44,27,4,29.786
+Small World,44,28,4,29.05
+Small World,44,29,2,32.634
+Small World,44,30,5,30.534
+Small World,44,31,5,31.29
+Small World,44,32,5,30.406
+Small World,44,33,5,31.292
+Small World,44,34,3,29.72
+Small World,44,35,3,28.112
+Small World,44,36,1,33.872
+Small World,44,37,6,29.97
+Small World,44,38,1,31.738
+Small World,44,39,7,30.052
+Small World,44,40,5,27.86
+Small World,44,41,6,29.154
+Small World,44,42,6,29.172
+Small World,44,43,2,33.864
+Small World,44,44,5,28.696
+Small World,44,45,3,30.644
+Small World,44,46,5,29.04
+Small World,44,47,4,29.204
+Small World,44,48,1,31.81
+Small World,44,49,2,32.218
+Small World,44,50,4,30.292
+Small World,44,51,4,29.534
+Small World,44,52,4,29.32
+Small World,44,53,7,29.584
+Small World,44,54,7,31.03
+Small World,44,55,2,32.542
+Small World,44,56,5,31.74
+Small World,44,57,2,30.054
+Small World,44,58,3,30.716
+Small World,44,59,2,30.832
+Small World,44,60,5,31.028
+Small World,44,61,7,30.184
+Small World,44,62,5,29.656
+Small World,44,63,3,29.968
+Small World,44,64,5,30.316
+Small World,44,65,5,29.934
+Small World,44,66,5,30.222
+Small World,44,67,2,32.552
+Small World,44,68,1,32.244
+Small World,44,69,5,32.294
+Small World,44,70,4,31.066
+Small World,44,71,4,30.226
+Small World,44,72,7,29.282
+Small World,44,73,4,31.054
+Small World,44,74,2,31.772
+Small World,44,75,3,30.182
+Small World,44,76,5,29.472
+Small World,44,77,2,28.674
+Small World,44,78,7,29.414
+Small World,44,79,7,29.71
+Small World,45,0,4,30.692
+Small World,45,1,4,31.594
+Small World,45,2,4,30.292
+Small World,45,3,4,32.428
+Small World,45,4,4,31.7
+Small World,45,5,6,29.862
+Small World,45,6,6,31.628
+Small World,45,7,3,29.642
+Small World,45,8,3,31.936
+Small World,45,9,4,32.036
+Small World,45,10,4,29.478
+Small World,45,11,3,29.638
+Small World,45,12,6,30.242
+Small World,45,13,4,31.494
+Small World,45,14,4,30.634
+Small World,45,15,3,30.232
+Small World,45,16,2,30.056
+Small World,45,17,5,31.218
+Small World,45,18,6,30.414
+Small World,45,19,7,28.556
+Small World,45,20,5,31.21
+Small World,45,21,5,30.512
+Small World,45,22,4,32.302
+Small World,45,23,5,30.754
+Small World,45,24,4,28.786
+Small World,45,25,0,33.038
+Small World,45,26,3,32.928
+Small World,45,27,5,31.302
+Small World,45,28,3,32.686
+Small World,45,29,4,32.95
+Small World,45,30,5,32.378
+Small World,45,31,3,33.088
+Small World,45,32,7,32.08
+Small World,45,33,5,32.302
+Small World,45,34,2,32.44
+Small World,45,35,2,31.916
+Small World,45,36,4,31.678
+Small World,45,37,4,32.486
+Small World,45,38,4,29.688
+Small World,45,39,7,29.552
+Small World,45,40,5,29.058
+Small World,45,41,2,31.11
+Small World,45,42,4,30.138
+Small World,45,43,5,30.406
+Small World,45,44,6,30.424
+Small World,45,45,3,28.912
+Small World,45,46,4,30.818
+Small World,45,47,3,29.61
+Small World,45,48,6,29.23
+Small World,45,49,3,29.638
+Small World,45,50,4,29.326
+Small World,45,51,3,31.458
+Small World,45,52,3,30.396
+Small World,45,53,7,29.71
+Small World,45,54,4,28.964
+Small World,45,55,2,32.508
+Small World,45,56,5,30.128
+Small World,45,57,5,32.264
+Small World,45,58,5,28.672
+Small World,45,59,1,32.49
+Small World,45,60,2,35.076
+Small World,45,61,6,30.626
+Small World,45,62,3,29.104
+Small World,45,63,4,30.824
+Small World,45,64,4,29.312
+Small World,45,65,2,31.708
+Small World,45,66,6,31.222
+Small World,45,67,6,28.424
+Small World,45,68,4,30.984
+Small World,45,69,1,34.47
+Small World,45,70,3,32.27
+Small World,45,71,4,31.104
+Small World,45,72,7,30.29
+Small World,45,73,4,32.872
+Small World,45,74,4,32.588
+Small World,45,75,3,34.892
+Small World,45,76,3,31.844
+Small World,45,77,2,30.948
+Small World,45,78,2,35.106
+Small World,45,79,3,33.034
+Small World,46,0,4,30.776
+Small World,46,1,2,30.552
+Small World,46,2,5,31.412
+Small World,46,3,6,30.634
+Small World,46,4,5,29.42
+Small World,46,5,1,29.872
+Small World,46,6,5,31.234
+Small World,46,7,4,30.678
+Small World,46,8,4,30.092
+Small World,46,9,5,30.448
+Small World,46,10,5,31.772
+Small World,46,11,4,30.406
+Small World,46,12,6,31.046
+Small World,46,13,4,29.74
+Small World,46,14,6,30.338
+Small World,46,15,0,36.908
+Small World,46,16,2,32.446
+Small World,46,17,6,31.102
+Small World,46,18,6,30.304
+Small World,46,19,5,28.684
+Small World,46,20,3,30.944
+Small World,46,21,6,31.138
+Small World,46,22,5,31.386
+Small World,46,23,3,29.756
+Small World,46,24,1,30.464
+Small World,46,25,2,30.85
+Small World,46,26,4,29.598
+Small World,46,27,6,31.734
+Small World,46,28,4,28.428
+Small World,46,29,3,27.93
+Small World,46,30,3,27.644
+Small World,46,31,7,28.934
+Small World,46,32,2,29.3
+Small World,46,33,3,28.486
+Small World,46,34,5,31.47
+Small World,46,35,7,29.276
+Small World,46,36,5,29.31
+Small World,46,37,4,32.25
+Small World,46,38,2,31.434
+Small World,46,39,2,30.372
+Small World,46,40,3,28.714
+Small World,46,41,6,31.574
+Small World,46,42,5,30.668
+Small World,46,43,4,29.254
+Small World,46,44,1,28.51
+Small World,46,45,1,30.798
+Small World,46,46,6,29.064
+Small World,46,47,4,28.26
+Small World,46,48,4,28.406
+Small World,46,49,6,30.844
+Small World,46,50,4,30.486
+Small World,46,51,3,30.422
+Small World,46,52,1,30.93
+Small World,46,53,5,29.282
+Small World,46,54,2,29.596
+Small World,46,55,5,30.908
+Small World,46,56,5,31.076
+Small World,46,57,4,31.756
+Small World,46,58,5,29.724
+Small World,46,59,2,31.162
+Small World,46,60,4,29.668
+Small World,46,61,4,29.138
+Small World,46,62,5,29.148
+Small World,46,63,0,32.166
+Small World,46,64,7,31.388
+Small World,46,65,4,30.226
+Small World,46,66,4,29.106
+Small World,46,67,3,32.182
+Small World,46,68,7,30.398
+Small World,46,69,3,30.984
+Small World,46,70,6,31.258
+Small World,46,71,1,33.706
+Small World,46,72,5,32.898
+Small World,46,73,1,33.59
+Small World,46,74,5,30.736
+Small World,46,75,5,32.49
+Small World,46,76,5,32.416
+Small World,46,77,5,31.608
+Small World,46,78,5,30.27
+Small World,46,79,3,30.824
+Small World,47,0,5,28.186
+Small World,47,1,3,29.902
+Small World,47,2,1,28.928
+Small World,47,3,3,28.16
+Small World,47,4,3,29.722
+Small World,47,5,5,30.978
+Small World,47,6,3,27.924
+Small World,47,7,7,29.126
+Small World,47,8,5,29.708
+Small World,47,9,4,29.752
+Small World,47,10,4,30.812
+Small World,47,11,3,29.42
+Small World,47,12,5,29.144
+Small World,47,13,3,27.606
+Small World,47,14,4,29.62
+Small World,47,15,4,30.044
+Small World,47,16,4,27.842
+Small World,47,17,4,28.42
+Small World,47,18,4,28.566
+Small World,47,19,7,30.366
+Small World,47,20,4,28.702
+Small World,47,21,4,27.612
+Small World,47,22,5,28.766
+Small World,47,23,6,29.79
+Small World,47,24,4,28.862
+Small World,47,25,2,29.902
+Small World,47,26,5,27.804
+Small World,47,27,5,29.584
+Small World,47,28,3,28.116
+Small World,47,29,5,29.098
+Small World,47,30,2,27.894
+Small World,47,31,4,30.244
+Small World,47,32,4,30.146
+Small World,47,33,4,28.36
+Small World,47,34,6,28.412
+Small World,47,35,2,29.606
+Small World,47,36,6,27.942
+Small World,47,37,4,28.542
+Small World,47,38,6,28.488
+Small World,47,39,3,28.426
+Small World,47,40,2,30.734
+Small World,47,41,2,30.346
+Small World,47,42,5,29.358
+Small World,47,43,6,29.146
+Small World,47,44,4,28.61
+Small World,47,45,3,29.336
+Small World,47,46,4,28.674
+Small World,47,47,5,30.246
+Small World,47,48,4,28.958
+Small World,47,49,4,30.464
+Small World,47,50,3,28.494
+Small World,47,51,5,29.098
+Small World,47,52,6,28.836
+Small World,47,53,4,30.454
+Small World,47,54,4,28.138
+Small World,47,55,4,30.158
+Small World,47,56,2,29.19
+Small World,47,57,3,28.474
+Small World,47,58,6,28.136
+Small World,47,59,2,31.494
+Small World,47,60,3,28.436
+Small World,47,61,2,29.994
+Small World,47,62,3,29.3
+Small World,47,63,5,28.918
+Small World,47,64,5,28.338
+Small World,47,65,3,29.038
+Small World,47,66,6,29.454
+Small World,47,67,7,28.056
+Small World,47,68,3,31.044
+Small World,47,69,2,29.708
+Small World,47,70,4,28.886
+Small World,47,71,5,29.06
+Small World,47,72,5,28.844
+Small World,47,73,1,28.41
+Small World,47,74,2,28.534
+Small World,47,75,2,29.7
+Small World,47,76,3,27.988
+Small World,47,77,7,30.286
+Small World,47,78,6,28.038
+Small World,47,79,3,29.55
+Small World,48,0,2,31.092
+Small World,48,1,4,29.572
+Small World,48,2,6,30.638
+Small World,48,3,3,29.628
+Small World,48,4,4,28.568
+Small World,48,5,6,29.978
+Small World,48,6,6,28.884
+Small World,48,7,3,31.05
+Small World,48,8,1,31.168
+Small World,48,9,6,29.366
+Small World,48,10,4,29.426
+Small World,48,11,3,29.958
+Small World,48,12,4,29.436
+Small World,48,13,6,28.412
+Small World,48,14,6,29.616
+Small World,48,15,3,32.044
+Small World,48,16,5,30.228
+Small World,48,17,3,29.892
+Small World,48,18,4,31.628
+Small World,48,19,7,30.054
+Small World,48,20,3,29.958
+Small World,48,21,5,32.768
+Small World,48,22,4,30.22
+Small World,48,23,4,31.8
+Small World,48,24,3,31.012
+Small World,48,25,4,30.256
+Small World,48,26,5,28.862
+Small World,48,27,2,31.392
+Small World,48,28,3,30.566
+Small World,48,29,5,29.744
+Small World,48,30,5,31.03
+Small World,48,31,3,32.048
+Small World,48,32,3,28.568
+Small World,48,33,5,31.328
+Small World,48,34,3,30.688
+Small World,48,35,3,28.664
+Small World,48,36,5,29.45
+Small World,48,37,3,30.694
+Small World,48,38,5,30.374
+Small World,48,39,3,31.4
+Small World,48,40,4,30.536
+Small World,48,41,2,32.924
+Small World,48,42,3,32.702
+Small World,48,43,4,32.042
+Small World,48,44,8,30.122
+Small World,48,45,2,30.88
+Small World,48,46,1,31.766
+Small World,48,47,3,30.882
+Small World,48,48,4,30.008
+Small World,48,49,5,30.372
+Small World,48,50,4,30.242
+Small World,48,51,3,31.808
+Small World,48,52,3,31.734
+Small World,48,53,8,28.406
+Small World,48,54,3,29.65
+Small World,48,55,5,28.908
+Small World,48,56,3,28.098
+Small World,48,57,4,30.37
+Small World,48,58,3,30.132
+Small World,48,59,6,30.59
+Small World,48,60,4,28.844
+Small World,48,61,5,29.642
+Small World,48,62,1,32.178
+Small World,48,63,5,29.486
+Small World,48,64,3,28.77
+Small World,48,65,5,31.742
+Small World,48,66,2,33.642
+Small World,48,67,7,30.308
+Small World,48,68,5,30.116
+Small World,48,69,6,30.998
+Small World,48,70,3,29.768
+Small World,48,71,4,29.476
+Small World,48,72,4,31.56
+Small World,48,73,2,30.804
+Small World,48,74,2,30.29
+Small World,48,75,6,30.19
+Small World,48,76,6,29.438
+Small World,48,77,5,31.244
+Small World,48,78,1,32.25
+Small World,48,79,4,29.452
+Small World,49,0,3,31.52
+Small World,49,1,1,32.698
+Small World,49,2,5,26.91
+Small World,49,3,5,28.878
+Small World,49,4,6,31.262
+Small World,49,5,4,32.472
+Small World,49,6,3,30.388
+Small World,49,7,4,30.892
+Small World,49,8,5,31.76
+Small World,49,9,6,30.746
+Small World,49,10,3,32.184
+Small World,49,11,1,31.458
+Small World,49,12,4,31.022
+Small World,49,13,5,31.55
+Small World,49,14,6,30.654
+Small World,49,15,4,31.902
+Small World,49,16,2,31.466
+Small World,49,17,5,31.444
+Small World,49,18,5,33.086
+Small World,49,19,3,29.252
+Small World,49,20,3,32.896
+Small World,49,21,2,33.008
+Small World,49,22,4,32.096
+Small World,49,23,7,29.502
+Small World,49,24,4,31.626
+Small World,49,25,2,30.976
+Small World,49,26,4,32.774
+Small World,49,27,4,30.742
+Small World,49,28,1,32.906
+Small World,49,29,5,31.168
+Small World,49,30,4,30.612
+Small World,49,31,4,29.678
+Small World,49,32,7,29.472
+Small World,49,33,7,29.722
+Small World,49,34,5,28.24
+Small World,49,35,3,32.422
+Small World,49,36,2,30.962
+Small World,49,37,3,31.288
+Small World,49,38,2,31.402
+Small World,49,39,0,36.386
+Small World,49,40,4,33.244
+Small World,49,41,4,29.67
+Small World,49,42,6,29.78
+Small World,49,43,5,28.108
+Small World,49,44,6,29.344
+Small World,49,45,5,32.268
+Small World,49,46,2,30.036
+Small World,49,47,8,30.552
+Small World,49,48,0,33.448
+Small World,49,49,3,29.784
+Small World,49,50,5,28.238
+Small World,49,51,5,30.942
+Small World,49,52,6,29.338
+Small World,49,53,4,29.856
+Small World,49,54,3,28.026
+Small World,49,55,3,29.704
+Small World,49,56,2,30.602
+Small World,49,57,3,30.276
+Small World,49,58,3,28.948
+Small World,49,59,6,29.36
+Small World,49,60,5,29.07
+Small World,49,61,3,30.068
+Small World,49,62,5,30.722
+Small World,49,63,4,31.58
+Small World,49,64,3,31.356
+Small World,49,65,3,32.354
+Small World,49,66,5,29.254
+Small World,49,67,6,30.832
+Small World,49,68,4,29.902
+Small World,49,69,3,31.924
+Small World,49,70,4,30.83
+Small World,49,71,4,29.224
+Small World,49,72,6,30.184
+Small World,49,73,5,30.908
+Small World,49,74,3,29.94
+Small World,49,75,5,29.198
+Small World,49,76,4,28.74
+Small World,49,77,1,29.732
+Small World,49,78,5,31.154
+Small World,49,79,6,31.626
+Small World,50,0,9,30.674
+Small World,50,1,3,30.862
+Small World,50,2,2,31.984
+Small World,50,3,2,32.424
+Small World,50,4,4,30.46
+Small World,50,5,5,30.664
+Small World,50,6,5,29.354
+Small World,50,7,5,30.854
+Small World,50,8,1,30.66
+Small World,50,9,3,29.752
+Small World,50,10,7,29.05
+Small World,50,11,5,29.76
+Small World,50,12,3,30.6
+Small World,50,13,4,30.792
+Small World,50,14,4,31.312
+Small World,50,15,4,28.92
+Small World,50,16,3,31.338
+Small World,50,17,5,28.098
+Small World,50,18,4,30.632
+Small World,50,19,4,29.154
+Small World,50,20,1,27.212
+Small World,50,21,4,29.214
+Small World,50,22,2,30.224
+Small World,50,23,3,28.176
+Small World,50,24,6,29.164
+Small World,50,25,5,27.598
+Small World,50,26,2,30.338
+Small World,50,27,4,29.77
+Small World,50,28,4,30.248
+Small World,50,29,5,29.998
+Small World,50,30,4,29.434
+Small World,50,31,4,27.31
+Small World,50,32,5,30.188
+Small World,50,33,4,29.928
+Small World,50,34,3,32.462
+Small World,50,35,3,30.514
+Small World,50,36,4,29.086
+Small World,50,37,4,29.972
+Small World,50,38,4,29.034
+Small World,50,39,4,27.73
+Small World,50,40,3,28.97
+Small World,50,41,6,27.328
+Small World,50,42,2,32.648
+Small World,50,43,1,30.202
+Small World,50,44,1,34.282
+Small World,50,45,6,29.8
+Small World,50,46,4,29.802
+Small World,50,47,8,30.684
+Small World,50,48,6,28.392
+Small World,50,49,4,27.322
+Small World,50,50,4,29.648
+Small World,50,51,5,30.252
+Small World,50,52,4,28.686
+Small World,50,53,4,28.796
+Small World,50,54,4,30.146
+Small World,50,55,2,29.616
+Small World,50,56,3,29.07
+Small World,50,57,5,29.22
+Small World,50,58,3,27.292
+Small World,50,59,5,30.166
+Small World,50,60,4,26.644
+Small World,50,61,4,29.452
+Small World,50,62,5,29.452
+Small World,50,63,2,31.948
+Small World,50,64,3,27.862
+Small World,50,65,4,28.592
+Small World,50,66,5,29.6
+Small World,50,67,5,28.952
+Small World,50,68,4,26.744
+Small World,50,69,6,28.28
+Small World,50,70,3,28.048
+Small World,50,71,2,33.844
+Small World,50,72,5,28.084
+Small World,50,73,5,29.11
+Small World,50,74,6,29.974
+Small World,50,75,7,29.788
+Small World,50,76,2,32.532
+Small World,50,77,2,31.112
+Small World,50,78,4,31.658
+Small World,50,79,5,29.532
+Small World,51,0,3,28.254
+Small World,51,1,6,28.432
+Small World,51,2,3,28.862
+Small World,51,3,5,26.38
+Small World,51,4,4,30.876
+Small World,51,5,3,29.948
+Small World,51,6,4,28.868
+Small World,51,7,7,27.694
+Small World,51,8,2,29.824
+Small World,51,9,5,30.358
+Small World,51,10,3,29.326
+Small World,51,11,3,27.346
+Small World,51,12,2,29.302
+Small World,51,13,2,30.184
+Small World,51,14,2,32.306
+Small World,51,15,6,28.92
+Small World,51,16,4,28.664
+Small World,51,17,2,29.158
+Small World,51,18,4,27.918
+Small World,51,19,6,27.318
+Small World,51,20,8,28.44
+Small World,51,21,3,29.24
+Small World,51,22,3,27.398
+Small World,51,23,3,27.074
+Small World,51,24,5,29.662
+Small World,51,25,5,27.22
+Small World,51,26,2,31.634
+Small World,51,27,3,27.54
+Small World,51,28,5,28.718
+Small World,51,29,3,30.076
+Small World,51,30,4,26.084
+Small World,51,31,4,29.204
+Small World,51,32,6,28.338
+Small World,51,33,4,27.082
+Small World,51,34,7,27.704
+Small World,51,35,3,31.832
+Small World,51,36,4,29.706
+Small World,51,37,3,30.22
+Small World,51,38,4,29.32
+Small World,51,39,6,29.812
+Small World,51,40,4,29.562
+Small World,51,41,4,27.794
+Small World,51,42,3,28.906
+Small World,51,43,3,30.726
+Small World,51,44,3,30.266
+Small World,51,45,4,29.614
+Small World,51,46,3,29.962
+Small World,51,47,4,28.578
+Small World,51,48,4,27.338
+Small World,51,49,4,28.224
+Small World,51,50,6,29.044
+Small World,51,51,2,28.184
+Small World,51,52,4,27.704
+Small World,51,53,4,30.228
+Small World,51,54,3,30.232
+Small World,51,55,4,26.738
+Small World,51,56,6,29.438
+Small World,51,57,4,30.21
+Small World,51,58,5,28.162
+Small World,51,59,2,29.884
+Small World,51,60,4,27.356
+Small World,51,61,5,28.044
+Small World,51,62,7,28.762
+Small World,51,63,2,27.464
+Small World,51,64,5,29.658
+Small World,51,65,4,29.544
+Small World,51,66,4,30.442
+Small World,51,67,5,30.554
+Small World,51,68,4,29.058
+Small World,51,69,2,30.038
+Small World,51,70,4,28.194
+Small World,51,71,5,27.37
+Small World,51,72,4,29.482
+Small World,51,73,5,27.986
+Small World,51,74,2,31.632
+Small World,51,75,4,29.24
+Small World,51,76,6,29.942
+Small World,51,77,2,29.498
+Small World,51,78,4,30.34
+Small World,51,79,5,27.856
+Hierarchical,42,0,4,29.192
+Hierarchical,42,1,3,29.276
+Hierarchical,42,2,5,29.206
+Hierarchical,42,3,2,28.194
+Hierarchical,42,4,3,30.096
+Hierarchical,42,5,5,29.504
+Hierarchical,42,6,4,30.062
+Hierarchical,42,7,2,30.712
+Hierarchical,42,8,7,28.002
+Hierarchical,42,9,1,31.568
+Hierarchical,42,10,3,29.02
+Hierarchical,42,11,2,30.6
+Hierarchical,42,12,6,28.408
+Hierarchical,42,13,2,32.456
+Hierarchical,42,14,5,30.512
+Hierarchical,42,15,2,30.542
+Hierarchical,42,16,3,29.734
+Hierarchical,42,17,11,28.806
+Hierarchical,42,18,3,30.988
+Hierarchical,42,19,6,28.756
+Hierarchical,42,20,4,28.758
+Hierarchical,42,21,5,30.308
+Hierarchical,42,22,3,30.186
+Hierarchical,42,23,3,28.458
+Hierarchical,42,24,6,29.33
+Hierarchical,42,25,5,29.786
+Hierarchical,42,26,5,32.08
+Hierarchical,42,27,3,31.078
+Hierarchical,42,28,2,30.5
+Hierarchical,42,29,5,30.34
+Hierarchical,42,30,3,29.064
+Hierarchical,42,31,3,29.776
+Hierarchical,42,32,5,29.952
+Hierarchical,42,33,3,31.454
+Hierarchical,42,34,4,29.326
+Hierarchical,42,35,2,31.194
+Hierarchical,42,36,0,29.444
+Hierarchical,42,37,3,30.89
+Hierarchical,42,38,2,29.798
+Hierarchical,42,39,4,30.404
+Hierarchical,42,40,6,29.382
+Hierarchical,42,41,1,30.44
+Hierarchical,42,42,3,29.982
+Hierarchical,42,43,4,29.516
+Hierarchical,42,44,4,29.96
+Hierarchical,42,45,1,34.222
+Hierarchical,42,46,6,29.106
+Hierarchical,42,47,2,29.818
+Hierarchical,42,48,2,29.468
+Hierarchical,42,49,6,29.32
+Hierarchical,42,50,4,29.952
+Hierarchical,42,51,3,28.732
+Hierarchical,42,52,6,28.8
+Hierarchical,42,53,2,28.822
+Hierarchical,42,54,5,30.378
+Hierarchical,42,55,6,28.296
+Hierarchical,42,56,5,28.112
+Hierarchical,42,57,6,28.488
+Hierarchical,42,58,9,28.14
+Hierarchical,42,59,4,30.206
+Hierarchical,42,60,3,30.768
+Hierarchical,42,61,6,30.058
+Hierarchical,42,62,4,29.654
+Hierarchical,42,63,5,28.476
+Hierarchical,42,64,1,30.91
+Hierarchical,42,65,3,28.854
+Hierarchical,42,66,1,33.692
+Hierarchical,42,67,1,30.962
+Hierarchical,42,68,4,29.256
+Hierarchical,42,69,5,29.302
+Hierarchical,42,70,4,28.292
+Hierarchical,42,71,5,29.366
+Hierarchical,42,72,4,28.608
+Hierarchical,42,73,3,30.424
+Hierarchical,42,74,5,31.838
+Hierarchical,42,75,7,28.544
+Hierarchical,42,76,6,30.466
+Hierarchical,42,77,5,30.55
+Hierarchical,42,78,6,30.234
+Hierarchical,42,79,2,30.138
+Hierarchical,43,0,4,29.35
+Hierarchical,43,1,4,30.546
+Hierarchical,43,2,9,29.116
+Hierarchical,43,3,4,29.046
+Hierarchical,43,4,4,30.152
+Hierarchical,43,5,3,29.212
+Hierarchical,43,6,0,38.252
+Hierarchical,43,7,1,29.786
+Hierarchical,43,8,3,29.996
+Hierarchical,43,9,5,30.076
+Hierarchical,43,10,7,29.222
+Hierarchical,43,11,2,31.392
+Hierarchical,43,12,4,30.912
+Hierarchical,43,13,5,29.328
+Hierarchical,43,14,4,31.356
+Hierarchical,43,15,1,31.28
+Hierarchical,43,16,5,29.808
+Hierarchical,43,17,6,28.738
+Hierarchical,43,18,6,32.838
+Hierarchical,43,19,2,34.498
+Hierarchical,43,20,3,30.974
+Hierarchical,43,21,5,29.226
+Hierarchical,43,22,1,28.264
+Hierarchical,43,23,5,31.996
+Hierarchical,43,24,7,30.42
+Hierarchical,43,25,4,29.444
+Hierarchical,43,26,1,30.05
+Hierarchical,43,27,5,31.092
+Hierarchical,43,28,3,32.368
+Hierarchical,43,29,5,30.538
+Hierarchical,43,30,4,31.592
+Hierarchical,43,31,7,30.354
+Hierarchical,43,32,6,30.258
+Hierarchical,43,33,2,28.792
+Hierarchical,43,34,3,30.708
+Hierarchical,43,35,3,30.04
+Hierarchical,43,36,2,31.096
+Hierarchical,43,37,3,30.534
+Hierarchical,43,38,4,32.736
+Hierarchical,43,39,3,30.386
+Hierarchical,43,40,9,31.708
+Hierarchical,43,41,5,30.162
+Hierarchical,43,42,7,30.88
+Hierarchical,43,43,7,30.776
+Hierarchical,43,44,2,30.53
+Hierarchical,43,45,4,34.136
+Hierarchical,43,46,5,30.612
+Hierarchical,43,47,2,28.488
+Hierarchical,43,48,4,32.252
+Hierarchical,43,49,2,29.658
+Hierarchical,43,50,1,31.376
+Hierarchical,43,51,4,29.746
+Hierarchical,43,52,6,30.574
+Hierarchical,43,53,4,30.35
+Hierarchical,43,54,4,29.5
+Hierarchical,43,55,6,28.384
+Hierarchical,43,56,3,28.586
+Hierarchical,43,57,1,29.762
+Hierarchical,43,58,6,29.172
+Hierarchical,43,59,9,29.488
+Hierarchical,43,60,6,30.702
+Hierarchical,43,61,4,31.748
+Hierarchical,43,62,1,29.706
+Hierarchical,43,63,4,28.532
+Hierarchical,43,64,6,29.944
+Hierarchical,43,65,7,30.25
+Hierarchical,43,66,6,31.814
+Hierarchical,43,67,3,30.396
+Hierarchical,43,68,3,32.776
+Hierarchical,43,69,0,35.666
+Hierarchical,43,70,4,31.506
+Hierarchical,43,71,2,28.784
+Hierarchical,43,72,3,30.972
+Hierarchical,43,73,10,28.932
+Hierarchical,43,74,9,28.798
+Hierarchical,43,75,4,29.078
+Hierarchical,43,76,5,30.716
+Hierarchical,43,77,3,30.676
+Hierarchical,43,78,2,31.688
+Hierarchical,43,79,2,29.88
+Hierarchical,44,0,1,32.562
+Hierarchical,44,1,2,32.318
+Hierarchical,44,2,6,30.828
+Hierarchical,44,3,5,32.022
+Hierarchical,44,4,2,31.676
+Hierarchical,44,5,3,30.642
+Hierarchical,44,6,4,31.438
+Hierarchical,44,7,6,30.024
+Hierarchical,44,8,6,30.596
+Hierarchical,44,9,2,30.466
+Hierarchical,44,10,4,31.138
+Hierarchical,44,11,3,33.526
+Hierarchical,44,12,2,32.746
+Hierarchical,44,13,5,33.218
+Hierarchical,44,14,5,30.97
+Hierarchical,44,15,4,33.728
+Hierarchical,44,16,6,30.388
+Hierarchical,44,17,10,30.428
+Hierarchical,44,18,7,31.424
+Hierarchical,44,19,9,30.386
+Hierarchical,44,20,4,30.444
+Hierarchical,44,21,4,28.754
+Hierarchical,44,22,5,31.266
+Hierarchical,44,23,6,31.096
+Hierarchical,44,24,2,30.754
+Hierarchical,44,25,2,31.588
+Hierarchical,44,26,8,31.336
+Hierarchical,44,27,4,32.724
+Hierarchical,44,28,3,32.394
+Hierarchical,44,29,3,30.936
+Hierarchical,44,30,5,32.578
+Hierarchical,44,31,4,29.6
+Hierarchical,44,32,4,31.392
+Hierarchical,44,33,8,30.532
+Hierarchical,44,34,2,31.562
+Hierarchical,44,35,1,34.186
+Hierarchical,44,36,6,31.308
+Hierarchical,44,37,3,30.398
+Hierarchical,44,38,7,29.254
+Hierarchical,44,39,3,32.544
+Hierarchical,44,40,2,31.27
+Hierarchical,44,41,5,31.832
+Hierarchical,44,42,2,32.688
+Hierarchical,44,43,7,31.956
+Hierarchical,44,44,2,32.588
+Hierarchical,44,45,2,29.252
+Hierarchical,44,46,2,34.234
+Hierarchical,44,47,2,33.594
+Hierarchical,44,48,3,28.626
+Hierarchical,44,49,3,32.342
+Hierarchical,44,50,6,31.136
+Hierarchical,44,51,7,31.322
+Hierarchical,44,52,1,33.058
+Hierarchical,44,53,1,31.27
+Hierarchical,44,54,4,32.512
+Hierarchical,44,55,3,31.35
+Hierarchical,44,56,2,32.836
+Hierarchical,44,57,2,31.136
+Hierarchical,44,58,5,31.476
+Hierarchical,44,59,7,32.358
+Hierarchical,44,60,5,30.928
+Hierarchical,44,61,4,31.154
+Hierarchical,44,62,1,31.016
+Hierarchical,44,63,5,30.828
+Hierarchical,44,64,5,30.59
+Hierarchical,44,65,3,31.122
+Hierarchical,44,66,7,30.912
+Hierarchical,44,67,5,31.62
+Hierarchical,44,68,3,31.93
+Hierarchical,44,69,6,30.382
+Hierarchical,44,70,4,30.872
+Hierarchical,44,71,2,33.092
+Hierarchical,44,72,5,30.872
+Hierarchical,44,73,3,32.742
+Hierarchical,44,74,5,30.798
+Hierarchical,44,75,5,32.078
+Hierarchical,44,76,5,32.48
+Hierarchical,44,77,3,32.81
+Hierarchical,44,78,3,32.128
+Hierarchical,44,79,1,36.066
+Hierarchical,45,0,2,29.52
+Hierarchical,45,1,3,29.89
+Hierarchical,45,2,5,28.44
+Hierarchical,45,3,4,33.272
+Hierarchical,45,4,3,26.354
+Hierarchical,45,5,4,27.99
+Hierarchical,45,6,7,28.562
+Hierarchical,45,7,3,30.576
+Hierarchical,45,8,3,29.56
+Hierarchical,45,9,6,27.304
+Hierarchical,45,10,5,27.414
+Hierarchical,45,11,3,28.804
+Hierarchical,45,12,4,30.288
+Hierarchical,45,13,5,27.58
+Hierarchical,45,14,8,29.47
+Hierarchical,45,15,5,29.466
+Hierarchical,45,16,4,27.704
+Hierarchical,45,17,9,26.984
+Hierarchical,45,18,10,28.314
+Hierarchical,45,19,6,28.4
+Hierarchical,45,20,2,27.662
+Hierarchical,45,21,6,27.556
+Hierarchical,45,22,5,29.016
+Hierarchical,45,23,4,28.112
+Hierarchical,45,24,3,27.694
+Hierarchical,45,25,5,29.768
+Hierarchical,45,26,3,31.346
+Hierarchical,45,27,3,30.496
+Hierarchical,45,28,6,27.888
+Hierarchical,45,29,4,28.832
+Hierarchical,45,30,3,28.062
+Hierarchical,45,31,2,31.278
+Hierarchical,45,32,3,29.396
+Hierarchical,45,33,1,32.748
+Hierarchical,45,34,3,28.824
+Hierarchical,45,35,1,29.558
+Hierarchical,45,36,5,28.934
+Hierarchical,45,37,6,29.788
+Hierarchical,45,38,7,26.754
+Hierarchical,45,39,1,30.91
+Hierarchical,45,40,4,29.528
+Hierarchical,45,41,5,28.656
+Hierarchical,45,42,1,31.57
+Hierarchical,45,43,4,30.408
+Hierarchical,45,44,4,29.128
+Hierarchical,45,45,4,28.486
+Hierarchical,45,46,6,26.986
+Hierarchical,45,47,1,32.102
+Hierarchical,45,48,2,31.008
+Hierarchical,45,49,2,30.794
+Hierarchical,45,50,3,30.126
+Hierarchical,45,51,2,31.002
+Hierarchical,45,52,2,30.224
+Hierarchical,45,53,5,29.84
+Hierarchical,45,54,4,26.27
+Hierarchical,45,55,6,28.422
+Hierarchical,45,56,3,31.254
+Hierarchical,45,57,7,27.67
+Hierarchical,45,58,4,30.246
+Hierarchical,45,59,5,26.354
+Hierarchical,45,60,7,29.0
+Hierarchical,45,61,4,29.974
+Hierarchical,45,62,4,30.15
+Hierarchical,45,63,3,29.586
+Hierarchical,45,64,5,29.112
+Hierarchical,45,65,4,28.1
+Hierarchical,45,66,1,32.308
+Hierarchical,45,67,1,27.888
+Hierarchical,45,68,7,28.482
+Hierarchical,45,69,4,30.388
+Hierarchical,45,70,7,28.038
+Hierarchical,45,71,3,29.5
+Hierarchical,45,72,6,27.952
+Hierarchical,45,73,4,26.38
+Hierarchical,45,74,7,27.474
+Hierarchical,45,75,2,29.692
+Hierarchical,45,76,4,27.858
+Hierarchical,45,77,3,29.242
+Hierarchical,45,78,1,34.224
+Hierarchical,45,79,4,28.308
+Hierarchical,46,0,1,31.298
+Hierarchical,46,1,4,29.614
+Hierarchical,46,2,0,37.85
+Hierarchical,46,3,5,30.024
+Hierarchical,46,4,2,30.354
+Hierarchical,46,5,4,30.632
+Hierarchical,46,6,5,29.816
+Hierarchical,46,7,3,28.554
+Hierarchical,46,8,5,29.622
+Hierarchical,46,9,2,30.622
+Hierarchical,46,10,6,29.562
+Hierarchical,46,11,6,29.486
+Hierarchical,46,12,5,30.842
+Hierarchical,46,13,2,30.23
+Hierarchical,46,14,2,30.54
+Hierarchical,46,15,5,30.408
+Hierarchical,46,16,5,29.99
+Hierarchical,46,17,5,31.87
+Hierarchical,46,18,4,28.818
+Hierarchical,46,19,6,28.93
+Hierarchical,46,20,9,30.218
+Hierarchical,46,21,3,30.462
+Hierarchical,46,22,5,29.342
+Hierarchical,46,23,3,30.15
+Hierarchical,46,24,2,30.012
+Hierarchical,46,25,2,33.468
+Hierarchical,46,26,5,28.994
+Hierarchical,46,27,2,28.514
+Hierarchical,46,28,3,30.638
+Hierarchical,46,29,2,29.18
+Hierarchical,46,30,3,29.634
+Hierarchical,46,31,3,30.958
+Hierarchical,46,32,6,29.792
+Hierarchical,46,33,3,30.18
+Hierarchical,46,34,3,30.432
+Hierarchical,46,35,5,29.952
+Hierarchical,46,36,6,29.47
+Hierarchical,46,37,6,29.94
+Hierarchical,46,38,3,29.456
+Hierarchical,46,39,6,29.108
+Hierarchical,46,40,3,29.018
+Hierarchical,46,41,3,30.63
+Hierarchical,46,42,1,31.852
+Hierarchical,46,43,4,30.928
+Hierarchical,46,44,5,28.87
+Hierarchical,46,45,4,30.738
+Hierarchical,46,46,2,31.656
+Hierarchical,46,47,1,32.724
+Hierarchical,46,48,2,30.016
+Hierarchical,46,49,4,29.732
+Hierarchical,46,50,4,29.966
+Hierarchical,46,51,4,30.196
+Hierarchical,46,52,4,30.374
+Hierarchical,46,53,5,28.232
+Hierarchical,46,54,3,29.26
+Hierarchical,46,55,4,28.988
+Hierarchical,46,56,4,28.994
+Hierarchical,46,57,5,29.948
+Hierarchical,46,58,1,31.29
+Hierarchical,46,59,5,29.52
+Hierarchical,46,60,1,32.084
+Hierarchical,46,61,5,29.468
+Hierarchical,46,62,5,29.332
+Hierarchical,46,63,2,29.932
+Hierarchical,46,64,5,29.546
+Hierarchical,46,65,1,32.74
+Hierarchical,46,66,7,29.654
+Hierarchical,46,67,8,29.186
+Hierarchical,46,68,5,29.746
+Hierarchical,46,69,2,29.534
+Hierarchical,46,70,3,30.24
+Hierarchical,46,71,8,30.03
+Hierarchical,46,72,5,30.344
+Hierarchical,46,73,3,30.364
+Hierarchical,46,74,2,30.026
+Hierarchical,46,75,6,30.526
+Hierarchical,46,76,5,29.652
+Hierarchical,46,77,5,29.378
+Hierarchical,46,78,2,30.82
+Hierarchical,46,79,4,30.716
+Hierarchical,47,0,4,29.932
+Hierarchical,47,1,1,32.772
+Hierarchical,47,2,2,32.282
+Hierarchical,47,3,3,29.948
+Hierarchical,47,4,2,27.916
+Hierarchical,47,5,4,30.644
+Hierarchical,47,6,8,32.288
+Hierarchical,47,7,4,29.898
+Hierarchical,47,8,2,28.39
+Hierarchical,47,9,4,31.094
+Hierarchical,47,10,4,28.566
+Hierarchical,47,11,5,28.94
+Hierarchical,47,12,1,32.692
+Hierarchical,47,13,4,30.742
+Hierarchical,47,14,6,29.524
+Hierarchical,47,15,5,29.716
+Hierarchical,47,16,5,30.37
+Hierarchical,47,17,3,28.97
+Hierarchical,47,18,2,28.804
+Hierarchical,47,19,2,29.136
+Hierarchical,47,20,4,30.69
+Hierarchical,47,21,6,31.446
+Hierarchical,47,22,7,29.964
+Hierarchical,47,23,7,29.644
+Hierarchical,47,24,6,30.458
+Hierarchical,47,25,6,30.188
+Hierarchical,47,26,6,31.186
+Hierarchical,47,27,4,29.786
+Hierarchical,47,28,6,29.722
+Hierarchical,47,29,9,30.742
+Hierarchical,47,30,6,31.1
+Hierarchical,47,31,0,34.174
+Hierarchical,47,32,3,30.426
+Hierarchical,47,33,8,29.916
+Hierarchical,47,34,5,30.748
+Hierarchical,47,35,3,29.852
+Hierarchical,47,36,5,29.994
+Hierarchical,47,37,4,29.786
+Hierarchical,47,38,6,29.984
+Hierarchical,47,39,5,31.062
+Hierarchical,47,40,6,30.644
+Hierarchical,47,41,3,28.128
+Hierarchical,47,42,5,31.226
+Hierarchical,47,43,1,33.146
+Hierarchical,47,44,4,29.924
+Hierarchical,47,45,4,30.428
+Hierarchical,47,46,4,31.12
+Hierarchical,47,47,3,28.892
+Hierarchical,47,48,8,30.888
+Hierarchical,47,49,4,30.13
+Hierarchical,47,50,5,31.16
+Hierarchical,47,51,3,30.326
+Hierarchical,47,52,7,30.332
+Hierarchical,47,53,6,29.584
+Hierarchical,47,54,4,31.776
+Hierarchical,47,55,2,30.068
+Hierarchical,47,56,5,30.492
+Hierarchical,47,57,5,30.992
+Hierarchical,47,58,5,29.47
+Hierarchical,47,59,6,30.374
+Hierarchical,47,60,3,30.878
+Hierarchical,47,61,3,31.058
+Hierarchical,47,62,6,30.43
+Hierarchical,47,63,2,28.792
+Hierarchical,47,64,4,30.994
+Hierarchical,47,65,2,30.776
+Hierarchical,47,66,7,29.066
+Hierarchical,47,67,3,32.722
+Hierarchical,47,68,2,30.222
+Hierarchical,47,69,6,28.84
+Hierarchical,47,70,6,29.07
+Hierarchical,47,71,1,31.074
+Hierarchical,47,72,5,29.706
+Hierarchical,47,73,5,30.51
+Hierarchical,47,74,3,29.532
+Hierarchical,47,75,7,30.04
+Hierarchical,47,76,2,29.762
+Hierarchical,47,77,3,30.878
+Hierarchical,47,78,1,30.132
+Hierarchical,47,79,3,31.366
+Hierarchical,48,0,3,29.728
+Hierarchical,48,1,3,28.148
+Hierarchical,48,2,6,28.932
+Hierarchical,48,3,3,30.37
+Hierarchical,48,4,2,32.184
+Hierarchical,48,5,1,29.872
+Hierarchical,48,6,2,28.748
+Hierarchical,48,7,6,29.434
+Hierarchical,48,8,5,30.768
+Hierarchical,48,9,3,28.608
+Hierarchical,48,10,2,31.044
+Hierarchical,48,11,2,28.736
+Hierarchical,48,12,7,30.306
+Hierarchical,48,13,3,29.002
+Hierarchical,48,14,5,28.72
+Hierarchical,48,15,2,30.356
+Hierarchical,48,16,2,29.792
+Hierarchical,48,17,1,32.752
+Hierarchical,48,18,3,29.772
+Hierarchical,48,19,8,29.186
+Hierarchical,48,20,0,37.68
+Hierarchical,48,21,4,30.01
+Hierarchical,48,22,6,29.68
+Hierarchical,48,23,9,28.844
+Hierarchical,48,24,6,30.046
+Hierarchical,48,25,2,30.008
+Hierarchical,48,26,2,29.93
+Hierarchical,48,27,1,29.772
+Hierarchical,48,28,3,29.292
+Hierarchical,48,29,5,29.396
+Hierarchical,48,30,3,31.496
+Hierarchical,48,31,4,29.878
+Hierarchical,48,32,5,29.988
+Hierarchical,48,33,3,30.662
+Hierarchical,48,34,5,29.124
+Hierarchical,48,35,2,31.85
+Hierarchical,48,36,2,29.502
+Hierarchical,48,37,3,29.824
+Hierarchical,48,38,5,29.064
+Hierarchical,48,39,2,29.742
+Hierarchical,48,40,4,29.648
+Hierarchical,48,41,5,29.758
+Hierarchical,48,42,1,31.066
+Hierarchical,48,43,5,30.114
+Hierarchical,48,44,4,30.688
+Hierarchical,48,45,2,29.798
+Hierarchical,48,46,5,29.668
+Hierarchical,48,47,2,30.45
+Hierarchical,48,48,2,29.768
+Hierarchical,48,49,7,28.208
+Hierarchical,48,50,1,33.032
+Hierarchical,48,51,2,29.882
+Hierarchical,48,52,3,30.976
+Hierarchical,48,53,6,28.52
+Hierarchical,48,54,1,29.864
+Hierarchical,48,55,3,30.732
+Hierarchical,48,56,3,28.116
+Hierarchical,48,57,4,30.352
+Hierarchical,48,58,3,30.03
+Hierarchical,48,59,9,29.0
+Hierarchical,48,60,8,29.164
+Hierarchical,48,61,7,29.056
+Hierarchical,48,62,4,30.75
+Hierarchical,48,63,7,28.736
+Hierarchical,48,64,2,29.56
+Hierarchical,48,65,6,28.456
+Hierarchical,48,66,2,29.758
+Hierarchical,48,67,1,30.296
+Hierarchical,48,68,4,30.736
+Hierarchical,48,69,4,28.684
+Hierarchical,48,70,3,30.412
+Hierarchical,48,71,5,28.894
+Hierarchical,48,72,2,28.168
+Hierarchical,48,73,8,29.0
+Hierarchical,48,74,3,29.048
+Hierarchical,48,75,5,29.94
+Hierarchical,48,76,1,32.518
+Hierarchical,48,77,8,29.23
+Hierarchical,48,78,3,28.982
+Hierarchical,48,79,6,30.564
+Hierarchical,49,0,2,28.946
+Hierarchical,49,1,2,29.516
+Hierarchical,49,2,3,29.842
+Hierarchical,49,3,5,27.94
+Hierarchical,49,4,6,28.884
+Hierarchical,49,5,7,29.834
+Hierarchical,49,6,5,29.476
+Hierarchical,49,7,5,28.706
+Hierarchical,49,8,7,28.53
+Hierarchical,49,9,5,28.72
+Hierarchical,49,10,4,28.316
+Hierarchical,49,11,3,30.212
+Hierarchical,49,12,4,27.762
+Hierarchical,49,13,6,28.906
+Hierarchical,49,14,7,29.65
+Hierarchical,49,15,4,28.25
+Hierarchical,49,16,3,33.084
+Hierarchical,49,17,1,33.952
+Hierarchical,49,18,4,28.04
+Hierarchical,49,19,2,30.628
+Hierarchical,49,20,2,29.87
+Hierarchical,49,21,7,29.782
+Hierarchical,49,22,1,30.452
+Hierarchical,49,23,4,28.296
+Hierarchical,49,24,5,29.204
+Hierarchical,49,25,3,28.188
+Hierarchical,49,26,8,26.672
+Hierarchical,49,27,3,29.42
+Hierarchical,49,28,2,29.774
+Hierarchical,49,29,4,26.868
+Hierarchical,49,30,5,28.708
+Hierarchical,49,31,2,30.908
+Hierarchical,49,32,4,30.508
+Hierarchical,49,33,4,29.298
+Hierarchical,49,34,5,29.232
+Hierarchical,49,35,8,28.716
+Hierarchical,49,36,8,28.096
+Hierarchical,49,37,4,29.49
+Hierarchical,49,38,2,28.328
+Hierarchical,49,39,3,29.396
+Hierarchical,49,40,2,30.42
+Hierarchical,49,41,1,30.286
+Hierarchical,49,42,4,29.486
+Hierarchical,49,43,2,30.222
+Hierarchical,49,44,7,28.908
+Hierarchical,49,45,4,28.796
+Hierarchical,49,46,2,30.0
+Hierarchical,49,47,3,29.556
+Hierarchical,49,48,6,29.338
+Hierarchical,49,49,5,28.088
+Hierarchical,49,50,1,32.084
+Hierarchical,49,51,5,28.558
+Hierarchical,49,52,5,27.39
+Hierarchical,49,53,1,30.8
+Hierarchical,49,54,4,28.572
+Hierarchical,49,55,1,29.856
+Hierarchical,49,56,3,28.996
+Hierarchical,49,57,2,29.9
+Hierarchical,49,58,2,28.154
+Hierarchical,49,59,3,29.136
+Hierarchical,49,60,2,32.544
+Hierarchical,49,61,2,29.538
+Hierarchical,49,62,4,29.42
+Hierarchical,49,63,4,29.114
+Hierarchical,49,64,2,32.676
+Hierarchical,49,65,5,28.98
+Hierarchical,49,66,6,29.286
+Hierarchical,49,67,5,28.568
+Hierarchical,49,68,4,29.884
+Hierarchical,49,69,3,30.598
+Hierarchical,49,70,6,28.908
+Hierarchical,49,71,4,30.836
+Hierarchical,49,72,3,30.294
+Hierarchical,49,73,6,27.698
+Hierarchical,49,74,2,29.882
+Hierarchical,49,75,6,28.2
+Hierarchical,49,76,2,31.274
+Hierarchical,49,77,3,31.064
+Hierarchical,49,78,4,27.754
+Hierarchical,49,79,4,27.738
+Hierarchical,50,0,6,25.528
+Hierarchical,50,1,4,29.32
+Hierarchical,50,2,6,26.34
+Hierarchical,50,3,4,26.17
+Hierarchical,50,4,4,29.1
+Hierarchical,50,5,6,25.434
+Hierarchical,50,6,4,29.602
+Hierarchical,50,7,3,26.52
+Hierarchical,50,8,6,27.968
+Hierarchical,50,9,5,25.508
+Hierarchical,50,10,2,27.706
+Hierarchical,50,11,1,32.242
+Hierarchical,50,12,4,27.596
+Hierarchical,50,13,4,29.01
+Hierarchical,50,14,6,26.708
+Hierarchical,50,15,5,27.5
+Hierarchical,50,16,4,27.068
+Hierarchical,50,17,7,27.05
+Hierarchical,50,18,8,26.504
+Hierarchical,50,19,5,28.126
+Hierarchical,50,20,5,27.052
+Hierarchical,50,21,4,27.06
+Hierarchical,50,22,2,29.842
+Hierarchical,50,23,6,26.342
+Hierarchical,50,24,7,25.454
+Hierarchical,50,25,9,27.192
+Hierarchical,50,26,6,27.488
+Hierarchical,50,27,4,26.992
+Hierarchical,50,28,5,26.342
+Hierarchical,50,29,5,27.214
+Hierarchical,50,30,2,28.574
+Hierarchical,50,31,10,26.638
+Hierarchical,50,32,5,25.934
+Hierarchical,50,33,4,26.738
+Hierarchical,50,34,8,26.608
+Hierarchical,50,35,3,28.206
+Hierarchical,50,36,2,31.154
+Hierarchical,50,37,3,27.336
+Hierarchical,50,38,6,26.436
+Hierarchical,50,39,7,27.044
+Hierarchical,50,40,4,27.874
+Hierarchical,50,41,3,27.866
+Hierarchical,50,42,1,31.378
+Hierarchical,50,43,4,28.984
+Hierarchical,50,44,3,26.064
+Hierarchical,50,45,0,33.39
+Hierarchical,50,46,6,27.978
+Hierarchical,50,47,5,25.804
+Hierarchical,50,48,3,28.824
+Hierarchical,50,49,2,27.416
+Hierarchical,50,50,5,27.09
+Hierarchical,50,51,2,26.638
+Hierarchical,50,52,5,27.514
+Hierarchical,50,53,5,27.78
+Hierarchical,50,54,2,30.174
+Hierarchical,50,55,7,25.97
+Hierarchical,50,56,2,29.814
+Hierarchical,50,57,4,27.468
+Hierarchical,50,58,2,28.302
+Hierarchical,50,59,2,28.842
+Hierarchical,50,60,7,25.62
+Hierarchical,50,61,2,27.356
+Hierarchical,50,62,6,28.416
+Hierarchical,50,63,3,27.542
+Hierarchical,50,64,5,26.568
+Hierarchical,50,65,7,27.246
+Hierarchical,50,66,3,28.282
+Hierarchical,50,67,5,26.45
+Hierarchical,50,68,2,27.884
+Hierarchical,50,69,8,25.116
+Hierarchical,50,70,4,27.328
+Hierarchical,50,71,6,27.624
+Hierarchical,50,72,4,26.488
+Hierarchical,50,73,3,29.444
+Hierarchical,50,74,7,27.33
+Hierarchical,50,75,6,27.62
+Hierarchical,50,76,4,28.104
+Hierarchical,50,77,1,28.812
+Hierarchical,50,78,2,28.108
+Hierarchical,50,79,1,29.034
+Hierarchical,51,0,4,29.776
+Hierarchical,51,1,6,29.002
+Hierarchical,51,2,6,31.632
+Hierarchical,51,3,4,29.768
+Hierarchical,51,4,3,30.272
+Hierarchical,51,5,7,31.882
+Hierarchical,51,6,1,34.524
+Hierarchical,51,7,7,29.534
+Hierarchical,51,8,2,31.498
+Hierarchical,51,9,4,31.326
+Hierarchical,51,10,6,30.584
+Hierarchical,51,11,4,30.14
+Hierarchical,51,12,1,31.142
+Hierarchical,51,13,4,30.608
+Hierarchical,51,14,5,31.944
+Hierarchical,51,15,6,29.478
+Hierarchical,51,16,3,30.428
+Hierarchical,51,17,3,28.638
+Hierarchical,51,18,8,29.86
+Hierarchical,51,19,5,32.144
+Hierarchical,51,20,3,30.634
+Hierarchical,51,21,3,29.264
+Hierarchical,51,22,4,30.988
+Hierarchical,51,23,2,31.364
+Hierarchical,51,24,4,31.046
+Hierarchical,51,25,1,34.216
+Hierarchical,51,26,2,32.244
+Hierarchical,51,27,7,29.766
+Hierarchical,51,28,3,29.546
+Hierarchical,51,29,4,31.406
+Hierarchical,51,30,3,32.252
+Hierarchical,51,31,2,30.796
+Hierarchical,51,32,0,33.186
+Hierarchical,51,33,2,30.642
+Hierarchical,51,34,4,29.936
+Hierarchical,51,35,4,31.33
+Hierarchical,51,36,3,30.714
+Hierarchical,51,37,2,30.476
+Hierarchical,51,38,9,31.26
+Hierarchical,51,39,5,29.722
+Hierarchical,51,40,0,36.41
+Hierarchical,51,41,1,33.01
+Hierarchical,51,42,8,30.2
+Hierarchical,51,43,8,28.728
+Hierarchical,51,44,2,33.984
+Hierarchical,51,45,4,32.404
+Hierarchical,51,46,7,30.176
+Hierarchical,51,47,3,31.904
+Hierarchical,51,48,5,29.574
+Hierarchical,51,49,1,33.396
+Hierarchical,51,50,5,29.574
+Hierarchical,51,51,5,28.582
+Hierarchical,51,52,1,34.794
+Hierarchical,51,53,3,31.382
+Hierarchical,51,54,7,31.224
+Hierarchical,51,55,7,30.958
+Hierarchical,51,56,4,29.356
+Hierarchical,51,57,2,33.592
+Hierarchical,51,58,2,30.188
+Hierarchical,51,59,6,29.266
+Hierarchical,51,60,2,30.692
+Hierarchical,51,61,2,34.686
+Hierarchical,51,62,4,33.646
+Hierarchical,51,63,3,29.136
+Hierarchical,51,64,3,31.138
+Hierarchical,51,65,6,30.218
+Hierarchical,51,66,5,30.15
+Hierarchical,51,67,10,31.156
+Hierarchical,51,68,7,30.692
+Hierarchical,51,69,2,30.954
+Hierarchical,51,70,7,31.712
+Hierarchical,51,71,1,35.19
+Hierarchical,51,72,6,32.186
+Hierarchical,51,73,4,31.066
+Hierarchical,51,74,4,29.636
+Hierarchical,51,75,4,31.248
+Hierarchical,51,76,2,30.51
+Hierarchical,51,77,4,29.448
+Hierarchical,51,78,4,32.44
+Hierarchical,51,79,3,30.23

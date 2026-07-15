@@ -1,0 +1,135 @@
+\documentclass{article}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\newcommand{\atiyab}[1]{\textcolor{teal}{\textbf{[Atiyab: #1]}}}
+\newcommand{\fausto}[1]{\textcolor{blue}{\textbf{[Fausto: #1]}}}
+\newcommand{\pia}[1]{\textcolor{purple}{\textbf{[Pia: #1]}}}
+
+\newenvironment{notes}[1][Note]{\begin{minipage}[t]{\linewidth}\footnotesize{\itshape#1: }}{\end{minipage}}
+
+\title{``Learning by Testing'' and ``Communication Recency'':\\ Model extension note}
+\author{}
+\date{July 2026}
+
+\begin{document}
+\maketitle
+
+%\begin{abstract}
+%This note documents an extension of our problem-solving model in which agents \emph{actively test} information instead of passively observing it, and in which knowledge bases hold \emph{signed beliefs} --- beliefs that a constraint exists, and beliefs that it does not. The extension was designed to attack a specific pathology of the baseline model: because agents have no mechanism for unlearning, constraints that have been retired by environmental drift (``stale information'', or informally ``fake news'') persist in knowledge bases indefinitely and are endlessly re-transmitted, so that in the long run the majority of circulating information is false. Under learning by testing, agents verify both new candidate constraints and already-held beliefs against the environment; falsified beliefs are retained as explicit negative beliefs and are themselves communicable, so disconfirmation propagates through the network by the same channel as discovery. A second, independent change --- \emph{communication recency} --- has each agent forward its most recently acquired belief first, so that fresh information (and fresh disconfirmation) outruns stale content. Together these reduce the long-run share of stale information in knowledge bases from roughly $60$--$70\%$ to around $10\%$ (at $\tau=10$: testing does the bulk, recency roughly halves the residual) and improve solution quality, while introducing no new free parameters. Notably, the headline result of the baseline paper survives unchanged: with the communication rate normalised, long-run performance remains insensitive to network topology --- evidence that stale information was \emph{not} the mechanism behind topology-independence.
+%\end{abstract}
+
+
+\section{Introduction \& motivation}\label{sec:motivation}
+
+This note documents an extension of our problem-solving model in which (1) agents \emph{actively test} information instead of passively observing it; (2) knowledge bases hold \emph{signed beliefs} --- beliefs that a constraint exists, and beliefs that it does not; and (3) communication prioritises the most recently acquired beliefs. 
+
+The extension was designed to attack a specific feature of the baseline model: because agents have no mechanism for unlearning, constraints that have been retired by environmental drift persist in knowledge bases indefinitely and are endlessly re-transmitted, so that in the long run the majority of circulating information is false. While this permanence is interesting in its own right, it risked confounding our central result: if almost everything communicated is stale, communication carries no signal, so the network structure that governs it is rendered irrelevant \textit{by construction} rather than by any genuine dynamic.
+
+Furthermore, these extensions reflect real organisational behaviour. Passive observation is a thin model of organisational learning: it casts the problem-solver as waiting to stumble upon the rules, updating when the environment happens to reveal a constraint. Real problem-solvers do not only stumble on constraints; they \emph{probe} --- they try things, test hypotheses, and re-verify what they think they know. And they communicate negative results: ``that requirement was dropped'' is as much information as ``there is a new requirement''. Learning by testing clauses, as opposed to simple observation, models both. Finally, the freshest information is usually the most valuable and the first to be passed on (that's why they're called ``news''!), and \emph{communication recency} reflects this.
+
+With these extensions the long-run share of stale information in knowledge bases drops from roughly $60$--$70\%$ to around $10\%$. This allows for new interesting patterns to emerge from the model.
+
+%In the baseline model, an agent's knowledge base only ever grows more wrong. Agents acquire constraints (``clauses'') by observation and by communication, but nothing ever removes a clause from a knowledge base except displacement by the first-in-first-out cap. Meanwhile the environment drifts: every $\tau$ ticks one clause of the universal set $\mathcal{C}$ is replaced. A clause that has been retired from $\mathcal{C}$ therefore survives in the knowledge bases of every agent who ever learned it, keeps participating in their local optimisation, and --- crucially --- keeps being \emph{re-transmitted}: a neighbour who lacks the dead clause treats it as novel information and adopts it. Once the run is long relative to $\tau$, most of what circulates on the network is stale. Direct measurement makes the point stark: at our standard parameters, the fraction of an agent's knowledge base that no longer exists in $\mathcal{C}$ grows without visible bound, exceeding $70\%$ by $t=2000$ (Table~\ref{tab:baseline_vs_lbt}).
+
+%This suggested a candidate explanation for the central --- and initially puzzling --- finding of the baseline paper, namely that once communication volume is normalised, long-run performance is nearly identical across network topologies. If most communicated information is stale, then communication (the only structure-\emph{dependent} channel) is barely better than noise, and the only reliable source of truth is private observation, which is structure-\emph{independent}. Topology would then be irrelevant in the long run for the uninteresting reason that the channel it governs carries mostly falsehoods. The extension documented here was built to test that hypothesis: give agents a mechanism to expel stale information, and see whether topology begins to matter. (It does not --- see Section~\ref{sec:behaviour} --- which is itself informative: the topology-independence result is robust, and not an artefact of unmodelled forgetting.)
+
+%The extension also has an independent substantive motivation. Passive observation is a thin model of organisational learning. Real problem-solvers do not only stumble on constraints; they \emph{probe} --- they try things, test hypotheses, and re-verify what they think they know. And they communicate negative results: ``that requirement was dropped'' is as much information as ``there is a new requirement''. Learning by testing models both.
+
+%Two intermediate designs are worth recording because they failed informatively. First, a \emph{learn-by-doing} variant in which a falsified belief is simply \emph{deleted} proved insufficient: the deleted clause is promptly re-imported from any neighbour who has not yet tested it, and the stale share only falls from ${\sim}63\%$ to ${\sim}43\%$. Deletion is invisible to the network; only a \emph{communicable} negative belief lets disconfirmation compete with re-infection. Second, a \emph{stubbornness} rule --- a communicated contradiction cancels the receiver's belief to a neutral state rather than flipping it, so conversion takes two messages while direct testing still flips in one --- was implemented and evaluated. It slows early convergence, marginally improves the very long run, and complicates the model; the differences were not significant enough to justify the extra machinery, and it was removed. The final design below is the minimal one that works.
+
+
+\section{Model}\label{sec:model}
+
+The environment, the task, the network construction, the communication-rate normalisation, the local greedy optimisation, and the environmental drift are all unchanged from the baseline model; we restate them only where needed. The extension replaces the private observation channel and enriches the knowledge base and the communication content.
+
+\subsection{Setup}
+
+There are $N$ agents on a fixed directed graph with uniform edge weights. Each agent $i$ holds a private binary assignment $x^{(i)} \in \{0,1\}^K$. The environment contains a hidden set of $M = \alpha K$ clauses $\mathcal{C} = \{c_1, \dots, c_M\}$, each an \textsc{and} or \textsc{xor} over two distinct variables (50/50 mix). Clauses are drawn from the finite universe $\mathcal{U}$ of all such two-variable clauses, $|\mathcal{U}| = K(K-1)$; at our standard $K=30$, $|\mathcal{U}| = 870$, of which only $M=60$ exist at any moment. An agent's \emph{violation count} is the number of clauses of $\mathcal{C}$ its assignment violates.
+
+\subsection{Signed beliefs}
+
+The knowledge base is replaced by a \emph{belief store}. Agent $i$ holds a set of clauses $\mathcal{B}_i \subseteq \mathcal{U}$ about which it has formed a belief, together with a sign
+$$
+\sigma_i : \mathcal{B}_i \to \{+1, -1\},
+$$
+where $\sigma_i(c) = +1$ means ``$i$ believes $c$ is currently a real constraint'' (a \emph{positive belief}) and $\sigma_i(c) = -1$ means ``$i$ believes $c$ is \emph{not} currently a real constraint'' (a \emph{negative belief}). Write $\mathcal{P}_i = \{c \in \mathcal{B}_i : \sigma_i(c) = +1\}$ and $\mathcal{N}_i = \mathcal{B}_i \setminus \mathcal{P}_i$. Clauses outside $\mathcal{B}_i$ have \emph{neutral} status: the agent holds no view about them.
+
+Note that only positive beliefs trigger the local greedy optimisation. That is because it makes little sense to optimise based on a constraint not existing (e.g., a positive belief in $x_3 \wedge x_7$ tells the agent to drive both bits to $1$; the negative belief that $x_3 \wedge x_7$ is not a constraint points nowhere — you cannot "satisfy" a rule that isn't there).
+
+Finally, I doubled the knowledge base size to 2M, that the addition of negative beliefs does not crowd out the previous amount of positive knowledge.
+
+%\begin{itemize}
+%  \item \textbf{Only positive beliefs constrain action.} The local greedy repair (below) evaluates violation counts on $\mathcal{P}_i$ only. Negative beliefs are inert for optimisation --- their entire role is epistemic: they record disconfirmation, block re-adoption of dead clauses, and are transmissible.
+%  \item \textbf{Capacity is doubled.} The store is capped at $|\mathcal{B}_i| \le 2M$ (the baseline cap was $M$), so that holding negative beliefs does not mechanically crowd out positive knowledge. Eviction is first-in-first-out with \emph{recency refresh}: whenever a belief is set, confirmed, or updated --- by testing or by communication --- it moves to the back of the queue. Only beliefs that have been neither verified nor mentioned for a long time fall off the end.\footnote{This differs from the baseline's strict FIFO, under which a clause's eviction time is fixed at learning. Recency refresh is the natural bookkeeping once beliefs can be re-touched: an actively maintained belief should not expire merely because it was first learned long ago.}
+%\end{itemize}
+
+\subsection{Per-period dynamics}
+
+Within each tick, each agent performs a \emph{testing step} followed by a \emph{communication step}.
+
+\paragraph{Step 1: Active testing.} The agent performs one test per tick:
+\begin{itemize}
+  \item \textbf{Test a new clause} (probability $1/2$). The agent generates a candidate clause uniformly at random from $\mathcal{U}$, re-drawing if the candidate clause is already in the knowledge base $\mathcal{B}_i$. The candidate is then checked against the environment. If $c \in \mathcal{C}$, the agent adopts the positive belief $\sigma_i(c) = +1$ and runs a local greedy update around $c$ (Step 2). If $c \notin \mathcal{C}$ --- the common case, with probability $\approx (|\mathcal{U}| - |\mathcal{C}|)/|\mathcal{U}| = 810/870 \approx 0.93$ for a fresh agent (non-existent clauses outnumber real ones $\approx 13{:}1$) --- the candidate is \emph{discarded without record}: no negative belief is formed. This asymmetry is deliberate; see Section~\ref{sec:design}.
+  \item \textbf{Test a held belief} (probability $1/2$). The agent draws a clause $c$ uniformly from $\mathcal{B}_i$ --- positive or negative --- and sets its sign to the ground truth: $\sigma_i(c) \leftarrow +1$ if $c \in \mathcal{C}$, else $-1$. Three outcomes are possible. (i) A \emph{confirmation} leaves the sign unchanged (and refreshes recency). (ii) A \emph{falsification} flips a stale positive to a negative belief: the clause leaves $\mathcal{P}_i$ and stops constraining the agent's assignment (i.e., a flushing mechanism.) (iii) A \emph{resurrection} (unlikely but possible) flips a negative belief back to positive (the clause has re-entered $\mathcal{C}$); the agent then runs a local greedy update around $c$, since a newly active constraint should be optimised against.
+\end{itemize}
+Testing is the only channel with direct access to ground truth. It is private, structure-independent, and error-free but slow: it verifies one clause per tick.
+
+\paragraph{Step 2: Local greedy update.} Unchanged from the baseline. When a clause $c$ enters as a positive constraint for the agent, she considers each variable of $c$ in random order and tentatively flips it, keeping the flip if and only if it strictly reduces the violation count over the clauses of $\mathcal{P}_i$ sharing a variable with $c$.
+
+\paragraph{Step 3: Signed, recency-ordered elicitation.} Communication keeps the baseline's receiver-pull mechanics and rate normalisation, and extends the content to signed beliefs. For each in-neighbour $j$, the link fires with probability $p_{\text{link}} = \min(1, s\,w_{ji})$ with $s = 1/\langle k_{\text{in}} \rangle$, exactly as in the baseline; the average agent still absorbs one successful elicitation per tick regardless of topology. When the link fires, the receiver considers the beliefs on which the pair \emph{disagrees}:
+$$
+D_{ij} \;=\; \{\, c \in \mathcal{B}_j \;:\; \sigma_j(c) \neq \sigma_i(c) \text{ or } c \notin \mathcal{B}_i \,\},
+$$
+i.e.\ clauses the sender holds a view on that the receiver either lacks or holds with the opposite sign. If $D_{ij}$ is empty nothing is transferred; otherwise the sender passes on its \textbf{most recent} such belief --- the freshest member of $D_{ij}$ in the sender's knowledge base  --- and the receiver \emph{adopts the sender's sign}: $\sigma_i(c) \leftarrow \sigma_j(c)$. If adoption creates a new positive belief or flips a negative one to positive, the receiver runs a local greedy update around $c$.
+
+This \emph{recency} rule replaces an earlier version in which the transmitted belief was drawn uniformly from $D_{ij}$. Under the recency rule, agents' knowledge sets' ordering matters, and the belief a sender has most recently verified or heard sits at the tail and is forwarded first; while a long-untouched (more likely dead) belief is sent only once nothing newer disagrees. The two rules leave average communication volume identical --- they differ only in \emph{which} disagreement is sent.
+
+Communication is thus symmetric in polarity: a neighbour is as likely to tell you ``clause $c$ is gone'' as ``clause $c$ exists'', in proportion to the disagreements you actually have. Negative beliefs propagate by exactly the same mechanism as positive ones. Both negative and positive beliefs enter the population only through individual (random) testing. Unlike testing, communication has no access to ground truth: it transmits the sender's belief, right or wrong, and misinformation of either sign can travel.
+
+\paragraph{Step 4: Environmental drift.} Unchanged. Every $\tau$ ticks one uniformly chosen clause of $\mathcal{C}$ is replaced by a fresh draw from $\mathcal{U}$. Because $|\mathcal{U}|$ is finite, a retired clause can in principle re-enter $\mathcal{C}$ later, which is why resurrections are a live (if rare) transition.
+
+\subsection{Performance measures}
+
+All baseline measures are retained, computed against the \emph{current} universal set: per-agent true violations $V^{\text{true}}_i$, the population mean $\bar V^{\text{true}}$, best-agent $V^{\text{true}}_{\min}$, and homogeneity $H$. 
+
+The belief store adds a couple diagnostics -- not of big importance, but useful to monitor the behaviour of the model:
+\begin{itemize}
+  \item $|\mathcal{P}_i|$ and $|\mathcal{N}_i|$, the sizes of the positive and negative belief sets;
+  \item the \emph{stale-positive count} $S_i = |\{ c \in \mathcal{P}_i : c \notin \mathcal{C} \}|$ --- constraints the agent wrongly believes are in force --- and its population-pooled fraction $\sum_i S_i / \sum_i |\mathcal{P}_i|$. This measure is also a proxy for the relative importance of communication over self-discovery as a driver of performance.
+\end{itemize}
+
+\subsection{Parameters}
+
+The extension removes one free parameter: $p_{\text{obs}}$ becomes irrelevant as the observation channel is replaced by testing. However, it does introduce a constant that here we keep as fixed: the $1/2$ split between the two test types.
+
+One calibration note for cross-model comparisons: a test-new event succeeds with probability $|\mathcal{C} \setminus \mathcal{B}_i| / |\mathcal{U}| \approx M/|\mathcal{U}| \approx 0.07$ for a fresh agent, so early discovery runs at ${\sim}0.035$/tick. By comparison, in the baseline model we were using $p_{\text{obs}} = 0.01$.
+
+
+\section{Design choices and rationale}\label{sec:design}
+
+\paragraph{No negative beliefs about never-held clauses.} When a test-new draw turns out not to exist, recording ``$c$ does not exist'' would be technically true but not very useful and practically harmful: non-existent clauses outnumber real ones roughly $13{:}1$ in $\mathcal{U}$ ($810$ vs $60$ at standard parameters), so the store would flood with negatives about clauses nobody believes in, crowding the cap and diluting communication (most transmitted beliefs would be uninformative negatives). Negative beliefs are reserved for clauses that were \emph{believed by someone} --- they enter only through falsification of a held positive, and spread only along chains of prior belief. This keeps the negative set concentrated exactly where disconfirmation has value.
+
+\paragraph{Belief testing draws from both negative and positive beliefs.} In practice, only testing positive beliefs matter (stale negatives can exist only in case of clause resurrection, which is rare). So I guess we could try to change this, but I don't mind the fact that it slows down the testing a bit (which happens on every tick for every agent).
+
+\paragraph{Doubled knowledge base capacity.} This was just to roughly preserve the same number of positive beliefs held as in the baseline model. Though I'm pretty sure that results would be similar with half the size (optimisation happens sequentially).
+
+\paragraph{Communication overwrites} Even though testing is benchmarked on the true universe of clauses, whereas communication can be misinformed, in this model tested clauses are not prioritised over clauses. A communicated belief simply replaces the receiver's sign on that clause. I considered making held beliefs harder to overturn (a stubbornness rule: a contradiction cancels to neutral, so conversion takes two messages, while a direct test still flips in one). This is behaviourally richer, but it changed steady-state staleness and violations only marginally (slightly worse before $t \approx 1000$, slightly better after), so I deemed that this extra complication not worth it. The minimal overwrite rule is what the results below use.
+
+\paragraph{Recency: transmit the freshest belief.} Upon communication, the sender forwards its most recently learned belief rather than a random one. The rationale is that under drift the \emph{value} of a belief decays with its age: a belief just learned, tested, or received is more likely to reflect the current $\mathcal{C}$ than one held untouched for many ticks. Forwarding the freshest first makes each transmission carry the maximal expected truth, and --- because receiving a belief refreshes its position --- turns the network into a fast conduit for new information: a fresh disconfirmation propagates as a wave, each recipient re-forwarding it ahead of older items. Its effect is largest when drift is fast relative to the verification clock, since that is when the age of a belief is most informative about its validity.
+
+
+\end{document}

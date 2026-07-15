@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "model-viewer",
+      "runtimeExecutable": "py",
+      "runtimeArgs": ["-u", "animation/serve.py"],
+      "port": 8765
+    }
+  ]
+}
