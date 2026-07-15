@@ -1689,13 +1689,32 @@ function paramLabel(p) {
   return `${net} · N${p.N} K${p.K} α${p.alpha} obs${p.obs_prob} τ${p.clause_interval} s${p.seed}${lbt}${rec}${nn}${rc}`;
 }
 
+// A fuller, self-contained label for saved snapshots: always states the MODEL
+// TYPE and comm rules explicitly (paramLabel only tags deviations, so a default
+// run would carry no model info), plus the network, key params and seed.
+function snapLabel(p) {
+  let net = p.network;
+  if (net === 'Random') net += ` p=${p.connect_prob}`;
+  else if (net === 'Scale Free') net += ` m=${p.min_deg}`;
+  else if (net === 'Small World') net += ` n=${p.n_size}`;
+  else if (net === 'Hierarchical') net += ` L=${p.nlayers}`;
+  else if (net === 'Modular') net += ` pin=${p.p_in}/pout=${p.p_out}`;
+  const flags = [
+    p.learning_by_testing ? 'learning-by-testing' : `baseline obs${p.obs_prob}`,
+    (p.recency === false) ? 'random-comm' : 'recency',
+  ];
+  if (p.normalize_comm === false) flags.push('no-norm');
+  if (p.redundant_comm) flags.push('redundant');
+  return `${net} · N${p.N} K${p.K} α${p.alpha} τ${p.clause_interval} · ${flags.join(' · ')} · s${p.seed}`;
+}
+
 document.getElementById('snap-save').addEventListener('click', () => {
   if (!DATA || !DATA.series) return;
   const snaps = loadSnaps();
   const color = SNAP_PALETTE[snaps.length % SNAP_PALETTE.length];
   snaps.push({
     id: 'snap_' + DATA.run_id + '_' + snaps.length,
-    label: paramLabel(DATA.params),
+    label: snapLabel(DATA.params),
     color, T: DATA.T, M: DATA.M, on: true,
     avgV: downsample(DATA.series.avgV, 600),
     hom:  downsample(DATA.series.hom, 600),
@@ -1769,19 +1788,27 @@ function drawLineChart(svg, datasets, yMin, yMax, xMax, currentTick, currentColo
 }
 
 function drawPerfCharts() {
-  if (!perfVisible || !DATA || !DATA.series) return;
+  if (!perfVisible) return;
   const snaps = loadSnaps().filter(s => s.on);
-  // datasets for avg violations
-  const avgSets = [{ label: 'current run', color: '#ffffff', width: 2, T: DATA.T, values: DATA.series.avgV }];
-  const homSets = [{ label: 'current run', color: '#ffffff', width: 2, T: DATA.T, values: DATA.series.hom }];
+  const haveCurrent = !!(DATA && DATA.series);
+  // Datasets: the current run (if one exists this session) plus every enabled
+  // snapshot -- so saved snapshots stay visible even before/without a fresh run.
+  const avgSets = [], homSets = [];
+  if (haveCurrent) {
+    avgSets.push({ label: 'current run', color: '#ffffff', width: 2, T: DATA.T, values: DATA.series.avgV });
+    homSets.push({ label: 'current run', color: '#ffffff', width: 2, T: DATA.T, values: DATA.series.hom });
+  }
   snaps.forEach(s => {
     avgSets.push({ label: s.label, color: s.color, T: s.T, values: s.avgV, opacity: 0.9 });
     homSets.push({ label: s.label, color: s.color, T: s.T, values: s.hom, opacity: 0.9 });
   });
-  const xMax = Math.max(DATA.T, ...snaps.map(s => s.T));
-  const yMaxV = Math.max(DATA.M, ...snaps.map(s => s.M));
-  drawLineChart(document.getElementById('chart-avgV'), avgSets, 0, yMaxV, xMax, simTick, '#fff');
-  drawLineChart(document.getElementById('chart-hom'),  homSets, 0.5, 1, xMax, simTick, '#fff');
+  const Ts = [...(haveCurrent ? [DATA.T] : []), ...snaps.map(s => s.T)];
+  const Ms = [...(haveCurrent ? [DATA.M] : []), ...snaps.map(s => s.M).filter(m => m != null)];
+  const xMax  = Ts.length ? Math.max(...Ts) : 1;
+  const yMaxV = Ms.length ? Math.max(...Ms) : 1;
+  const curTick = haveCurrent ? simTick : -1;
+  drawLineChart(document.getElementById('chart-avgV'), avgSets, 0, yMaxV, xMax, curTick, '#fff');
+  drawLineChart(document.getElementById('chart-hom'),  homSets, 0.5, 1, xMax, curTick, '#fff');
   lastChartTick = simTick;
 }
 
