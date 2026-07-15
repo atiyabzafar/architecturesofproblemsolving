@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2026.2.16)  15 JUL 2026 16:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2026.2.16)  16 JUL 2026 00:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -720,59 +720,57 @@ File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mat
 
 ] [4
 
-]
-Overfull \vbox (3.31032pt too high) detected at line 124
- []
+] [5
 
-[5
+] [6
 
 ]
-<figs/stale_trajectory.pdf, id=77, 476.98201pt x 267.39899pt>
+<figs/stale_trajectory.pdf, id=82, 476.98201pt x 267.39899pt>
 File: figs/stale_trajectory.pdf Graphic file (type pdf)
 <use figs/stale_trajectory.pdf>
-Package pdftex.def Info: figs/stale_trajectory.pdf  used on input line 138.
+Package pdftex.def Info: figs/stale_trajectory.pdf  used on input line 141.
 (pdftex.def)             Requested size: 260.00905pt x 145.76424pt.
- [6
+ [7
 
- <./figs/stale_trajectory.pdf>] [7
+ <./figs/stale_trajectory.pdf>] [8
 
-] [8
+] [9
 
 ]
-<figs/h1_topology.pdf, id=157, 549.25201pt x 216.81pt>
+<figs/h1_topology.pdf, id=162, 549.25201pt x 216.81pt>
 File: figs/h1_topology.pdf Graphic file (type pdf)
 <use figs/h1_topology.pdf>
-Package pdftex.def Info: figs/h1_topology.pdf  used on input line 189.
+Package pdftex.def Info: figs/h1_topology.pdf  used on input line 192.
 (pdftex.def)             Requested size: 234.00285pt x 92.36964pt.
- [9
-
- <./figs/h1_topology.pdf>]
-<figs/curve_lbt.pdf, id=197, 491.436pt x 274.626pt>
-File: figs/curve_lbt.pdf Graphic file (type pdf)
-<use figs/curve_lbt.pdf>
-Package pdftex.def Info: figs/curve_lbt.pdf  used on input line 210.
-(pdftex.def)             Requested size: 226.98305pt x 126.84491pt.
  [10
 
- <./figs/curve_lbt.pdf>]
-<figs/curve_compare.pdf, id=251, 693.792pt x 260.17201pt>
-File: figs/curve_compare.pdf Graphic file (type pdf)
-<use figs/curve_compare.pdf>
-Package pdftex.def Info: figs/curve_compare.pdf  used on input line 221.
-(pdftex.def)             Requested size: 312.00822pt x 117.00089pt.
+ <./figs/h1_topology.pdf>]
+<figs/curve_lbt.pdf, id=202, 491.436pt x 274.626pt>
+File: figs/curve_lbt.pdf Graphic file (type pdf)
+<use figs/curve_lbt.pdf>
+Package pdftex.def Info: figs/curve_lbt.pdf  used on input line 213.
+(pdftex.def)             Requested size: 226.98305pt x 126.84491pt.
  [11
 
- <./figs/curve_compare.pdf>]
-<figs/curve_uniform_degree.pdf, id=308, 491.436pt x 289.08pt>
-File: figs/curve_uniform_degree.pdf Graphic file (type pdf)
-<use figs/curve_uniform_degree.pdf>
-Package pdftex.def Info: figs/curve_uniform_degree.pdf  used on input line 229.
-(pdftex.def)             Requested size: 281.67096pt x 165.6948pt.
+ <./figs/curve_lbt.pdf>]
+<figs/curve_compare.pdf, id=256, 693.792pt x 260.17201pt>
+File: figs/curve_compare.pdf Graphic file (type pdf)
+<use figs/curve_compare.pdf>
+Package pdftex.def Info: figs/curve_compare.pdf  used on input line 224.
+(pdftex.def)             Requested size: 312.00822pt x 117.00089pt.
  [12
 
- <./figs/curve_uniform_degree.pdf>] [13
+ <./figs/curve_compare.pdf>]
+<figs/curve_uniform_degree.pdf, id=313, 491.436pt x 289.08pt>
+File: figs/curve_uniform_degree.pdf Graphic file (type pdf)
+<use figs/curve_uniform_degree.pdf>
+Package pdftex.def Info: figs/curve_uniform_degree.pdf  used on input line 232.
+(pdftex.def)             Requested size: 281.67096pt x 165.6948pt.
+ [13
 
-] [14
+ <./figs/curve_uniform_degree.pdf>] [14
+
+] [15
 
 ]
 \tf@nav=\write6
@@ -793,17 +791,17 @@ Package rerunfilecheck Info: File `lbt_slides.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21965 strings out of 474486
- 434125 string characters out of 5743755
+ 21969 strings out of 474486
+ 434160 string characters out of 5743755
  1936542 words of memory out of 5000000
- 43756 multiletter control sequences out of 15000+600000
+ 43758 multiletter control sequences out of 15000+600000
  570526 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,11n,123p,503b,683s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/faust/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/faust/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/faust/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/faust/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/faust/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/faust/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/faust/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/faust/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/faust/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/faust/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/faust/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on lbt_slides.pdf (14 pages, 249477 bytes).
+Output written on lbt_slides.pdf (15 pages, 250614 bytes).
 PDF statistics:
- 434 PDF objects out of 1000 (max. 8388607)
- 29 named destinations out of 1000 (max. 500000)
+ 440 PDF objects out of 1000 (max. 8388607)
+ 31 named destinations out of 1000 (max. 500000)
  260 words of extra memory for PDF output out of 10000 (max. 10000000)
 
