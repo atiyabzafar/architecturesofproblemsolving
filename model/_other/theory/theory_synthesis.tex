@@ -1,0 +1,476 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,left=22mm,right=22mm,top=22mm,bottom=24mm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!55!black,urlcolor=blue!55!black}
+
+% "In plain terms" callout
+\newcommand{\plain}[1]{%
+  \par\smallskip\noindent
+  \colorbox{yellow!18}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+  \textbf{In plain terms.}\quad #1}}\par\smallskip}
+% "Why this step" motivation callout
+\newcommand{\why}[1]{%
+  \par\smallskip\noindent
+  \colorbox{blue!8}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+  \textbf{Why we do this.}\quad #1}}\par\smallskip}
+% "Critical note" callout
+\newcommand{\crit}[1]{%
+  \par\smallskip\noindent
+  \colorbox{red!8}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+  \textbf{Critical note.}\quad #1}}\par\smallskip}
+
+\newcommand{\E}{\mathbb{E}}
+
+\title{\textbf{A Guided Tour of the Theory for the\\ Problem-Solving Model}\\[4pt]
+\large Three contributions --- the logic, the calculations, and a critical reading}
+\author{Working note --- prepared for Fausto}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent This note walks through the three rounds of analytical work on our agent-based model:
+Atiyab's first ``self-averaging'' mean-field, Atiyab's second note (a dynamical rate equation and
+an \emph{exact} pair-level framework), and Juan's recent ``beyond mean-field'' steady-state
+calculation. It is written for a reader who knows the \emph{model} but not theoretical-physics
+derivations, so every symbol is defined and the \emph{logic and the calculation behind every step}
+are spelled out, with a coloured box at each step saying \emph{why} we are doing it. It is also
+deliberately \emph{critical}: after each contribution I state what it gets right, what it gets
+wrong, and --- crucially --- I show that Juan's central calculation rests on a modelling error
+(treating the greedy step as flipping \emph{two} variables at once, when the algorithm flips
+\emph{one} at a time). I then derive the corrected single-variable version and show, against fresh
+simulation measurements, that the correction moves the prediction from $\bar p\approx0.66$ to
+$\bar p\approx0.78$, much closer to the measured $0.74$. All numbers in this note were measured or
+computed by the accompanying scripts (\texttt{\_check\_juan.py}, \texttt{\_corrected\_mf.py}).
+\end{abstract}
+
+\tableofcontents
+
+%==================================================================
+\section{What we predict, and how the model actually updates}
+%==================================================================
+
+A \emph{simulation} tells us \emph{what} happens; a \emph{theory} tries to tell us \emph{why}, and
+ideally hands us a formula that predicts the measured numbers without running the code. The three
+quantities the theory targets:
+\begin{itemize}[nosep]
+  \item $V$ --- the \textbf{violation count}: how many of the $M=\alpha K$ universal clauses an
+        agent's assignment violates (lower is better). We will mostly use the \emph{fraction}
+        $V/M\in[0,1]$.
+  \item $p$ --- the \textbf{fraction of ones}: across all bits in the system, the fraction set to $1$.
+  \item $H$ --- the \textbf{homogeneity}: how much agents agree, variable by variable.
+\end{itemize}
+
+\paragraph{The two clause types (used constantly).} Every clause has two variables.
+\textsc{and} is satisfied only when \emph{both} bits are $1$; \textsc{xor} is satisfied only when
+the bits \emph{differ} (exactly one $1$). If the two bits are equal, \textsc{xor} is violated. Half
+the clauses are \textsc{and}, half \textsc{xor}.
+
+\paragraph{The target numbers (measured, not assumed).} So we can judge each theory against
+reality, here is what the simulation actually does in steady state (Random network, $K=30$,
+$N=80$, $p_{\text{obs}}=0.01$, $\tau=10$; averaged over the last $2000$ of $4000$ ticks, $3$ seeds;
+\texttt{\_check\_juan.py}):
+
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+$\alpha$ & sim $p$ & sim $V/M$ & note\\
+\midrule
+2 & $0.708$ & $0.491$ & $V/M$ just below $0.5$\\
+4 & $0.739$ & $0.487$ & \\
+8 & $0.744$ & $0.466$ & $p$ saturating $\approx0.74$; $V/M$ falling \emph{below} $0.5$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Keep two facts from this table in mind, because every theory below will be judged on them:
+\textbf{(i)} $p$ settles around $0.7$--$0.74$ and \emph{saturates} (it does not climb toward $1$);
+\textbf{(ii)} the violation fraction is \emph{below $0.5$} and falling.
+
+\paragraph{How the model updates (this detail decides everything later).} When an agent learns a
+new clause $c=(i,j)$, the routine \texttt{local\_update\_around} does the following: it takes the
+\emph{two} variables of $c$, shuffles their order, and then considers them \textbf{one at a time}.
+For each variable it tentatively flips \emph{that single bit} and keeps the flip if and only if it
+\emph{strictly} lowers the violation count on the clauses sharing a variable with $c$. It
+\textbf{never} evaluates flipping both bits together.
+
+\why{This last paragraph looks like a technicality, but it is the single most important fact in this
+note. Two of the three contributions get the dynamics right precisely because they respect
+``one variable at a time''; Juan's steady-state calculation goes wrong precisely because it does
+not. We flag it now so the error is visible when we reach it.}
+
+\plain{Everything below rests on one trick: instead of tracking all $N\times K$ bits, summarise the
+system by a few averages (like $p$) and write equations they must obey. That is a \emph{mean-field
+approximation}. The three contributions are increasingly careful versions of this trick --- and
+the interesting failures happen exactly where the averaging hides something real.}
+
+%==================================================================
+\section{Atiyab \#1: the simple ``self-averaging'' mean-field}
+%==================================================================
+\emph{Source: }\texttt{Self Average Approximation.pdf}.
+
+\why{We start here because it is the simplest possible theory and it fixes the vocabulary
+($p$, the violation formula). Even though it turns out to be wrong about \emph{where} the system
+settles, it is right about the \emph{level} of violations and about network-independence, so it is
+the natural baseline every later theory must beat.}
+
+\subsection{The hypothesis}
+After a long run, each agent has exchanged so many clauses that its knowledge base looks like a
+\emph{random sample of the global clause pool}; and since all agents sample the same pool, their
+bits should settle into the same statistics. So:
+\begin{quote}\emph{Every bit is $1$ with the same probability $p$, independently of every other bit.}\end{quote}
+
+\plain{This ``self-averaging'' assumption throws away \emph{who} talks to \emph{whom}, \emph{which}
+agent holds \emph{which} clause, and --- the part that will come back to bite us --- any
+\emph{correlation} between the two bits of a clause. The whole system is compressed to one number
+$p$.}
+
+\subsection{Calculation: the violation fraction $V(p)$}
+\textbf{Step 1 (one clause).} If each bit is $1$ with probability $p$ and bits are independent:
+\begin{align}
+\Pr(\textsc{and violated}) &= 1-\Pr(\text{both }1)=1-p^2,\\
+\Pr(\textsc{xor violated}) &= \Pr(\text{both equal})=p^2+(1-p)^2 .
+\end{align}
+\textbf{Step 2 (all $M$ clauses, half each type).} Multiply each probability by $M/2$ and add:
+\begin{equation}
+V(p)=\tfrac{M}{2}(1-p^2)+\tfrac{M}{2}\bigl(p^2+(1-p)^2\bigr)
+   = M\Bigl(1-p+\tfrac{p^2}{2}\Bigr).
+\label{eq:Vp_simple}
+\end{equation}
+(The algebra: the $\pm\tfrac{M}{2}p^2$ terms cancel, leaving $\tfrac{M}{2}\bigl(1+(1-p)^2\bigr)
+= M(1-p+p^2/2)$.)
+
+\subsection{Calculation: the best $p$}
+\why{We want the $p$ that the system should prefer. ``Prefer'' means ``fewest violations,'' i.e.\
+the bottom of the curve $V(p)$. The slope (derivative) is zero at the bottom, so we set it to zero.}
+\begin{equation}
+\frac{dV}{dp}=M(p-1)=0\ \Rightarrow\ p^\star=1,\qquad
+\frac{d^2V}{dp^2}=M>0\ (\text{a valley}),\qquad
+\boxed{V^\star=\tfrac{M}{2}=\tfrac{\alpha K}{2}}.
+\end{equation}
+As a fraction, $V^\star/M = 1/2$.
+
+\subsection{Critical assessment}
+\crit{The theory predicts $p^\star=1$: \emph{every} agent should drive \emph{every} bit to $1$. The
+simulation says $p\approx0.7$ (table in \S1). So the headline conclusion is simply false. It
+\emph{looks} successful only because of a coincidence: $V(p)$ in \eqref{eq:Vp_simple} is very flat
+near its bottom, so being wrong about $p$ (0.7 vs 1) costs little in $V$ ($0.545M$ vs $0.5M$,
+about $9\%$). \textbf{The theory is right about the level for the wrong reason}, and a critical
+reader should say so rather than treat the $\sim\!10\%$ agreement as a success. It also fails
+outright when the observation probability or clause interval is varied --- exactly the regimes
+where ``independent bits'' is worst.}
+
+Two things it does get genuinely right, and which survive into the final story:
+\begin{enumerate}[nosep]
+  \item \textbf{Network-independence of the long-run level.} Because \texttt{comm\_scale}
+        normalises incoming communication by average in-degree, every agent receives the same
+        \emph{average} information rate regardless of topology; and once all knowledge bases are
+        samples of the same pool, the greedy step sees the same statistics everywhere. Topology
+        changes \emph{who} transmits and \emph{how fast}, not the destination.
+  \item \textbf{The level $\alpha K/2$ is actually a good predictor} (the measured $V/M\approx0.49$
+        at $\alpha=2$ is within $2\%$ of $0.5$). Ironically this trivial formula predicts $V$
+        \emph{better} than Juan's later refinement does --- a point we return to in \S4.
+\end{enumerate}
+
+%==================================================================
+\section{Atiyab \#2: dynamics, and an exact pair-level framework}
+%==================================================================
+\emph{Source: }\texttt{Mean Field Model\_version1.pdf}. Two halves: first it makes the theory
+\emph{dynamical} (how fast, not just where); then it builds an \emph{exact} replacement for the
+crude independence assumption.
+
+\subsection{Half A --- the attractor as a flow (this half is single-variable, and correct in
+structure)}
+\why{Minimising a curve tells you the destination but not the route. To get convergence
+\emph{speed} --- which is what the paper ultimately cares about --- we need to watch what the
+greedy step does to a single bit, over and over.}
+
+Consider testing a flip of one variable $j$ from $0\to1$. A neighbouring clause containing $j$
+changes status according to its \emph{partner} bit:
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Clause & partner $=1$ (prob.\ $p$) & partner $=0$ (prob.\ $1-p$)\\
+\midrule
+\textsc{and} & $01\!\to\!11$: violated$\to$satisfied, $\Delta=-1$ & $00\!\to\!10$: stays violated, $\Delta=0$\\
+\textsc{xor} & $01\!\to\!11$: satisfied$\to$violated, $\Delta=+1$ & $00\!\to\!10$: violated$\to$satisfied, $\Delta=-1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Averaging over the partner: $\E_{\textsc{and}}[\Delta]=p(-1)+(1-p)(0)=-p$ and
+$\E_{\textsc{xor}}[\Delta]=p(+1)+(1-p)(-1)=2p-1$. Each variable sits in $\sim\alpha$ \textsc{and}
+and $\sim\alpha$ \textsc{xor} clauses, so the total expected change of flipping one zero up is
+\begin{equation}
+\Delta_{0\to1}\approx \alpha(-p)+\alpha(2p-1)=-\alpha(1-p)\le0,
+\end{equation}
+and symmetrically $\Delta_{1\to0}\approx+\alpha(1-p)\ge0$. So on average up-flips help and
+down-flips hurt: the system drifts towards $p=1$.
+
+\crit{Note this half is honest about the mechanism: it flips \emph{one} variable and sums over
+\emph{that variable's} clauses. That is exactly what the code does. The flaw here is only that it
+reads ``the average is negative'' as ``the flip is always accepted'' --- ignoring that the
+\emph{realised} change is random and is filtered by the greedy rule. That filtering is what later
+pulls the true attractor below $1$.}
+
+\subsection{Half A --- a rate equation and a timescale}
+\why{A \emph{rate equation} is ``rate of change $=$ how often something happens $\times$ how much it
+changes things.'' It converts the drift above into a prediction of convergence \emph{speed}.}
+
+Only $0\to1$ flips change $p$, and they are available in proportion to the fraction of zeros
+$(1-p)$. With learning rate $r$:
+\begin{equation}
+\frac{dp}{dt}=\frac{2\gamma}{K}\,r\,(1-p)
+\ \Rightarrow\
+p(t)=1-(1-p_0)e^{-(2\gamma r/K)t},\quad \tau=\frac{K}{2\gamma r}.
+\end{equation}
+Crucially $r=r_{\text{obs}}+r_{\text{int}}$ with $r_{\text{int}}\propto$ average in-degree:
+\textbf{the network enters here, in the timescale} --- speed, not destination, as \#1 predicted.
+
+\crit{The whole dynamic half rides on the false $p=1$ attractor, so the \emph{endpoint} of
+$p(t)$ is wrong. But the \emph{shape} (exponential relaxation) and the key qualitative claim
+(network sets the timescale via $r$) are sound and are the seed of the paper's transient story.}
+
+\subsection{Half A --- the honest admission}
+The note then states plainly that $p=1$ is \emph{not} the real attractor (the simulation converges
+below $1$), so $H=\max(p,1-p)$ cannot be the full story. Hence: ``we need a better mean-field.''
+
+\subsection{Half B --- the exact pair-level framework}
+\why{The crude step was treating the two bits of a clause as independent ($\Pr(\text{both }1)=p^2$).
+But the greedy step \emph{couples} them, so they are correlated and $p^2$ is wrong. The fix is to
+stop factorising and track the joint distribution of \emph{pairs} of bits.}
+
+For a clause on $(i,j)$ define $q^{(ij)}_{ab}=\Pr(x_i=a,x_j=b)$. Then the violation probabilities
+are \emph{exact}: $v_{\textsc{and}}=1-q^{(ij)}_{11}$ and $v_{\textsc{xor}}=q^{(ij)}_{00}+q^{(ij)}_{11}$.
+Averaging over all \textsc{and} clauses ($M_A$) and \textsc{xor} clauses ($M_X$) gives an
+\textbf{exact identity}:
+\begin{equation}
+V(t)=M_A\bigl(1-q^{A}_{11}(t)\bigr)+M_X\,q^{X}_{\text{eq}}(t).
+\label{eq:V_exact}
+\end{equation}
+\plain{``Exact identity'' means \emph{no approximation}: if you knew the pair quantities, this
+would give the true $V$. The catch is getting them.}
+
+\subsection{Half B --- exact single-variable flip rules (verified in code)}
+\why{To get the dynamics of those pair quantities we need to know exactly when a flip is accepted.
+Atiyab does this honestly --- and, importantly, \emph{one variable at a time}, matching the code.}
+
+For variable $j$, let $A_1,A_0$ be the number of \textsc{and} clauses on $j$ with partner $1,0$,
+and $X_1,X_0$ the \textsc{xor} clauses with partner $1,0$. Counting the violation change of a
+\emph{single}-bit flip gives the exact, code-verified rules:
+\begin{align}
+\text{flip }0\to1\text{ accepted} &\iff A_1+X_0>X_1, \label{eq:rule01}\\
+\text{flip }1\to0\text{ accepted} &\iff X_1>A_1+X_0. \label{eq:rule10}
+\end{align}
+Atiyab checked these against a real run: \emph{every} accepted flip obeys the inequality
+($100\%$ match). \textbf{Remember equations \eqref{eq:rule01}--\eqref{eq:rule10}: they are the
+correct acceptance rules, and Juan's calculation should have been built on them.}
+
+\subsection{Half B --- where it stops, and why}
+Differentiating \eqref{eq:V_exact} gives $dV/dt$ in terms of the pair quantities; but the rate of
+change of \emph{pairs} depends on \emph{triples} (flipping $j$ disturbs every pair attached to
+$j$), triples depend on quadruples, and so on.
+\plain{This is the system being \emph{``not closed'':} the equation for what you want depends on a
+more complicated thing you don't have. The pair framework is therefore \emph{correct but not yet
+solvable} --- an honest, exact scaffold with a gap in the middle.}
+If you \emph{force} the factorisation $q^{A}_{11}\approx p^2$, $q^{X}_{\text{eq}}\approx p^2+(1-p)^2$,
+\eqref{eq:V_exact} collapses back to \eqref{eq:Vp_simple}. So \#2 is a strict \emph{generalisation}
+of \#1, not a rival.
+
+%==================================================================
+\section{Juan: computing the steady state ``beyond mean field''}
+%==================================================================
+\emph{Source: }\texttt{clauses.pdf} (email ``Notes beyond mean field'', 16 June 2026).
+
+\why{Juan attacks the one thing \#1 got wrong --- the claim $p^\star=1$ --- by \emph{not assuming}
+where the system settles, and instead computing it from how often the greedy step \emph{accepts}
+flips. This is exactly the right instinct.}
+
+\subsection{What Juan does (faithful walk-through)}
+\textbf{Step 1 --- a rate equation from pair states.} When a clause lands on a variable pair, that
+pair is $00,10,11$ with probabilities $(1-p)^2,\,2p(1-p),\,p^2$. Let $F_{00}$ be the probability
+the greedy \emph{accepts} flipping a $00$ pair up to $11$ (adds two ones), $F_{11}$ for $11\to00$
+(removes two ones); a $10$ pair flip leaves the count unchanged. Then
+\begin{equation}
+\frac{dp}{dt}=2(1-p)^2F_{00}-2p^2F_{11}.
+\label{eq:juan_rate}
+\end{equation}
+\textbf{Step 2 --- steady state.} Set \eqref{eq:juan_rate} to zero. The algebra:
+$2(1-p)^2F_{00}=2p^2F_{11}\Rightarrow \tfrac{(1-p)^2}{p^2}=\tfrac{F_{11}}{F_{00}}
+\Rightarrow \tfrac{1-p}{p}=\sqrt{\tfrac{F_{11}}{F_{00}}}$, hence
+\begin{equation}
+\bar p=\frac{\sqrt{F_{00}}}{\sqrt{F_{00}}+\sqrt{F_{11}}}.
+\label{eq:juan_pbar}
+\end{equation}
+\textbf{Step 3 --- violations.} Using the \emph{same independent-bit formula} as everyone,
+$V/M=\tfrac12(1-\bar p^2)+\tfrac12(\bar p^2+(1-\bar p)^2)=\tfrac12+\tfrac12(1-\bar p)^2$.
+\textbf{Step 4 --- the accept rates.} For a $00\to11$ flip he counts the violations created/removed
+among neighbouring clauses (means $\E[N^+]=2\alpha p$, $\E[N^-]=2\alpha$), models them as Poisson,
+takes the difference (a Skellam) $Z_{00}=\mathrm{Poisson}(2\alpha p)-\mathrm{Poisson}(2\alpha)$,
+and assembles $F_{00},F_{11}$ from the probabilities $H_{00}(k)=\Pr(Z_{00}\le k)$.
+\textbf{Step 5.} Substituting $F_{00}/F_{11}$ into \eqref{eq:juan_pbar} gives an implicit equation;
+solving numerically yields $\bar p\approx0.66$ at $\alpha=4$ and $\bar p\to1$ as $\alpha\to\infty$.
+
+\subsection{The central error: the greedy does not flip two variables at once}
+\crit{Juan's whole construction treats the move as ``the pair $(0,0)$ flips \emph{together} to
+$(1,1)$,'' accepted with one probability $F_{00}$. But the algorithm
+(\texttt{local\_update\_around}) flips \textbf{one variable at a time} (\S1), and Atiyab's Half B
+already wrote down the correct single-variable acceptance rules
+\eqref{eq:rule01}--\eqref{eq:rule10}. So $F_{00}$ is the acceptance probability of a joint two-bit
+move the model \emph{never performs}. This single mistake propagates everywhere:}
+
+\begin{enumerate}[nosep]
+  \item \textbf{The squared prefactors are spurious.} Requiring \emph{both} bits to be $0$ before an
+        up-move is what puts $(1-p)^2$ in \eqref{eq:juan_rate}; that square is exactly what becomes
+        the square root in \eqref{eq:juan_pbar}. With single-bit flips there is no such requirement.
+  \item \textbf{It ignores the $(1,0)$ outcomes.} In reality, on a $(0,0)$ clause the greedy may
+        accept flipping one bit and reject the other, landing at $(1,0)$ --- which \emph{does}
+        change $p$. Juan discards $10$ pairs as ``no change''; for single-bit dynamics they are a
+        live channel.
+  \item \textbf{It uses the wrong acceptance probabilities.} The correct objects are
+        $\Pr(\text{flip }0\!\to\!1\text{ accepted})$ and $\Pr(1\!\to\!0)$ from
+        \eqref{eq:rule01}--\eqref{eq:rule10}, not a joint $F_{00},F_{11}$.
+\end{enumerate}
+
+\subsection{The corrected single-variable calculation}
+\why{We redo Step 1--2 honestly: one variable at a time, using Atiyab's verified rules. This is
+what Juan's calculation should have been.}
+
+Focus on one variable $j$. With $A_1\sim\mathrm{Bin}(\alpha,p)$, $X_1\sim\mathrm{Bin}(\alpha,p)$,
+$X_0\sim\mathrm{Bin}(\alpha,1-p)$ (each variable is in $\alpha$ \textsc{and} and $\alpha$
+\textsc{xor} clauses, partners independently $1$ w.p.\ $p$), define $S=A_1+X_0-X_1$. By
+\eqref{eq:rule01}--\eqref{eq:rule10},
+\begin{equation}
+F_{\text{up}}=\Pr(S>0),\qquad F_{\text{dn}}=\Pr(S<0).
+\end{equation}
+Per learning event the two clause variables are each considered once; a fraction $(1-p)$ of them
+are $0$ (each may flip up, $+1$ one) and $p$ are $1$ (each may flip down, $-1$ one). So the
+\emph{single-variable} rate equation is \textbf{linear}, not squared:
+\begin{equation}
+\frac{dp}{dt}\propto (1-p)F_{\text{up}}-p\,F_{\text{dn}}
+\ \Rightarrow\
+\boxed{\ \bar p=\frac{F_{\text{up}}}{F_{\text{up}}+F_{\text{dn}}}\ }.
+\label{eq:corrected_pbar}
+\end{equation}
+No square root. Solving \eqref{eq:corrected_pbar} self-consistently (\texttt{\_corrected\_mf.py},
+exact enumeration of the binomials) gives:
+
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+$\alpha$ & Juan \eqref{eq:juan_pbar} & corrected \eqref{eq:corrected_pbar} & simulation\\
+\midrule
+2 & --- & $0.748$ & $0.708$\\
+4 & $0.66$ & $0.784$ & $0.739$\\
+8 & --- & $0.822$ & $0.744$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\plain{The correction is not cosmetic. Juan's $\bar p=0.66$ \emph{undershoots} the true $0.739$;
+the single-variable version gives $0.784$, roughly halving the error and landing on the right
+scale. The double-flip assumption was actively dragging the prediction down.}
+
+\subsection{A second, independent problem: $V$ is computed with the discredited formula}
+\crit{Even with a correct $\bar p$, Juan computes $V$ from the \emph{independent-bit} formula
+$V/M=\tfrac12+\tfrac12(1-\bar p)^2$. That expression is $\ge0.5$ for \emph{every} $\bar p$ and
+equals $0.5$ only at $\bar p=1$. But the simulation sits \emph{below} $0.5$ ($0.49$ at
+$\alpha=2$, falling to $0.47$ at $\alpha=8$). So this formula is on the wrong side of a floor it
+can never cross, and Juan's claim that $V\approx0.55$ ``aligns with the simulations'' is
+incorrect --- it is in fact \emph{further} from the data than the trivial $\alpha K/2=0.5$ of \#1.}
+
+The reason is the same correlation that Atiyab's Half B identified: the real system beats $50\%$
+violations by \emph{specialising} its variables (your $f_j$ heat-map: variables stable anywhere
+from $0.25$ to $0.96$), so \textsc{and} pairs reach $11$ and \textsc{xor} pairs reach $01/10$
+\emph{simultaneously}. No single-$p$ formula can represent that; you need the pair quantities
+$q^A_{11},q^X_{\text{eq}}$ of \eqref{eq:V_exact}. Juan went beyond mean-field for $p$ but reverted
+to mean-field for $V$.
+
+\subsection{Smaller criticisms worth raising on the call}
+\begin{itemize}[nosep]
+  \item \textbf{Poisson for a bounded count.} The neighbour counts are
+        $\mathrm{Binomial}(\alpha,\cdot)$ (at most $\alpha$), but Juan models them as
+        \emph{unbounded} Poisson. At the small $\alpha$ we actually use ($2$--$4$) this is a poor
+        approximation; the corrected calculation above keeps the exact binomials.
+  \item \textbf{The ``displaced clause'' (FIFO) terms.} His $F_{00}$ includes $\pm1$ shifts for the
+        clause evicted by the knowledge-base cap. But the greedy decision is evaluated on the KB
+        \emph{after} eviction, so the evicted clause cannot affect whether a flip is accepted; those
+        terms do not belong in an acceptance probability.
+  \item \textbf{$p\to1$ as $\alpha\to\infty$ contradicts the data.} Both Juan's and the corrected
+        mean-field predict $\bar p\to1$ for large $\alpha$, but the simulation \emph{saturates}
+        around $0.74$. This is \emph{not} fixed by the single-variable correction --- it is the
+        independence assumption itself, and only the (unclosed) pair theory can capture it.
+  \item \textbf{$\alpha$ bookkeeping.} The note uses $\alpha=4$; the paper's main runs use
+        $\alpha=2$. Any comparison to ``the simulation'' must fix the same $\alpha$.
+\end{itemize}
+
+\subsection{What is nonetheless right and valuable in Juan's note}
+The \emph{strategy} is correct and is the way forward: don't assume the attractor, compute it from
+acceptance statistics. His instinct to make the rate degree-dependent for the dynamic case is also
+right. The execution needs to be rebuilt on the single-variable rules \eqref{eq:rule01}--\eqref{eq:rule10}.
+
+%==================================================================
+\section{Synthesis and the real frontier}
+%==================================================================
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{p{0.16\linewidth} p{0.40\linewidth} p{0.36\linewidth}}
+\toprule
+\textbf{Contribution} & \textbf{Delivers} & \textbf{Limitation}\\
+\midrule
+Atiyab \#1 &
+Violation level $V^\star=\alpha K/2$ (good to $\sim\!2\%$); network-independence of the long run. &
+Predicts $p=1$ (false; sim $0.7$); right level for the wrong reason.\\
+\midrule
+Atiyab \#2 &
+(A) Timescale $\tau=K/2\gamma r$, $r_{\text{int}}\propto$ in-degree (network enters the speed).
+(B) \emph{Exact} pair identity for $V$ and \emph{exact, single-variable, code-verified} flip rules. &
+(A) rides on the wrong $p=1$. (B) not closed: pairs need triples.\\
+\midrule
+Juan &
+The right \emph{strategy}: compute $\bar p$ from acceptance rates rather than assume it. &
+Built on a two-variable joint flip the model never does; squared prefactors/square root spurious;
+$\bar p$ undershoots ($0.66$ vs $0.74$); $V$ uses the discredited independent-bit formula and lands
+on the wrong side of $0.5$.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{The through-line}
+All three rounds keep reusing the single-$p$, independent-bit picture for $V$, and \textbf{that
+picture cannot reach the sub-$0.5$ violation rate the model actually achieves}. The sub-$0.5$
+performance is the whole interesting phenomenon (variables specialise; clauses get jointly
+satisfied), and it lives in the pair correlations $q^A_{11},q^X_{\text{eq}}$ --- precisely
+Atiyab's unclosed pair equations. That is the real frontier.
+
+\subsection{Two concrete next steps}
+\begin{enumerate}[nosep]
+  \item \textbf{Rebuild the steady state on the single-variable rules.} Compute Atiyab's exact
+        acceptance probabilities $\Pr(A_1+X_0>X_1)$ and $\Pr(X_1>A_1+X_0)$ (the corrected
+        $F_{\text{up}},F_{\text{dn}}$ above), giving $\bar p$ via \eqref{eq:corrected_pbar}. We have
+        already done the independent-bit version (table in \S4.4); the next refinement is to feed it
+        \emph{correlated} partner statistics rather than independent ones, which is the bridge to
+        closing the pair theory.
+  \item \textbf{Make it dynamic and network-dependent.} Write $\dfrac{dp_i}{dt}=r_i\,G(p_i)$ with
+        $r_i$ the (degree-dependent) learning rate and $G$ the corrected single-variable
+        right-hand side. The fixed point $G(\bar p)=0$ is \emph{independent of $r_i$}, so every
+        agent reaches the same $\bar p$ --- an analytical statement of the paper's
+        topology-independence headline --- while $r_i$ sets the convergence \emph{speed}, carrying
+        all the transient/network differences. A clean testable prediction is
+        $t_{\text{conv}}\propto1/(\text{spectral gap})$ with a gap-independent steady state.
+\end{enumerate}
+
+\appendix
+\section{Reproducibility}
+All numbers were generated by two short scripts in this folder:
+\texttt{\_check\_juan.py} (measures steady-state $p$ and $V/M$ from the simulation) and
+\texttt{\_corrected\_mf.py} (solves the corrected single-variable mean-field by exact enumeration
+of the binomial neighbour counts).
+
+\end{document}
