@@ -16,6 +16,7 @@ Press Ctrl+C in the terminal to stop the server.
 
 import http.server
 import json
+import os
 import random
 import socket
 import socketserver
@@ -25,6 +26,7 @@ import time
 import traceback
 import webbrowser
 from array import array
+from collections import OrderedDict
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs
 
@@ -45,9 +47,117 @@ from model import Person, ProblemSolvingModel
 # (network construction, scheduling) uses TrackingPerson agents.
 
 class TrackingPerson(Person):
-    def step(self):
-        my_kb_set = set(self.kb)
+    # NOTE: this mirrors LearningByTestingPerson in model_learningbytesting.py,
+    # with per-tick event logging added for the animation. Keep the two in sync.
+    # Communication sends either the sender's MOST RECENT differing item
+    # (self.model.recency) or a uniform-random one -- the "recency" UI switch
+    # toggles this in both modes.
+    def __init__(self, unique_id, model, K):
+        super().__init__(unique_id, model, K)
+        # Signed-belief store (used in learning-by-testing mode):
+        #   self.kb    -> clauses believed to EXIST (positive); drives optimisation
+        #   self.sign  -> clause -> +1 exists / -1 does not exist
+        #   self.order -> FIFO order, refreshed on every belief touch
+        self.sign = {}
+        self.order = []
 
+    # ---- signed-belief bookkeeping (learning-by-testing) ----
+    def belief_cap(self):
+        return 2 * self.model.M          # doubled knowledge-base capacity
+
+    def set_belief(self, clause, s):
+        """Set belief about `clause` to sign s (+1 exists / -1 not). Refreshes
+        FIFO position, keeps self.kb (positive beliefs) in sync, enforces the
+        doubled cap. Returns: 'new_pos','new_neg','pos2neg','neg2pos','confirm'."""
+        cur = self.sign.get(clause)
+        if cur is not None:
+            try: self.order.remove(clause)
+            except ValueError: pass
+        self.order.append(clause)
+        self.sign[clause] = s
+        in_kb = clause in self.kb
+        if s == 1 and not in_kb:
+            self.kb.append(clause)
+        elif s == -1 and in_kb:
+            self.kb.remove(clause)
+        self._enforce_cap()
+        if cur is None:  return 'new_pos' if s == 1 else 'new_neg'
+        if cur == s:     return 'confirm'
+        return 'neg2pos' if s == 1 else 'pos2neg'
+
+    def _enforce_cap(self):
+        cap = self.belief_cap()
+        while len(self.order) > cap:
+            old = self.order.pop(0)
+            s = self.sign.pop(old, None)
+            if s == 1:
+                try: self.kb.remove(old)
+                except ValueError: pass
+
+    def step(self):
+        if self.model.learning_by_testing:
+            self._step_testing()
+        else:
+            self._step_baseline()
+
+    def _step_testing(self):
+        C_set = getattr(self.model, '_C_set', None) or set(self.model.C)
+
+        # --- private channel: 50/50 test-a-new-clause / test-a-belief ---
+        if random.random() < 0.5:
+            # (1) test a NEW clause (one we hold no belief about)
+            cand = self.model.random_clause()
+            tries = 0
+            while cand in self.sign and tries < 10:
+                cand = self.model.random_clause(); tries += 1
+            if cand not in self.sign and cand in C_set:
+                self.set_belief(cand, 1)
+                self.local_update_around(cand)
+                self.model._obs_events_this_tick.append(self.unique_id)   # discovery
+            # a generated clause that does not exist is discarded (no junk negatives)
+        else:
+            # (2) test a HELD belief (positive or negative) -> ground truth
+            if self.order:
+                clause = random.choice(self.order)
+                s = 1 if clause in C_set else -1
+                t = self.set_belief(clause, s)
+                if t == 'neg2pos':                # resurrected: now believed real
+                    self.local_update_around(clause)
+                    self.model._obs_events_this_tick.append(self.unique_id)
+                elif t == 'pos2neg':              # falsified: now believed gone
+                    self.model._forget_events_this_tick.append(self.unique_id)
+
+        # --- communication: transmit signed beliefs (receiver-pull) ---
+        if self.in_neighbors:
+            comm_scale = self.model.comm_scale
+            for nbr_id in self.in_neighbors:
+                edge_data = self.model.network[nbr_id][self.unique_id]
+                link_weight = edge_data.get('weight', 1.0)
+                if random.random() < min(1.0, comm_scale * link_weight):
+                    nbr = self.model.agent_list[nbr_id]
+                    if not nbr.order:
+                        continue
+                    # clauses where we disagree with the neighbour: we lack a
+                    # belief, or we hold the OPPOSITE sign.
+                    diff = [c for c in nbr.order if self.sign.get(c) != nbr.sign[c]]
+                    if diff:
+                        # recency: most recent differing belief (order is
+                        # oldest->newest); otherwise a uniform-random one.
+                        c = (next(cc for cc in reversed(nbr.order)
+                                  if self.sign.get(cc) != nbr.sign[cc])
+                             if self.model.recency else random.choice(diff))
+                        ns = nbr.sign[c]
+                        # adopt the neighbour's belief, flipping ours if it
+                        # differs; a transmitted negative overwrites a stale positive.
+                        if self.set_belief(c, ns) in ('new_pos', 'neg2pos'):
+                            self.local_update_around(c)
+                        # comm event carries the polarity transmitted (for colour)
+                        self.model._comm_events_this_tick.append(
+                            (nbr_id, self.unique_id, ns))
+
+    def _step_baseline(self):
+        # Original passive observation + (default/redundant) communication.
+        my_kb_set = set(self.kb)
         if random.random() < self.model.obs_prob:
             obs_clause = random.choice(self.model.C)
             if obs_clause not in my_kb_set:
@@ -66,46 +176,59 @@ class TrackingPerson(Person):
                     nbr_agent = self.model.agent_list[nbr_id]
                     if nbr_agent.kb:
                         if self.model.redundant_comm:
-                            # Redundant-communication variant: the neighbour
-                            # sends a clause drawn from its WHOLE knowledge base,
-                            # not knowing what the recipient already has. If the
-                            # recipient already knows it, nothing is transferred
-                            # (the elicitation is "wasted").
-                            cprime = random.choice(nbr_agent.kb)
+                            # Redundant variant: neighbour sends from its WHOLE
+                            # KB (most recent clause under recency, else random);
+                            # if already known, nothing transfers ("wasted").
+                            cprime = (nbr_agent.kb[-1] if self.model.recency
+                                      else random.choice(nbr_agent.kb))
                             if cprime not in my_kb_set:
                                 self.add_clause_to_kb(cprime)
                                 self.local_update_around(cprime)
                                 my_kb_set.add(cprime)
                                 self.model._comm_events_this_tick.append(
-                                    (nbr_id, self.unique_id))
+                                    (nbr_id, self.unique_id, 1))
                         else:
-                            # Default: the neighbour shares only something the
-                            # recipient does not yet know (no wasted transfers).
+                            # Default: neighbour shares something the recipient
+                            # doesn't yet know -- its most recent such clause
+                            # under recency, else a uniform-random one.
                             nbr_kb_set = set(nbr_agent.kb)
                             unknowns = nbr_kb_set - my_kb_set
                             if unknowns:
-                                cprime = random.choice(list(unknowns))
+                                cprime = (
+                                    next(c for c in reversed(nbr_agent.kb)
+                                         if c not in my_kb_set)
+                                    if self.model.recency
+                                    else random.choice(list(unknowns)))
                                 self.add_clause_to_kb(cprime)
                                 self.local_update_around(cprime)
                                 my_kb_set.add(cprime)
                                 self.model._comm_events_this_tick.append(
-                                    (nbr_id, self.unique_id))
+                                    (nbr_id, self.unique_id, 1))
 
 
 _mm.Person = TrackingPerson
 
 
 class TrackingModel(ProblemSolvingModel):
-    def __init__(self, *args, redundant_comm=False, **kwargs):
+    def __init__(self, *args, redundant_comm=False, learning_by_testing=False,
+                 recency=True, **kwargs):
         self._comm_events_this_tick = []
         self._obs_events_this_tick = []
+        self._forget_events_this_tick = []
         self._replace_events = []        # (tick, new_clause) for each drift replacement
-        self.redundant_comm = redundant_comm   # variant flag read by TrackingPerson
+        self.redundant_comm = redundant_comm   # variant flags read by TrackingPerson
+        self.learning_by_testing = learning_by_testing
+        self.recency = recency
+        self._C_set = set()
         super().__init__(*args, **kwargs)
 
     def step(self):
         self._comm_events_this_tick = []
         self._obs_events_this_tick = []
+        self._forget_events_this_tick = []
+        # Cache the universe as a set once per tick for the agents' membership
+        # tests (C is constant within a tick; replacement happens afterwards).
+        self._C_set = set(self.C)
         super().step()
 
     def replace_universal_clause(self):
@@ -171,15 +294,22 @@ def compute_eigencentrality(G):
 
 
 # ============================================================
-# Server-side store of the most recent run's full history
+# Server-side store of recent runs' full history
 # ============================================================
 # The browser payload stays light (only KB size + violations per tick). The
 # heavy per-tick detail -- each agent's full variable vector x and the exact
 # clauses in its knowledge base -- is kept here and fetched on demand via the
-# /state and /track endpoints. We keep only the latest run to bound memory.
+# /state and /track endpoints. We keep the last few runs (keyed by run id) so
+# that concurrent viewers don't evict each other's run, capped to bound memory.
 
-LAST_RUN = {}          # filled by run_simulation
+RUNS = OrderedDict()   # run_id -> stored history (filled by run_simulation)
+MAX_STORED_RUNS = 3
 RUN_COUNTER = [0]
+RUN_LOCK = threading.Lock()   # simulations run one at a time (shared RNG state)
+
+# Public-server mode: hosting platforms (Render etc.) set PORT. In that mode we
+# bind 0.0.0.0, skip opening a local browser, and clamp request sizes.
+PUBLIC = 'PORT' in os.environ
 
 
 def clause_to_str(clause):
@@ -228,7 +358,9 @@ def run_simulation(p):
     else:
         raise ValueError(f"Unknown network type: {net}")
 
-    m = TrackingModel(redundant_comm=bool(p.get('redundant_comm', False)), **kwargs)
+    m = TrackingModel(redundant_comm=bool(p.get('redundant_comm', False)),
+                      learning_by_testing=bool(p.get('learning_by_testing', True)),
+                      recency=bool(p.get('recency', True)), **kwargs)
 
     # Communication-rate normalisation. By default comm_scale = 1/avg-in-strength,
     # so the average agent absorbs ~1 elicitation per tick regardless of topology.
@@ -292,7 +424,8 @@ def run_simulation(p):
     # are the heavy server-side detail.
     frames = []
     x_hist = []                              # per tick: bytes packing all agents' x
-    kb_hist = []                             # per tick: list of array('H') clause-id lists
+    kb_hist = []                             # per tick: list of array('H') positive-belief ids
+    neg_hist = []                            # per tick: list of array('H') negative-belief ids
     c_hist = []                              # per tick: array('H') of the universe's clause ids
     avgV_series = []                         # per tick: population-average violations
     minV_series = []                         # per tick: best-agent violations
@@ -302,25 +435,43 @@ def run_simulation(p):
         agents_state = []
         xbuf = bytearray(N * bpa)
         kb_tick = []
+        neg_tick = []
+        C_now = set(m.C)                         # current universe (post-step)
         for i in range(N):
             ag = m.agent_list[i]
-            # [kb_size, violations vs universe C, violations vs own knowledge base]
+            # Per-agent state:
+            #   [0] positive-belief count (= len(kb); drives optimisation)
+            #   [1] violations vs the universe C
+            #   [2] violations vs own positive beliefs
+            #   [3] negative-belief count (learning-by-testing only; else 0)
+            #   [4] stale positive beliefs (held-as-existing but no longer in C)
             kb_viol = int(ag.violation_count(ag.kb, ag.x))
-            agents_state.append([len(ag.kb), int(ag.true_violations), kb_viol])
+            n_pos = len(ag.kb)
+            order = getattr(ag, 'order', None)
+            n_neg = (len(order) - n_pos) if order else 0
+            n_stale = sum(1 for c in ag.kb if c not in C_now)
+            agents_state.append([n_pos, int(ag.true_violations), kb_viol, n_neg, n_stale])
             # pack x bits
             base = i * bpa
             for j, bit in enumerate(ag.x):
                 if bit:
                     xbuf[base + (j >> 3)] |= (1 << (j & 7))
-            # kb as clause ids
+            # positive beliefs (kb) and negative beliefs (order with sign -1) as ids
             kb_tick.append(array('H', [cid(c) for c in ag.kb]))
+            sign = getattr(ag, 'sign', None)
+            if sign:
+                neg_tick.append(array('H', [cid(c) for c in ag.order if sign.get(c) == -1]))
+            else:
+                neg_tick.append(array('H'))
         frames.append({
             'a': agents_state,
             'c': [list(e) for e in m._comm_events_this_tick],
             'o': list(m._obs_events_this_tick),
+            'f': list(m._forget_events_this_tick),
         })
         x_hist.append(bytes(xbuf))
         kb_hist.append(kb_tick)
+        neg_hist.append(neg_tick)
         c_hist.append(array('H', [cid(c) for c in m.C]))    # universe at this tick
         avgV_series.append(round(float(m.avg_true_V), 3))
         minV_series.append(int(m.min_true_V))
@@ -330,12 +481,13 @@ def run_simulation(p):
     replace_events = [(tk, cid(c)) for (tk, c) in m._replace_events]
 
     run_id = RUN_COUNTER[0] = RUN_COUNTER[0] + 1
-    LAST_RUN.clear()
-    LAST_RUN.update({
+    RUNS[run_id] = {
         'id': run_id, 'N': N, 'K': K, 'T': T, 'bpa': bpa,
-        'x_hist': x_hist, 'kb_hist': kb_hist, 'c_hist': c_hist,
+        'x_hist': x_hist, 'kb_hist': kb_hist, 'neg_hist': neg_hist, 'c_hist': c_hist,
         'id_to_str': id_to_str, 'replace_events': replace_events,
-    })
+    }
+    while len(RUNS) > MAX_STORED_RUNS:      # evict the oldest stored run
+        RUNS.popitem(last=False)
 
     return {
         'run_id': run_id,
@@ -357,39 +509,43 @@ def run_simulation(p):
 
 def get_agent_state(run_id, tick, agent):
     """Return one agent's variable vector and knowledge base at a tick."""
-    if not LAST_RUN or LAST_RUN['id'] != run_id:
+    run = RUNS.get(run_id)
+    if run is None:
         return None
-    N, K, bpa = LAST_RUN['N'], LAST_RUN['K'], LAST_RUN['bpa']
-    T = LAST_RUN['T']
+    N, K, bpa = run['N'], run['K'], run['bpa']
+    T = run['T']
     if not (0 <= tick < T) or not (0 <= agent < N):
         return None
-    xbytes = LAST_RUN['x_hist'][tick]
+    xbytes = run['x_hist'][tick]
     base = agent * bpa
     x = [(xbytes[base + (j >> 3)] >> (j & 7)) & 1 for j in range(K)]
     # Return clause ids; the client maps them to text and computes which are
     # stale (no longer in the universe) / unknown against its local universe copy.
-    kb_ids = [int(i) for i in LAST_RUN['kb_hist'][tick][agent]]
-    return {'x': x, 'kb_ids': kb_ids}
+    kb_ids = [int(i) for i in run['kb_hist'][tick][agent]]
+    neg_hist = run.get('neg_hist')
+    neg_ids = [int(i) for i in neg_hist[tick][agent]] if neg_hist else []
+    return {'x': x, 'kb_ids': kb_ids, 'neg_ids': neg_ids}
 
 
 def get_track(run_id, after_tick):
     """Pick the next drift-created clause born at or after `after_tick`, and
     return, for every tick, the list of agents whose KB contains it -- i.e.
     its discovery and propagation across the network over time."""
-    if not LAST_RUN or LAST_RUN['id'] != run_id:
+    run = RUNS.get(run_id)
+    if run is None:
         return None
-    T, N = LAST_RUN['T'], LAST_RUN['N']
+    T, N = run['T'], run['N']
     # find the first replacement event strictly after the current tick
     target = None
-    for (birth, cl_id) in LAST_RUN['replace_events']:
+    for (birth, cl_id) in run['replace_events']:
         if birth >= after_tick:
             target = (birth, cl_id)
             break
     if target is None:
         return {'found': False}
     birth, cl_id = target
-    kb_hist = LAST_RUN['kb_hist']
-    c_hist = LAST_RUN['c_hist']
+    kb_hist = run['kb_hist']
+    c_hist = run['c_hist']
     known_by_tick = []
     for t in range(T):
         if t < birth:
@@ -407,7 +563,7 @@ def get_track(run_id, after_tick):
     return {
         'found': True,
         'clause_id': cl_id,
-        'clause_str': LAST_RUN['id_to_str'][cl_id],
+        'clause_str': run['id_to_str'][cl_id],
         'birth_tick': birth,
         'death_tick': death_tick,
         'known_by_tick': known_by_tick,
@@ -423,7 +579,7 @@ PAGE = r"""<!doctype html>
 <head>
 <meta charset="utf-8">
 <title>Problem-solving model -- interactive</title>
-<script src="/d3.v7.min.js"></script>
+<script src="d3.v7.min.js"></script>
 <style>
   body  { margin: 0; padding: 18px 24px; font-family: -apple-system, system-ui, sans-serif;
           background: #0b0d10; color: #ddd; }
@@ -451,7 +607,7 @@ PAGE = r"""<!doctype html>
      scrolls independently so the agent stats are never pushed off-screen. */
   .netcol { position: sticky; top: 12px; }
   svg#netsvg { background: #07080a; border-radius: 8px; display: block; width: 100%; height: auto; }
-  .edge       { stroke: #1c1f24; stroke-width: 0.6; opacity: 0.9; fill: none; }
+  .edge       { stroke: #3d4652; stroke-width: 0.8; opacity: 0.85; fill: none; }
   .node       { stroke: #000; stroke-opacity: 0.4; stroke-width: 0.5; cursor: pointer; }
   .node:hover { stroke: #fff; stroke-opacity: 0.6; stroke-width: 1.2; }
   .packet     { fill: #ffdd44; }
@@ -494,7 +650,14 @@ PAGE = r"""<!doctype html>
   .legend .row { margin-top: 6px; }
   .legend .swatch { display: inline-block; width: 9px; height: 9px; background: #ffdd44;
                     border-radius: 50%; vertical-align: middle; margin: 0 4px 0 0; }
+  .legend .swatch.neg { background: #ff6b6b; }
   .legend .swatch.obs { background: transparent; border: 1.5px solid #66ddff; }
+  .legend .swatch.forget { background: transparent; border: 1.5px solid #ff6b6b; }
+  .kbx-toggle { cursor: pointer; user-select: none; font-size: 11px; color: #9fb0c0;
+                margin-top: 10px; padding: 5px 7px; background: #12161c;
+                border: 1px solid #232a33; border-radius: 4px; }
+  .kbx-toggle:hover { background: #171c24; border-color: #2f3742; }
+  .kbx-toggle #kbx-caret { display: inline-block; width: 10px; color: #7d8794; }
 
   /* Tabs */
   .tabbar { display: flex; gap: 6px; margin: 0 0 12px 0; }
@@ -532,7 +695,10 @@ PAGE = r"""<!doctype html>
 <p class="subtitle">
   Set parameters below, click <strong>Generate</strong>, then explore the run.
   Node <strong>size</strong> = clauses learned. Node <strong>colour</strong>: green = accurate, red = many violations.
-  <span style="color:#ffdd44">Yellow dots</span> are clauses being transmitted; <span style="color:#66ddff">blue rings</span> are private observations.
+  Moving dots are communicated beliefs (<span style="color:#ffdd44">yellow</span> = exists,
+  <span style="color:#ff6b6b">red</span> = doesn't); rings are private tests
+  (<span style="color:#66ddff">blue</span> = now believes a clause exists,
+  <span style="color:#ff6b6b">red</span> = now believes it's gone).
   Click any node to inspect it.
 </p>
 
@@ -544,16 +710,24 @@ PAGE = r"""<!doctype html>
       <label>K (variables) <input type="number" name="K" value="30" min="2" max="200"></label>
       <label>alpha <input type="number" name="alpha" value="2" step="0.1" min="0.1" max="10"></label>
       <label>obs_prob <input type="number" name="obs_prob" value="0.01" step="0.005" min="0" max="1"></label>
-      <label>clause_interval <input type="number" name="clause_interval" value="10" min="1" max="1000"></label>
-      <label>T (ticks) <input type="number" name="T" value="500" min="20" max="3000"></label>
-      <label>seed <input type="number" name="seed" value="42"></label>
+      <label>clause_interval <input type="number" name="clause_interval" value="1" min="1" max="1000"></label>
+      <label>T (ticks) <input type="number" name="T" value="2000" min="20" max="3000"></label>
+      <label title="Leave blank to generate a fresh random network every time; enter a number to reproduce a specific instance (shown after each run).">seed <input type="number" name="seed" placeholder="random"></label>
       <label style="flex-direction:row;align-items:center;gap:6px;white-space:nowrap;"
-             title="If on, a neighbour shares a clause drawn from its whole knowledge base; if the recipient already knows it, nothing is transferred (the elicitation is wasted).">
-        <input type="checkbox" name="redundant_comm"> redundant communication
+             title="On (default): replaces passive observation with active testing and SIGNED beliefs. KB capacity is doubled and holds beliefs that a clause EXISTS (positive) or DOES NOT exist (negative). Each tick the agent TESTS A NEW CLAUSE (keep as positive if it really exists) or TESTS A BELIEF (set it to ground truth: a vanished clause flips to a negative belief, a reappeared one flips back). Only positive beliefs drive local optimisation. Off: the original passive-observation model.">
+        <input type="checkbox" name="learning_by_testing" checked> learning by testing
+      </label>
+      <label style="flex-direction:row;align-items:center;gap:6px;white-space:nowrap;"
+             title="On (default): on each successful elicitation the neighbour passes on its MOST RECENT item the recipient doesn't already share (freshest news first). Off: a uniform-random such item.">
+        <input type="checkbox" name="recency" checked> recency
       </label>
       <label style="flex-direction:row;align-items:center;gap:6px;white-space:nowrap;"
              title="On (default): per-agent intake is normalised to ~1 elicitation/tick regardless of topology. Off: each in-edge fires at its raw weight, so higher-degree agents receive more.">
         <input type="checkbox" name="normalize_comm" checked> normalise comm rate
+      </label>
+      <label style="flex-direction:row;align-items:center;gap:6px;white-space:nowrap;"
+             title="If on, a neighbour may share a clause the recipient already holds (a wasted elicitation); if off, only something the recipient lacks.">
+        <input type="checkbox" name="redundant_comm"> redundant communication
       </label>
     </div>
     <div class="row">
@@ -592,11 +766,74 @@ PAGE = r"""<!doctype html>
 </details>
 
 <div class="tabbar">
-  <button id="tabbtn-live" class="active">Live network</button>
+  <button id="tabbtn-help" class="active">Instructions</button>
+  <button id="tabbtn-live">Live network</button>
   <button id="tabbtn-perf">Performance</button>
 </div>
 
-<div id="tab-live">
+<div id="tab-help">
+  <div style="max-width:940px; line-height:1.55; color:#c7ccd2;">
+    <h2 style="color:#fff; margin-top:0;">What this is</h2>
+    <p>An interactive view of the problem-solving model. Agents sit on a directed
+    network and try to satisfy a hidden set of logical clauses (the &ldquo;universe&rdquo;).
+    They learn clauses two ways: by <strong>testing</strong> the environment directly, and by
+    <strong>communicating</strong> with their in-neighbours. The environment <em>drifts</em> ---
+    one clause is replaced every <code>clause_interval</code> ticks --- so knowledge goes
+    stale and has to be refreshed.</p>
+
+    <h2 style="color:#fff;">Running a simulation</h2>
+    <ol>
+      <li>Open the <strong>parameters</strong> bar at the top. Pick a <strong>network type</strong>
+      and its parameters, and set the model parameters (N agents, K variables, α clause density,
+      <code>clause_interval</code> drift speed, T ticks).</li>
+      <li>Leave <strong>seed</strong> blank to get a fresh random network every time, or type a
+      number to reproduce a specific one (the seed used is shown after each run and in the run label).</li>
+      <li>Click <strong>Generate</strong>. The run computes on the server; you are then taken to the
+      <strong>Live network</strong> tab and playback begins.</li>
+    </ol>
+
+    <h2 style="color:#fff;">The four switches</h2>
+    <ul>
+      <li><strong>learning by testing</strong> <span style="color:#8a929b;">(default on)</span> ---
+      agents actively verify information and hold <em>signed beliefs</em> (a clause exists /
+      does not exist). This is the current default model. Off = the original passive-observation model.</li>
+      <li><strong>recency</strong> <span style="color:#8a929b;">(default on)</span> --- on each
+      successful elicitation the neighbour passes on its <em>most recent</em> item the recipient
+      doesn&rsquo;t already share (freshest news first). Off = a uniform-random such item.</li>
+      <li><strong>normalise comm rate</strong> <span style="color:#8a929b;">(default on)</span> ---
+      every agent absorbs ~1 elicitation per tick regardless of topology, so networks are compared
+      at equal communication volume. Off = each in-edge fires at full rate (hubs receive more).</li>
+      <li><strong>redundant communication</strong> <span style="color:#8a929b;">(default off)</span> ---
+      a neighbour may send a clause the recipient already holds (a wasted elicitation).</li>
+    </ul>
+
+    <h2 style="color:#fff;">Reading the network</h2>
+    <ul>
+      <li><strong>Node size</strong> = knowledge-base size. <strong>Node colour</strong> = violations
+      against the true universe (green = few, red = many).</li>
+      <li>Moving dots are communicated beliefs: <span style="color:#ffdd44;">yellow</span> = &ldquo;exists&rdquo;,
+      <span style="color:#ff6b6b;">red</span> = &ldquo;doesn&rsquo;t exist&rdquo;.</li>
+      <li>Expanding rings are private tests: <span style="color:#66ddff;">blue</span> = just learned a
+      clause exists, <span style="color:#ff6b6b;">red</span> = just learned one is gone.</li>
+      <li><strong>Click any node</strong> to inspect its beliefs, its violations over time, and its
+      neighbours. Use <strong>Track next new clause</strong> to follow a single clause as it spreads.</li>
+    </ul>
+
+    <h2 style="color:#fff;">Playback &amp; comparison</h2>
+    <ul>
+      <li>Controls on the Live network tab: <strong>Play/Pause</strong>, <strong>&plusmn;1 tick</strong>,
+      the <strong>scrub</strong> slider, and a <strong>speed</strong> control.</li>
+      <li>The <strong>Performance</strong> tab plots aggregate metrics over time. Save a run as a
+      <strong>snapshot</strong> to overlay several runs and compare topologies or switch settings side by side.</li>
+    </ul>
+
+    <p style="color:#8a929b; margin-top:18px;">Tip: to compare two settings cleanly, reuse the same
+    <strong>seed</strong> so both runs get the identical network and clause universe --- then only the
+    setting you changed differs.</p>
+  </div>
+</div>
+
+<div id="tab-live" style="display:none;">
 <div class="layout">
   <div class="netcol">
     <svg id="netsvg" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid meet"></svg>
@@ -621,7 +858,9 @@ PAGE = r"""<!doctype html>
     <div class="stat"><span>Tick</span><span class="v" id="s-tick">-</span></div>
     <div class="stat"><span>avg violations</span><span class="v" id="s-avg">-</span></div>
     <div class="stat"><span>min violations</span><span class="v" id="s-min">-</span></div>
-    <div class="stat"><span>mean KB size</span><span class="v" id="s-kb">-</span></div>
+    <div class="stat"><span>mean KB size (positive beliefs)</span><span class="v" id="s-kb">-</span></div>
+    <div class="stat" id="s-neg-row" style="display:none;"><span>mean negative beliefs</span><span class="v" id="s-neg">-</span></div>
+    <div class="stat"><span>mean stale positives</span><span class="v" id="s-stale">-</span></div>
     <div class="stat"><span>comm events</span><span class="v" id="s-comm">-</span></div>
 
     <h3>All clauses (universe now)</h3>
@@ -647,8 +886,10 @@ PAGE = r"""<!doctype html>
       <div style="display:flex; justify-content: space-between; font-size: 10px; color: #888;">
         <span>0</span><span id="leg-max">M</span>
       </div>
-      <div class="row"><span class="swatch"></span>elicitation packet</div>
-      <div class="row"><span class="swatch obs"></span>observation pulse</div>
+      <div class="row"><span class="swatch"></span>communicated belief: exists (positive)</div>
+      <div class="row"><span class="swatch neg"></span>communicated belief: gone (negative)<span style="color:#7d8794"> &mdash; testing mode</span></div>
+      <div class="row"><span class="swatch obs"></span>tested &rarr; now believes it exists</div>
+      <div class="row"><span class="swatch forget"></span>tested &rarr; now believes it's gone</div>
     </div>
   </div>
 </div>
@@ -788,8 +1029,10 @@ function updateSelectionRing() {
 
 function spawnEventsForFrame(t) {
   const f = DATA.frames[t];
-  for (const [src, tgt] of f.c) packets.push({src, tgt, born: nowMs, dur: 700});
-  for (const nid of f.o) pulses.push({node: nid, born: nowMs, dur: 900});
+  // Comm events are [src, tgt, sign]; sign -1 = a NEGATIVE belief was transmitted.
+  for (const e of f.c) packets.push({src: e[0], tgt: e[1], born: nowMs, dur: 700, neg: e[2] === -1});
+  for (const nid of f.o) pulses.push({node: nid, born: nowMs, dur: 900, color: '#66ddff'}); // gained a positive belief
+  if (f.f) for (const nid of f.f) pulses.push({node: nid, born: nowMs, dur: 900, color: '#ff6b6b'}); // positive belief turned negative
 }
 
 function renderPacketsAndPulses() {
@@ -799,6 +1042,8 @@ function renderPacketsAndPulses() {
   packSel.exit().remove();
   packSel.enter().append('circle').attr('class', 'packet').attr('r', 2.5);
   packetLayer.selectAll('circle')
+    // yellow = positive belief in transit; red = a negative belief (disconfirmation)
+    .style('fill', p => p.neg ? '#ff6b6b' : '#ffdd44')
     .attr('cx', p => {
       const u = (nowMs - p.born) / p.dur;
       const [x1, y1] = pixelPos(p.src);
@@ -818,12 +1063,13 @@ function renderPacketsAndPulses() {
 
   pulses = pulses.filter(p => nowMs - p.born < p.dur);
   const pulseSel = obsLayer.selectAll('circle')
-    .data(pulses, p => p.born + ':' + p.node);
+    .data(pulses, p => p.born + ':' + p.node + ':' + (p.color || ''));
   pulseSel.exit().remove();
   pulseSel.enter().append('circle').attr('class', 'obs-pulse');
   obsLayer.selectAll('circle')
     .attr('cx', p => pixelPos(p.node)[0])
     .attr('cy', p => pixelPos(p.node)[1])
+    .attr('stroke', p => p.color || '#66ddff')
     .attr('r',  p => {
       const u = (nowMs - p.born) / p.dur;
       return 4 + 30 * u;
@@ -836,14 +1082,20 @@ function renderPacketsAndPulses() {
 
 function updateAggStats(t) {
   const agents = DATA.frames[t].a;
+  const n = agents.length;
+  const mean = (sel) => agents.reduce((s, a) => s + sel(a), 0) / n;
   const Vs = agents.map(a => a[1]);
-  const KBs = agents.map(a => a[0]);
-  const avgV = Vs.reduce((s, x) => s + x, 0) / Vs.length;
-  const meanKB = KBs.reduce((s, x) => s + x, 0) / KBs.length;
   document.getElementById('s-tick').textContent = t + 1;
-  document.getElementById('s-avg').textContent  = avgV.toFixed(2);
+  document.getElementById('s-avg').textContent  = mean(a => a[1]).toFixed(2);
   document.getElementById('s-min').textContent  = Math.min(...Vs);
-  document.getElementById('s-kb').textContent   = meanKB.toFixed(1);
+  document.getElementById('s-kb').textContent   = mean(a => a[0]).toFixed(1);
+  // a[3] = negative beliefs, a[4] = stale positives (added in learning-by-testing)
+  const meanNeg   = mean(a => a[3] || 0);
+  const meanStale = mean(a => a[4] || 0);
+  const lbt = !!(DATA.params && DATA.params.learning_by_testing);
+  document.getElementById('s-neg-row').style.display = lbt ? '' : 'none';
+  document.getElementById('s-neg').textContent   = meanNeg.toFixed(1);
+  document.getElementById('s-stale').textContent = meanStale.toFixed(1);
   document.getElementById('s-comm').textContent = DATA.frames[t].c.length;
 }
 
@@ -910,7 +1162,8 @@ function updateAgentPanel() {
     return;
   }
   const a = DATA.agent_info[selectedAgent];
-  const cur = DATA.frames[simTick].a[selectedAgent];   // [kb_size, V_universe, V_kb]
+  const cur = DATA.frames[simTick].a[selectedAgent];   // [pos, V_universe, V_kb, neg, stale]
+  const lbt = !!(DATA.params && DATA.params.learning_by_testing);
 
   // Two series over time: violations vs the universe C, and vs the agent's own KB.
   const sub = DATA.frames.slice(0, simTick + 1).map(f => f.a[selectedAgent]);
@@ -932,9 +1185,11 @@ function updateAgentPanel() {
       <div class="stat"><span>in-degree</span><span class="v">${a.in_deg}</span></div>
       <div class="stat"><span>out-degree</span><span class="v">${a.out_deg}</span></div>
       <div class="stat"><span>eigen-centrality</span><span class="v">${a.centr.toFixed(3)}</span></div>
-      <div class="stat"><span>KB size</span><span class="v">${cur[0]} / ${DATA.M}</span></div>
+      <div class="stat"><span>${lbt ? 'positive beliefs' : 'KB size'}</span><span class="v">${cur[0]} / ${lbt ? 2 * DATA.M : DATA.M}</span></div>
+      ${lbt ? `<div class="stat"><span>negative beliefs</span><span class="v" style="color:#ff6b6b">${cur[3] != null ? cur[3] : '–'}</span></div>` : ''}
+      <div class="stat"><span>stale positives</span><span class="v" style="color:#e0a">${cur[4] != null ? cur[4] : '–'}</span></div>
       <div class="stat"><span>violations vs universe C</span><span class="v" style="color:#88c">${cur[1]}</span></div>
-      <div class="stat"><span>violations vs own KB</span><span class="v" style="color:#ffb454">${cur[2] != null ? cur[2] : '–'}</span></div>
+      <div class="stat"><span>violations vs own ${lbt ? 'positive beliefs' : 'KB'}</span><span class="v" style="color:#ffb454">${cur[2] != null ? cur[2] : '–'}</span></div>
       <div class="stat"><span>V (best so far, vs C)</span><span class="v">${bestV}</span></div>
       <div class="stat"><span>V (mean so far, vs C)</span><span class="v">${meanV}</span></div>
 
@@ -960,14 +1215,31 @@ function updateAgentPanel() {
         <div class="nbr-list">${a.out_nbrs.length > 0 ? a.out_nbrs.join(', ') : '(none)'}</div>
       </div>
 
-      <div id="agent-kbx"></div>
+      <div id="kbx-toggle" class="kbx-toggle" onclick="toggleKBX()"
+           title="Show / hide this agent's knowledge base">
+        <span id="kbx-caret">${kbxOpen ? '▾' : '▸'}</span>
+        ${lbt ? 'knowledge base (signed beliefs)' : 'knowledge base'} —
+        <span style="color:#9fd0a0">${cur[0]} positive</span>${lbt ? `, <span style="color:#ff9b9b">${cur[3] || 0} negative</span>` : ''}${cur[4] ? `, <span style="color:#d9a441">${cur[4]} stale</span>` : ''}
+      </div>
+      <div id="agent-kbx" style="display:${kbxOpen ? '' : 'none'};"></div>
     </div>
   `;
-  renderDetailInto();    // fill in this agent's variable choices + KB at this tick
+  if (kbxOpen) renderDetailInto();   // lazily fill in x + KB only while expanded
 }
 
 // ---- variable choices (x) and knowledge-base contents, fetched on demand ----
 let detailCache = { key: null, html: null };
+let kbxOpen = false;   // is the per-agent knowledge-base section expanded?
+
+function toggleKBX() {
+  kbxOpen = !kbxOpen;
+  const caret = document.getElementById('kbx-caret');
+  if (caret) caret.textContent = kbxOpen ? '▾' : '▸';
+  const box = document.getElementById('agent-kbx');
+  if (!box) return;
+  box.style.display = kbxOpen ? '' : 'none';
+  if (kbxOpen) renderDetailInto();
+}
 
 // d = { x: [0/1,...], kb_ids: [clause-id,...] }. We classify each KB clause as
 // current or STALE (no longer in the universe at this tick), and list the
@@ -977,6 +1249,8 @@ function renderKBX(d, tick) {
   const uniIds = DATA.universe[tick] || [];
   const uniSet = new Set(uniIds);
   const kbSet = new Set(d.kb_ids);
+  const negIds = d.neg_ids || [];
+  const lbt = !!(DATA.params && DATA.params.learning_by_testing);
 
   let cells = '';
   for (let j = 0; j < d.x.length; j++) {
@@ -987,7 +1261,7 @@ function renderKBX(d, tick) {
            + `background:${on?'#4caf50':'#1c2128'};">${d.x[j]}</span>`;
   }
 
-  // KB clauses, stale ones flagged
+  // Positive beliefs (clauses believed to exist), stale ones flagged.
   let staleCount = 0;
   const kbList = d.kb_ids.length
     ? d.kb_ids.map(id => {
@@ -999,11 +1273,28 @@ function renderKBX(d, tick) {
       }).join('')
     : '(empty)';
 
-  // current-universe clauses the agent doesn't know
+  // Negative beliefs (clauses believed NOT to exist); flag any actually present.
+  let negWrong = 0;
+  const negList = negIds.length
+    ? negIds.map(id => {
+        const present = uniSet.has(id);
+        if (present) negWrong++;
+        return present
+          ? `<div style="color:#c98a6b;">${reg[id]} <span style="opacity:.7;">(actually present)</span></div>`
+          : `<div style="color:#9aa3ad;">${reg[id]}</div>`;
+      }).join('')
+    : '(none)';
+  const negSection = lbt ? `
+    <div style="font-size:10px;color:#7d8794;margin-top:10px;">
+      ✗ negative beliefs — believed gone (${negIds.length}${negWrong ? `, <span style="color:#c98a6b;">${negWrong} actually present</span>` : ''}):
+    </div>
+    <div class="nbr-list" style="max-height:120px;">${negList}</div>` : '';
+
+  // current-universe clauses the agent doesn't positively hold
   const unknownIds = uniIds.filter(id => !kbSet.has(id));
   const unknownList = unknownIds.length
     ? unknownIds.map(id => `<div>${reg[id]}</div>`).join('')
-    : '(knows every current constraint)';
+    : '(holds every current constraint)';
 
   return `
     <div style="font-size:10px;color:#7d8794;margin-top:10px;">
@@ -1011,11 +1302,12 @@ function renderKBX(d, tick) {
     </div>
     <div style="margin-top:3px;line-height:0;">${cells}</div>
     <div style="font-size:10px;color:#7d8794;margin-top:10px;">
-      ✓ knowledge base (${d.kb_ids.length} clauses${staleCount ? `, <span style="color:#d9a441;">${staleCount} stale</span>` : ''}):
+      ✓ ${lbt ? 'positive beliefs — believed to exist' : 'knowledge base'} (${d.kb_ids.length}${staleCount ? `, <span style="color:#d9a441;">${staleCount} stale</span>` : ''}):
     </div>
     <div class="nbr-list" style="max-height:120px;">${kbList}</div>
+    ${negSection}
     <div style="font-size:10px;color:#7d8794;margin-top:10px;">
-      ✗ unknown constraints (${unknownIds.length} of ${uniIds.length} current — not yet learned):
+      ? unknown current constraints (${unknownIds.length} of ${uniIds.length} — not positively held):
     </div>
     <div class="nbr-list" style="max-height:120px;color:#d98a8a;">${unknownList}</div>
   `;
@@ -1032,7 +1324,7 @@ function renderDetailInto() {
 
 async function fetchAgentDetail(agent, tick, key) {
   try {
-    const r = await fetch(`/state?run=${DATA.run_id}&tick=${tick}&agent=${agent}`);
+    const r = await fetch(`state?run=${DATA.run_id}&tick=${tick}&agent=${agent}`);
     if (!r.ok) return;
     const d = await r.json();
     const html = renderKBX(d, tick);
@@ -1155,7 +1447,7 @@ async function toggleTrack() {
   btn.disabled = true;
   document.getElementById('track-info').textContent = 'Finding next new clause…';
   try {
-    const r = await fetch(`/track?run=${DATA.run_id}&after=${simTick}`);
+    const r = await fetch(`track?run=${DATA.run_id}&after=${simTick}`);
     const d = await r.json();
     trackData = d; trackMode = true;
     btn.textContent = 'Stop tracking';
@@ -1286,7 +1578,7 @@ async function runGeneration() {
   }, 1000);
 
   try {
-    const resp = await fetch('/run', {
+    const resp = await fetch('run', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(params),
@@ -1301,6 +1593,8 @@ async function runGeneration() {
     }
     DATA = await resp.json();
     clearInterval(timer);
+    // if the user generated from the Instructions tab, jump to the live view.
+    if (document.getElementById('tabbtn-help').classList.contains('active')) showTab('live');
     document.getElementById('leg-max').textContent = DATA.M;
     document.getElementById('tick').max = DATA.T - 1;
     simTick = 0; animMs = 0; packets = []; pulses = [];
@@ -1318,7 +1612,7 @@ async function runGeneration() {
     lastTimestamp = null;
     document.getElementById('play').textContent = 'Play';
     const dt = ((performance.now() - t0) / 1000).toFixed(1);
-    msg.textContent = `Done: ${DATA.T} ticks in ${dt}s — press Play`;
+    msg.textContent = `Done: ${DATA.T} ticks in ${dt}s (seed ${DATA.params.seed}) — press Play`;
     msg.style.color = '#aaa';
   } catch (err) {
     clearInterval(timer);
@@ -1340,15 +1634,16 @@ let lastChartTick = -1;
 const SNAP_KEY = 'psm_snapshots_v1';
 const SNAP_PALETTE = ['#ff9f43','#5cd4ff','#caa6ff','#7ee787','#ff7b9c','#f3d250','#8aa0ff','#48c9b0'];
 
-// --- tab switching ---
+// --- tab switching (Instructions / Live network / Performance) ---
 function showTab(which) {
+  for (const t of ['help', 'live', 'perf']) {
+    document.getElementById('tab-' + t).style.display = (t === which) ? '' : 'none';
+    document.getElementById('tabbtn-' + t).classList.toggle('active', t === which);
+  }
   perfVisible = (which === 'perf');
-  document.getElementById('tab-live').style.display  = perfVisible ? 'none' : '';
-  document.getElementById('tab-perf').style.display  = perfVisible ? '' : 'none';
-  document.getElementById('tabbtn-live').classList.toggle('active', !perfVisible);
-  document.getElementById('tabbtn-perf').classList.toggle('active', perfVisible);
   if (perfVisible) { lastChartTick = -1; drawPerfCharts(); renderSnapList(); }
 }
+document.getElementById('tabbtn-help').addEventListener('click', () => showTab('help'));
 document.getElementById('tabbtn-live').addEventListener('click', () => showTab('live'));
 document.getElementById('tabbtn-perf').addEventListener('click', () => showTab('perf'));
 
@@ -1373,9 +1668,13 @@ function paramLabel(p) {
   else if (net === 'Small World') net += ` n=${p.n_size}`;
   else if (net === 'Hierarchical') net += ` L=${p.nlayers}`;
   else if (net === 'Modular') net += ` pin=${p.p_in}/pout=${p.p_out}`;
-  const rc = p.redundant_comm ? ' · redundant-comm' : '';
+  // tag only settings that deviate from the defaults (LbT on, recency on,
+  // normalise on, redundant off) so the label stays short.
+  const lbt = p.learning_by_testing ? '' : ' · baseline';
+  const rec = (p.recency === false) ? ' · random-comm' : '';
   const nn = (p.normalize_comm === false) ? ' · no-norm' : '';
-  return `${net} · N${p.N} K${p.K} α${p.alpha} obs${p.obs_prob} τ${p.clause_interval}${rc}${nn}`;
+  const rc = p.redundant_comm ? ' · redundant-comm' : '';
+  return `${net} · N${p.N} K${p.K} α${p.alpha} obs${p.obs_prob} τ${p.clause_interval} s${p.seed}${lbt}${rec}${nn}${rc}`;
 }
 
 document.getElementById('snap-save').addEventListener('click', () => {
@@ -1587,10 +1886,17 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 'obs_prob': float(params['obs_prob']),
                 'clause_interval': int(params['clause_interval']),
                 'T': int(params['T']),
-                'seed': int(params['seed']),
+                # Blank seed -> draw a fresh one, so each Generate produces a
+                # new random instance of the selected network category. Typing
+                # a number reproduces that exact instance.
+                'seed': (int(str(params.get('seed', '')).strip())
+                         if str(params.get('seed', '')).strip()
+                         else random.randrange(1, 1000000)),
                 'network': params['network'],
                 'redundant_comm': bool(params.get('redundant_comm', False)),
                 'normalize_comm': bool(params.get('normalize_comm', True)),
+                'learning_by_testing': bool(params.get('learning_by_testing', True)),
+                'recency': bool(params.get('recency', True)),
             }
             net = p['network']
             if net == 'Random':
@@ -1608,8 +1914,31 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 p['p_in'] = float(params['p_in'])
                 p['p_out'] = float(params['p_out'])
 
+            if PUBLIC:
+                # Protect the public host: enforce the form's ranges server-side
+                # and cap the total simulation size (memory + CPU budget).
+                p['N'] = max(4, min(300, p['N']))
+                p['K'] = max(2, min(100, p['K']))
+                p['T'] = max(20, min(3000, p['T']))
+                p['alpha'] = max(0.1, min(10.0, p['alpha']))
+                p['clause_interval'] = max(1, p['clause_interval'])
+                p['obs_prob'] = max(0.0, min(1.0, p['obs_prob']))
+                if p['N'] * p['T'] > 400_000:
+                    msg = (f"Run too large for the public server: N x T = "
+                           f"{p['N'] * p['T']:,} (max 400,000). "
+                           "Reduce N or T.").encode('utf-8')
+                    self.send_response(400)
+                    self.send_header('Content-Type', 'text/plain; charset=utf-8')
+                    self.send_header('Content-Length', str(len(msg)))
+                    self.end_headers()
+                    self.wfile.write(msg)
+                    return
+
             t0 = time.time()
-            data = run_simulation(p)
+            # One simulation at a time: the model seeds the process-global RNG,
+            # so concurrent runs would interleave draws and break reproducibility.
+            with RUN_LOCK:
+                data = run_simulation(p)
             elapsed = time.time() - t0
             print(f"  run: N={p['N']}, T={p['T']}, network={p['network']}, "
                   f"seed={p['seed']}  ->  {elapsed:.1f}s",
@@ -1642,13 +1971,22 @@ class ReusableThreadingServer(socketserver.ThreadingTCPServer):
 
 
 def main():
-    port = 8765
-    # Bind explicitly to 127.0.0.1 (IPv4 loopback) to avoid IPv6 quirks on
-    # some Windows setups where 'localhost' resolves first to ::1.
-    httpd = ReusableThreadingServer(('127.0.0.1', port), Handler)
-    print(f"\nServer running at http://localhost:{port}", flush=True)
+    if PUBLIC:
+        # Hosted mode (Render etc.): the platform supplies PORT and routes
+        # traffic to us; bind all interfaces and don't try to open a browser.
+        port = int(os.environ['PORT'])
+        host = '0.0.0.0'
+    else:
+        # Local mode: bind explicitly to 127.0.0.1 (IPv4 loopback) to avoid
+        # IPv6 quirks on some Windows setups where 'localhost' -> ::1 first.
+        port = 8765
+        host = '127.0.0.1'
+    httpd = ReusableThreadingServer((host, port), Handler)
+    print(f"\nServer running at http://{'localhost' if not PUBLIC else host}:{port}",
+          flush=True)
     print(f"Press Ctrl+C in this terminal to stop.\n", flush=True)
-    threading.Timer(0.5, lambda: webbrowser.open(f'http://localhost:{port}')).start()
+    if not PUBLIC:
+        threading.Timer(0.5, lambda: webbrowser.open(f'http://localhost:{port}')).start()
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
