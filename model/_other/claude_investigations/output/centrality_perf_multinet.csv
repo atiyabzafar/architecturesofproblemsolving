@@ -1,0 +1,4009 @@
+network,indeg,meanV
+uniform 1-10,1,30.21
+uniform 1-10,2,30.146
+uniform 1-10,3,28.924
+uniform 1-10,4,29.66
+uniform 1-10,5,28.338
+uniform 1-10,6,31.342
+uniform 1-10,7,28.59
+uniform 1-10,8,27.564
+uniform 1-10,9,28.378
+uniform 1-10,10,27.442
+uniform 1-10,1,31.496
+uniform 1-10,2,32.592
+uniform 1-10,3,28.35
+uniform 1-10,4,30.764
+uniform 1-10,5,29.374
+uniform 1-10,6,28.332
+uniform 1-10,7,27.406
+uniform 1-10,8,26.118
+uniform 1-10,9,26.934
+uniform 1-10,10,27.868
+uniform 1-10,1,30.554
+uniform 1-10,2,34.958
+uniform 1-10,3,30.854
+uniform 1-10,4,29.534
+uniform 1-10,5,27.668
+uniform 1-10,6,30.34
+uniform 1-10,7,30.08
+uniform 1-10,8,27.09
+uniform 1-10,9,28.326
+uniform 1-10,10,28.064
+uniform 1-10,1,31.144
+uniform 1-10,2,31.0
+uniform 1-10,3,31.232
+uniform 1-10,4,27.646
+uniform 1-10,5,28.078
+uniform 1-10,6,28.19
+uniform 1-10,7,27.572
+uniform 1-10,8,24.974
+uniform 1-10,9,26.57
+uniform 1-10,10,25.858
+uniform 1-10,1,35.522
+uniform 1-10,2,28.458
+uniform 1-10,3,33.34
+uniform 1-10,4,29.756
+uniform 1-10,5,27.186
+uniform 1-10,6,28.6
+uniform 1-10,7,29.59
+uniform 1-10,8,26.238
+uniform 1-10,9,26.012
+uniform 1-10,10,25.486
+uniform 1-10,1,30.504
+uniform 1-10,2,33.14
+uniform 1-10,3,30.07
+uniform 1-10,4,29.06
+uniform 1-10,5,29.964
+uniform 1-10,6,25.39
+uniform 1-10,7,29.556
+uniform 1-10,8,28.284
+uniform 1-10,9,27.662
+uniform 1-10,10,30.08
+uniform 1-10,1,33.81
+uniform 1-10,2,30.7
+uniform 1-10,3,29.332
+uniform 1-10,4,31.456
+uniform 1-10,5,27.056
+uniform 1-10,6,29.61
+uniform 1-10,7,28.81
+uniform 1-10,8,28.834
+uniform 1-10,9,26.724
+uniform 1-10,10,25.416
+uniform 1-10,1,29.802
+uniform 1-10,2,28.532
+uniform 1-10,3,26.256
+uniform 1-10,4,30.212
+uniform 1-10,5,28.884
+uniform 1-10,6,28.558
+uniform 1-10,7,30.358
+uniform 1-10,8,26.566
+uniform 1-10,9,29.086
+uniform 1-10,10,25.712
+uniform 1-10,1,34.114
+uniform 1-10,2,32.082
+uniform 1-10,3,32.258
+uniform 1-10,4,27.862
+uniform 1-10,5,30.752
+uniform 1-10,6,31.362
+uniform 1-10,7,30.986
+uniform 1-10,8,27.666
+uniform 1-10,9,27.928
+uniform 1-10,10,26.014
+uniform 1-10,1,31.43
+uniform 1-10,2,28.614
+uniform 1-10,3,30.774
+uniform 1-10,4,27.64
+uniform 1-10,5,28.41
+uniform 1-10,6,27.8
+uniform 1-10,7,29.552
+uniform 1-10,8,27.222
+uniform 1-10,9,27.282
+uniform 1-10,10,29.144
+uniform 1-10,1,35.262
+uniform 1-10,2,30.746
+uniform 1-10,3,29.406
+uniform 1-10,4,31.896
+uniform 1-10,5,29.666
+uniform 1-10,6,30.52
+uniform 1-10,7,30.184
+uniform 1-10,8,26.79
+uniform 1-10,9,28.466
+uniform 1-10,10,28.958
+uniform 1-10,1,28.75
+uniform 1-10,2,32.33
+uniform 1-10,3,30.758
+uniform 1-10,4,31.758
+uniform 1-10,5,27.43
+uniform 1-10,6,28.994
+uniform 1-10,7,28.334
+uniform 1-10,8,29.628
+uniform 1-10,9,30.178
+uniform 1-10,10,29.294
+uniform 1-10,1,30.152
+uniform 1-10,2,33.93
+uniform 1-10,3,28.768
+uniform 1-10,4,31.47
+uniform 1-10,5,29.45
+uniform 1-10,6,29.074
+uniform 1-10,7,26.524
+uniform 1-10,8,28.176
+uniform 1-10,9,27.684
+uniform 1-10,10,27.57
+uniform 1-10,1,29.232
+uniform 1-10,2,31.334
+uniform 1-10,3,27.834
+uniform 1-10,4,33.904
+uniform 1-10,5,30.058
+uniform 1-10,6,25.396
+uniform 1-10,7,28.602
+uniform 1-10,8,27.192
+uniform 1-10,9,28.666
+uniform 1-10,10,29.856
+uniform 1-10,1,28.656
+uniform 1-10,2,30.19
+uniform 1-10,3,29.164
+uniform 1-10,4,29.312
+uniform 1-10,5,29.51
+uniform 1-10,6,29.09
+uniform 1-10,7,28.866
+uniform 1-10,8,28.664
+uniform 1-10,9,28.086
+uniform 1-10,10,27.324
+uniform 1-10,1,34.886
+uniform 1-10,2,29.484
+uniform 1-10,3,30.422
+uniform 1-10,4,27.894
+uniform 1-10,5,30.28
+uniform 1-10,6,27.644
+uniform 1-10,7,26.814
+uniform 1-10,8,30.04
+uniform 1-10,9,28.632
+uniform 1-10,10,29.058
+uniform 1-10,1,29.96
+uniform 1-10,2,28.768
+uniform 1-10,3,30.258
+uniform 1-10,4,29.348
+uniform 1-10,5,28.526
+uniform 1-10,6,29.538
+uniform 1-10,7,29.742
+uniform 1-10,8,26.516
+uniform 1-10,9,27.598
+uniform 1-10,10,26.554
+uniform 1-10,1,30.278
+uniform 1-10,2,31.596
+uniform 1-10,3,30.118
+uniform 1-10,4,32.434
+uniform 1-10,5,29.22
+uniform 1-10,6,27.908
+uniform 1-10,7,27.178
+uniform 1-10,8,28.104
+uniform 1-10,9,30.802
+uniform 1-10,10,27.412
+uniform 1-10,1,31.982
+uniform 1-10,2,34.78
+uniform 1-10,3,28.964
+uniform 1-10,4,25.196
+uniform 1-10,5,27.376
+uniform 1-10,6,30.59
+uniform 1-10,7,27.84
+uniform 1-10,8,27.666
+uniform 1-10,9,23.864
+uniform 1-10,10,26.666
+uniform 1-10,1,31.14
+uniform 1-10,2,28.484
+uniform 1-10,3,33.544
+uniform 1-10,4,27.668
+uniform 1-10,5,26.436
+uniform 1-10,6,29.626
+uniform 1-10,7,27.416
+uniform 1-10,8,28.246
+uniform 1-10,9,29.284
+uniform 1-10,10,25.66
+uniform 1-10,1,31.652
+uniform 1-10,2,28.392
+uniform 1-10,3,27.602
+uniform 1-10,4,30.3
+uniform 1-10,5,29.894
+uniform 1-10,6,28.672
+uniform 1-10,7,27.46
+uniform 1-10,8,27.338
+uniform 1-10,9,30.806
+uniform 1-10,10,28.256
+uniform 1-10,1,31.254
+uniform 1-10,2,29.688
+uniform 1-10,3,29.52
+uniform 1-10,4,28.994
+uniform 1-10,5,28.482
+uniform 1-10,6,28.314
+uniform 1-10,7,28.348
+uniform 1-10,8,29.146
+uniform 1-10,9,28.764
+uniform 1-10,10,28.432
+uniform 1-10,1,31.532
+uniform 1-10,2,33.128
+uniform 1-10,3,31.28
+uniform 1-10,4,31.792
+uniform 1-10,5,26.314
+uniform 1-10,6,29.042
+uniform 1-10,7,28.39
+uniform 1-10,8,28.196
+uniform 1-10,9,27.662
+uniform 1-10,10,27.282
+uniform 1-10,1,28.782
+uniform 1-10,2,29.19
+uniform 1-10,3,29.258
+uniform 1-10,4,28.492
+uniform 1-10,5,28.23
+uniform 1-10,6,28.316
+uniform 1-10,7,30.158
+uniform 1-10,8,28.608
+uniform 1-10,9,28.05
+uniform 1-10,10,26.124
+uniform 1-10,1,29.01
+uniform 1-10,2,31.374
+uniform 1-10,3,31.19
+uniform 1-10,4,29.526
+uniform 1-10,5,31.014
+uniform 1-10,6,27.988
+uniform 1-10,7,30.304
+uniform 1-10,8,25.324
+uniform 1-10,9,26.884
+uniform 1-10,10,28.886
+uniform 1-10,1,31.486
+uniform 1-10,2,27.44
+uniform 1-10,3,31.85
+uniform 1-10,4,31.436
+uniform 1-10,5,26.4
+uniform 1-10,6,26.816
+uniform 1-10,7,28.404
+uniform 1-10,8,28.57
+uniform 1-10,9,26.964
+uniform 1-10,10,27.37
+uniform 1-10,1,33.824
+uniform 1-10,2,32.034
+uniform 1-10,3,32.03
+uniform 1-10,4,32.718
+uniform 1-10,5,28.848
+uniform 1-10,6,26.886
+uniform 1-10,7,28.68
+uniform 1-10,8,29.166
+uniform 1-10,9,28.874
+uniform 1-10,10,29.984
+uniform 1-10,1,28.872
+uniform 1-10,2,35.152
+uniform 1-10,3,31.734
+uniform 1-10,4,28.364
+uniform 1-10,5,29.598
+uniform 1-10,6,28.264
+uniform 1-10,7,29.128
+uniform 1-10,8,27.324
+uniform 1-10,9,28.848
+uniform 1-10,10,27.472
+uniform 1-10,1,29.852
+uniform 1-10,2,31.94
+uniform 1-10,3,31.566
+uniform 1-10,4,30.098
+uniform 1-10,5,28.756
+uniform 1-10,6,31.928
+uniform 1-10,7,30.508
+uniform 1-10,8,25.896
+uniform 1-10,9,28.862
+uniform 1-10,10,26.972
+uniform 1-10,1,29.18
+uniform 1-10,2,30.872
+uniform 1-10,3,28.928
+uniform 1-10,4,29.184
+uniform 1-10,5,30.434
+uniform 1-10,6,30.292
+uniform 1-10,7,30.766
+uniform 1-10,8,27.584
+uniform 1-10,9,29.638
+uniform 1-10,10,27.57
+uniform 1-10,1,30.304
+uniform 1-10,2,30.87
+uniform 1-10,3,30.344
+uniform 1-10,4,27.794
+uniform 1-10,5,30.648
+uniform 1-10,6,29.44
+uniform 1-10,7,28.118
+uniform 1-10,8,26.832
+uniform 1-10,9,28.436
+uniform 1-10,10,29.206
+uniform 1-10,1,31.944
+uniform 1-10,2,29.77
+uniform 1-10,3,28.18
+uniform 1-10,4,31.978
+uniform 1-10,5,27.866
+uniform 1-10,6,26.026
+uniform 1-10,7,29.142
+uniform 1-10,8,30.81
+uniform 1-10,9,27.486
+uniform 1-10,10,27.82
+uniform 1-10,1,29.87
+uniform 1-10,2,31.652
+uniform 1-10,3,30.51
+uniform 1-10,4,32.148
+uniform 1-10,5,27.292
+uniform 1-10,6,30.168
+uniform 1-10,7,29.596
+uniform 1-10,8,28.468
+uniform 1-10,9,26.71
+uniform 1-10,10,26.852
+uniform 1-10,1,30.602
+uniform 1-10,2,34.402
+uniform 1-10,3,31.8
+uniform 1-10,4,28.748
+uniform 1-10,5,29.804
+uniform 1-10,6,31.776
+uniform 1-10,7,29.696
+uniform 1-10,8,29.372
+uniform 1-10,9,27.362
+uniform 1-10,10,29.44
+uniform 1-10,1,34.85
+uniform 1-10,2,31.58
+uniform 1-10,3,30.25
+uniform 1-10,4,30.864
+uniform 1-10,5,27.986
+uniform 1-10,6,29.538
+uniform 1-10,7,28.132
+uniform 1-10,8,28.49
+uniform 1-10,9,25.74
+uniform 1-10,10,26.812
+uniform 1-10,1,30.89
+uniform 1-10,2,31.248
+uniform 1-10,3,32.482
+uniform 1-10,4,30.564
+uniform 1-10,5,30.004
+uniform 1-10,6,29.394
+uniform 1-10,7,26.998
+uniform 1-10,8,28.61
+uniform 1-10,9,26.446
+uniform 1-10,10,28.446
+uniform 1-10,1,30.18
+uniform 1-10,2,28.632
+uniform 1-10,3,34.358
+uniform 1-10,4,31.636
+uniform 1-10,5,29.196
+uniform 1-10,6,29.714
+uniform 1-10,7,28.752
+uniform 1-10,8,30.608
+uniform 1-10,9,27.12
+uniform 1-10,10,27.56
+uniform 1-10,1,31.83
+uniform 1-10,2,31.486
+uniform 1-10,3,33.074
+uniform 1-10,4,27.594
+uniform 1-10,5,28.732
+uniform 1-10,6,29.81
+uniform 1-10,7,30.136
+uniform 1-10,8,27.402
+uniform 1-10,9,30.924
+uniform 1-10,10,27.824
+uniform 1-10,1,32.794
+uniform 1-10,2,30.36
+uniform 1-10,3,28.282
+uniform 1-10,4,31.704
+uniform 1-10,5,27.97
+uniform 1-10,6,28.852
+uniform 1-10,7,29.586
+uniform 1-10,8,28.008
+uniform 1-10,9,29.464
+uniform 1-10,10,25.606
+uniform 1-10,1,31.486
+uniform 1-10,2,31.206
+uniform 1-10,3,31.194
+uniform 1-10,4,30.834
+uniform 1-10,5,31.542
+uniform 1-10,6,27.346
+uniform 1-10,7,28.4
+uniform 1-10,8,29.142
+uniform 1-10,9,28.338
+uniform 1-10,10,25.504
+uniform 1-10,1,31.232
+uniform 1-10,2,29.312
+uniform 1-10,3,32.008
+uniform 1-10,4,31.888
+uniform 1-10,5,28.042
+uniform 1-10,6,28.61
+uniform 1-10,7,27.312
+uniform 1-10,8,29.118
+uniform 1-10,9,28.01
+uniform 1-10,10,25.616
+uniform 1-10,1,29.906
+uniform 1-10,2,30.79
+uniform 1-10,3,27.452
+uniform 1-10,4,26.776
+uniform 1-10,5,28.362
+uniform 1-10,6,29.624
+uniform 1-10,7,30.458
+uniform 1-10,8,27.586
+uniform 1-10,9,28.314
+uniform 1-10,10,28.252
+uniform 1-10,1,31.684
+uniform 1-10,2,28.68
+uniform 1-10,3,30.098
+uniform 1-10,4,29.544
+uniform 1-10,5,28.766
+uniform 1-10,6,28.18
+uniform 1-10,7,30.034
+uniform 1-10,8,29.948
+uniform 1-10,9,27.672
+uniform 1-10,10,28.04
+uniform 1-10,1,32.748
+uniform 1-10,2,26.836
+uniform 1-10,3,31.488
+uniform 1-10,4,30.304
+uniform 1-10,5,28.126
+uniform 1-10,6,28.274
+uniform 1-10,7,28.044
+uniform 1-10,8,28.338
+uniform 1-10,9,30.102
+uniform 1-10,10,27.394
+uniform 1-10,1,32.374
+uniform 1-10,2,33.472
+uniform 1-10,3,31.548
+uniform 1-10,4,29.588
+uniform 1-10,5,30.24
+uniform 1-10,6,27.438
+uniform 1-10,7,30.114
+uniform 1-10,8,28.112
+uniform 1-10,9,27.354
+uniform 1-10,10,28.506
+uniform 1-10,1,29.914
+uniform 1-10,2,28.08
+uniform 1-10,3,28.686
+uniform 1-10,4,27.882
+uniform 1-10,5,27.952
+uniform 1-10,6,26.954
+uniform 1-10,7,29.458
+uniform 1-10,8,26.666
+uniform 1-10,9,28.694
+uniform 1-10,10,27.982
+uniform 1-10,1,29.638
+uniform 1-10,2,32.046
+uniform 1-10,3,29.7
+uniform 1-10,4,28.46
+uniform 1-10,5,29.032
+uniform 1-10,6,27.08
+uniform 1-10,7,27.834
+uniform 1-10,8,28.098
+uniform 1-10,9,29.822
+uniform 1-10,10,26.318
+uniform 1-10,1,33.146
+uniform 1-10,2,27.71
+uniform 1-10,3,30.038
+uniform 1-10,4,29.326
+uniform 1-10,5,31.998
+uniform 1-10,6,28.962
+uniform 1-10,7,30.07
+uniform 1-10,8,27.638
+uniform 1-10,9,29.762
+uniform 1-10,10,27.838
+uniform 1-10,1,29.638
+uniform 1-10,2,29.662
+uniform 1-10,3,30.688
+uniform 1-10,4,28.744
+uniform 1-10,5,28.214
+uniform 1-10,6,31.314
+uniform 1-10,7,29.072
+uniform 1-10,8,28.504
+uniform 1-10,9,26.856
+uniform 1-10,10,28.938
+uniform 1-10,1,26.57
+uniform 1-10,2,31.41
+uniform 1-10,3,28.442
+uniform 1-10,4,32.744
+uniform 1-10,5,29.358
+uniform 1-10,6,26.152
+uniform 1-10,7,29.402
+uniform 1-10,8,29.598
+uniform 1-10,9,28.074
+uniform 1-10,10,28.144
+uniform 1-10,1,29.406
+uniform 1-10,2,35.032
+uniform 1-10,3,32.496
+uniform 1-10,4,28.574
+uniform 1-10,5,29.226
+uniform 1-10,6,29.336
+uniform 1-10,7,28.626
+uniform 1-10,8,27.066
+uniform 1-10,9,27.64
+uniform 1-10,10,26.666
+uniform 1-10,1,26.692
+uniform 1-10,2,33.642
+uniform 1-10,3,30.554
+uniform 1-10,4,33.14
+uniform 1-10,5,29.104
+uniform 1-10,6,27.714
+uniform 1-10,7,27.88
+uniform 1-10,8,28.196
+uniform 1-10,9,27.762
+uniform 1-10,10,28.466
+uniform 1-10,1,29.604
+uniform 1-10,2,31.224
+uniform 1-10,3,30.51
+uniform 1-10,4,26.55
+uniform 1-10,5,31.09
+uniform 1-10,6,30.47
+uniform 1-10,7,27.928
+uniform 1-10,8,27.48
+uniform 1-10,9,29.118
+uniform 1-10,10,30.478
+uniform 1-10,1,31.512
+uniform 1-10,2,28.006
+uniform 1-10,3,29.622
+uniform 1-10,4,26.086
+uniform 1-10,5,29.828
+uniform 1-10,6,28.832
+uniform 1-10,7,28.236
+uniform 1-10,8,28.35
+uniform 1-10,9,26.312
+uniform 1-10,10,26.72
+uniform 1-10,1,30.404
+uniform 1-10,2,31.996
+uniform 1-10,3,31.228
+uniform 1-10,4,31.624
+uniform 1-10,5,32.234
+uniform 1-10,6,28.398
+uniform 1-10,7,31.926
+uniform 1-10,8,29.004
+uniform 1-10,9,28.236
+uniform 1-10,10,28.528
+uniform 1-10,1,31.218
+uniform 1-10,2,34.122
+uniform 1-10,3,30.776
+uniform 1-10,4,28.694
+uniform 1-10,5,28.824
+uniform 1-10,6,28.828
+uniform 1-10,7,27.622
+uniform 1-10,8,30.248
+uniform 1-10,9,27.418
+uniform 1-10,10,27.874
+uniform 1-10,1,34.036
+uniform 1-10,2,29.168
+uniform 1-10,3,29.48
+uniform 1-10,4,28.226
+uniform 1-10,5,27.742
+uniform 1-10,6,30.074
+uniform 1-10,7,26.932
+uniform 1-10,8,28.07
+uniform 1-10,9,28.65
+uniform 1-10,10,27.52
+uniform 1-10,1,34.504
+uniform 1-10,2,29.362
+uniform 1-10,3,28.71
+uniform 1-10,4,26.884
+uniform 1-10,5,31.774
+uniform 1-10,6,28.574
+uniform 1-10,7,28.018
+uniform 1-10,8,30.304
+uniform 1-10,9,29.418
+uniform 1-10,10,27.974
+uniform 1-10,1,31.476
+uniform 1-10,2,33.538
+uniform 1-10,3,29.6
+uniform 1-10,4,31.094
+uniform 1-10,5,27.976
+uniform 1-10,6,29.228
+uniform 1-10,7,26.538
+uniform 1-10,8,26.864
+uniform 1-10,9,27.388
+uniform 1-10,10,27.428
+uniform 1-10,1,28.482
+uniform 1-10,2,32.012
+uniform 1-10,3,28.994
+uniform 1-10,4,30.808
+uniform 1-10,5,29.802
+uniform 1-10,6,31.04
+uniform 1-10,7,31.33
+uniform 1-10,8,25.278
+uniform 1-10,9,27.368
+uniform 1-10,10,27.114
+uniform 1-10,1,29.948
+uniform 1-10,2,30.632
+uniform 1-10,3,30.44
+uniform 1-10,4,27.954
+uniform 1-10,5,29.692
+uniform 1-10,6,27.808
+uniform 1-10,7,27.652
+uniform 1-10,8,28.616
+uniform 1-10,9,29.39
+uniform 1-10,10,29.114
+uniform 1-10,1,31.914
+uniform 1-10,2,32.502
+uniform 1-10,3,30.474
+uniform 1-10,4,31.424
+uniform 1-10,5,30.028
+uniform 1-10,6,30.538
+uniform 1-10,7,30.57
+uniform 1-10,8,28.352
+uniform 1-10,9,24.924
+uniform 1-10,10,29.088
+uniform 1-10,1,30.81
+uniform 1-10,2,28.528
+uniform 1-10,3,31.05
+uniform 1-10,4,29.52
+uniform 1-10,5,30.56
+uniform 1-10,6,28.556
+uniform 1-10,7,30.928
+uniform 1-10,8,26.664
+uniform 1-10,9,30.288
+uniform 1-10,10,25.214
+uniform 1-10,1,30.332
+uniform 1-10,2,30.022
+uniform 1-10,3,32.28
+uniform 1-10,4,28.668
+uniform 1-10,5,31.552
+uniform 1-10,6,30.454
+uniform 1-10,7,31.186
+uniform 1-10,8,27.362
+uniform 1-10,9,29.308
+uniform 1-10,10,26.132
+uniform 1-10,1,33.21
+uniform 1-10,2,30.818
+uniform 1-10,3,29.53
+uniform 1-10,4,28.1
+uniform 1-10,5,28.15
+uniform 1-10,6,32.732
+uniform 1-10,7,28.838
+uniform 1-10,8,28.066
+uniform 1-10,9,28.22
+uniform 1-10,10,29.672
+uniform 1-10,1,32.962
+uniform 1-10,2,31.038
+uniform 1-10,3,33.806
+uniform 1-10,4,29.484
+uniform 1-10,5,29.458
+uniform 1-10,6,29.758
+uniform 1-10,7,27.738
+uniform 1-10,8,27.576
+uniform 1-10,9,27.816
+uniform 1-10,10,28.042
+uniform 1-10,1,34.206
+uniform 1-10,2,30.462
+uniform 1-10,3,26.286
+uniform 1-10,4,28.708
+uniform 1-10,5,28.262
+uniform 1-10,6,27.242
+uniform 1-10,7,27.49
+uniform 1-10,8,27.734
+uniform 1-10,9,29.02
+uniform 1-10,10,25.132
+uniform 1-10,1,35.988
+uniform 1-10,2,32.34
+uniform 1-10,3,35.378
+uniform 1-10,4,30.032
+uniform 1-10,5,28.8
+uniform 1-10,6,28.604
+uniform 1-10,7,29.266
+uniform 1-10,8,27.274
+uniform 1-10,9,27.244
+uniform 1-10,10,31.032
+uniform 1-10,1,29.412
+uniform 1-10,2,30.552
+uniform 1-10,3,30.05
+uniform 1-10,4,31.558
+uniform 1-10,5,29.67
+uniform 1-10,6,32.684
+uniform 1-10,7,27.208
+uniform 1-10,8,29.724
+uniform 1-10,9,27.022
+uniform 1-10,10,29.178
+uniform 1-10,1,30.688
+uniform 1-10,2,31.676
+uniform 1-10,3,31.296
+uniform 1-10,4,31.916
+uniform 1-10,5,29.374
+uniform 1-10,6,26.154
+uniform 1-10,7,28.716
+uniform 1-10,8,28.616
+uniform 1-10,9,27.07
+uniform 1-10,10,30.268
+uniform 1-10,1,30.094
+uniform 1-10,2,27.016
+uniform 1-10,3,31.092
+uniform 1-10,4,30.738
+uniform 1-10,5,30.562
+uniform 1-10,6,28.47
+uniform 1-10,7,28.858
+uniform 1-10,8,28.552
+uniform 1-10,9,29.224
+uniform 1-10,10,29.254
+uniform 1-10,1,30.666
+uniform 1-10,2,28.78
+uniform 1-10,3,33.826
+uniform 1-10,4,28.46
+uniform 1-10,5,28.31
+uniform 1-10,6,28.054
+uniform 1-10,7,31.812
+uniform 1-10,8,28.752
+uniform 1-10,9,28.194
+uniform 1-10,10,28.088
+uniform 1-10,1,30.502
+uniform 1-10,2,31.36
+uniform 1-10,3,31.414
+uniform 1-10,4,30.228
+uniform 1-10,5,28.89
+uniform 1-10,6,27.668
+uniform 1-10,7,28.806
+uniform 1-10,8,30.454
+uniform 1-10,9,30.216
+uniform 1-10,10,28.128
+uniform 1-10,1,29.114
+uniform 1-10,2,28.422
+uniform 1-10,3,31.796
+uniform 1-10,4,30.946
+uniform 1-10,5,29.88
+uniform 1-10,6,32.532
+uniform 1-10,7,26.568
+uniform 1-10,8,28.82
+uniform 1-10,9,27.982
+uniform 1-10,10,28.748
+uniform 1-10,1,28.53
+uniform 1-10,2,32.136
+uniform 1-10,3,31.332
+uniform 1-10,4,31.022
+uniform 1-10,5,32.896
+uniform 1-10,6,27.766
+uniform 1-10,7,27.814
+uniform 1-10,8,28.598
+uniform 1-10,9,28.17
+uniform 1-10,10,28.108
+uniform 1-10,1,32.746
+uniform 1-10,2,31.568
+uniform 1-10,3,31.844
+uniform 1-10,4,29.134
+uniform 1-10,5,29.904
+uniform 1-10,6,32.25
+uniform 1-10,7,27.474
+uniform 1-10,8,29.778
+uniform 1-10,9,28.798
+uniform 1-10,10,30.51
+uniform 1-10,1,30.66
+uniform 1-10,2,30.05
+uniform 1-10,3,30.256
+uniform 1-10,4,29.66
+uniform 1-10,5,30.372
+uniform 1-10,6,31.412
+uniform 1-10,7,28.526
+uniform 1-10,8,29.356
+uniform 1-10,9,29.136
+uniform 1-10,10,28.332
+uniform 1-10,1,29.886
+uniform 1-10,2,29.62
+uniform 1-10,3,27.824
+uniform 1-10,4,31.722
+uniform 1-10,5,30.24
+uniform 1-10,6,28.29
+uniform 1-10,7,27.674
+uniform 1-10,8,28.394
+uniform 1-10,9,28.11
+uniform 1-10,10,28.452
+uniform 1-10,1,32.158
+uniform 1-10,2,30.642
+uniform 1-10,3,31.152
+uniform 1-10,4,28.552
+uniform 1-10,5,29.274
+uniform 1-10,6,30.654
+uniform 1-10,7,29.048
+uniform 1-10,8,27.912
+uniform 1-10,9,27.894
+uniform 1-10,10,29.088
+uniform 1-10,1,32.874
+uniform 1-10,2,29.85
+uniform 1-10,3,32.024
+uniform 1-10,4,33.31
+uniform 1-10,5,27.502
+uniform 1-10,6,30.028
+uniform 1-10,7,30.712
+uniform 1-10,8,27.99
+uniform 1-10,9,27.612
+uniform 1-10,10,27.45
+uniform 1-50,1,34.834
+uniform 1-50,2,32.748
+uniform 1-50,3,32.932
+uniform 1-50,4,34.574
+uniform 1-50,5,32.002
+uniform 1-50,6,31.762
+uniform 1-50,7,35.746
+uniform 1-50,8,32.248
+uniform 1-50,9,30.142
+uniform 1-50,10,32.224
+uniform 1-50,11,28.776
+uniform 1-50,12,32.152
+uniform 1-50,13,32.74
+uniform 1-50,14,28.19
+uniform 1-50,15,32.116
+uniform 1-50,16,30.912
+uniform 1-50,17,29.66
+uniform 1-50,18,30.992
+uniform 1-50,19,29.068
+uniform 1-50,20,35.39
+uniform 1-50,21,29.11
+uniform 1-50,22,30.094
+uniform 1-50,23,28.006
+uniform 1-50,24,30.2
+uniform 1-50,25,28.852
+uniform 1-50,26,30.168
+uniform 1-50,27,31.842
+uniform 1-50,28,29.542
+uniform 1-50,29,29.914
+uniform 1-50,30,28.656
+uniform 1-50,31,30.288
+uniform 1-50,32,28.238
+uniform 1-50,33,31.046
+uniform 1-50,34,30.794
+uniform 1-50,35,29.516
+uniform 1-50,36,29.91
+uniform 1-50,37,29.932
+uniform 1-50,38,28.07
+uniform 1-50,39,28.094
+uniform 1-50,40,28.354
+uniform 1-50,41,26.78
+uniform 1-50,42,27.402
+uniform 1-50,43,29.126
+uniform 1-50,44,28.51
+uniform 1-50,45,31.028
+uniform 1-50,46,27.418
+uniform 1-50,47,26.404
+uniform 1-50,48,29.55
+uniform 1-50,49,28.158
+uniform 1-50,50,27.924
+uniform 1-50,1,31.972
+uniform 1-50,2,33.186
+uniform 1-50,3,34.02
+uniform 1-50,4,31.686
+uniform 1-50,5,29.098
+uniform 1-50,6,30.552
+uniform 1-50,7,31.626
+uniform 1-50,8,31.888
+uniform 1-50,9,30.994
+uniform 1-50,10,32.066
+uniform 1-50,11,32.026
+uniform 1-50,12,34.362
+uniform 1-50,13,33.468
+uniform 1-50,14,33.496
+uniform 1-50,15,31.242
+uniform 1-50,16,31.342
+uniform 1-50,17,29.44
+uniform 1-50,18,29.632
+uniform 1-50,19,27.676
+uniform 1-50,20,30.522
+uniform 1-50,21,29.884
+uniform 1-50,22,32.134
+uniform 1-50,23,31.364
+uniform 1-50,24,28.272
+uniform 1-50,25,31.37
+uniform 1-50,26,29.94
+uniform 1-50,27,29.57
+uniform 1-50,28,30.86
+uniform 1-50,29,28.682
+uniform 1-50,30,30.682
+uniform 1-50,31,29.364
+uniform 1-50,32,28.674
+uniform 1-50,33,30.344
+uniform 1-50,34,29.566
+uniform 1-50,35,30.906
+uniform 1-50,36,29.826
+uniform 1-50,37,28.588
+uniform 1-50,38,28.32
+uniform 1-50,39,29.898
+uniform 1-50,40,27.578
+uniform 1-50,41,30.406
+uniform 1-50,42,30.476
+uniform 1-50,43,30.09
+uniform 1-50,44,29.816
+uniform 1-50,45,31.188
+uniform 1-50,46,31.766
+uniform 1-50,47,30.47
+uniform 1-50,48,30.034
+uniform 1-50,49,28.172
+uniform 1-50,50,28.166
+uniform 1-50,1,31.068
+uniform 1-50,2,33.35
+uniform 1-50,3,28.56
+uniform 1-50,4,34.878
+uniform 1-50,5,32.296
+uniform 1-50,6,33.186
+uniform 1-50,7,27.936
+uniform 1-50,8,32.084
+uniform 1-50,9,32.422
+uniform 1-50,10,30.506
+uniform 1-50,11,28.738
+uniform 1-50,12,29.826
+uniform 1-50,13,29.65
+uniform 1-50,14,28.848
+uniform 1-50,15,29.644
+uniform 1-50,16,27.74
+uniform 1-50,17,27.188
+uniform 1-50,18,28.272
+uniform 1-50,19,28.83
+uniform 1-50,20,27.968
+uniform 1-50,21,30.502
+uniform 1-50,22,29.962
+uniform 1-50,23,29.32
+uniform 1-50,24,29.844
+uniform 1-50,25,27.92
+uniform 1-50,26,28.436
+uniform 1-50,27,28.984
+uniform 1-50,28,30.67
+uniform 1-50,29,31.242
+uniform 1-50,30,29.33
+uniform 1-50,31,34.318
+uniform 1-50,32,28.188
+uniform 1-50,33,27.592
+uniform 1-50,34,27.466
+uniform 1-50,35,31.404
+uniform 1-50,36,29.69
+uniform 1-50,37,29.558
+uniform 1-50,38,27.296
+uniform 1-50,39,29.28
+uniform 1-50,40,29.062
+uniform 1-50,41,29.792
+uniform 1-50,42,29.674
+uniform 1-50,43,28.714
+uniform 1-50,44,27.892
+uniform 1-50,45,26.388
+uniform 1-50,46,28.876
+uniform 1-50,47,30.524
+uniform 1-50,48,25.922
+uniform 1-50,49,28.582
+uniform 1-50,50,31.04
+uniform 1-50,1,31.03
+uniform 1-50,2,31.702
+uniform 1-50,3,34.67
+uniform 1-50,4,32.92
+uniform 1-50,5,30.154
+uniform 1-50,6,31.48
+uniform 1-50,7,36.106
+uniform 1-50,8,28.946
+uniform 1-50,9,32.76
+uniform 1-50,10,30.918
+uniform 1-50,11,29.372
+uniform 1-50,12,31.826
+uniform 1-50,13,29.554
+uniform 1-50,14,31.046
+uniform 1-50,15,31.216
+uniform 1-50,16,30.604
+uniform 1-50,17,27.822
+uniform 1-50,18,28.116
+uniform 1-50,19,30.618
+uniform 1-50,20,28.834
+uniform 1-50,21,31.126
+uniform 1-50,22,30.386
+uniform 1-50,23,30.272
+uniform 1-50,24,29.924
+uniform 1-50,25,27.37
+uniform 1-50,26,27.072
+uniform 1-50,27,29.486
+uniform 1-50,28,30.286
+uniform 1-50,29,29.022
+uniform 1-50,30,27.902
+uniform 1-50,31,28.576
+uniform 1-50,32,28.052
+uniform 1-50,33,28.122
+uniform 1-50,34,31.76
+uniform 1-50,35,27.292
+uniform 1-50,36,30.156
+uniform 1-50,37,28.354
+uniform 1-50,38,28.772
+uniform 1-50,39,27.48
+uniform 1-50,40,27.556
+uniform 1-50,41,29.526
+uniform 1-50,42,28.494
+uniform 1-50,43,29.534
+uniform 1-50,44,24.8
+uniform 1-50,45,29.776
+uniform 1-50,46,29.35
+uniform 1-50,47,29.554
+uniform 1-50,48,28.742
+uniform 1-50,49,28.348
+uniform 1-50,50,29.35
+uniform 1-50,1,33.17
+uniform 1-50,2,30.262
+uniform 1-50,3,37.302
+uniform 1-50,4,29.664
+uniform 1-50,5,30.272
+uniform 1-50,6,33.28
+uniform 1-50,7,29.714
+uniform 1-50,8,30.402
+uniform 1-50,9,30.848
+uniform 1-50,10,30.246
+uniform 1-50,11,30.97
+uniform 1-50,12,30.844
+uniform 1-50,13,31.546
+uniform 1-50,14,30.024
+uniform 1-50,15,32.416
+uniform 1-50,16,26.85
+uniform 1-50,17,27.694
+uniform 1-50,18,30.85
+uniform 1-50,19,30.622
+uniform 1-50,20,30.984
+uniform 1-50,21,26.33
+uniform 1-50,22,31.162
+uniform 1-50,23,31.286
+uniform 1-50,24,29.706
+uniform 1-50,25,30.746
+uniform 1-50,26,30.004
+uniform 1-50,27,31.922
+uniform 1-50,28,30.972
+uniform 1-50,29,29.426
+uniform 1-50,30,30.188
+uniform 1-50,31,28.19
+uniform 1-50,32,28.672
+uniform 1-50,33,27.45
+uniform 1-50,34,30.798
+uniform 1-50,35,29.092
+uniform 1-50,36,28.016
+uniform 1-50,37,31.504
+uniform 1-50,38,26.348
+uniform 1-50,39,28.392
+uniform 1-50,40,27.628
+uniform 1-50,41,28.014
+uniform 1-50,42,28.228
+uniform 1-50,43,28.106
+uniform 1-50,44,24.69
+uniform 1-50,45,28.264
+uniform 1-50,46,28.206
+uniform 1-50,47,26.768
+uniform 1-50,48,28.812
+uniform 1-50,49,28.732
+uniform 1-50,50,28.588
+uniform 1-50,1,29.906
+uniform 1-50,2,35.048
+uniform 1-50,3,31.32
+uniform 1-50,4,31.256
+uniform 1-50,5,31.008
+uniform 1-50,6,32.708
+uniform 1-50,7,32.148
+uniform 1-50,8,32.03
+uniform 1-50,9,33.11
+uniform 1-50,10,34.65
+uniform 1-50,11,30.084
+uniform 1-50,12,32.156
+uniform 1-50,13,30.464
+uniform 1-50,14,33.194
+uniform 1-50,15,30.08
+uniform 1-50,16,29.418
+uniform 1-50,17,29.128
+uniform 1-50,18,31.294
+uniform 1-50,19,30.216
+uniform 1-50,20,31.114
+uniform 1-50,21,29.878
+uniform 1-50,22,30.796
+uniform 1-50,23,28.9
+uniform 1-50,24,29.764
+uniform 1-50,25,28.526
+uniform 1-50,26,30.71
+uniform 1-50,27,31.002
+uniform 1-50,28,31.936
+uniform 1-50,29,30.138
+uniform 1-50,30,28.29
+uniform 1-50,31,29.836
+uniform 1-50,32,29.456
+uniform 1-50,33,29.628
+uniform 1-50,34,29.016
+uniform 1-50,35,29.706
+uniform 1-50,36,32.05
+uniform 1-50,37,29.162
+uniform 1-50,38,27.668
+uniform 1-50,39,29.132
+uniform 1-50,40,29.162
+uniform 1-50,41,27.26
+uniform 1-50,42,28.334
+uniform 1-50,43,30.528
+uniform 1-50,44,27.122
+uniform 1-50,45,28.438
+uniform 1-50,46,27.49
+uniform 1-50,47,27.268
+uniform 1-50,48,29.468
+uniform 1-50,49,28.046
+uniform 1-50,50,28.244
+uniform 1-50,1,30.176
+uniform 1-50,2,27.746
+uniform 1-50,3,28.406
+uniform 1-50,4,35.616
+uniform 1-50,5,32.96
+uniform 1-50,6,30.11
+uniform 1-50,7,32.672
+uniform 1-50,8,29.594
+uniform 1-50,9,31.96
+uniform 1-50,10,30.406
+uniform 1-50,11,32.232
+uniform 1-50,12,30.22
+uniform 1-50,13,29.96
+uniform 1-50,14,31.296
+uniform 1-50,15,29.776
+uniform 1-50,16,28.342
+uniform 1-50,17,28.308
+uniform 1-50,18,31.538
+uniform 1-50,19,29.65
+uniform 1-50,20,26.698
+uniform 1-50,21,28.412
+uniform 1-50,22,29.732
+uniform 1-50,23,30.398
+uniform 1-50,24,31.422
+uniform 1-50,25,25.838
+uniform 1-50,26,27.758
+uniform 1-50,27,27.312
+uniform 1-50,28,27.906
+uniform 1-50,29,29.996
+uniform 1-50,30,26.862
+uniform 1-50,31,30.08
+uniform 1-50,32,28.332
+uniform 1-50,33,28.018
+uniform 1-50,34,29.122
+uniform 1-50,35,27.934
+uniform 1-50,36,27.762
+uniform 1-50,37,26.594
+uniform 1-50,38,28.764
+uniform 1-50,39,28.338
+uniform 1-50,40,27.05
+uniform 1-50,41,26.786
+uniform 1-50,42,29.774
+uniform 1-50,43,28.228
+uniform 1-50,44,28.336
+uniform 1-50,45,26.798
+uniform 1-50,46,27.19
+uniform 1-50,47,25.044
+uniform 1-50,48,26.49
+uniform 1-50,49,26.434
+uniform 1-50,50,28.168
+uniform 1-50,1,28.426
+uniform 1-50,2,29.768
+uniform 1-50,3,30.292
+uniform 1-50,4,29.032
+uniform 1-50,5,29.16
+uniform 1-50,6,32.176
+uniform 1-50,7,32.616
+uniform 1-50,8,33.514
+uniform 1-50,9,26.962
+uniform 1-50,10,29.68
+uniform 1-50,11,27.97
+uniform 1-50,12,28.108
+uniform 1-50,13,30.65
+uniform 1-50,14,27.948
+uniform 1-50,15,27.77
+uniform 1-50,16,29.86
+uniform 1-50,17,31.456
+uniform 1-50,18,30.59
+uniform 1-50,19,31.048
+uniform 1-50,20,30.856
+uniform 1-50,21,29.398
+uniform 1-50,22,27.944
+uniform 1-50,23,27.462
+uniform 1-50,24,27.724
+uniform 1-50,25,30.626
+uniform 1-50,26,30.54
+uniform 1-50,27,26.666
+uniform 1-50,28,30.374
+uniform 1-50,29,28.352
+uniform 1-50,30,29.412
+uniform 1-50,31,28.266
+uniform 1-50,32,30.838
+uniform 1-50,33,29.13
+uniform 1-50,34,26.484
+uniform 1-50,35,27.814
+uniform 1-50,36,29.426
+uniform 1-50,37,27.256
+uniform 1-50,38,31.202
+uniform 1-50,39,28.948
+uniform 1-50,40,28.49
+uniform 1-50,41,29.046
+uniform 1-50,42,26.922
+uniform 1-50,43,25.846
+uniform 1-50,44,26.414
+uniform 1-50,45,27.482
+uniform 1-50,46,27.356
+uniform 1-50,47,27.25
+uniform 1-50,48,27.436
+uniform 1-50,49,25.896
+uniform 1-50,50,26.97
+uniform 1-50,1,33.606
+uniform 1-50,2,33.802
+uniform 1-50,3,30.536
+uniform 1-50,4,31.472
+uniform 1-50,5,35.782
+uniform 1-50,6,29.632
+uniform 1-50,7,34.75
+uniform 1-50,8,30.458
+uniform 1-50,9,31.698
+uniform 1-50,10,29.96
+uniform 1-50,11,28.934
+uniform 1-50,12,31.092
+uniform 1-50,13,29.186
+uniform 1-50,14,29.912
+uniform 1-50,15,30.048
+uniform 1-50,16,30.168
+uniform 1-50,17,30.17
+uniform 1-50,18,30.872
+uniform 1-50,19,32.166
+uniform 1-50,20,27.73
+uniform 1-50,21,30.426
+uniform 1-50,22,31.412
+uniform 1-50,23,28.838
+uniform 1-50,24,29.514
+uniform 1-50,25,27.9
+uniform 1-50,26,27.818
+uniform 1-50,27,29.412
+uniform 1-50,28,27.182
+uniform 1-50,29,29.936
+uniform 1-50,30,29.1
+uniform 1-50,31,31.838
+uniform 1-50,32,29.184
+uniform 1-50,33,26.4
+uniform 1-50,34,27.412
+uniform 1-50,35,28.354
+uniform 1-50,36,29.45
+uniform 1-50,37,32.32
+uniform 1-50,38,28.958
+uniform 1-50,39,29.602
+uniform 1-50,40,26.998
+uniform 1-50,41,31.588
+uniform 1-50,42,29.3
+uniform 1-50,43,28.72
+uniform 1-50,44,29.06
+uniform 1-50,45,27.914
+uniform 1-50,46,29.914
+uniform 1-50,47,26.172
+uniform 1-50,48,30.768
+uniform 1-50,49,29.634
+uniform 1-50,50,27.858
+uniform 1-50,1,30.066
+uniform 1-50,2,33.826
+uniform 1-50,3,29.332
+uniform 1-50,4,29.71
+uniform 1-50,5,33.034
+uniform 1-50,6,34.682
+uniform 1-50,7,32.126
+uniform 1-50,8,32.49
+uniform 1-50,9,33.352
+uniform 1-50,10,32.67
+uniform 1-50,11,32.834
+uniform 1-50,12,31.606
+uniform 1-50,13,29.826
+uniform 1-50,14,29.446
+uniform 1-50,15,30.71
+uniform 1-50,16,29.586
+uniform 1-50,17,33.376
+uniform 1-50,18,32.28
+uniform 1-50,19,30.466
+uniform 1-50,20,29.402
+uniform 1-50,21,31.836
+uniform 1-50,22,29.494
+uniform 1-50,23,31.708
+uniform 1-50,24,28.828
+uniform 1-50,25,27.464
+uniform 1-50,26,31.712
+uniform 1-50,27,32.76
+uniform 1-50,28,31.632
+uniform 1-50,29,30.888
+uniform 1-50,30,29.972
+uniform 1-50,31,28.43
+uniform 1-50,32,28.65
+uniform 1-50,33,30.188
+uniform 1-50,34,33.058
+uniform 1-50,35,29.708
+uniform 1-50,36,30.168
+uniform 1-50,37,28.53
+uniform 1-50,38,28.334
+uniform 1-50,39,27.72
+uniform 1-50,40,29.49
+uniform 1-50,41,26.282
+uniform 1-50,42,29.93
+uniform 1-50,43,27.676
+uniform 1-50,44,28.96
+uniform 1-50,45,28.264
+uniform 1-50,46,27.688
+uniform 1-50,47,25.864
+uniform 1-50,48,26.81
+uniform 1-50,49,28.878
+uniform 1-50,50,29.388
+uniform 1-50,1,35.678
+uniform 1-50,2,30.85
+uniform 1-50,3,30.54
+uniform 1-50,4,31.604
+uniform 1-50,5,29.618
+uniform 1-50,6,33.63
+uniform 1-50,7,32.718
+uniform 1-50,8,32.016
+uniform 1-50,9,32.358
+uniform 1-50,10,30.46
+uniform 1-50,11,32.844
+uniform 1-50,12,30.376
+uniform 1-50,13,29.906
+uniform 1-50,14,33.218
+uniform 1-50,15,31.21
+uniform 1-50,16,27.904
+uniform 1-50,17,29.916
+uniform 1-50,18,31.52
+uniform 1-50,19,29.194
+uniform 1-50,20,30.656
+uniform 1-50,21,30.548
+uniform 1-50,22,26.984
+uniform 1-50,23,30.82
+uniform 1-50,24,29.754
+uniform 1-50,25,26.758
+uniform 1-50,26,29.382
+uniform 1-50,27,30.4
+uniform 1-50,28,32.128
+uniform 1-50,29,28.358
+uniform 1-50,30,30.228
+uniform 1-50,31,29.97
+uniform 1-50,32,30.622
+uniform 1-50,33,28.006
+uniform 1-50,34,29.274
+uniform 1-50,35,31.114
+uniform 1-50,36,28.52
+uniform 1-50,37,26.886
+uniform 1-50,38,27.452
+uniform 1-50,39,29.004
+uniform 1-50,40,27.522
+uniform 1-50,41,28.646
+uniform 1-50,42,26.908
+uniform 1-50,43,29.406
+uniform 1-50,44,27.846
+uniform 1-50,45,29.34
+uniform 1-50,46,28.032
+uniform 1-50,47,29.922
+uniform 1-50,48,28.668
+uniform 1-50,49,28.924
+uniform 1-50,50,27.872
+uniform 1-50,1,33.084
+uniform 1-50,2,32.472
+uniform 1-50,3,33.53
+uniform 1-50,4,28.49
+uniform 1-50,5,29.986
+uniform 1-50,6,29.984
+uniform 1-50,7,30.178
+uniform 1-50,8,31.34
+uniform 1-50,9,32.244
+uniform 1-50,10,27.884
+uniform 1-50,11,31.086
+uniform 1-50,12,29.546
+uniform 1-50,13,33.0
+uniform 1-50,14,32.846
+uniform 1-50,15,30.7
+uniform 1-50,16,29.168
+uniform 1-50,17,32.114
+uniform 1-50,18,31.906
+uniform 1-50,19,31.686
+uniform 1-50,20,30.474
+uniform 1-50,21,33.262
+uniform 1-50,22,27.814
+uniform 1-50,23,28.824
+uniform 1-50,24,28.688
+uniform 1-50,25,27.142
+uniform 1-50,26,29.15
+uniform 1-50,27,28.122
+uniform 1-50,28,28.692
+uniform 1-50,29,29.8
+uniform 1-50,30,31.534
+uniform 1-50,31,27.566
+uniform 1-50,32,29.94
+uniform 1-50,33,27.662
+uniform 1-50,34,29.57
+uniform 1-50,35,28.964
+uniform 1-50,36,28.478
+uniform 1-50,37,30.332
+uniform 1-50,38,29.454
+uniform 1-50,39,30.732
+uniform 1-50,40,30.392
+uniform 1-50,41,29.914
+uniform 1-50,42,28.1
+uniform 1-50,43,29.266
+uniform 1-50,44,28.856
+uniform 1-50,45,28.474
+uniform 1-50,46,29.366
+uniform 1-50,47,28.96
+uniform 1-50,48,26.342
+uniform 1-50,49,30.344
+uniform 1-50,50,24.97
+uniform 1-50,1,30.29
+uniform 1-50,2,32.78
+uniform 1-50,3,33.83
+uniform 1-50,4,33.18
+uniform 1-50,5,28.652
+uniform 1-50,6,30.578
+uniform 1-50,7,31.472
+uniform 1-50,8,29.962
+uniform 1-50,9,31.672
+uniform 1-50,10,27.782
+uniform 1-50,11,28.566
+uniform 1-50,12,30.826
+uniform 1-50,13,29.024
+uniform 1-50,14,31.188
+uniform 1-50,15,29.724
+uniform 1-50,16,30.984
+uniform 1-50,17,24.708
+uniform 1-50,18,27.622
+uniform 1-50,19,30.676
+uniform 1-50,20,29.36
+uniform 1-50,21,27.422
+uniform 1-50,22,26.136
+uniform 1-50,23,29.422
+uniform 1-50,24,29.394
+uniform 1-50,25,28.326
+uniform 1-50,26,29.426
+uniform 1-50,27,25.698
+uniform 1-50,28,27.608
+uniform 1-50,29,28.34
+uniform 1-50,30,29.594
+uniform 1-50,31,28.444
+uniform 1-50,32,27.812
+uniform 1-50,33,29.308
+uniform 1-50,34,30.614
+uniform 1-50,35,27.85
+uniform 1-50,36,28.088
+uniform 1-50,37,28.412
+uniform 1-50,38,27.418
+uniform 1-50,39,27.412
+uniform 1-50,40,27.272
+uniform 1-50,41,27.088
+uniform 1-50,42,30.062
+uniform 1-50,43,25.246
+uniform 1-50,44,28.602
+uniform 1-50,45,29.162
+uniform 1-50,46,28.374
+uniform 1-50,47,25.752
+uniform 1-50,48,27.438
+uniform 1-50,49,25.722
+uniform 1-50,50,25.402
+uniform 1-50,1,33.872
+uniform 1-50,2,31.576
+uniform 1-50,3,33.374
+uniform 1-50,4,28.732
+uniform 1-50,5,29.774
+uniform 1-50,6,32.352
+uniform 1-50,7,29.716
+uniform 1-50,8,32.05
+uniform 1-50,9,34.146
+uniform 1-50,10,27.76
+uniform 1-50,11,29.058
+uniform 1-50,12,28.108
+uniform 1-50,13,28.998
+uniform 1-50,14,31.98
+uniform 1-50,15,31.188
+uniform 1-50,16,29.726
+uniform 1-50,17,31.202
+uniform 1-50,18,29.87
+uniform 1-50,19,27.982
+uniform 1-50,20,29.414
+uniform 1-50,21,28.092
+uniform 1-50,22,29.192
+uniform 1-50,23,29.718
+uniform 1-50,24,28.248
+uniform 1-50,25,28.024
+uniform 1-50,26,27.892
+uniform 1-50,27,26.956
+uniform 1-50,28,28.87
+uniform 1-50,29,27.84
+uniform 1-50,30,28.918
+uniform 1-50,31,29.862
+uniform 1-50,32,28.17
+uniform 1-50,33,25.824
+uniform 1-50,34,27.514
+uniform 1-50,35,28.186
+uniform 1-50,36,29.02
+uniform 1-50,37,29.07
+uniform 1-50,38,31.194
+uniform 1-50,39,27.732
+uniform 1-50,40,27.78
+uniform 1-50,41,25.982
+uniform 1-50,42,25.554
+uniform 1-50,43,26.728
+uniform 1-50,44,26.494
+uniform 1-50,45,28.398
+uniform 1-50,46,27.014
+uniform 1-50,47,26.884
+uniform 1-50,48,27.09
+uniform 1-50,49,25.712
+uniform 1-50,50,28.268
+uniform 1-50,1,30.892
+uniform 1-50,2,29.39
+uniform 1-50,3,29.504
+uniform 1-50,4,27.188
+uniform 1-50,5,28.75
+uniform 1-50,6,30.344
+uniform 1-50,7,27.912
+uniform 1-50,8,26.998
+uniform 1-50,9,30.276
+uniform 1-50,10,33.088
+uniform 1-50,11,29.376
+uniform 1-50,12,29.39
+uniform 1-50,13,29.95
+uniform 1-50,14,29.81
+uniform 1-50,15,28.446
+uniform 1-50,16,29.046
+uniform 1-50,17,27.824
+uniform 1-50,18,26.65
+uniform 1-50,19,28.89
+uniform 1-50,20,30.024
+uniform 1-50,21,31.084
+uniform 1-50,22,30.462
+uniform 1-50,23,28.26
+uniform 1-50,24,28.604
+uniform 1-50,25,28.602
+uniform 1-50,26,29.028
+uniform 1-50,27,27.018
+uniform 1-50,28,27.732
+uniform 1-50,29,27.286
+uniform 1-50,30,26.526
+uniform 1-50,31,29.062
+uniform 1-50,32,29.648
+uniform 1-50,33,28.924
+uniform 1-50,34,25.888
+uniform 1-50,35,26.474
+uniform 1-50,36,29.462
+uniform 1-50,37,30.116
+uniform 1-50,38,25.972
+uniform 1-50,39,27.716
+uniform 1-50,40,27.948
+uniform 1-50,41,26.794
+uniform 1-50,42,31.782
+uniform 1-50,43,27.244
+uniform 1-50,44,28.696
+uniform 1-50,45,25.894
+uniform 1-50,46,26.538
+uniform 1-50,47,26.822
+uniform 1-50,48,26.274
+uniform 1-50,49,29.16
+uniform 1-50,50,29.26
+uniform 1-50,1,31.72
+uniform 1-50,2,29.096
+uniform 1-50,3,32.818
+uniform 1-50,4,30.282
+uniform 1-50,5,30.172
+uniform 1-50,6,27.696
+uniform 1-50,7,30.592
+uniform 1-50,8,28.168
+uniform 1-50,9,28.414
+uniform 1-50,10,29.608
+uniform 1-50,11,31.53
+uniform 1-50,12,31.734
+uniform 1-50,13,30.016
+uniform 1-50,14,29.778
+uniform 1-50,15,30.664
+uniform 1-50,16,30.226
+uniform 1-50,17,28.278
+uniform 1-50,18,31.682
+uniform 1-50,19,27.63
+uniform 1-50,20,30.808
+uniform 1-50,21,27.742
+uniform 1-50,22,28.956
+uniform 1-50,23,29.844
+uniform 1-50,24,29.958
+uniform 1-50,25,28.29
+uniform 1-50,26,26.46
+uniform 1-50,27,29.99
+uniform 1-50,28,26.918
+uniform 1-50,29,27.762
+uniform 1-50,30,29.02
+uniform 1-50,31,27.022
+uniform 1-50,32,28.988
+uniform 1-50,33,29.66
+uniform 1-50,34,27.312
+uniform 1-50,35,26.024
+uniform 1-50,36,27.742
+uniform 1-50,37,27.126
+uniform 1-50,38,26.74
+uniform 1-50,39,26.86
+uniform 1-50,40,29.468
+uniform 1-50,41,27.7
+uniform 1-50,42,26.27
+uniform 1-50,43,28.822
+uniform 1-50,44,25.806
+uniform 1-50,45,28.49
+uniform 1-50,46,27.35
+uniform 1-50,47,31.27
+uniform 1-50,48,27.834
+uniform 1-50,49,30.636
+uniform 1-50,50,27.06
+uniform 1-100,1,29.202
+uniform 1-100,1,31.216
+uniform 1-100,2,31.448
+uniform 1-100,3,31.702
+uniform 1-100,4,33.304
+uniform 1-100,5,30.17
+uniform 1-100,6,30.596
+uniform 1-100,7,27.35
+uniform 1-100,8,29.884
+uniform 1-100,9,32.11
+uniform 1-100,10,31.02
+uniform 1-100,11,30.808
+uniform 1-100,12,28.574
+uniform 1-100,13,33.856
+uniform 1-100,14,27.91
+uniform 1-100,15,32.058
+uniform 1-100,16,29.32
+uniform 1-100,17,29.556
+uniform 1-100,18,31.118
+uniform 1-100,19,33.818
+uniform 1-100,20,33.392
+uniform 1-100,21,29.56
+uniform 1-100,22,30.672
+uniform 1-100,23,30.068
+uniform 1-100,24,30.57
+uniform 1-100,25,28.322
+uniform 1-100,26,28.86
+uniform 1-100,27,28.892
+uniform 1-100,28,29.87
+uniform 1-100,29,29.572
+uniform 1-100,30,30.136
+uniform 1-100,31,30.146
+uniform 1-100,32,29.384
+uniform 1-100,33,30.042
+uniform 1-100,34,28.222
+uniform 1-100,35,28.508
+uniform 1-100,36,29.644
+uniform 1-100,37,30.952
+uniform 1-100,38,26.216
+uniform 1-100,39,28.52
+uniform 1-100,40,26.28
+uniform 1-100,41,30.346
+uniform 1-100,42,27.23
+uniform 1-100,43,27.866
+uniform 1-100,44,27.244
+uniform 1-100,45,29.544
+uniform 1-100,46,28.406
+uniform 1-100,47,28.816
+uniform 1-100,48,27.79
+uniform 1-100,49,26.962
+uniform 1-100,50,26.396
+uniform 1-100,51,29.918
+uniform 1-100,52,27.958
+uniform 1-100,53,28.216
+uniform 1-100,54,28.866
+uniform 1-100,55,27.056
+uniform 1-100,56,28.724
+uniform 1-100,57,28.498
+uniform 1-100,58,27.468
+uniform 1-100,59,29.768
+uniform 1-100,60,29.074
+uniform 1-100,61,30.142
+uniform 1-100,62,27.94
+uniform 1-100,63,30.14
+uniform 1-100,64,27.818
+uniform 1-100,65,27.572
+uniform 1-100,66,28.556
+uniform 1-100,67,28.604
+uniform 1-100,68,26.794
+uniform 1-100,69,27.37
+uniform 1-100,70,27.596
+uniform 1-100,71,29.544
+uniform 1-100,72,28.138
+uniform 1-100,73,28.466
+uniform 1-100,74,29.392
+uniform 1-100,75,28.894
+uniform 1-100,76,29.658
+uniform 1-100,77,28.996
+uniform 1-100,78,28.658
+uniform 1-100,79,30.594
+uniform 1-100,80,28.638
+uniform 1-100,81,28.206
+uniform 1-100,82,27.332
+uniform 1-100,83,28.462
+uniform 1-100,84,27.156
+uniform 1-100,85,27.554
+uniform 1-100,86,28.88
+uniform 1-100,87,28.282
+uniform 1-100,88,29.948
+uniform 1-100,89,27.594
+uniform 1-100,90,28.092
+uniform 1-100,91,27.54
+uniform 1-100,92,28.402
+uniform 1-100,93,26.44
+uniform 1-100,94,28.58
+uniform 1-100,95,25.77
+uniform 1-100,96,28.49
+uniform 1-100,97,30.232
+uniform 1-100,98,27.076
+uniform 1-100,99,29.89
+uniform 1-100,100,26.77
+uniform 1-100,1,27.002
+uniform 1-100,1,33.274
+uniform 1-100,2,31.874
+uniform 1-100,3,30.492
+uniform 1-100,4,32.818
+uniform 1-100,5,33.084
+uniform 1-100,6,32.098
+uniform 1-100,7,29.554
+uniform 1-100,8,32.566
+uniform 1-100,9,32.73
+uniform 1-100,10,29.716
+uniform 1-100,11,31.136
+uniform 1-100,12,35.49
+uniform 1-100,13,34.556
+uniform 1-100,14,30.196
+uniform 1-100,15,32.386
+uniform 1-100,16,26.896
+uniform 1-100,17,31.818
+uniform 1-100,18,30.802
+uniform 1-100,19,32.276
+uniform 1-100,20,28.436
+uniform 1-100,21,33.242
+uniform 1-100,22,25.862
+uniform 1-100,23,30.256
+uniform 1-100,24,33.768
+uniform 1-100,25,31.15
+uniform 1-100,26,31.28
+uniform 1-100,27,28.306
+uniform 1-100,28,31.336
+uniform 1-100,29,28.792
+uniform 1-100,30,29.52
+uniform 1-100,31,27.762
+uniform 1-100,32,27.7
+uniform 1-100,33,28.248
+uniform 1-100,34,29.434
+uniform 1-100,35,30.428
+uniform 1-100,36,29.998
+uniform 1-100,37,33.862
+uniform 1-100,38,28.416
+uniform 1-100,39,26.292
+uniform 1-100,40,30.612
+uniform 1-100,41,29.738
+uniform 1-100,42,29.542
+uniform 1-100,43,30.354
+uniform 1-100,44,29.05
+uniform 1-100,45,27.448
+uniform 1-100,46,28.662
+uniform 1-100,47,31.36
+uniform 1-100,48,26.804
+uniform 1-100,49,29.44
+uniform 1-100,50,23.664
+uniform 1-100,51,28.612
+uniform 1-100,52,27.254
+uniform 1-100,53,28.588
+uniform 1-100,54,28.224
+uniform 1-100,55,28.298
+uniform 1-100,56,26.006
+uniform 1-100,57,29.116
+uniform 1-100,58,26.734
+uniform 1-100,59,29.072
+uniform 1-100,60,26.478
+uniform 1-100,61,26.618
+uniform 1-100,62,25.532
+uniform 1-100,63,28.918
+uniform 1-100,64,30.336
+uniform 1-100,65,29.54
+uniform 1-100,66,26.546
+uniform 1-100,67,26.602
+uniform 1-100,68,29.326
+uniform 1-100,69,28.722
+uniform 1-100,70,27.668
+uniform 1-100,71,30.768
+uniform 1-100,72,28.858
+uniform 1-100,73,28.43
+uniform 1-100,74,27.848
+uniform 1-100,75,27.148
+uniform 1-100,76,26.87
+uniform 1-100,77,26.978
+uniform 1-100,78,25.402
+uniform 1-100,79,29.454
+uniform 1-100,80,27.78
+uniform 1-100,81,27.448
+uniform 1-100,82,29.706
+uniform 1-100,83,28.024
+uniform 1-100,84,28.95
+uniform 1-100,85,27.644
+uniform 1-100,86,29.258
+uniform 1-100,87,28.624
+uniform 1-100,88,29.048
+uniform 1-100,89,26.352
+uniform 1-100,90,25.168
+uniform 1-100,91,26.218
+uniform 1-100,92,27.92
+uniform 1-100,93,24.14
+uniform 1-100,94,28.398
+uniform 1-100,95,27.826
+uniform 1-100,96,25.548
+uniform 1-100,97,29.21
+uniform 1-100,98,27.804
+uniform 1-100,99,25.598
+uniform 1-100,100,25.452
+uniform 1-100,1,32.572
+uniform 1-100,1,32.33
+uniform 1-100,2,33.522
+uniform 1-100,3,30.086
+uniform 1-100,4,31.306
+uniform 1-100,5,35.7
+uniform 1-100,6,30.802
+uniform 1-100,7,31.56
+uniform 1-100,8,32.932
+uniform 1-100,9,36.306
+uniform 1-100,10,33.92
+uniform 1-100,11,31.676
+uniform 1-100,12,32.85
+uniform 1-100,13,35.664
+uniform 1-100,14,30.0
+uniform 1-100,15,33.158
+uniform 1-100,16,28.968
+uniform 1-100,17,28.62
+uniform 1-100,18,31.854
+uniform 1-100,19,28.56
+uniform 1-100,20,30.97
+uniform 1-100,21,32.722
+uniform 1-100,22,29.06
+uniform 1-100,23,33.482
+uniform 1-100,24,30.228
+uniform 1-100,25,29.564
+uniform 1-100,26,28.04
+uniform 1-100,27,32.336
+uniform 1-100,28,31.414
+uniform 1-100,29,31.018
+uniform 1-100,30,29.514
+uniform 1-100,31,28.25
+uniform 1-100,32,28.972
+uniform 1-100,33,30.366
+uniform 1-100,34,28.864
+uniform 1-100,35,29.204
+uniform 1-100,36,28.17
+uniform 1-100,37,26.452
+uniform 1-100,38,29.894
+uniform 1-100,39,27.75
+uniform 1-100,40,28.08
+uniform 1-100,41,27.832
+uniform 1-100,42,31.058
+uniform 1-100,43,28.622
+uniform 1-100,44,33.33
+uniform 1-100,45,31.502
+uniform 1-100,46,29.61
+uniform 1-100,47,29.27
+uniform 1-100,48,31.222
+uniform 1-100,49,30.802
+uniform 1-100,50,30.032
+uniform 1-100,51,27.424
+uniform 1-100,52,26.784
+uniform 1-100,53,29.41
+uniform 1-100,54,32.128
+uniform 1-100,55,31.212
+uniform 1-100,56,27.386
+uniform 1-100,57,28.906
+uniform 1-100,58,30.242
+uniform 1-100,59,28.882
+uniform 1-100,60,29.644
+uniform 1-100,61,30.452
+uniform 1-100,62,28.028
+uniform 1-100,63,29.22
+uniform 1-100,64,27.83
+uniform 1-100,65,30.59
+uniform 1-100,66,27.74
+uniform 1-100,67,29.27
+uniform 1-100,68,28.894
+uniform 1-100,69,30.84
+uniform 1-100,70,29.482
+uniform 1-100,71,24.882
+uniform 1-100,72,27.286
+uniform 1-100,73,29.606
+uniform 1-100,74,28.684
+uniform 1-100,75,28.606
+uniform 1-100,76,29.728
+uniform 1-100,77,29.296
+uniform 1-100,78,28.876
+uniform 1-100,79,29.808
+uniform 1-100,80,25.894
+uniform 1-100,81,29.198
+uniform 1-100,82,27.564
+uniform 1-100,83,27.48
+uniform 1-100,84,26.708
+uniform 1-100,85,27.078
+uniform 1-100,86,26.15
+uniform 1-100,87,26.942
+uniform 1-100,88,28.516
+uniform 1-100,89,26.816
+uniform 1-100,90,26.438
+uniform 1-100,91,28.052
+uniform 1-100,92,30.056
+uniform 1-100,93,27.834
+uniform 1-100,94,26.234
+uniform 1-100,95,27.28
+uniform 1-100,96,28.076
+uniform 1-100,97,28.088
+uniform 1-100,98,29.902
+uniform 1-100,99,27.178
+uniform 1-100,100,28.342
+uniform 1-100,1,32.584
+uniform 1-100,1,34.56
+uniform 1-100,2,30.398
+uniform 1-100,3,33.566
+uniform 1-100,4,34.148
+uniform 1-100,5,35.522
+uniform 1-100,6,32.028
+uniform 1-100,7,30.762
+uniform 1-100,8,31.272
+uniform 1-100,9,32.626
+uniform 1-100,10,31.128
+uniform 1-100,11,31.586
+uniform 1-100,12,30.992
+uniform 1-100,13,33.348
+uniform 1-100,14,29.96
+uniform 1-100,15,32.586
+uniform 1-100,16,30.23
+uniform 1-100,17,32.208
+uniform 1-100,18,31.27
+uniform 1-100,19,30.122
+uniform 1-100,20,30.762
+uniform 1-100,21,27.568
+uniform 1-100,22,31.036
+uniform 1-100,23,28.956
+uniform 1-100,24,27.664
+uniform 1-100,25,29.36
+uniform 1-100,26,32.622
+uniform 1-100,27,32.566
+uniform 1-100,28,28.786
+uniform 1-100,29,29.75
+uniform 1-100,30,32.418
+uniform 1-100,31,28.2
+uniform 1-100,32,29.438
+uniform 1-100,33,28.428
+uniform 1-100,34,29.44
+uniform 1-100,35,29.192
+uniform 1-100,36,28.374
+uniform 1-100,37,31.796
+uniform 1-100,38,29.32
+uniform 1-100,39,30.938
+uniform 1-100,40,29.53
+uniform 1-100,41,30.692
+uniform 1-100,42,31.418
+uniform 1-100,43,28.73
+uniform 1-100,44,26.742
+uniform 1-100,45,26.608
+uniform 1-100,46,27.784
+uniform 1-100,47,27.62
+uniform 1-100,48,28.636
+uniform 1-100,49,27.93
+uniform 1-100,50,28.222
+uniform 1-100,51,28.35
+uniform 1-100,52,31.188
+uniform 1-100,53,32.052
+uniform 1-100,54,29.122
+uniform 1-100,55,29.05
+uniform 1-100,56,27.958
+uniform 1-100,57,30.518
+uniform 1-100,58,28.898
+uniform 1-100,59,29.342
+uniform 1-100,60,27.432
+uniform 1-100,61,32.12
+uniform 1-100,62,29.782
+uniform 1-100,63,27.42
+uniform 1-100,64,26.796
+uniform 1-100,65,29.242
+uniform 1-100,66,29.186
+uniform 1-100,67,28.148
+uniform 1-100,68,28.024
+uniform 1-100,69,28.756
+uniform 1-100,70,29.562
+uniform 1-100,71,29.536
+uniform 1-100,72,29.33
+uniform 1-100,73,28.134
+uniform 1-100,74,29.804
+uniform 1-100,75,27.368
+uniform 1-100,76,27.792
+uniform 1-100,77,30.534
+uniform 1-100,78,27.468
+uniform 1-100,79,26.694
+uniform 1-100,80,30.938
+uniform 1-100,81,27.698
+uniform 1-100,82,28.718
+uniform 1-100,83,27.554
+uniform 1-100,84,27.996
+uniform 1-100,85,26.494
+uniform 1-100,86,28.254
+uniform 1-100,87,27.638
+uniform 1-100,88,27.71
+uniform 1-100,89,28.178
+uniform 1-100,90,25.702
+uniform 1-100,91,26.246
+uniform 1-100,92,26.436
+uniform 1-100,93,27.386
+uniform 1-100,94,26.294
+uniform 1-100,95,26.698
+uniform 1-100,96,28.182
+uniform 1-100,97,27.912
+uniform 1-100,98,28.696
+uniform 1-100,99,27.882
+uniform 1-100,100,28.676
+uniform 1-100,1,34.784
+uniform 1-100,1,33.522
+uniform 1-100,2,30.028
+uniform 1-100,3,29.948
+uniform 1-100,4,30.728
+uniform 1-100,5,30.324
+uniform 1-100,6,31.192
+uniform 1-100,7,29.524
+uniform 1-100,8,31.534
+uniform 1-100,9,31.272
+uniform 1-100,10,26.748
+uniform 1-100,11,29.132
+uniform 1-100,12,30.702
+uniform 1-100,13,28.622
+uniform 1-100,14,28.604
+uniform 1-100,15,34.384
+uniform 1-100,16,33.996
+uniform 1-100,17,31.162
+uniform 1-100,18,27.216
+uniform 1-100,19,32.486
+uniform 1-100,20,30.532
+uniform 1-100,21,28.064
+uniform 1-100,22,32.132
+uniform 1-100,23,25.716
+uniform 1-100,24,30.256
+uniform 1-100,25,28.884
+uniform 1-100,26,31.316
+uniform 1-100,27,28.708
+uniform 1-100,28,32.402
+uniform 1-100,29,27.594
+uniform 1-100,30,26.512
+uniform 1-100,31,32.722
+uniform 1-100,32,26.744
+uniform 1-100,33,31.3
+uniform 1-100,34,25.39
+uniform 1-100,35,30.85
+uniform 1-100,36,31.002
+uniform 1-100,37,31.534
+uniform 1-100,38,30.794
+uniform 1-100,39,27.322
+uniform 1-100,40,28.48
+uniform 1-100,41,29.14
+uniform 1-100,42,26.922
+uniform 1-100,43,27.554
+uniform 1-100,44,27.288
+uniform 1-100,45,26.214
+uniform 1-100,46,27.932
+uniform 1-100,47,25.996
+uniform 1-100,48,28.83
+uniform 1-100,49,27.248
+uniform 1-100,50,29.034
+uniform 1-100,51,28.394
+uniform 1-100,52,28.03
+uniform 1-100,53,29.432
+uniform 1-100,54,26.76
+uniform 1-100,55,28.864
+uniform 1-100,56,29.244
+uniform 1-100,57,28.998
+uniform 1-100,58,31.276
+uniform 1-100,59,29.396
+uniform 1-100,60,30.498
+uniform 1-100,61,29.292
+uniform 1-100,62,24.546
+uniform 1-100,63,28.11
+uniform 1-100,64,27.896
+uniform 1-100,65,28.02
+uniform 1-100,66,29.24
+uniform 1-100,67,29.764
+uniform 1-100,68,24.284
+uniform 1-100,69,30.53
+uniform 1-100,70,28.114
+uniform 1-100,71,28.44
+uniform 1-100,72,30.106
+uniform 1-100,73,27.96
+uniform 1-100,74,28.556
+uniform 1-100,75,26.672
+uniform 1-100,76,25.024
+uniform 1-100,77,31.502
+uniform 1-100,78,26.2
+uniform 1-100,79,25.054
+uniform 1-100,80,27.892
+uniform 1-100,81,28.864
+uniform 1-100,82,26.624
+uniform 1-100,83,28.07
+uniform 1-100,84,25.18
+uniform 1-100,85,26.814
+uniform 1-100,86,28.69
+uniform 1-100,87,26.92
+uniform 1-100,88,25.906
+uniform 1-100,89,27.686
+uniform 1-100,90,25.906
+uniform 1-100,91,27.854
+uniform 1-100,92,25.522
+uniform 1-100,93,28.574
+uniform 1-100,94,29.746
+uniform 1-100,95,25.052
+uniform 1-100,96,30.51
+uniform 1-100,97,27.768
+uniform 1-100,98,30.31
+uniform 1-100,99,27.494
+uniform 1-100,100,27.02
+uniform 1-100,1,32.106
+uniform 1-100,1,29.448
+uniform 1-100,2,32.26
+uniform 1-100,3,27.77
+uniform 1-100,4,32.116
+uniform 1-100,5,29.832
+uniform 1-100,6,34.05
+uniform 1-100,7,29.63
+uniform 1-100,8,31.652
+uniform 1-100,9,33.19
+uniform 1-100,10,30.682
+uniform 1-100,11,28.998
+uniform 1-100,12,29.744
+uniform 1-100,13,32.68
+uniform 1-100,14,29.036
+uniform 1-100,15,28.558
+uniform 1-100,16,34.3
+uniform 1-100,17,33.192
+uniform 1-100,18,33.988
+uniform 1-100,19,31.656
+uniform 1-100,20,32.872
+uniform 1-100,21,30.952
+uniform 1-100,22,30.462
+uniform 1-100,23,30.638
+uniform 1-100,24,29.56
+uniform 1-100,25,30.31
+uniform 1-100,26,28.962
+uniform 1-100,27,31.616
+uniform 1-100,28,29.65
+uniform 1-100,29,32.918
+uniform 1-100,30,29.186
+uniform 1-100,31,33.214
+uniform 1-100,32,28.78
+uniform 1-100,33,30.144
+uniform 1-100,34,27.732
+uniform 1-100,35,31.142
+uniform 1-100,36,33.16
+uniform 1-100,37,30.836
+uniform 1-100,38,30.812
+uniform 1-100,39,29.608
+uniform 1-100,40,28.92
+uniform 1-100,41,26.84
+uniform 1-100,42,30.79
+uniform 1-100,43,31.108
+uniform 1-100,44,33.694
+uniform 1-100,45,28.388
+uniform 1-100,46,30.738
+uniform 1-100,47,32.12
+uniform 1-100,48,29.228
+uniform 1-100,49,29.42
+uniform 1-100,50,25.772
+uniform 1-100,51,27.664
+uniform 1-100,52,29.32
+uniform 1-100,53,29.734
+uniform 1-100,54,28.234
+uniform 1-100,55,30.512
+uniform 1-100,56,25.768
+uniform 1-100,57,27.916
+uniform 1-100,58,30.02
+uniform 1-100,59,29.16
+uniform 1-100,60,34.1
+uniform 1-100,61,27.108
+uniform 1-100,62,25.99
+uniform 1-100,63,26.848
+uniform 1-100,64,28.728
+uniform 1-100,65,27.314
+uniform 1-100,66,28.37
+uniform 1-100,67,28.81
+uniform 1-100,68,29.244
+uniform 1-100,69,27.418
+uniform 1-100,70,28.276
+uniform 1-100,71,28.704
+uniform 1-100,72,30.08
+uniform 1-100,73,29.622
+uniform 1-100,74,28.618
+uniform 1-100,75,28.252
+uniform 1-100,76,27.93
+uniform 1-100,77,26.752
+uniform 1-100,78,29.242
+uniform 1-100,79,28.172
+uniform 1-100,80,30.558
+uniform 1-100,81,26.542
+uniform 1-100,82,29.854
+uniform 1-100,83,26.134
+uniform 1-100,84,30.358
+uniform 1-100,85,27.566
+uniform 1-100,86,29.412
+uniform 1-100,87,26.094
+uniform 1-100,88,27.932
+uniform 1-100,89,25.86
+uniform 1-100,90,27.83
+uniform 1-100,91,25.762
+uniform 1-100,92,27.98
+uniform 1-100,93,26.072
+uniform 1-100,94,25.364
+uniform 1-100,95,25.712
+uniform 1-100,96,26.636
+uniform 1-100,97,26.22
+uniform 1-100,98,26.304
+uniform 1-100,99,26.232
+uniform 1-100,100,26.092
+uniform 1-100,1,29.794
+uniform 1-100,1,32.8
+uniform 1-100,2,29.952
+uniform 1-100,3,32.128
+uniform 1-100,4,28.294
+uniform 1-100,5,33.636
+uniform 1-100,6,29.464
+uniform 1-100,7,30.204
+uniform 1-100,8,34.798
+uniform 1-100,9,32.056
+uniform 1-100,10,30.258
+uniform 1-100,11,30.644
+uniform 1-100,12,31.064
+uniform 1-100,13,31.02
+uniform 1-100,14,30.104
+uniform 1-100,15,29.4
+uniform 1-100,16,31.968
+uniform 1-100,17,31.768
+uniform 1-100,18,32.544
+uniform 1-100,19,29.01
+uniform 1-100,20,27.874
+uniform 1-100,21,32.25
+uniform 1-100,22,30.19
+uniform 1-100,23,32.392
+uniform 1-100,24,30.86
+uniform 1-100,25,31.912
+uniform 1-100,26,30.968
+uniform 1-100,27,32.528
+uniform 1-100,28,31.114
+uniform 1-100,29,29.926
+uniform 1-100,30,30.48
+uniform 1-100,31,30.158
+uniform 1-100,32,30.382
+uniform 1-100,33,31.4
+uniform 1-100,34,29.87
+uniform 1-100,35,31.498
+uniform 1-100,36,26.476
+uniform 1-100,37,29.952
+uniform 1-100,38,28.88
+uniform 1-100,39,29.792
+uniform 1-100,40,30.892
+uniform 1-100,41,29.64
+uniform 1-100,42,29.252
+uniform 1-100,43,29.726
+uniform 1-100,44,29.008
+uniform 1-100,45,28.084
+uniform 1-100,46,30.528
+uniform 1-100,47,29.35
+uniform 1-100,48,29.172
+uniform 1-100,49,28.902
+uniform 1-100,50,28.218
+uniform 1-100,51,32.15
+uniform 1-100,52,28.84
+uniform 1-100,53,28.848
+uniform 1-100,54,26.968
+uniform 1-100,55,30.94
+uniform 1-100,56,29.702
+uniform 1-100,57,25.85
+uniform 1-100,58,28.678
+uniform 1-100,59,29.318
+uniform 1-100,60,27.718
+uniform 1-100,61,27.154
+uniform 1-100,62,29.09
+uniform 1-100,63,28.09
+uniform 1-100,64,29.418
+uniform 1-100,65,29.67
+uniform 1-100,66,28.864
+uniform 1-100,67,27.84
+uniform 1-100,68,30.266
+uniform 1-100,69,29.278
+uniform 1-100,70,29.706
+uniform 1-100,71,28.108
+uniform 1-100,72,28.484
+uniform 1-100,73,27.474
+uniform 1-100,74,26.194
+uniform 1-100,75,28.47
+uniform 1-100,76,29.818
+uniform 1-100,77,30.368
+uniform 1-100,78,28.652
+uniform 1-100,79,28.712
+uniform 1-100,80,29.178
+uniform 1-100,81,27.24
+uniform 1-100,82,27.356
+uniform 1-100,83,28.06
+uniform 1-100,84,28.172
+uniform 1-100,85,28.72
+uniform 1-100,86,28.012
+uniform 1-100,87,27.582
+uniform 1-100,88,27.716
+uniform 1-100,89,26.718
+uniform 1-100,90,26.49
+uniform 1-100,91,27.84
+uniform 1-100,92,27.806
+uniform 1-100,93,29.528
+uniform 1-100,94,28.888
+uniform 1-100,95,27.158
+uniform 1-100,96,26.872
+uniform 1-100,97,27.552
+uniform 1-100,98,27.282
+uniform 1-100,99,26.258
+uniform 1-100,100,26.716
+uniform 1-100,1,29.468
+uniform 1-100,1,31.294
+uniform 1-100,2,31.148
+uniform 1-100,3,33.848
+uniform 1-100,4,31.536
+uniform 1-100,5,34.65
+uniform 1-100,6,33.4
+uniform 1-100,7,30.136
+uniform 1-100,8,31.598
+uniform 1-100,9,31.426
+uniform 1-100,10,30.188
+uniform 1-100,11,34.402
+uniform 1-100,12,35.426
+uniform 1-100,13,30.81
+uniform 1-100,14,31.154
+uniform 1-100,15,31.96
+uniform 1-100,16,32.35
+uniform 1-100,17,31.512
+uniform 1-100,18,31.012
+uniform 1-100,19,30.19
+uniform 1-100,20,29.374
+uniform 1-100,21,29.668
+uniform 1-100,22,32.95
+uniform 1-100,23,31.08
+uniform 1-100,24,30.378
+uniform 1-100,25,33.776
+uniform 1-100,26,29.63
+uniform 1-100,27,33.476
+uniform 1-100,28,31.648
+uniform 1-100,29,30.89
+uniform 1-100,30,33.54
+uniform 1-100,31,29.718
+uniform 1-100,32,26.96
+uniform 1-100,33,30.762
+uniform 1-100,34,31.16
+uniform 1-100,35,32.862
+uniform 1-100,36,29.86
+uniform 1-100,37,32.288
+uniform 1-100,38,31.182
+uniform 1-100,39,31.596
+uniform 1-100,40,30.896
+uniform 1-100,41,29.588
+uniform 1-100,42,30.896
+uniform 1-100,43,30.232
+uniform 1-100,44,32.132
+uniform 1-100,45,29.068
+uniform 1-100,46,28.164
+uniform 1-100,47,29.526
+uniform 1-100,48,30.988
+uniform 1-100,49,31.448
+uniform 1-100,50,31.912
+uniform 1-100,51,27.408
+uniform 1-100,52,30.614
+uniform 1-100,53,29.51
+uniform 1-100,54,29.15
+uniform 1-100,55,29.998
+uniform 1-100,56,31.166
+uniform 1-100,57,28.804
+uniform 1-100,58,31.202
+uniform 1-100,59,26.912
+uniform 1-100,60,30.396
+uniform 1-100,61,29.446
+uniform 1-100,62,28.006
+uniform 1-100,63,28.082
+uniform 1-100,64,27.982
+uniform 1-100,65,28.534
+uniform 1-100,66,30.352
+uniform 1-100,67,27.458
+uniform 1-100,68,30.6
+uniform 1-100,69,29.724
+uniform 1-100,70,26.776
+uniform 1-100,71,30.564
+uniform 1-100,72,30.88
+uniform 1-100,73,29.934
+uniform 1-100,74,28.482
+uniform 1-100,75,29.22
+uniform 1-100,76,28.222
+uniform 1-100,77,28.2
+uniform 1-100,78,29.414
+uniform 1-100,79,28.158
+uniform 1-100,80,30.484
+uniform 1-100,81,26.954
+uniform 1-100,82,28.694
+uniform 1-100,83,27.774
+uniform 1-100,84,28.168
+uniform 1-100,85,29.118
+uniform 1-100,86,26.502
+uniform 1-100,87,26.566
+uniform 1-100,88,27.024
+uniform 1-100,89,27.552
+uniform 1-100,90,28.712
+uniform 1-100,91,28.232
+uniform 1-100,92,27.686
+uniform 1-100,93,26.96
+uniform 1-100,94,27.328
+uniform 1-100,95,27.912
+uniform 1-100,96,29.826
+uniform 1-100,97,24.508
+uniform 1-100,98,27.99
+uniform 1-100,99,27.256
+uniform 1-100,100,28.974
+scale free,14,25.51
+scale free,12,26.616
+scale free,13,25.626
+scale free,15,25.068
+scale free,14,25.02
+scale free,0,35.162
+scale free,13,25.508
+scale free,1,31.888
+scale free,4,29.956
+scale free,5,29.232
+scale free,0,32.024
+scale free,1,30.716
+scale free,0,29.316
+scale free,1,31.244
+scale free,6,27.392
+scale free,4,31.6
+scale free,6,26.154
+scale free,9,26.286
+scale free,4,25.622
+scale free,1,32.266
+scale free,4,28.786
+scale free,8,28.04
+scale free,6,28.664
+scale free,2,31.51
+scale free,6,28.034
+scale free,0,36.79
+scale free,6,26.544
+scale free,0,32.094
+scale free,4,28.242
+scale free,2,27.266
+scale free,0,32.662
+scale free,4,28.95
+scale free,1,30.68
+scale free,9,27.43
+scale free,1,33.046
+scale free,3,28.716
+scale free,3,27.196
+scale free,4,29.946
+scale free,5,28.904
+scale free,10,27.742
+scale free,3,31.588
+scale free,2,28.746
+scale free,4,28.172
+scale free,3,30.776
+scale free,2,28.376
+scale free,2,28.642
+scale free,2,30.622
+scale free,4,30.028
+scale free,5,29.436
+scale free,3,26.8
+scale free,5,30.32
+scale free,3,30.334
+scale free,3,31.966
+scale free,3,28.482
+scale free,2,29.214
+scale free,5,29.418
+scale free,3,31.724
+scale free,3,27.734
+scale free,3,29.404
+scale free,4,28.644
+scale free,2,31.292
+scale free,3,28.346
+scale free,2,28.394
+scale free,4,28.48
+scale free,5,28.676
+scale free,3,28.302
+scale free,5,28.3
+scale free,4,30.762
+scale free,1,30.342
+scale free,2,29.17
+scale free,4,30.206
+scale free,3,31.082
+scale free,5,28.922
+scale free,2,30.374
+scale free,3,31.27
+scale free,0,31.838
+scale free,4,32.288
+scale free,3,31.862
+scale free,1,30.706
+scale free,3,30.522
+scale free,1,30.236
+scale free,3,31.79
+scale free,2,28.798
+scale free,3,31.258
+scale free,2,30.668
+scale free,2,31.336
+scale free,1,35.222
+scale free,0,31.186
+scale free,3,26.412
+scale free,4,26.886
+scale free,3,30.366
+scale free,2,30.892
+scale free,2,30.708
+scale free,3,29.246
+scale free,2,31.21
+scale free,0,31.764
+scale free,2,31.986
+scale free,2,30.356
+scale free,1,28.476
+scale free,2,34.898
+scale free,17,27.318
+scale free,9,26.604
+scale free,15,25.562
+scale free,32,25.966
+scale free,0,33.032
+scale free,7,26.738
+scale free,2,32.79
+scale free,1,31.808
+scale free,0,31.038
+scale free,9,27.758
+scale free,2,31.88
+scale free,14,28.548
+scale free,8,29.282
+scale free,3,30.938
+scale free,12,27.73
+scale free,3,29.998
+scale free,9,27.782
+scale free,4,30.082
+scale free,5,28.426
+scale free,3,28.984
+scale free,0,33.212
+scale free,3,31.378
+scale free,4,28.754
+scale free,5,30.566
+scale free,4,29.292
+scale free,0,33.786
+scale free,1,29.472
+scale free,9,29.732
+scale free,3,30.026
+scale free,5,29.07
+scale free,0,33.312
+scale free,2,31.084
+scale free,1,33.144
+scale free,3,32.524
+scale free,3,30.908
+scale free,6,29.436
+scale free,1,30.18
+scale free,5,29.654
+scale free,4,30.092
+scale free,3,30.68
+scale free,3,28.218
+scale free,4,30.208
+scale free,1,31.562
+scale free,3,27.21
+scale free,3,30.11
+scale free,4,28.706
+scale free,3,32.196
+scale free,2,32.494
+scale free,4,29.542
+scale free,3,28.692
+scale free,2,29.958
+scale free,2,30.484
+scale free,4,29.622
+scale free,6,30.544
+scale free,0,30.032
+scale free,3,29.446
+scale free,3,28.708
+scale free,0,34.562
+scale free,3,30.538
+scale free,1,28.73
+scale free,5,27.362
+scale free,1,31.246
+scale free,2,31.4
+scale free,2,30.79
+scale free,4,28.646
+scale free,2,33.404
+scale free,2,32.278
+scale free,1,31.838
+scale free,3,32.288
+scale free,1,31.314
+scale free,0,33.76
+scale free,3,32.11
+scale free,2,30.616
+scale free,3,30.608
+scale free,2,28.97
+scale free,2,30.156
+scale free,5,28.93
+scale free,2,29.548
+scale free,2,33.056
+scale free,2,30.398
+scale free,2,30.29
+scale free,0,27.648
+scale free,3,31.048
+scale free,2,29.61
+scale free,5,29.036
+scale free,0,29.974
+scale free,1,32.758
+scale free,1,28.23
+scale free,1,29.202
+scale free,3,31.14
+scale free,2,29.564
+scale free,3,29.266
+scale free,3,29.324
+scale free,3,28.702
+scale free,1,30.51
+scale free,3,29.002
+scale free,3,28.234
+scale free,2,32.212
+scale free,3,26.18
+scale free,2,30.664
+scale free,10,28.192
+scale free,12,26.81
+scale free,21,24.41
+scale free,22,25.568
+scale free,4,30.708
+scale free,2,27.858
+scale free,5,29.508
+scale free,26,26.318
+scale free,12,27.348
+scale free,2,30.994
+scale free,9,26.966
+scale free,12,27.156
+scale free,1,32.464
+scale free,8,26.75
+scale free,1,31.574
+scale free,5,30.428
+scale free,2,33.218
+scale free,1,31.124
+scale free,3,32.082
+scale free,7,29.406
+scale free,1,31.132
+scale free,2,29.882
+scale free,2,29.006
+scale free,1,30.854
+scale free,1,31.538
+scale free,2,31.192
+scale free,6,29.166
+scale free,3,31.97
+scale free,12,28.052
+scale free,3,30.658
+scale free,1,30.14
+scale free,5,29.526
+scale free,1,31.902
+scale free,3,29.48
+scale free,2,31.578
+scale free,5,28.524
+scale free,3,28.05
+scale free,3,30.61
+scale free,5,29.746
+scale free,2,32.274
+scale free,4,30.096
+scale free,1,27.934
+scale free,1,31.78
+scale free,3,31.744
+scale free,1,31.376
+scale free,3,29.468
+scale free,5,26.908
+scale free,9,29.266
+scale free,4,29.962
+scale free,3,29.898
+scale free,2,32.57
+scale free,1,29.7
+scale free,3,29.708
+scale free,2,29.846
+scale free,5,29.462
+scale free,3,29.716
+scale free,1,31.824
+scale free,0,34.308
+scale free,1,28.89
+scale free,3,30.952
+scale free,2,32.442
+scale free,4,30.094
+scale free,1,33.204
+scale free,3,30.006
+scale free,1,30.666
+scale free,1,33.312
+scale free,2,33.758
+scale free,1,32.464
+scale free,1,33.068
+scale free,2,27.748
+scale free,2,31.598
+scale free,3,30.62
+scale free,1,30.14
+scale free,1,30.602
+scale free,3,30.618
+scale free,2,31.1
+scale free,3,30.77
+scale free,2,33.478
+scale free,2,29.966
+scale free,3,28.324
+scale free,2,31.052
+scale free,2,30.502
+scale free,3,30.738
+scale free,2,30.32
+scale free,3,31.196
+scale free,2,28.886
+scale free,2,29.564
+scale free,2,32.008
+scale free,2,29.204
+scale free,3,31.75
+scale free,2,30.3
+scale free,3,31.498
+scale free,4,29.182
+scale free,3,32.156
+scale free,2,29.85
+scale free,2,32.038
+scale free,2,30.408
+scale free,2,33.41
+scale free,4,31.974
+scale free,1,28.876
+scale free,20,24.652
+scale free,31,25.478
+scale free,11,24.448
+scale free,10,26.998
+scale free,14,28.804
+scale free,4,30.418
+scale free,1,30.62
+scale free,10,27.554
+scale free,2,34.546
+scale free,0,32.334
+scale free,5,27.276
+scale free,10,25.828
+scale free,10,28.412
+scale free,2,28.482
+scale free,7,26.552
+scale free,8,25.554
+scale free,0,33.248
+scale free,4,28.39
+scale free,5,30.31
+scale free,0,29.96
+scale free,1,30.514
+scale free,6,28.176
+scale free,8,29.004
+scale free,5,27.53
+scale free,3,29.148
+scale free,8,27.04
+scale free,8,27.374
+scale free,3,30.344
+scale free,2,34.304
+scale free,2,34.192
+scale free,4,27.79
+scale free,4,30.342
+scale free,3,29.572
+scale free,2,31.876
+scale free,3,35.09
+scale free,0,30.92
+scale free,3,29.134
+scale free,4,27.1
+scale free,3,30.556
+scale free,4,28.628
+scale free,4,28.324
+scale free,2,32.29
+scale free,2,32.382
+scale free,4,30.31
+scale free,2,30.854
+scale free,1,30.772
+scale free,4,30.092
+scale free,3,28.938
+scale free,1,30.22
+scale free,2,31.142
+scale free,1,30.98
+scale free,2,30.09
+scale free,4,29.65
+scale free,0,36.658
+scale free,3,32.114
+scale free,0,32.29
+scale free,3,30.844
+scale free,3,27.278
+scale free,5,29.692
+scale free,1,31.114
+scale free,2,32.132
+scale free,4,27.572
+scale free,3,29.922
+scale free,1,33.314
+scale free,3,31.684
+scale free,1,29.386
+scale free,3,30.16
+scale free,4,30.802
+scale free,2,27.64
+scale free,5,29.67
+scale free,3,28.732
+scale free,3,27.118
+scale free,3,30.572
+scale free,1,32.766
+scale free,2,31.404
+scale free,3,33.19
+scale free,1,31.694
+scale free,2,29.158
+scale free,2,27.474
+scale free,3,30.428
+scale free,2,32.194
+scale free,1,31.252
+scale free,3,29.416
+scale free,1,30.3
+scale free,1,34.5
+scale free,4,25.998
+scale free,1,33.49
+scale free,3,32.016
+scale free,2,31.648
+scale free,2,27.184
+scale free,2,25.326
+scale free,3,28.874
+scale free,1,33.394
+scale free,1,29.244
+scale free,2,30.312
+scale free,1,31.426
+scale free,4,29.86
+scale free,1,32.078
+scale free,2,32.87
+scale free,2,31.708
+scale free,5,30.596
+scale free,6,30.108
+scale free,25,26.51
+scale free,14,26.488
+scale free,10,27.148
+scale free,8,27.006
+scale free,7,30.174
+scale free,5,28.156
+scale free,2,28.456
+scale free,12,26.126
+scale free,6,28.47
+scale free,14,25.506
+scale free,10,27.55
+scale free,2,30.36
+scale free,6,29.06
+scale free,5,30.648
+scale free,6,27.382
+scale free,5,28.52
+scale free,3,31.124
+scale free,2,28.592
+scale free,4,28.048
+scale free,6,28.856
+scale free,7,27.214
+scale free,3,26.686
+scale free,1,31.354
+scale free,3,30.804
+scale free,2,30.564
+scale free,1,32.774
+scale free,2,31.194
+scale free,4,30.472
+scale free,4,28.708
+scale free,8,28.942
+scale free,5,28.66
+scale free,6,28.082
+scale free,2,29.922
+scale free,2,30.624
+scale free,2,30.64
+scale free,8,29.992
+scale free,3,30.504
+scale free,3,28.932
+scale free,1,32.696
+scale free,0,32.418
+scale free,3,30.336
+scale free,9,27.11
+scale free,5,31.334
+scale free,1,30.89
+scale free,8,27.554
+scale free,1,27.338
+scale free,1,31.08
+scale free,1,31.972
+scale free,1,31.322
+scale free,4,28.192
+scale free,5,30.172
+scale free,2,28.3
+scale free,2,28.582
+scale free,2,29.634
+scale free,4,30.616
+scale free,6,28.264
+scale free,5,27.872
+scale free,3,29.548
+scale free,0,32.698
+scale free,1,27.898
+scale free,3,28.014
+scale free,2,32.458
+scale free,2,33.314
+scale free,2,30.482
+scale free,0,35.896
+scale free,2,30.5
+scale free,2,30.686
+scale free,4,30.118
+scale free,3,25.596
+scale free,3,31.248
+scale free,2,30.984
+scale free,2,33.408
+scale free,2,34.086
+scale free,3,28.99
+scale free,1,32.63
+scale free,4,29.182
+scale free,1,31.042
+scale free,3,30.376
+scale free,1,28.992
+scale free,2,28.55
+scale free,3,29.466
+scale free,2,29.536
+scale free,1,30.194
+scale free,2,30.428
+scale free,2,30.272
+scale free,2,28.33
+scale free,2,32.462
+scale free,2,30.434
+scale free,0,32.466
+scale free,4,29.694
+scale free,1,27.104
+scale free,3,29.504
+scale free,2,29.224
+scale free,1,30.264
+scale free,2,31.658
+scale free,1,30.646
+scale free,2,30.472
+scale free,2,30.094
+scale free,24,25.626
+scale free,22,25.438
+scale free,15,26.132
+scale free,10,27.534
+scale free,4,30.406
+scale free,6,29.272
+scale free,6,29.826
+scale free,6,27.848
+scale free,1,29.6
+scale free,0,34.218
+scale free,13,27.432
+scale free,2,28.83
+scale free,3,28.334
+scale free,5,28.724
+scale free,3,31.694
+scale free,3,31.826
+scale free,1,30.076
+scale free,12,26.672
+scale free,1,29.866
+scale free,3,30.342
+scale free,5,26.232
+scale free,2,30.496
+scale free,4,28.232
+scale free,1,29.058
+scale free,8,27.414
+scale free,5,27.888
+scale free,5,26.228
+scale free,4,28.332
+scale free,8,27.118
+scale free,5,25.616
+scale free,1,31.06
+scale free,3,30.624
+scale free,4,29.618
+scale free,2,29.632
+scale free,6,29.544
+scale free,2,29.318
+scale free,1,33.698
+scale free,1,32.484
+scale free,3,30.718
+scale free,3,28.782
+scale free,7,27.928
+scale free,5,29.71
+scale free,10,29.23
+scale free,1,28.978
+scale free,1,30.332
+scale free,5,29.212
+scale free,2,28.328
+scale free,8,27.05
+scale free,5,29.432
+scale free,1,32.622
+scale free,0,34.334
+scale free,0,34.92
+scale free,2,32.524
+scale free,0,31.026
+scale free,4,27.872
+scale free,4,28.286
+scale free,2,30.386
+scale free,1,28.08
+scale free,2,28.066
+scale free,2,28.494
+scale free,1,30.148
+scale free,5,29.648
+scale free,0,31.234
+scale free,0,29.468
+scale free,2,30.596
+scale free,3,29.172
+scale free,3,30.932
+scale free,1,31.432
+scale free,3,29.164
+scale free,2,29.594
+scale free,2,28.572
+scale free,1,33.768
+scale free,2,28.5
+scale free,4,30.224
+scale free,1,29.7
+scale free,1,29.848
+scale free,4,31.118
+scale free,1,33.946
+scale free,3,32.098
+scale free,2,29.578
+scale free,2,28.046
+scale free,3,30.476
+scale free,3,28.89
+scale free,2,29.784
+scale free,1,34.314
+scale free,4,28.074
+scale free,2,29.118
+scale free,2,30.978
+scale free,1,29.44
+scale free,2,28.43
+scale free,2,30.916
+scale free,3,28.876
+scale free,2,28.458
+scale free,2,28.026
+scale free,2,29.862
+scale free,3,29.158
+scale free,3,28.764
+scale free,3,28.892
+scale free,1,29.086
+scale free,2,28.896
+scale free,15,25.8
+scale free,17,25.12
+scale free,15,24.992
+scale free,25,24.91
+scale free,2,32.488
+scale free,16,27.552
+scale free,8,29.514
+scale free,6,28.342
+scale free,9,27.482
+scale free,14,26.424
+scale free,6,25.856
+scale free,4,28.978
+scale free,0,28.986
+scale free,2,32.044
+scale free,3,29.114
+scale free,0,30.886
+scale free,0,28.836
+scale free,0,31.242
+scale free,4,27.628
+scale free,5,27.182
+scale free,1,31.6
+scale free,7,28.856
+scale free,0,33.2
+scale free,5,29.384
+scale free,1,31.902
+scale free,1,29.422
+scale free,6,26.482
+scale free,2,29.54
+scale free,1,29.854
+scale free,8,26.438
+scale free,1,32.336
+scale free,4,29.43
+scale free,9,26.922
+scale free,1,31.756
+scale free,4,32.5
+scale free,4,29.918
+scale free,9,26.41
+scale free,5,29.092
+scale free,2,31.534
+scale free,1,31.914
+scale free,0,36.114
+scale free,9,27.002
+scale free,2,30.934
+scale free,3,30.866
+scale free,3,27.468
+scale free,0,32.972
+scale free,6,28.844
+scale free,1,30.252
+scale free,4,28.94
+scale free,2,30.344
+scale free,3,30.288
+scale free,3,30.678
+scale free,2,29.386
+scale free,1,28.886
+scale free,1,31.96
+scale free,5,31.746
+scale free,1,33.588
+scale free,1,28.102
+scale free,2,29.252
+scale free,3,27.592
+scale free,2,30.892
+scale free,3,30.31
+scale free,1,30.918
+scale free,2,27.588
+scale free,2,31.098
+scale free,5,29.45
+scale free,1,30.58
+scale free,1,30.636
+scale free,4,30.818
+scale free,3,29.096
+scale free,3,29.096
+scale free,6,27.604
+scale free,3,31.208
+scale free,4,29.566
+scale free,3,28.646
+scale free,1,30.986
+scale free,4,30.466
+scale free,2,29.7
+scale free,2,32.032
+scale free,4,29.54
+scale free,1,32.792
+scale free,1,34.208
+scale free,3,30.29
+scale free,1,30.266
+scale free,2,29.96
+scale free,3,30.414
+scale free,0,28.114
+scale free,1,32.34
+scale free,3,28.742
+scale free,2,31.114
+scale free,3,27.884
+scale free,3,30.844
+scale free,1,29.906
+scale free,0,33.718
+scale free,2,31.782
+scale free,3,30.096
+scale free,1,32.602
+scale free,3,26.718
+scale free,2,30.59
+scale free,0,30.032
+scale free,20,25.318
+scale free,13,27.416
+scale free,10,27.712
+scale free,20,26.698
+scale free,4,31.512
+scale free,4,30.742
+scale free,4,32.454
+scale free,8,27.622
+scale free,19,25.758
+scale free,11,25.578
+scale free,9,27.32
+scale free,0,35.116
+scale free,12,27.024
+scale free,11,26.17
+scale free,3,30.798
+scale free,2,31.282
+scale free,13,27.386
+scale free,8,26.32
+scale free,2,31.108
+scale free,7,27.77
+scale free,2,31.052
+scale free,2,31.28
+scale free,1,31.826
+scale free,6,28.712
+scale free,5,28.186
+scale free,5,28.614
+scale free,5,26.072
+scale free,1,30.638
+scale free,4,30.218
+scale free,3,30.55
+scale free,3,28.314
+scale free,1,32.13
+scale free,2,31.42
+scale free,3,32.034
+scale free,3,31.148
+scale free,3,30.254
+scale free,3,30.862
+scale free,2,30.492
+scale free,1,32.092
+scale free,4,26.936
+scale free,3,29.194
+scale free,2,30.814
+scale free,0,34.106
+scale free,5,28.698
+scale free,2,30.268
+scale free,9,28.66
+scale free,0,30.196
+scale free,1,34.75
+scale free,5,30.91
+scale free,1,31.446
+scale free,1,34.644
+scale free,4,28.332
+scale free,2,29.956
+scale free,8,26.978
+scale free,3,32.674
+scale free,6,26.376
+scale free,2,29.028
+scale free,2,29.446
+scale free,5,27.174
+scale free,1,32.964
+scale free,0,32.596
+scale free,1,32.998
+scale free,2,29.49
+scale free,1,32.402
+scale free,2,32.68
+scale free,2,27.292
+scale free,3,27.402
+scale free,3,29.538
+scale free,2,33.752
+scale free,2,31.168
+scale free,2,28.428
+scale free,0,34.192
+scale free,1,33.784
+scale free,1,32.722
+scale free,2,28.714
+scale free,1,28.92
+scale free,1,28.302
+scale free,0,33.194
+scale free,1,29.354
+scale free,2,30.194
+scale free,1,34.194
+scale free,3,28.968
+scale free,3,29.25
+scale free,2,30.148
+scale free,1,30.372
+scale free,2,32.972
+scale free,1,31.214
+scale free,1,33.116
+scale free,3,29.432
+scale free,4,29.082
+scale free,2,30.374
+scale free,3,31.614
+scale free,1,31.384
+scale free,2,29.026
+scale free,1,30.456
+scale free,1,29.87
+scale free,1,30.916
+scale free,1,33.286
+scale free,1,30.194
+scale free,3,28.874
+random,2,27.41
+random,9,28.452
+random,2,30.552
+random,9,28.648
+random,9,25.94
+random,5,28.44
+random,6,30.13
+random,6,29.024
+random,3,29.396
+random,4,28.848
+random,4,30.438
+random,2,27.714
+random,4,28.584
+random,4,27.524
+random,7,29.974
+random,5,30.162
+random,2,30.166
+random,6,29.078
+random,3,28.914
+random,2,27.838
+random,5,28.004
+random,3,32.326
+random,11,28.854
+random,8,27.974
+random,2,31.042
+random,3,29.256
+random,8,31.788
+random,7,29.638
+random,6,26.514
+random,6,29.266
+random,6,31.47
+random,3,31.46
+random,6,29.608
+random,4,32.266
+random,4,31.198
+random,5,27.47
+random,3,29.538
+random,1,29.682
+random,1,33.98
+random,4,31.536
+random,3,30.52
+random,3,31.744
+random,8,28.946
+random,7,26.606
+random,4,27.748
+random,8,27.432
+random,7,26.282
+random,2,28.678
+random,2,30.696
+random,8,28.224
+random,5,28.384
+random,8,28.776
+random,3,29.046
+random,4,27.664
+random,3,29.336
+random,1,32.234
+random,6,26.862
+random,3,30.984
+random,6,30.328
+random,7,27.544
+random,5,28.104
+random,6,31.922
+random,5,29.596
+random,6,27.418
+random,1,34.864
+random,9,26.612
+random,6,28.938
+random,9,28.8
+random,2,30.352
+random,4,28.838
+random,2,28.496
+random,2,29.032
+random,5,28.728
+random,6,30.53
+random,5,32.826
+random,7,28.534
+random,10,27.914
+random,3,29.75
+random,4,30.81
+random,11,29.674
+random,8,28.084
+random,5,30.174
+random,4,28.048
+random,5,29.198
+random,5,29.076
+random,4,28.28
+random,5,29.912
+random,4,28.12
+random,6,27.082
+random,7,29.744
+random,7,30.234
+random,4,33.968
+random,2,28.388
+random,5,28.788
+random,5,33.646
+random,2,33.432
+random,6,30.43
+random,6,29.33
+random,6,29.88
+random,6,29.8
+random,5,28.872
+random,5,28.598
+random,2,31.6
+random,3,28.754
+random,5,31.214
+random,5,28.706
+random,5,28.134
+random,3,31.036
+random,4,29.692
+random,5,26.92
+random,5,30.536
+random,4,26.976
+random,1,33.006
+random,7,26.874
+random,4,29.504
+random,3,30.204
+random,2,31.652
+random,14,24.46
+random,4,30.304
+random,3,27.906
+random,5,26.29
+random,3,28.196
+random,7,31.324
+random,3,29.838
+random,5,27.19
+random,2,30.438
+random,9,27.066
+random,6,29.498
+random,2,30.492
+random,2,32.574
+random,4,27.024
+random,7,27.752
+random,3,29.456
+random,6,28.3
+random,5,26.788
+random,3,29.548
+random,3,28.074
+random,5,30.86
+random,4,31.576
+random,5,28.152
+random,4,28.962
+random,6,28.146
+random,6,26.148
+random,6,26.972
+random,0,30.77
+random,3,30.036
+random,4,27.254
+random,4,30.996
+random,5,28.192
+random,3,32.438
+random,6,28.432
+random,2,31.516
+random,6,29.488
+random,3,27.256
+random,3,28.392
+random,4,29.2
+random,5,28.214
+random,5,28.176
+random,12,25.23
+random,2,31.574
+random,4,30.166
+random,4,28.904
+random,5,29.48
+random,5,27.534
+random,5,27.524
+random,10,26.336
+random,5,32.956
+random,4,27.602
+random,3,30.56
+random,3,32.614
+random,5,29.34
+random,5,28.9
+random,4,30.32
+random,6,29.302
+random,3,34.324
+random,3,31.736
+random,3,30.614
+random,1,31.936
+random,4,29.204
+random,2,28.99
+random,6,27.906
+random,9,27.124
+random,11,26.64
+random,5,28.848
+random,5,28.46
+random,4,28.708
+random,7,25.764
+random,8,27.26
+random,3,28.94
+random,7,27.208
+random,5,27.56
+random,4,27.954
+random,9,27.452
+random,3,28.91
+random,6,29.428
+random,7,25.786
+random,3,31.164
+random,4,30.256
+random,7,28.394
+random,4,30.724
+random,7,28.95
+random,4,29.888
+random,4,27.124
+random,5,28.83
+random,6,27.52
+random,5,30.282
+random,5,28.89
+random,4,29.592
+random,4,26.37
+random,3,31.742
+random,8,26.238
+random,5,27.168
+random,9,27.83
+random,4,29.22
+random,4,27.874
+random,3,29.394
+random,4,28.852
+random,4,30.012
+random,2,28.284
+random,5,31.716
+random,3,30.592
+random,4,28.29
+random,3,30.88
+random,8,28.206
+random,2,33.102
+random,3,28.65
+random,5,29.136
+random,5,28.438
+random,5,28.82
+random,6,26.896
+random,5,28.572
+random,7,27.776
+random,6,26.706
+random,6,26.892
+random,5,25.65
+random,6,26.04
+random,4,27.088
+random,7,25.624
+random,12,27.744
+random,10,29.002
+random,6,25.674
+random,7,25.35
+random,5,28.824
+random,1,29.804
+random,4,28.924
+random,6,26.874
+random,2,28.618
+random,7,27.21
+random,6,28.232
+random,6,27.522
+random,3,30.782
+random,3,29.18
+random,5,29.292
+random,6,27.714
+random,6,26.732
+random,6,29.164
+random,5,28.252
+random,11,27.41
+random,4,29.592
+random,7,26.572
+random,5,28.084
+random,5,28.278
+random,5,28.362
+random,2,27.602
+random,6,27.008
+random,5,28.968
+random,3,31.72
+random,6,27.656
+random,2,29.672
+random,4,29.738
+random,2,31.056
+random,7,26.562
+random,7,27.072
+random,6,26.426
+random,4,29.286
+random,2,29.126
+random,7,27.908
+random,7,26.768
+random,4,29.864
+random,2,28.512
+random,4,31.246
+random,9,24.772
+random,4,31.122
+random,5,29.682
+random,6,30.834
+random,4,28.802
+random,2,30.228
+random,6,28.59
+random,6,26.816
+random,3,34.192
+random,4,30.27
+random,7,28.414
+random,9,25.88
+random,6,25.35
+random,9,28.302
+random,2,29.12
+random,5,28.198
+random,7,27.85
+random,1,33.256
+random,2,30.794
+random,5,28.652
+random,4,26.582
+random,5,31.17
+random,3,32.092
+random,10,29.98
+random,9,27.63
+random,4,31.592
+random,5,29.364
+random,5,29.422
+random,3,30.866
+random,4,30.144
+random,4,31.126
+random,7,30.554
+random,3,31.31
+random,6,30.662
+random,3,31.44
+random,3,28.294
+random,4,31.784
+random,4,31.57
+random,5,31.09
+random,7,28.508
+random,10,29.238
+random,6,28.794
+random,6,32.382
+random,4,30.372
+random,2,30.952
+random,2,30.596
+random,7,30.624
+random,2,29.954
+random,11,27.666
+random,6,31.164
+random,6,28.66
+random,7,27.788
+random,7,28.638
+random,7,31.26
+random,4,31.198
+random,6,29.514
+random,3,29.924
+random,2,29.986
+random,8,27.43
+random,4,29.49
+random,6,26.846
+random,8,27.352
+random,2,33.036
+random,3,29.518
+random,1,31.178
+random,5,28.426
+random,2,29.602
+random,3,30.834
+random,5,29.33
+random,2,30.832
+random,3,30.428
+random,7,30.282
+random,2,29.822
+random,3,30.964
+random,7,27.958
+random,9,29.378
+random,5,30.482
+random,6,28.078
+random,4,31.926
+random,5,29.35
+random,6,28.584
+random,2,34.534
+random,2,29.536
+random,10,27.962
+random,4,29.558
+random,5,30.49
+random,5,29.506
+random,6,30.886
+random,6,30.102
+random,2,30.292
+random,7,30.458
+random,5,30.044
+random,6,30.694
+random,2,33.842
+random,7,27.912
+random,5,30.772
+random,0,35.05
+random,4,31.266
+random,5,30.006
+random,7,30.238
+random,4,30.422
+random,7,30.756
+random,4,29.826
+random,3,31.008
+random,5,29.688
+random,2,33.48
+random,4,29.412
+random,5,28.768
+random,4,31.826
+random,6,29.992
+random,2,34.2
+random,5,27.622
+random,4,29.922
+random,3,32.614
+random,7,28.528
+random,2,33.104
+random,5,31.482
+random,4,30.852
+random,4,31.01
+random,4,28.384
+random,4,30.4
+random,2,29.334
+random,5,25.22
+random,4,26.694
+random,1,34.22
+random,5,26.368
+random,3,28.662
+random,1,28.902
+random,3,28.88
+random,9,30.958
+random,7,26.54
+random,6,25.342
+random,4,28.576
+random,1,27.828
+random,4,28.57
+random,1,29.844
+random,4,26.87
+random,7,27.022
+random,5,30.848
+random,8,25.816
+random,5,28.696
+random,5,29.346
+random,6,27.564
+random,5,28.29
+random,3,27.0
+random,9,26.266
+random,7,25.564
+random,1,30.322
+random,5,26.798
+random,7,26.682
+random,6,29.214
+random,5,28.692
+random,6,25.3
+random,4,29.59
+random,8,27.162
+random,3,28.684
+random,5,28.746
+random,4,29.082
+random,2,29.516
+random,5,26.278
+random,5,29.342
+random,1,31.914
+random,3,29.532
+random,4,26.396
+random,3,28.494
+random,4,30.51
+random,8,28.088
+random,7,31.044
+random,5,29.324
+random,6,29.934
+random,2,30.502
+random,7,26.588
+random,3,30.776
+random,3,29.416
+random,2,30.432
+random,2,28.466
+random,7,29.806
+random,3,29.242
+random,3,26.898
+random,6,26.286
+random,6,26.632
+random,3,30.786
+random,6,25.806
+random,3,33.232
+random,3,28.902
+random,3,29.014
+random,2,30.66
+random,4,29.368
+random,6,27.534
+random,1,31.378
+random,5,27.304
+random,7,24.984
+random,3,30.718
+random,3,28.81
+random,6,28.296
+random,8,27.162
+random,4,26.358
+random,4,26.942
+random,6,26.794
+random,2,31.55
+random,6,26.704
+random,3,33.444
+random,4,27.51
+random,6,29.396
+random,3,29.238
+random,3,29.396
+random,9,24.316
+random,2,30.174
+random,6,27.394
+random,3,28.536
+random,3,30.63
+random,8,25.296
+random,9,26.904
+random,3,28.11
+random,6,26.738
+random,6,30.356
+random,2,30.814
+random,8,28.01
+random,0,30.81
+random,9,26.828
+random,9,26.282
+random,3,30.628
+random,8,27.212
+random,4,26.946
+random,8,26.748
+random,8,28.788
+random,4,30.846
+random,2,34.358
+random,5,27.25
+random,6,27.438
+random,7,28.156
+random,4,27.436
+random,13,23.318
+random,4,30.044
+random,6,28.082
+random,5,29.516
+random,7,25.084
+random,3,29.488
+random,4,28.162
+random,5,29.308
+random,2,29.888
+random,2,32.85
+random,3,29.204
+random,5,27.522
+random,3,30.516
+random,6,29.392
+random,4,30.258
+random,6,26.88
+random,6,26.702
+random,4,29.338
+random,1,32.692
+random,6,27.46
+random,6,25.154
+random,11,28.646
+random,8,27.604
+random,4,29.386
+random,9,28.526
+random,7,27.538
+random,5,30.046
+random,4,29.208
+random,2,30.898
+random,6,29.208
+random,5,28.264
+random,2,28.934
+random,5,28.218
+random,5,28.968
+random,3,31.324
+random,7,26.522
+random,2,28.762
+random,10,26.03
+random,5,27.896
+random,7,26.9
+random,5,28.934
+random,8,29.254
+random,3,33.662
+random,4,31.986
+random,7,27.654
+random,5,29.21
+random,3,29.19
+random,4,27.682
+random,3,26.426
+random,3,27.026
+random,5,29.538
+random,3,30.794
+random,10,27.426
+random,4,30.202
+random,5,30.062
+random,5,31.948
+random,9,26.57
+random,5,31.2
+random,5,28.97
+random,4,28.438
+random,4,28.046
+random,11,24.372
+random,4,30.086
+random,8,29.694
+random,8,28.12
+random,7,27.234
+random,10,29.286
+random,4,29.672
+random,7,26.422
+random,5,26.842
+random,3,28.442
+random,7,28.506
+random,11,27.296
+random,3,29.386
+random,6,29.564
+random,6,28.822
+random,4,27.602
+random,4,30.058
+random,8,31.478
+random,4,28.528
+random,2,30.656
+random,4,29.138
+random,3,28.924
+random,6,26.552
+random,4,30.798
+random,5,28.88
+random,7,25.152
+random,8,27.772
+random,3,32.576
+random,5,29.064
+random,1,31.95
+random,3,28.374
+random,7,27.078
+random,7,25.93
+random,3,26.878
+random,3,29.922
+random,7,27.722
+random,4,27.04
+random,5,28.442
+random,4,27.69
+random,8,26.028
+random,9,27.624
+random,5,27.928
+random,7,27.252
+random,3,28.524
+random,4,29.512
+random,8,26.768
+random,6,26.134
+random,5,27.488
+random,2,27.372
+random,8,28.86
+random,5,29.162
+random,4,30.724
+random,3,26.576
+random,6,27.828
+random,6,27.242
+random,5,27.858
+random,3,30.51
+random,3,30.41
+random,6,27.138
+random,6,26.268
+random,3,26.69
+random,7,27.818
+random,4,27.484
+random,6,25.134
+random,4,28.1
+random,3,29.134
+random,10,27.154
+random,9,25.478
+random,6,28.17
+random,9,27.194
+random,4,29.992
+random,3,28.302
+random,6,26.872
+random,7,25.832
+random,2,30.19
+random,3,31.786
+random,6,27.59
+random,4,28.246
+random,6,27.72
+random,3,29.118
+random,5,27.894
+random,6,28.034
+random,6,27.344
+random,6,29.698
+random,5,30.19
+random,5,30.476
+random,3,31.738
+random,7,27.454
+random,8,27.474
+random,4,28.552
+random,4,30.632
+random,5,25.998
+random,5,27.91
+random,6,26.782
+random,7,27.268
+random,1,32.574
+random,7,27.282
+random,9,25.6
+random,4,31.068
+random,6,25.696
+random,2,28.238
+random,5,26.784
+random,6,30.994
+random,3,27.218
+random,5,28.226
+random,7,27.622
+random,3,31.244
+random,4,28.62
+random,8,26.062
+random,5,27.208
+random,2,32.904
+random,4,28.432
+random,4,32.176
+random,7,28.13
+random,7,26.61
+random,3,28.566
+random,5,27.012
+random,5,28.904
+random,5,28.86
+random,4,30.2
+random,5,30.042
+random,4,29.662
+random,3,28.886
+random,3,29.33
+random,0,34.22
+random,1,30.702
+random,1,30.836
+random,5,29.412
+random,2,29.542
+random,7,28.228
+random,2,31.298
+random,4,32.434
+random,10,27.106
+random,3,27.794
+random,6,26.81
+random,7,28.184
+random,9,25.294
+random,7,27.24
+random,7,29.338
+random,8,27.914
+random,7,27.0
+random,4,29.496
+random,3,32.9
+random,4,28.344
+random,2,31.318
+random,3,31.2
+random,9,27.738
+random,4,27.856
+random,6,27.208
+random,6,27.56
+random,7,28.78
+random,4,28.826
+random,3,31.496
+random,7,26.856
+random,5,28.48
+random,8,28.874
+random,6,28.57
+random,7,28.758
+random,3,30.13
+random,2,31.014
+random,3,26.382
+random,4,27.678
+random,9,31.252
+random,4,25.836
+random,3,28.46
+random,4,27.854
+random,5,30.38
+random,8,28.054
+random,4,28.352
+random,8,27.862
+random,5,30.18
+random,8,27.672
+random,2,32.928
+random,4,31.226
+random,3,28.246
+random,8,29.208
+random,5,28.936
+random,5,30.25
+random,5,28.344
+random,4,29.178
+random,2,32.366
+random,5,26.95
+random,4,31.172
+random,4,29.45
+random,3,30.22
+random,2,31.07
+random,6,27.718
+random,3,29.742
+random,9,28.55
+random,1,30.442
+random,8,28.372
+random,5,27.8
+random,6,29.562
+random,5,28.044
+random,8,28.266
+random,5,33.13
+random,3,28.958
+random,8,28.04
+random,6,27.386
+random,5,28.554
+random,6,30.676
+random,2,30.298
+random,3,29.36
+random,5,32.192
+random,7,28.094
+random,5,28.696
+random,6,29.484
+random,9,26.582
+random,7,29.68
+random,3,29.006
+random,2,31.242
+random,5,28.252
+random,2,32.09
+random,4,29.052
+random,7,27.398
+random,3,29.774
+random,5,27.248
+random,7,28.674
+random,5,28.31
+random,8,26.704
+random,8,28.184
+random,5,26.728
+random,4,31.092
+random,1,30.322
+random,6,28.834
+random,5,30.638
