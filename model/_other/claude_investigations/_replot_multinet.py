@@ -63,8 +63,8 @@ xline = np.array([0, 100])
 ax.plot(xline, slope * xline + intercept, "--", color="black", lw=1.6, alpha=0.8,
         label=f"fit through averages (slope ${slope:+.3f}$/in-degree)", zorder=5)
 
-ax.set_xlabel("in-degree (communication intake)")
-ax.set_ylabel("long-run violations (lower = better)")
+ax.set_xlabel("in-degree")
+ax.set_ylabel("long-run violations")
 ax.set_xlim(0, 101)
 ax.legend(frameon=False, loc="upper right", fontsize=8.8)
 fig.tight_layout()
