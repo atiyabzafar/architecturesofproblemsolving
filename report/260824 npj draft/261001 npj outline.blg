@@ -1,0 +1,15 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[5] Config.pm:310> INFO - Logfile is '261001 npj outline.blg'
+[150] biber-MSWIN64:340> INFO - === 
+[527] Biber.pm:419> INFO - Reading '261001 npj outline.bcf'
+[907] Biber.pm:979> INFO - Found 16 citekeys in bib section 0
+[940] Biber.pm:4419> INFO - Processing section 0
+[954] Biber.pm:4610> INFO - Looking for bibtex file 'refs.bib' for section 0
+[1356] bibtex.pm:1713> INFO - LaTeX decoding ...
+[1416] bibtex.pm:1519> INFO - Found BibTeX data source 'refs.bib'
+[1553] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1554] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1556] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[1558] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[1576] bbl.pm:660> INFO - Writing '261001 npj outline.bbl' with encoding 'UTF-8'
+[1598] bbl.pm:763> INFO - Output to 261001 npj outline.bbl

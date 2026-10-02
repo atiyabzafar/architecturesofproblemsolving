@@ -36,11 +36,11 @@ The fundamental challenge faced by any organisation is how to solve problems whe
 \section{Introduction}\label{sec:intro}
 %======================================================================
 
-Problem-solving under uncertainty is a fundamental challenge for any organisation. In practice, individuals solve problems and take decisions under conditions of incomplete knowledge and bounded rationality. Moreover, knowledge is typically scattered across group members and can become outdated while it is being used. A foraging group tracks food patches that appear and disappear, and different engineers in a software firm might specialise in different parts of the code. In each case the members hold different pieces of the problem, pass some of those pieces on, and act on what they have. Who can learn from whom depends on the structure of the organisation, which is sometimes a product of the group's history and sometimes a design choice. This paper investigates how the structure of that network affects the quality of decisions, both for the group as a whole and for its individual members.
+Problem-solving under uncertainty is a fundamental challenge for any organisation. In practice, individuals solve problems and take decisions under conditions of incomplete knowledge and bounded rationality. Moreover, knowledge is typically scattered across group members and can become outdated while it is being used. A foraging group tracks food patches that appear and disappear, and different engineers in a software firm might specialise in different parts of the code. In each case the members hold different pieces of the problem, pass some of those pieces on, and act on what they have. In general, individuals can learn from the environment and from each other. Who can learn from whom depends on the structure of the organisation, whether the product of the group's history or a design choice. This paper investigates how the structure of that network affects the quality of decisions, both for the group as a whole and for its individual members.
 
 Different fields have answered the question differently. Organisation theory treats hierarchy as a response to bounded rationality and to the cost of processing information: concentrating problem-solving in a few well-connected positions reduces the communication a group needs \parencite{simon1962architecture, radner1993organization, bolton1994firm}. Work on collective problem solving in networks finds a trade-off instead. Well-connected groups spread good solutions quickly but may settle on them too early, while sparser groups preserve the variety of partial solutions that a hard problem eventually needs \parencite{lazer2007network, mason2008propagation, fang2010balancing}, and whether the trade-off appears depends on the task and on how members copy one another \parencite{shore2015facts, barkoczi2016social}. Models of opinion dynamics and social learning ask when interaction on a network produces agreement, and when it produces accuracy \parencite{bala1998learning, jackson2011overview, noorazar2020classical}. The two can favour different structures: \textcite{berekmeri2020optimal} find that agreement is highest in egalitarian networks, while accuracy can be highest in hierarchical ones in which a few members specialise in gathering information. 
 
-Recent contributions to this collection push the question beyond pairwise structure, and beyond structure itself. \textcite{hebert2025governance} model governance as a satisfiability problem in which a population must make many interdependent decisions, and represent who deliberates with whom as a hypergraph of overlapping groups; small overlapping groups turn out to deliver coherent decisions at low coordination cost. \textcite{marchpons2026symmetry} show that a group choosing among equally good options can deadlock under pairwise influence alone, and that interactions within larger groups are what break the tie. \textcite{garg2026synergy} argue that structure acts on performance through the way information is processed, and that the balance between local redundancy and long-range synergy predicts group performance better than structure does. Observational work on real teams points the same way: in escape rooms, effective teams coordinate throughout and share participation evenly, and no single arrangement is best for every task \parencite{oszabo2026coordination}. The common thread is that structure matters through the information it moves. We take that idea to its end by holding the amount of information moved fixed, and asking what structure still does.
+Recent contributions to this collection push the question beyond pairwise structure, and beyond structure itself. \textcite{hebert2025governance} model governance as a satisfiability problem in which a population must make many interdependent decisions, and represent who deliberates with whom as a hypergraph of overlapping groups; small overlapping groups turn out to deliver coherent decisions at low coordination cost. \fausto{I need to go back to this paper, see what elements of our model come from that and spell it out more clearly here.} \textcite{marchpons2026symmetry} show that a group choosing among equally good options can deadlock under pairwise influence alone, and that interactions within larger groups are what break the tie. \textcite{garg2026synergy} argue that structure acts on performance through the way information is processed, and that the balance between local redundancy and long-range synergy predicts group performance better than structure does. Observational work on real teams points the same way: in escape rooms, effective teams coordinate throughout and share participation evenly, and no single arrangement is best for every task \parencite{oszabo2026coordination}. The common thread is that structure matters through the information it moves. We take that idea to its end by holding the amount of information moved fixed, and asking what structure still does.
 
 In our model, agents face a hidden set of logical constraints on $K$ binary choices, which determine which combinations of choices are feasible, and every agent choose a full combination. Agents learn about the constraints through testing and communication. They test whether candidate constraints hold and re-test their existing beliefs, remembering when a previously believed constraint is found to be false. They also receive beliefs from their neighbours: each neighbour shares its most recently updated belief that the receiving agent either lacks or disagrees with. When an agent acquires a positive belief about a constraint, it adjusts its choices to reduce violations of the constraints it currently believes hold. The environment changes over time as constraints are retired and replaced, so previously correct beliefs can become outdated and spread through communication.
 
@@ -53,15 +53,16 @@ We find that structure changes neither how fast a population adapts nor, to a fi
 
 We study how a fixed communication network conditions the rate and quality of individual problem solving when
 agents face an unknown and evolving set of Boolean constraints. Each agent holds a personal assignment over
-$K$ binary variables which are interdependent by means of operators \textsc{and} or \textsc{xor} (the ‘clauses’ or ‘constraints’).
+$K$ binary variables (the `policy variables') which are interdependent by means of operators \textsc{and} or \textsc{xor} (the `clauses' or `constraints').
 The agent gradually learns constraints through two channels: private testing, whether a new random clause or one that is already within their knowledge set, and elicitation from neighbors. Knowledge exists either \textit{positively}, in terms of a certain costraint existing, or \textit{negatively}, in terms of a constraint \textit{not} existing, and either type of belief can reflect the true environment or be false information. Upon learning about the existence of a clause, the agent performs strictly improving local flips on variables appearing in that clause,
 using only the clauses it currently knows. We compare
 different network topologies and parameter values in terms of how well agents perform in terms of:
 \begin{itemize}
+  \item Knowledge accuracy: the extent to which agents' store of beliefs is a truthful representation of the environment and how that changes over time;
     \item Problem solving: the number of logical constraints agents' individual solutions violate; and
     \item Homogeneity: the variety between individual agents' opinion vector.
 \end{itemize}
-\todo{todo: doublecheck it's still interesting to look at homogeneity. If so maybe we should comment it and interpret it better.}
+
 
 \subsection{Entities and state}
 
@@ -128,7 +129,7 @@ An agent's knowledge base is capped, so if it is full and the agent adds one if 
 
 
 \subsection{Environmental change}
-\fausto{Set tao as a default to 1 to have one parameter less to think about (and because at teo = 1 the model works best)}
+\fausto{Set tao as a default to 1 to have one parameter less to think about (and because at $\tau$ = 1 the model works best)}
 After every agent has acted, one clause is randomly regenerated. In each period, one slot of $\mathcal{C}$, chosen uniformly, is overwritten by a fresh clause drawn. %Therefore, a given slot is hit with probability $1/M$ at each replacement, so a clause stays in $\mathcal{C}$ for $M\tau$ periods on average (60 at the default), and the whole set turns over on that time scale.
 
 Note that retirement does not reach into agents' knowledge bases. Everyone who believed the retired clause now holds a stale belief, and keeps acting on it until a test or a message corrects it. The fresh clause can coincide with one retired earlier. When it does, stale beliefs about it become correct again, and negative beliefs about it become wrong. All statistics are computed after the replacement.
@@ -182,7 +183,7 @@ For position effects we compute, in each run, the Spearman correlation between i
 Symbol & Meaning & Value \\
 \midrule
 $N$ & agents & 100 \\
-$K$ & binary variables & 30 \\
+$K$ & binary policy variables & 30 \\
 $\alpha$ & clause density & 2 \\
 $M = \alpha K$ & clauses in $\mathcal{C}$ & 60 \\
 $|\mathcal{U}| = K(K-1)$ & possible clauses & 870 \\
@@ -193,7 +194,7 @@ $s = 1/\langle k\rangle$ & link firing probability & set by the network \\
  & redraws when testing a new clause & up to 10 \\
 $T$ & periods per run & 2000 \\
  & long-run averaging window & last 500 periods \\
- %& shock: period and share of $\mathcal{C}$ replaced & 1500, all 60 slots \\
+ & shock: period and share of $\mathcal{C}$ replaced & 1500, all 60 slots \\
  & seeds per network and experiment & 40 \\
 \bottomrule
 \end{tabular}
@@ -372,13 +373,7 @@ The authors thank the faculty of the Complexity Global School 2025 organized by 
 
 \subsection*{Supplementary Note 1: full theory derivations}
 
-\todo{AZ, JGR, FG. Planned contents below; most of the material exists in the August 2026 audit notes, derived and validated at $\tau = 10$.}
 
-The note will start from a degree-resolved compartment model. Each agent's store is split into live positive beliefs $T_k$, stale positive beliefs $S_k$ and negative beliefs $N_k$, with wrong negatives $W_k$ tracked as a subset of $N_k$, all as fractions of $M$. Communication is split into additions, which use a memory slot, and sign flips, which do not; only additions can force an eviction. Adding the equations shows that the store grows only through discovery and additions and shrinks only through eviction, which gives a check on the bookkeeping.
-
-The second part is the age-structured model of what happens after a retirement. For a clause retired $a$ periods ago, $h(a)$ is the share of agents still believing it and $n(a)$ the share disbelieving it, starting from $h(0) = T$ and $n(0) = 0$. Testing moves agents from $h$ to $n$ at rate $\theta = 1/(2\bar B M)$; communication moves them both ways, and the recency rule sets the net direction through $\kappa$. Summing over cohorts gives $S$ and the dead-clause part of $N$. Fig.~\ref{fig:stale}b is the measured form of $h(a)$ and $n(a)$ at $\tau = 1$.
-
-The third part covers the repair step: the derivation of the acceptance rules and of the factor $2/K$, the closure for $\Pr(Z \gtrless 0)$, and its known errors. The fourth compares every flow in the model with instrumented simulations. \todo{redo the validation at $\tau = 1$}
 
 \subsection*{Supplementary Note 2: the same analysis on standard networks}
 \setcounter{figure}{0}\renewcommand{\thefigure}{S\arabic{figure}}
