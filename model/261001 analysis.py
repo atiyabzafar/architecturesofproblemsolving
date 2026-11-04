@@ -138,9 +138,9 @@ KIN4 = power_law_sequence(N, 4, beta=0.65, kmax=40)
 KIN12 = scaled_sequence(KIN4, 3, kmax=N - 1)
 
 MAIN = {
-    "even":   dict(label="Even (in-degree 4 for all)",          kind="ideal", kin=np.full(N, 4), out="same"),
-    "uneven": dict(label="Uneven (heavy tail, mean 4)",          kind="ideal", kin=KIN4,  out="shuffled"),
-    "dense":  dict(label="Uneven, dense (same shape, mean 12)",  kind="ideal", kin=KIN12, out="shuffled"),
+    "even":   dict(label="Regular (in-degree 4 for all)",          kind="ideal", kin=np.full(N, 4), out="same"),
+    "uneven": dict(label="Scale Free (heavy tail, mean 4)",          kind="ideal", kin=KIN4,  out="shuffled"),
+    "dense":  dict(label="Scale Free, dense (same shape, mean 12)",  kind="ideal", kin=KIN12, out="shuffled"),
 }
 APPENDIX = {
     "random":     dict(label="Random (Erdos-Renyi)",   kind="gen", gen=dict(type_network="Random", connect_prob=0.04)),
@@ -153,7 +153,7 @@ APPENDIX = {
 SPECS = {**MAIN, **APPENDIX}
 COLORS = {"even": "#7f7f7f", "uneven": "#1f77b4", "dense": "#9467bd",
           "random": "#c9a227", "smallworld": "#17becf", "scalefree": "#e377c2", "layered": "#8c564b"}
-SHORT = {"even": "Even", "uneven": "Uneven", "dense": "Uneven, dense",
+SHORT = {"even": "Regular", "uneven": "Scale Free", "dense": "Scale Free, dense",
          "random": "Random", "smallworld": "Small world", "scalefree": "Scale free", "layered": "Layered"}
 
 
@@ -495,6 +495,7 @@ def fig_misinformation(plt, ts, names, stem):
 
 def fig_longrun(plt, ts, names, stem):
     fig, axes = plt.subplots(1, 3, figsize=(2.2 * len(names) + 4.5, 3.6))
+    #V=[]
     for ax, q, title in zip(axes, ("avgV", "minV", "hom"),
                             ("Average violations", "Best-agent violations", "Homogeneity")):
         for x, name in enumerate(names):
@@ -504,6 +505,11 @@ def fig_longrun(plt, ts, names, stem):
         ax.set_xticklabels([SHORT[n] for n in names], rotation=20, ha="right")
         ax.set_xlim(-0.6, len(names) - 0.4)
         ax.set_title(title)
+    #lowlims=[axes[0].get_ylim()[0],axes[1].get_ylim()[0]]
+    #highlims=[axes[0].get_ylim()[1],axes[1].get_ylim()[1]]
+    #axes[0].set_ylim(np.min(lowlims),np.max(highlims))
+    #axes[1].set_ylim(np.min(lowlims),np.max(highlims))
+    #axes[2].set_ylim(0.5,0.8)
     axes[0].set_ylabel("long-run mean, 95% interval over seeds")
     fig.tight_layout()
     save(fig, stem)
