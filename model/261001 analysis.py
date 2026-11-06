@@ -493,24 +493,29 @@ def fig_misinformation(plt, ts, names, stem):
     plt.close(fig)
 
 
-def fig_longrun(plt, ts, names, stem):
-    fig, axes = plt.subplots(1, 3, figsize=(2.2 * len(names) + 4.5, 3.6))
-    #V=[]
-    for ax, q, title in zip(axes, ("avgV", "minV", "hom"),
-                            ("Average violations", "Best-agent violations", "Homogeneity")):
+def fig_longrun(plt, ts, names, stem, vlim=(10, 30.5)):
+    """Long-run means by network, 95% intervals over seeds. (a) Average
+    (filled) and best-agent (open) violations on one scale, so the gap between
+    networks reads against the gap between the average and the best agent.
+    (b) Homogeneity."""
+    fig, axes = plt.subplots(1, 2, figsize=(1.6 * len(names) + 4.4, 3.8))
+    for ax, marks in zip(axes, ((("avgV", True), ("minV", False)), (("hom", True),))):
         for x, name in enumerate(names):
-            vals = series(ts, name, "longrun", q)[:, -WINDOW:].mean(1)
-            ax.errorbar(x, vals.mean(), yerr=Z95 * se(vals), fmt="o", color=COLORS[name], capsize=4, ms=7)
+            for q, filled in marks:
+                vals = series(ts, name, "longrun", q)[:, -WINDOW:].mean(1)
+                ax.errorbar(x, vals.mean(), yerr=Z95 * se(vals), fmt="o", color=COLORS[name],
+                            mfc=COLORS[name] if filled else "white", mew=1.6, capsize=4, ms=7)
         ax.set_xticks(range(len(names)))
-        ax.set_xticklabels([SHORT[n] for n in names], rotation=20, ha="right")
+        ax.set_xticklabels([SHORT[n] for n in names])
         ax.set_xlim(-0.6, len(names) - 0.4)
-        ax.set_title(title)
-    #lowlims=[axes[0].get_ylim()[0],axes[1].get_ylim()[0]]
-    #highlims=[axes[0].get_ylim()[1],axes[1].get_ylim()[1]]
-    #axes[0].set_ylim(np.min(lowlims),np.max(highlims))
-    #axes[1].set_ylim(np.min(lowlims),np.max(highlims))
-    #axes[2].set_ylim(0.5,0.8)
-    axes[0].set_ylabel("long-run mean, 95% interval over seeds")
+    ax = axes[0]
+    ax.set_ylim(*vlim); ax.yaxis.set_major_locator(plt.MultipleLocator(5))
+    ax.set_title("(a) Average and best-agent violations"); ax.set_ylabel("long-run violations")
+    key = dict(ls="none", marker="o", ms=7, mew=1.6, color="k")
+    ax.legend([plt.Line2D([], [], mfc="k", **key), plt.Line2D([], [], mfc="white", **key)],
+              ["average", "best agent"], loc="center", bbox_to_anchor=(0.5, 12.5), bbox_transform=ax.transData,
+              frameon=False)                    # low, in the empty cell between the first two networks
+    axes[1].set_title("(b) Homogeneity"); axes[1].set_ylabel("long-run homogeneity")
     fig.tight_layout()
     save(fig, stem)
     plt.close(fig)
