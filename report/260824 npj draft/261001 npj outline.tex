@@ -1,0 +1,511 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper, total={170mm,257mm}, left=20mm, top=20mm]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage[style=authoryear, backend=biber, maxcitenames=2]{biblatex}
+\DeclareDelimFormat{nameyeardelim}{\addcomma\space}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\newcommand{\atiyab}[1]{\textcolor{teal}{\textbf{[Atiyab: #1]}}}
+\newcommand{\fausto}[1]{\textcolor{blue}{\textbf{[Fausto: #1]}}}
+\newcommand{\juan}[1]{\textcolor{purple}{\textbf{[Juan: #1]}}}
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{[#1]}}}
+
+\addbibresource{refs.bib}
+
+% Alternative title that states the finding (10 words, no punctuation):
+% How network structure allocates performance in collective problem solving
+\title{The impact of network structure on distributed problem solving}
+\author{Fausto Gernone \and Atiyab Zafar \and Juan G.\ Restrepo}
+\date{Draft, 1 October 2026\\ \small for npj Complexity, collection ``Decision-making in Structured Groups''}
+
+\begin{document}
+\maketitle
+
+
+\begin{abstract}
+The fundamental challenge faced by any organisation is how to solve problems when knowledge is imperfect and dispersed across members. We study a model where agents on a directed communication network face the same constraint-satisfaction problem, whose constraints are replaced over time. They learn by testing constraints and exchanging beliefs with their neighbours. The communication rate is normalised so that the average agent receives one message per period. Structure does not change how fast a population adapts: after a shock that replaces every constraint, all networks recover at the same pace. In the long run, average performance is almost unrelated to network structure, while individual performance within a network rises with in-degree along a single curve that all topologies share. Communication structure therefore has little effect on how well an organisation performs on average, but it allocates relative performance. A mean-field argument accounts for these regularities.
+\end{abstract}
+
+
+%======================================================================
+\section{Introduction}\label{sec:intro}
+%======================================================================
+
+Problem-solving under uncertainty is a fundamental challenge for any organisation. In practice, individuals solve problems and take decisions under conditions of incomplete knowledge and bounded rationality. Moreover, knowledge is typically scattered across group members and can become outdated while it is being used. A foraging group tracks food patches that appear and disappear, and different engineers in a software firm might specialise in different parts of the code. In each case the members hold different pieces of the problem, pass some of those pieces on, and act on what they have. In general, individuals can learn from the environment and from each other. Who can learn from whom depends on the structure of the organisation, whether the product of the group's history or a design choice. This paper investigates how the structure of that network affects the quality of decisions, both for the group as a whole and for its individual members.
+
+Different fields have answered the question differently. Organisation theory treats hierarchy as a response to bounded rationality and to the cost of processing information: concentrating problem-solving in a few well-connected positions reduces the communication a group needs \parencite{simon1962architecture, radner1993organization, bolton1994firm}. Work on collective problem solving in networks finds a trade-off instead. Well-connected groups spread good solutions quickly but may settle on them too early, while sparser groups preserve the variety of partial solutions that a hard problem eventually needs \parencite{lazer2007network, mason2008propagation, fang2010balancing}, and whether the trade-off appears depends on the task and on how members copy one another \parencite{shore2015facts, barkoczi2016social}. Models of opinion dynamics and social learning ask when interaction on a network produces agreement, and when it produces accuracy \parencite{bala1998learning, jackson2011overview, noorazar2020classical}. The two can favour different structures: \textcite{berekmeri2020optimal} find that agreement is highest in egalitarian networks, while accuracy can be highest in hierarchical ones in which a few members specialise in gathering information. 
+
+Recent contributions to this collection push the question beyond pairwise structure, and beyond structure itself. \textcite{hebert2025governance} model governance as a satisfiability problem in which a population must make many interdependent decisions, and represent who deliberates with whom as a hypergraph of overlapping groups; small overlapping groups turn out to deliver coherent decisions at low coordination cost. \fausto{I need to go back to this paper, see what elements of our model come from that and spell it out more clearly here.} \textcite{marchpons2026symmetry} show that a group choosing among equally good options can deadlock under pairwise influence alone, and that interactions within larger groups are what break the tie. \textcite{garg2026synergy} argue that structure acts on performance through the way information is processed, and that the balance between local redundancy and long-range synergy predicts group performance better than structure does. Observational work on real teams points the same way: in escape rooms, effective teams coordinate throughout and share participation evenly, and no single arrangement is best for every task \parencite{oszabo2026coordination}. The common thread is that structure matters through the information it moves. We take that idea to its end by holding the amount of information moved fixed, and asking what structure still does.
+
+In our model, agents face a hidden set of logical constraints on $K$ binary choices, which determine which combinations of choices are feasible, and every agent choose a full combination. Agents learn about the constraints through testing and communication. They test whether candidate constraints hold and re-test their existing beliefs, remembering when a previously believed constraint is found to be false. They also receive beliefs from their neighbours: each neighbour shares its most recently updated belief that the receiving agent either lacks or disagrees with. When an agent acquires a positive belief about a constraint, it adjusts its choices to reduce violations of the constraints it currently believes hold. The environment changes over time as constraints are retired and replaced, so previously correct beliefs can become outdated and spread through communication.
+
+We find that structure changes neither how fast a population adapts nor, to a first approximation, how well it performs on average. After a shock that replaces every constraint at once, all networks recover at the same pace. In the long run, average performance is almost invariant across networks that differ in the spread of in-degree and in density: it is one violation in thirty better where every agent hears from the same number of others than where a few hubs concentrate communication, and density makes no difference. Unlike average performance, relative peformance varies widely and position within a network matters a great deal. An agent's long-run performance improves with the number of others it hears from, and at a given intake it is the same in every network: the relation is a single curve. What structure decides is which points on that curve are occupied. In the heavy-tailed networks the eight best-connected agents outperform the eight least-connected by about five violations, and the best performer sits at the 99th percentile of in-degree. The reason is simple once intake is written down. Normalisation fixes each network's mean intake at one message per period, so structure can move average performance only through the spread of intake around that mean, which is a second-order effect, while it moves the spread of performance directly. Centralisation therefore leaves the group average almost unchanged, and gives a designer the choice of who its best-informed members will be.
+
+
+%======================================================================
+\section{Methods}\label{sec:methods}
+%======================================================================
+
+We study how a fixed communication network conditions the rate and quality of individual problem solving when
+agents face an unknown and evolving set of Boolean constraints. Each agent holds a personal assignment over
+$K$ binary variables (the `policy variables') which are interdependent by means of operators \textsc{and} or \textsc{xor} (the `clauses' or `constraints').
+The agent gradually learns constraints through two channels: private testing, whether a new random clause or one that is already within their knowledge set, and elicitation from neighbors. Knowledge exists either \textit{positively}, in terms of a certain costraint existing, or \textit{negatively}, in terms of a constraint \textit{not} existing, and either type of belief can reflect the true environment or be false information. Upon learning about the existence of a clause, the agent performs strictly improving local flips on variables appearing in that clause,
+using only the clauses it currently knows. We compare
+different network topologies and parameter values in terms of how well agents perform in terms of:
+\begin{itemize}
+  \item Knowledge accuracy: the extent to which agents' store of beliefs is a truthful representation of the environment and how that changes over time;
+    \item Problem solving: the number of logical constraints agents' individual solutions violate; and
+    \item Homogeneity: the variety between individual agents' opinion vector.
+\end{itemize}
+
+
+\subsection{Entities and state}
+
+\paragraph{Agents and network.}
+There are \(N\) agents \(i=1,\dots,N\) located on a fixed directed network with weighted ties. Agents sit on the nodes of a fixed directed graph $G$. An edge $j \to i$ means that agent $i$ can receive information from agent $j$. We call $j$ an in-neighbour of $i$, write $k_i$ for the in-degree of $i$, and write $\langle k\rangle$ for the mean in-degree, which equals the mean out-degree.
+
+\paragraph{Decision variables.} Each agent holds a private assignment $x^{(i)} \in \{0,1\}^K$. Agents never exchange assignments. What they exchange are beliefs about the constraints.
+
+\paragraph{Unversal constraints.} The environment scores assignments against a universal set $\mathcal{C}$ of $M = \alpha K$ clauses. $\alpha$ is a real number determining the density of clauses per decision variable. Each clause involves two distinct variables and one of two operators. An \textsc{and} clause on $(x_a, x_b)$ is satisfied when $x_a = x_b = 1$; an \textsc{xor} clause is satisfied when exactly one of the two equals 1. %The universe $\mathcal{U}$ of \textit{possible} clauses therefore has $2\binom{K}{2} = K(K-1)$ elements, 870 at $K = 30$. Clauses enter $\mathcal{C}$ as independent draws from $\mathcal{U}$, so $\mathcal{C}$ is a multiset: at $M = 60$ a given slot coincides with another one in about 7\% of cases. FG: to ungreen only if this is helpful
+
+
+\paragraph{Beliefs.} Agent $i$ holds a knowledge base $\mathcal{B}_i \subseteq \mathcal{U}$ of signed beliefs. A positive belief, $\sigma_i(c) = +1$, says that clause $c$ is currently a constraint. A negative belief, $\sigma_i(c) = -1$, says that it is not. The knowledge base is kept in recency order, from the belief touched longest ago to the one touched most recently, where a belief counts as touched when it is adopted, tested or received. We cap the size of the knowledge base at a maximum $2M$ beliefs. When an addition takes it over that limit, the least recently touched belief is evicted, whatever its sign.
+
+%Beliefs can reflect the true state of the envornment or can be \emph{stale}. A positive belief about a clause that is no longer in $\mathcal{C}$ is stale. Stale beliefs are the model's misinformation. To the agent holding one, it looks exactly like knowledge.
+
+\paragraph{Performance.} Agent $i$'s violation count $V_i$ is the number of slots of $\mathcal{C}$ that $x^{(i)}$ violates; lower is better. We track the population average $\bar V$ and the best agent's count $V_{\min}$. Homogeneity,
+\[
+H = \frac{1}{K} \sum_{j=1}^{K} \frac{\max(n_j,\, N-n_j)}{N},
+\]
+where $n_j$ is the number of agents with $x_j = 1$, measures how far agents agree on each variable, and runs from $1/2$ to 1. Agents never observe $\mathcal{C}$ or their own $V_i$. They see only the outcomes of their own tests and the beliefs their neighbours send them.
+
+\subsection{Initialisation}
+The initial state is consistent with the objects defined above.
+
+\begin{enumerate}
+  \item \textbf{Constraint set.} The $M$ clauses of $\mathcal{C}$ are drawn independently: first the operator, each with probability $1/2$, then a pair of distinct variables uniformly at random.
+  \item \textbf{Beliefs.} At baseline, agents' knowledge base is empty.
+  \item \textbf{Assignments.} Draw assignments at random, one  fair coin per variable.
+  \item \textbf{Communication network.} As described below.
+\end{enumerate}
+
+
+
+\subsection{Per-period agents' dynamics}
+
+Time runs in discrete periods. In each period the agents act one at a time, in an order reshuffled every period, and the environment changes once they have all acted. Updating is asynchronous, so an agent that acts late in a period can receive a belief that another agent acquired earlier in the same period.\fausto{why are we doing this asynchronously? Does it matter? need to look into it.} Tests are scored against $\mathcal{C}$ as it stands at the start of the period. Each agent's turn has four steps.
+
+\paragraph{Step 1. Test.} With probability $1/2$ the agent tests a new clause. It draws a candidate uniformly from the universe of possible clauses $\mathcal{U}$ and, if it already holds a belief about the candidate, draws again. If the final candidate belongs to the existing set of clauses $\mathcal{C}$, the agent adopts it as a positive belief. Otherwise the candidate is discarded without a record.
+
+With probability $1/2$ the agent instead re-tests one of its beliefs, chosen uniformly from $\mathcal{B}_i$ whatever its sign, and sets it to the truth. A positive belief whose clause has left $\mathcal{C}$ becomes negative: the clause is falsified, and the agent remembers that it is. A negative belief whose clause is back in $\mathcal{C}$ becomes positive. A correct belief is confirmed. In each case the tested belief moves to the most recent end of the knowledge base.
+
+\paragraph{Step 2. Local greedy update around the observed positive belief.} If the test produced a positive belief, the agent revises its assignment around that clause. It takes the two assigments related to that clause and tries flipping them at random. If by flipping any one of them the number of violated beliefs is reduced, then the new assignment is retained. Falsifying a belief triggers no repair. 
+
+\paragraph{Step 3. Communicate.} The agent then goes through its in-neighbours. Each link from in-neighbour $j$ fires with fixed probability $s$. When it fires, $j$ sends a single belief: among the beliefs on which the two agents disagree, meaning those that $j$ holds and $i$ either lacks or holds with the opposite sign, it is the one $j$ touched most recently. Agent $i$ adopts $j$'s sign for that clause, adding the belief or overwriting its own, and the belief moves to the most recent end of $i$'s store. If $i$ already agrees with everything $j$ holds, nothing is sent. Sending leaves the sender unchanged. Messages carry beliefs and not the truth, so a stale positive travels as easily as a correct negative, and only tests check beliefs against the world.
+
+Communication is normalised across networks. Each link fires independently
+with probability $s = 1/\langle k\rangle$ per period, where $\langle k\rangle$
+is the agents' average degree. Communication is normalised so that, on average, one message per agent is attempted in each period on every network,
+whatever its structure or density. The distribution of amount of communication, however, is determined by the network structure. Each firing link delivers one belief to its target, so
+agent $i$ expects to receive
+\begin{equation}\label{eq:intake}
+\lambda_i = s\,k_i = \frac{k_i}{\langle k\rangle}
+\end{equation}
+messages per period, in proportion to its in-degree. We
+call $\lambda_i$ the agent's intake. Its population average is exactly 1 by
+construction, while its spread across agents is the spread of in-degree
+relative to the mean. Note that in practice fewer than $\lambda_i$ beliefs actually arrive,
+because a link can fire when the two agents already agree on everything the
+sender holds.
+
+\paragraph{Step 4. Local greedy update around the received positive belief.} Whenever a received belief is positive and is new to $i$, the agent optimizes around it as in step 2. Optimization happen as beliefs arrive, so an agent with several firing links can do so several times in one period.
+
+An agent's knowledge base is capped, so if it is full and the agent adds one if steps 1 and 3 lead to a learning instance, then the oldest belief (i.e., the one an agent hasn't tested or heard about for the longest time) is evicted.
+
+
+\subsection{Environmental change}
+\fausto{Set tao as a default to 1 to have one parameter less to think about (and because at $\tau$ = 1 the model works best)}
+After every agent has acted, one clause is randomly regenerated. In each period, one slot of $\mathcal{C}$, chosen uniformly, is overwritten by a fresh clause drawn. %Therefore, a given slot is hit with probability $1/M$ at each replacement, so a clause stays in $\mathcal{C}$ for $M\tau$ periods on average (60 at the default), and the whole set turns over on that time scale.
+
+Note that retirement does not reach into agents' knowledge bases. Everyone who believed the retired clause now holds a stale belief, and keeps acting on it until a test or a message corrects it. The fresh clause can coincide with one retired earlier. When it does, stale beliefs about it become correct again, and negative beliefs about it become wrong. All statistics are computed after the replacement.
+
+\subsection{Networks}\label{sec:networks}
+
+Because the communication rate is normalised, a network can act on the model only through the distribution of intake $\lambda_i = k_i/\langle k\rangle$ across its agents and through how the agents who receive much relate to those who send much. We therefore compare networks built to differ in the distribution of intake, one property at a time, and use the same selection in every analysis. All networks have $N = 100$ agents; one realisation of each is shown in Fig.~\ref{fig:networks}, and Table~\ref{tab:networks} gives their statistics.
+
+We use three networks. \emph{Even}: every agent has in-degree 4 and out-degree 4, so no positional differences exist. \emph{Uneven}: in-degrees follow a fixed heavy-tailed sequence with mean 4, $k_r = \lfloor c\, r^{-0.65} \rfloor$ for the agent of rank $r$, floored at 1 and adjusted to sum to 400; the top five values are 37, 23, 18, 15 and 13, and ten agents have in-degree 1. Out-degrees are a random permutation of the same sequence, so in- and out-degree are unrelated. \emph{Uneven, dense}: the uneven sequence multiplied by three (mean 12, capped at 99), with out-degrees a random permutation, which checks density with the shape of the distribution held fixed. Each graph is a directed Havel--Hakimi realisation of its degree sequences, randomised by ten times as many degree-preserving three-edge swaps as it has edges and redrawn until every agent can be reached from every other, with node labels shuffled; the seed sets the wiring.
+
+Supplementary Note 2 repeats the whole analysis on four standard network generators: random, small world, scale free and layered.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\linewidth]{"figs/261001 fig_networks.pdf"}
+\caption{The three networks, one realisation each. Top: in-degree distributions. Bottom: each agent's out-degree against its in-degree.}
+\label{fig:networks}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Structural statistics of the networks, means over forty realisations. Clustering is the average clustering of the undirected version.}
+\label{tab:networks}
+\small
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Network & $\langle k\rangle$ & sd $k_{\mathrm{in}}$ & max $k_{\mathrm{in}}$ & $\mathrm{Var}(k)/\langle k\rangle^2$ & corr($k_{\mathrm{in}},k_{\mathrm{out}}$) & clustering \\
+\midrule
+Even          & 4.0  & 0.0  & 4  & 0.00 & --      & 0.06 \\
+Uneven        & 4.0  & 4.8  & 37 & 1.44 & $-0.01$ & 0.21 \\
+Uneven, dense & 12.0 & 13.8 & 99 & 1.33 & $-0.01$ & 0.56 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Simulation protocol and statistics}
+
+Table~\ref{tab:params} lists the default values used in our results. Each seed draws a new wiring, new initial assignments and a new $\mathcal{C}$. Every network is run with forty seeds. Two experiments are run for each network and seed. In the \emph{long-run} experiment the model runs for $T = 2000$ periods, and long-run statistics are time averages over the last 500; an agent's long-run violation count is its mean over that window. In the shock experiment the same seed runs identically to period 1500, at which point every slot of $\mathcal{C}$ is overwritten by a fresh draw, so that all held knowledge becomes stale at once; the run then continues to period 2500 with the usual drift.
+
+For the misinformation dynamics we record, each period, the share of positive beliefs across the population whose clause is no longer in $\mathcal{C}$, and we follow each clause retired between periods 1500 and 1700 for 300 periods, recording the share of agents that still believe it and the share that disbelieve it. After the shock we follow each of the 60 new clauses while it remains in $\mathcal{C}$, recording the share of agents that hold it, and each retired clause, recording believers and disbelievers.
+
+For position effects we compute, in each run, the Spearman correlation between in-degree and long-run violations (tied ranks averaged), the gap in mean long-run violations between the eight agents with the highest in-degree and the eight with the lowest, and the in-degree percentile of the best-performing agent (mid-rank for ties). Pooled curves bin agents by in-degree, or by intake on a logarithmic scale, and drop bins with fewer than five agents. All uncertainties we report treat the run as the unit of observation, because the agents of one run share one environment. For the second-order check of Section~\ref{sec:longrun} the intake curve is fitted by least squares on all agents of the main set with at least one in-link as $V = a + b\ln\lambda + c(\ln\lambda)^2$.
+
+\begin{table}[H]
+\centering
+\caption{Default parameters.}
+\label{tab:params}
+\small
+\begin{tabular}{@{}llr@{}}
+\toprule
+Symbol & Meaning & Value \\
+\midrule
+$N$ & agents & 100 \\
+$K$ & binary policy variables & 30 \\
+$\alpha$ & clause density & 2 \\
+$M = \alpha K$ & clauses in $\mathcal{C}$ & 60 \\
+$|\mathcal{U}| = K(K-1)$ & possible clauses & 870 \\
+$2M$ & knowledge base capacity & 120 \\
+%$\tau$ & periods between clause replacements & 1 \\
+$s = 1/\langle k\rangle$ & link firing probability & set by the network \\
+ & test split, new clause against held belief & 1:1 \\
+ & redraws when testing a new clause & up to 10 \\
+$T$ & periods per run & 2000 \\
+ & long-run averaging window & last 500 periods \\
+ & shock: period and share of $\mathcal{C}$ replaced & 1500, all 60 slots \\
+ & seeds per network and experiment & 40 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+%======================================================================
+\section{Results}\label{sec:results}
+%======================================================================
+
+\subsection{Simulations}
+
+All runs use the model as specified in Methods on the three networks of Table~\ref{tab:networks}, with forty seeds each. Supplementary Note 2 reports the same analysis for four standard network generators.
+
+\subsubsection{Misinformation dynamics}
+
+Because the environment keeps changing, part of what agents believe is always out of date. In the long run 43\% of positive beliefs are stale in the even network and 49\% in the two uneven ones (Table~\ref{tab:longrun}); the share settles within about 250 periods (Fig.~\ref{fig:stale}a). Every retirement starts a contest over the population (Fig.~\ref{fig:stale}b). At the moment a clause is retired, 19 to 24\% of agents believe it and about 5\% disbelieve it, a leftover from an earlier spell out of the constraint set. Believers decline as tests falsify the clause and as the resulting negative beliefs are passed on, while believers keep passing the clause on too. Disbelief rises to a peak, 22\% of agents about 155 periods after retirement in the uneven networks and 34\% after about 100 periods in the even network, and then declines, because a negative belief that nobody contradicts is no longer refreshed and is eventually evicted. The even network clears retired clauses fastest: a hundred periods after retirement, 2\% of its agents still believe the clause, against 5\% in the uneven networks.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{"figs/261001 fig_misinformation.pdf"}
+\caption{Misinformation dynamics, means over forty seeds. (a) Share of positive beliefs whose clause has been retired, over a run. (b) After a retirement: share of agents still believing the clause (solid) and disbelieving it (dotted), against periods since retirement, for clauses retired between periods 1500 and 1700.}
+\label{fig:stale}
+\end{figure}
+
+\subsubsection{Long-run performance across structures}
+
+Long-run average violations are 28.5 in the even network and 29.5 in both uneven networks (Table~\ref{tab:longrun}, Fig.~\ref{fig:longrun}): a difference of one violation out of 60, about 3\% of the level, which with forty seeds is eight standard errors. Density makes no difference: the dense network's average is within 0.02 of the uneven network's. Best-agent violations lie between 19.8 and 20.1, with no reliable difference between networks, and homogeneity between 0.70 and 0.72. Section~\ref{sec:longrun} predicts the direction of the gap from the spread of intake alone.
+
+\begin{table}[H]
+\centering
+\caption{Long-run population statistics (time averages over the last 500 periods; mean $\pm$ 1 s.e.\ over forty seeds).}
+\label{tab:longrun}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Network & Average violations & Best-agent violations & Homogeneity & Stale beliefs (\%) \\
+\midrule
+Even          & $28.51 \pm 0.11$ & $19.83 \pm 0.12$ & $0.718 \pm 0.003$ & $43.3 \pm 0.2$ \\
+Uneven        & $29.53 \pm 0.07$ & $20.05 \pm 0.09$ & $0.703 \pm 0.003$ & $49.3 \pm 0.2$ \\
+Uneven, dense & $29.51 \pm 0.10$ & $19.87 \pm 0.13$ & $0.700 \pm 0.003$ & $48.8 \pm 0.2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\linewidth]{"figs/261001 fig_longrun.pdf"}
+\caption{Long-run average violations, best-agent violations and homogeneity by network; means and 95\% intervals over forty seeds.}
+\label{fig:longrun}
+\end{figure}
+
+\subsubsection{Position and performance}
+
+In both networks whose agents differ in in-degree, the better connected do better (Table~\ref{tab:position}). The Spearman correlation between in-degree and long-run violations is $-0.58$ in the uneven network and $-0.61$ in the dense one, and it is negative in all 80 runs. The eight agents with the highest in-degree outperform the eight with the lowest by 5.2 to 5.3 violations, and the best performer sits, on average, at the 98th to 99th percentile of in-degree: in these networks, who will perform best is predictable from the wiring diagram.
+
+\begin{table}[H]
+\centering
+\caption{Position and performance (per run, then mean $\pm$ 1 s.e.\ over forty seeds). $\rho$: Spearman correlation between in-degree and long-run violations. Gap: mean violations of the eight agents with the highest in-degree minus the eight with the lowest, so a negative gap means the better connected do better. Last column: mean in-degree percentile of the best performer. The even network has no spread of in-degree.}
+\label{tab:position}
+\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Network & $\rho(k, V)$ & Gap (top 8 minus bottom 8) & Best agent's percentile \\
+\midrule
+Even          & -- & -- & -- \\
+Uneven        & $-0.58 \pm 0.01$ & $-5.2 \pm 0.2$ & 99\% \\
+Uneven, dense & $-0.61 \pm 0.01$ & $-5.3 \pm 0.1$ & 98\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Pooling the agents shows the shape of the relation (Fig.~\ref{fig:position}a). In the uneven network violations fall from 31.2 at in-degree 1 to 27.0 at in-degree 10 and 24.2 for the hub at in-degree 37. The dense network's curve is displaced to the right, because in a network of mean in-degree 12 the same in-degree buys a third of the intake. Plotted against intake $k/\langle k\rangle$ (Fig.~\ref{fig:position}b) the two curves coincide: violations decline by about 2.0 per e-fold of intake, from 31.2 at a quarter of the average intake to 24 at eight to nine times the average. Between these two networks, position acts on performance through intake and through nothing else. The even network's single point lies half a violation below the common line: an agent with the average intake does slightly better when every other agent has the average intake too.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{"figs/261001 fig_position.pdf"}
+\caption{Per-agent long-run violations, pooled over forty seeds per network, in bins of at least five agents; bars are 95\% intervals computed across runs. (a) Against in-degree. (b) Against intake $k/\langle k\rangle$ (log scale); the vertical line marks the population-average intake of 1. The even network is the single grey point.}
+\label{fig:position}
+\end{figure}
+
+\subsubsection{Short-run dynamics}
+
+Two transients are recorded (Fig.~\ref{fig:shortrun}, Tables~\ref{tab:shortrun} and~\ref{tab:clauses}): the start of a run, when knowledge bases are empty, and the response to the shock at period 1500, when every constraint is replaced at once and all held knowledge becomes stale.
+
+From empty knowledge bases, every network comes within one violation of its long-run level in 28 to 46 periods (Fig.~\ref{fig:shortrun}a). After the shock, average violations jump to the same level, about 32, in all three networks, which erases the even network's advantage, and then return to each network's own long-run level at the same pace (Fig.~\ref{fig:shortrun}b, Table~\ref{tab:shortrun}): about three quarters of the way within 60 to 120 periods, and all of it within about 400. The even network's advantage re-emerges as it does so. It is absent in the first 20 periods, 0.3 violations and within noise at 20 to 60 periods, 0.7 at 60 to 200, and 0.9, its long-run size, from 400 periods on. Structure therefore does not change how fast a population adapts. It changes the level it adapts to.
+
+The spread of a single new clause shows the same thing (Fig.~\ref{fig:shortrun}c, Table~\ref{tab:clauses}). In the even network a new clause is held by 29\% of agents 60 periods after its introduction and peaks at 41\%; in the two uneven networks it is held by 21 to 22\% and peaks at 31 to 32\%. The time to reach half of the peak is the same, 40 periods, in all three: the clause spreads at the same pace, and to fewer agents where intake is uneven. The retired clauses are forgotten at similar rates, believers halving in 47 to 51 periods (Fig.~\ref{fig:shortrun}d), and most completely in the even network.
+
+The reason is the fixed budget. A message absorbed by a hub, which gains little from it, is a message not delivered to one of the many agents with one or two in-links, who would gain more: returns to intake diminish, as the curve of Fig.~\ref{fig:position}b shows.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{"figs/261001 fig_shortrun.pdf"}
+\caption{Short-run dynamics, means over forty seeds. (a) Average violations from empty knowledge bases. (b) Average violations from 100 periods before the shock at period 1500 (dashed line), when every slot of $\mathcal{C}$ is replaced, to period 2500. (c) Share of agents holding a new clause introduced at the shock, against periods since its introduction, averaged over the new clauses still in $\mathcal{C}$. (d) Share of agents still believing (solid) and disbelieving (dotted) a clause retired at the shock.}
+\label{fig:shortrun}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Average violations around the shock: mean over forty seeds in the 100 periods before it and in successive windows after it. Standard errors are between 0.06 and 0.20.}
+\label{tab:shortrun}
+\small
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+ & & \multicolumn{6}{c}{Periods after the shock} \\
+\cmidrule(l){3-8}
+Network & Before & 1--20 & 21--60 & 61--120 & 121--200 & 201--400 & 401--1000 \\
+\midrule
+Even          & 28.51 & 32.15 & 30.63 & 29.39 & 29.01 & 28.65 & 28.55 \\
+Uneven        & 29.46 & 32.24 & 30.93 & 30.06 & 29.70 & 29.55 & 29.45 \\
+Uneven, dense & 29.40 & 32.17 & 30.89 & 29.92 & 29.56 & 29.32 & 29.47 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{New and retired clauses after the shock. Share of agents holding a new clause 30, 60 and 100 periods after its introduction (mean $\pm$ 1 s.e.\ over forty seeds), its peak, and the periods taken to reach half of the peak. For a retired clause: periods until its believers have halved, and the peak share of agents disbelieving it.}
+\label{tab:clauses}
+\footnotesize
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+ & \multicolumn{5}{c}{New clause: held by (\%)} & \multicolumn{2}{c}{Retired clause} \\
+\cmidrule(lr){2-6}\cmidrule(l){7-8}
+Network & at 30 & at 60 & at 100 & peak & half of peak at & believers halved & peak disbelief \\
+\midrule
+Even          & $15.5 \pm 0.5$ & $28.7 \pm 0.5$ & $39.5 \pm 0.8$ & 41 & 40 & 47 & 31\% \\
+Uneven        & $12.5 \pm 0.4$ & $22.0 \pm 0.7$ & $28.7 \pm 0.9$ & 32 & 40 & 51 & 22\% \\
+Uneven, dense & $12.3 \pm 0.3$ & $21.3 \pm 0.6$ & $28.3 \pm 0.8$ & 31 & 41 & 51 & 21\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Solving the model}\label{sec:shortrun}
+
+\todo{no need to show the full derivation. we can refer to the additional material / appendix if needed.}
+
+\subsubsection{Short run dynamics}
+
+\subsection{Long run dynamics}\label{sec:longrun}
+
+
+
+%======================================================================
+\section{Discussion}\label{sec:discussion}
+%======================================================================
+
+Once the communication rate is equalised, long-run average performance varies by at most one violation out of 60 across networks that differ in the spread of in-degree and in density. Individual performance depends on position, through intake alone, along a curve that is the same in every network, so the shape of the network decides who is well informed and leaves the average almost untouched. Both facts have the same cause: with the budget fixed, what a network changes is how intake is distributed across its members.
+
+For organisational design this recasts centralisation as a way of choosing who is well informed. In a network with homogeneous degrees, nobody is better informed than anybody else. In a network with hubs the high-intake seats are designed, and whoever occupies them outperforms the periphery: in our heavy-tailed networks the eight best-connected agents beat the eight least-connected by about five violations, and the best performer sits at the 99th percentile of in-degree. That is useful when decision rights or attention are scarce and have to be concentrated. The average hides the price. Because the intake curve is convex, concentrating intake on a few members costs more at the periphery than it gains at the hubs, which is why the even network is best on average and the heavy-tailed networks worst, by about one violation. \todo{connect to \textcite{simon1962architecture}, \textcite{bolton1994firm} and \textcite{lazer2007network}}
+
+Structure does not matter for the speed of adjustment. After a shock that makes all held knowledge stale, every network falls to the same level and returns to its own long-run level at the same pace, within a few hundred periods, and a new constraint takes the same time to reach half of the agents it will eventually reach. What differs is where the adjustment ends: where intake is even, a new constraint ends up known to more agents and fewer outdated beliefs survive. For an organisation facing a period of deep uncertainty, after a merger, a regulatory overhaul or a technology shock, the shape of its communication network therefore neither shortens nor lengthens the transient. It decides how good the state reached at the end of it is, and for whom.
+
+Several extensions follow. Agents here are identical and follow fixed rules. Behavioural heterogeneity, such as differences in testing capacity or in willingness to pass on negative results, would let position and ability interact. Links and the communication rate are fixed from outside, whereas in real organisations people choose whom to consult and how often, which could compound the advantage of central positions. Our networks vary the spread of in-degree and density; clustering and community structure, which the small-world and layered generators of Supplementary Note 2 carry, made no difference to the long run there but were not varied on their own. The mean-field treatment of the repair step also remains approximate.
+
+
+%======================================================================
+\section*{Data availability}
+
+
+
+\section*{Competing interests}
+The authors declare no competing interests.
+
+\section*{Acknowledgements}
+The authors thank the faculty of the Complexity Global School 2025 organized by the Santa Fe Institute and Universidad de Los Andes. The first version of this model was ideated there, with the helpful comments of Pia Andres and Ariane Donda. 
+
+\printbibliography
+
+
+%======================================================================
+\clearpage
+\section*{Supplementary Information}
+%======================================================================
+
+\subsection*{Supplementary Note 1: full theory derivations}
+
+
+
+\subsection*{Supplementary Note 2: the same analysis on standard networks}
+\setcounter{figure}{0}\renewcommand{\thefigure}{S\arabic{figure}}
+\setcounter{table}{0}\renewcommand{\thetable}{S\arabic{table}}
+
+To check that the three networks of the main text do not drive the results, we repeat every analysis on four standard generators with $N = 100$ agents and a mean in-degree close to 4: directed Erd\H{o}s--R\'enyi with link probability $0.04$; Watts--Strogatz with ring degree 4, random link directions and rewiring probability $0.1$; Barab\'asi--Albert with four links per new agent and random link directions; and a layered network of three equal layers with within-layer link probability $0.08$ and between-layer probability $0.02$. The protocol, the forty seeds and the statistics are those of the main text. Two features of these generators matter for reading the results (Fig.~\ref{fig:A-networks}, Table~\ref{tab:A-networks}). Orienting links after the structure is built makes in- and out-degree positively correlated in the scale-free network (0.74) and negatively correlated in the small-world one ($-0.82$). And because attachment follows in-degree, about one scale-free agent in twelve never gains an in-link and never receives anything.
+
+The results are those of the main text. Between 45 and 50\% of positive beliefs are stale in the long run, and retired clauses are cleared in the same way (Fig.~\ref{fig:A-stale}). Long-run average violations lie between 29.1 and 29.8 (Table~\ref{tab:A-longrun}, Fig.~\ref{fig:A-longrun}) and are ordered by the spread of intake: the random, small-world and layered networks, whose in-degrees vary little, come closest to the even network of the main text, and the scale-free network, whose spread is close to that of the uneven network, does worst. Position matters in every network (Table~\ref{tab:A-position}): the correlation between in-degree and violations lies between $-0.47$ and $-0.62$ and is negative in all 160 runs, and the curves of violations against intake follow the curve fitted on the main set (Fig.~\ref{fig:A-position}). After the shock all four networks rise to about 32.4 violations and return to their own levels at the same pace (Fig.~\ref{fig:A-shortrun}, Table~\ref{tab:A-shortrun}). A new clause reaches half of its eventual audience in 35 to 38 periods in every network, and that audience is smaller the more uneven the intake: 35\% of agents in the small-world network against 28\% in the scale-free one (Table~\ref{tab:A-clauses}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{"figs/261001 figA_networks.pdf"}
+\caption{The four standard networks, one realisation each. Top: in-degree distributions. Bottom: each agent's out-degree against its in-degree.}
+\label{fig:A-networks}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Structural statistics of the standard networks, means over forty realisations. Last two columns: share of agents with no in-link, and share of agents in the largest strongly connected part.}
+\label{tab:A-networks}
+\small
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+Network & $\langle k\rangle$ & sd $k_{\mathrm{in}}$ & max $k_{\mathrm{in}}$ & $\mathrm{Var}(k)/\langle k\rangle^2$ & corr($k_{\mathrm{in}},k_{\mathrm{out}}$) & clustering & no in-link & connected \\
+\midrule
+Random      & 3.9 & 1.9 & 10 & 0.24 & $0.00$  & 0.08 & 2\% & 96\% \\
+Small world & 4.0 & 1.5 & 8  & 0.15 & $-0.82$ & 0.49 & 1\% & 99\% \\
+Scale free  & 3.7 & 3.9 & 24 & 1.16 & $0.74$  & 0.22 & 8\% & 89\% \\
+Layered     & 3.9 & 1.9 & 10 & 0.24 & $0.00$  & 0.10 & 2\% & 96\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{"figs/261001 figA_misinformation.pdf"}
+\caption{Misinformation dynamics on the standard networks, means over forty seeds. Panels as in Fig.~\ref{fig:stale} of the main text.}
+\label{fig:A-stale}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Long-run population statistics on the standard networks (time averages over the last 500 periods; mean $\pm$ 1 s.e.\ over forty seeds).}
+\label{tab:A-longrun}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Network & Average violations & Best-agent violations & Homogeneity & Stale beliefs (\%) \\
+\midrule
+Random      & $29.09 \pm 0.09$ & $20.03 \pm 0.10$ & $0.708 \pm 0.003$ & $46.1 \pm 0.2$ \\
+Small world & $29.19 \pm 0.08$ & $20.20 \pm 0.10$ & $0.702 \pm 0.002$ & $45.3 \pm 0.2$ \\
+Scale free  & $29.76 \pm 0.09$ & $20.14 \pm 0.12$ & $0.694 \pm 0.003$ & $49.5 \pm 0.2$ \\
+Layered     & $29.32 \pm 0.09$ & $20.35 \pm 0.09$ & $0.700 \pm 0.002$ & $46.2 \pm 0.2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{"figs/261001 figA_longrun.pdf"}
+\caption{Long-run average violations, best-agent violations and homogeneity on the standard networks; means and 95\% intervals over forty seeds.}
+\label{fig:A-longrun}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Position and performance on the standard networks (per run, then mean $\pm$ 1 s.e.\ over forty seeds). Columns as in the main text.}
+\label{tab:A-position}
+\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Network & $\rho(k, V)$ & Gap (top 8 minus bottom 8) & Best agent's percentile \\
+\midrule
+Random      & $-0.54 \pm 0.01$ & $-3.9 \pm 0.2$ & 83\% \\
+Small world & $-0.47 \pm 0.01$ & $-2.9 \pm 0.1$ & 74\% \\
+Scale free  & $-0.62 \pm 0.01$ & $-5.3 \pm 0.1$ & 97\% \\
+Layered     & $-0.54 \pm 0.02$ & $-3.6 \pm 0.2$ & 79\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{"figs/261001 figA_position.pdf"}
+\caption{Per-agent long-run violations on the standard networks, pooled over forty seeds per network, in bins of at least five agents; bars are 95\% intervals computed across runs. (a) Against in-degree. (b) Against intake $k/\langle k\rangle$ (log scale). The dashed line is the curve fitted on the three networks of the main text.}
+\label{fig:A-position}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{"figs/261001 figA_shortrun.pdf"}
+\caption{Short-run dynamics on the standard networks, means over forty seeds. Panels as in Fig.~\ref{fig:shortrun} of the main text.}
+\label{fig:A-shortrun}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Average violations around the shock on the standard networks: mean over forty seeds in the 100 periods before it and in successive windows after it. Standard errors are between 0.07 and 0.16.}
+\label{tab:A-shortrun}
+\small
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+ & & \multicolumn{6}{c}{Periods after the shock} \\
+\cmidrule(l){3-8}
+Network & Before & 1--20 & 21--60 & 61--120 & 121--200 & 201--400 & 401--1000 \\
+\midrule
+Random      & 29.19 & 32.57 & 31.01 & 29.65 & 29.15 & 29.14 & 29.24 \\
+Small world & 29.05 & 32.31 & 30.80 & 29.61 & 29.13 & 29.19 & 29.01 \\
+Scale free  & 29.86 & 32.49 & 31.23 & 30.22 & 30.06 & 29.90 & 29.88 \\
+Layered     & 29.12 & 32.12 & 30.77 & 29.54 & 29.15 & 29.15 & 29.11 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{New and retired clauses after the shock on the standard networks. Columns as in the main text.}
+\label{tab:A-clauses}
+\footnotesize
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+ & \multicolumn{5}{c}{New clause: held by (\%)} & \multicolumn{2}{c}{Retired clause} \\
+\cmidrule(lr){2-6}\cmidrule(l){7-8}
+Network & at 30 & at 60 & at 100 & peak & half of peak at & believers halved & peak disbelief \\
+\midrule
+Random      & $13.7 \pm 0.3$ & $25.3 \pm 0.6$ & $30.5 \pm 0.6$ & 32 & 36 & 46 & 22\% \\
+Small world & $14.6 \pm 0.4$ & $26.9 \pm 0.5$ & $34.8 \pm 0.9$ & 35 & 37 & 46 & 24\% \\
+Scale free  & $11.5 \pm 0.3$ & $19.9 \pm 0.5$ & $25.7 \pm 0.6$ & 28 & 38 & 49 & 18\% \\
+Layered     & $13.4 \pm 0.4$ & $24.7 \pm 0.5$ & $29.8 \pm 0.8$ & 30 & 35 & 46 & 22\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\end{document}
