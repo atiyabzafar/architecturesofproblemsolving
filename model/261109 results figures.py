@@ -223,8 +223,8 @@ if M is not None:
     b1, b2, b3, b4 = axs3.ravel()
     for n, ls in (("uneven", "-"), ("dense", "--")):
         bb = agent[n]["bins"]
-        b1.errorbar([x["lam"] for x in bb], [x["V"] for x in bb],[x["Vsigma"] for x in bb],ls=ls,lw=1)
         b1.plot([x["lam"] for x in bb], [x["V"] for x in bb], ls=ls, marker=NETM[n], color=NETC[n], ms=3.8, lw=1.2, label=SHORT[n])
+        b1.errorbar([x["lam"] for x in bb], [x["V"] for x in bb],[x["Vsigma"] for x in bb],ls=ls,lw=1,elinewidth=0.5, capsize=1)
     b1.plot([1], [agent["even"]["bins"][0]["V"]], NETM["even"], ms=5, color=NETC["even"], label="Regular", zorder=5)
     b1.axhline(V0, color="#777777", lw=0.9, ls=":")
     b1.text(0.24, V0 + 0.12, "No communication", fontsize=6.5, color="#555555", ha="left", va="bottom")
