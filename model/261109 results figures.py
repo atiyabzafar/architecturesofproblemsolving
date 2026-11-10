@@ -143,10 +143,10 @@ if M is not None:
         for lo, hi in zip(EDGES[:-1], EDGES[1:]):
             s = (lam > lo) & (lam <= hi)
             if s.sum() >= 20:
-                bins.append(dict(lam=np.exp(np.log(lam[s]).mean()), V=V[s].mean(), n=int(s.sum()),
+                bins.append(dict(lam=np.exp(np.log(lam[s]).mean()), V=V[s].mean(), n=int(s.sum()),Vsigma=V[s].std(),
                                  **{k: f[s].mean() for k, f in fields.items()}))
         zero = (kin == 0)
-        agent[n] = dict(bins=bins, slope=b, V0=V[zero].mean() if zero.any() else np.nan, n0=int(zero.sum()))
+        agent[n] = dict(bins=bins, slope=b, V0=V[zero].mean() if zero.any() else np.nan, n0=int(zero.sum()),Vsigma=V[zero].std())
         if lam.std() > 0:
             r = np.corrcoef(x[ok], y[ok])[0, 1]
             print(f"  {SHORT[n]:18s} slope per doubling of intake {-b * np.log(2):.2f} (R^2 {r * r:.2f}); "
@@ -223,6 +223,7 @@ if M is not None:
     b1, b2, b3, b4 = axs3.ravel()
     for n, ls in (("uneven", "-"), ("dense", "--")):
         bb = agent[n]["bins"]
+        b1.errorbar([x["lam"] for x in bb], [x["V"] for x in bb],[x["Vsigma"] for x in bb],ls=ls,lw=1)
         b1.plot([x["lam"] for x in bb], [x["V"] for x in bb], ls=ls, marker=NETM[n], color=NETC[n], ms=3.8, lw=1.2, label=SHORT[n])
     b1.plot([1], [agent["even"]["bins"][0]["V"]], NETM["even"], ms=5, color=NETC["even"], label="Regular", zorder=5)
     b1.axhline(V0, color="#777777", lw=0.9, ls=":")
