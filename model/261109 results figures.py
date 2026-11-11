@@ -143,7 +143,7 @@ if M is not None:
         for lo, hi in zip(EDGES[:-1], EDGES[1:]):
             s = (lam > lo) & (lam <= hi)
             if s.sum() >= 20:
-                bins.append(dict(lam=np.exp(np.log(lam[s]).mean()), V=V[s].mean(), n=int(s.sum()),Vsigma=V[s].std(),
+                bins.append(dict(lam=np.exp(np.log(lam[s]).mean()), V=V[s].mean(), n=int(s.sum()),Vsigma=V[s].std(),Vci=(1.96 * V[s].std(ddof=1) / np.sqrt(len(V[s]))),
                                  **{k: f[s].mean() for k, f in fields.items()}))
         zero = (kin == 0)
         agent[n] = dict(bins=bins, slope=b, V0=V[zero].mean() if zero.any() else np.nan, n0=int(zero.sum()),Vsigma=V[zero].std())
@@ -223,9 +223,9 @@ if M is not None:
     b1, b2, b3, b4 = axs3.ravel()
     for n, ls in (("uneven", "-"), ("dense", "--")):
         bb = agent[n]["bins"]
-        b1.plot([x["lam"] for x in bb], [x["V"] for x in bb], ls=ls, marker=NETM[n], color=NETC[n], ms=3.8, lw=1.2, label=SHORT[n])
-        b1.errorbar([x["lam"] for x in bb], [x["V"] for x in bb],[x["Vsigma"] for x in bb],ls=ls,lw=1,elinewidth=0.5, capsize=1)
-    b1.plot([1], [agent["even"]["bins"][0]["V"]], NETM["even"], ms=5, color=NETC["even"], label="Regular", zorder=5)
+        b1.plot([x["lam"] for x in bb], [x["V"] for x in bb], ls=ls, marker=NETM[n], color=NETC[n], ms=2, lw=1.2, label=SHORT[n])
+        b1.errorbar([x["lam"] for x in bb], [x["V"] for x in bb],[x["Vci"] for x in bb],ls=ls,lw=1,ecolor=NETC[n],elinewidth=1, capsize=2)
+    b1.plot([1], [agent["even"]["bins"][0]["V"]], NETM["even"], ms=3, color=NETC["even"], label="Regular", zorder=5)
     b1.axhline(V0, color="#777777", lw=0.9, ls=":")
     b1.text(0.24, V0 + 0.12, "No communication", fontsize=6.5, color="#555555", ha="left", va="bottom")
     b1.set_xscale("log"); b1.set_xticks([0.25, 0.5, 1, 2, 4, 8]); b1.set_xticklabels(["0.25", "0.5", "1", "2", "4", "8"])
