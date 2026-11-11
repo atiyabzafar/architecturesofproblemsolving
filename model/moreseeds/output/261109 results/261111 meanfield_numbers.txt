@@ -1,0 +1,23 @@
+CONVERSION FROM BELIEFS TO VIOLATIONS (simulation agents, three main networks pooled)
+  believed current constraints violated: v_T = 0.252
+  unbelieved current constraints violated: u = 0.506 + 0.238 x (outdated positives / M)
+  check on the simulation agents: R^2 = 0.36 between converted and measured violations
+  model (recency) Regular            solved
+  model (stock  ) Regular            solved
+  model (recency) Scale Free         solved
+  model (stock  ) Scale Free         solved
+  model (recency) Scale Free, dense  solved
+
+MODEL AGAINST SIMULATION
+  Scale Free         violations per doubling of intake: model -0.89, simulation -1.32
+  Scale Free, dense  violations per doubling of intake: model -0.90, simulation -1.36
+  Regular            current / outdated per agent: model   8.6 /   9.6 | simulation  14.2 /  10.9 | violations model 30.14, simulation 28.66 | share of 1s model 0.652
+  Scale Free         current / outdated per agent: model   7.7 /   9.8 | simulation  11.1 /  10.8 | violations model 30.48, simulation 29.46 | share of 1s model 0.651
+  Scale Free, dense  current / outdated per agent: model   7.7 /   9.8 | simulation  10.8 /  10.3 | violations model 30.47, simulation 29.52 | share of 1s model 0.651
+  Scale Free minus Regular, violations: model +0.34, simulation +0.80
+  Scale Free, lowest to highest intake: current 5.6 -> 14.1, outdated 11.8 -> 2.5, total 17.4 -> 16.5, current share 32% -> 85%
+  Regular            random sharing instead of recency, current : model   8.6 ->   4.2 (-51%) | simulation  14.2 ->   5.4 (-62%)
+  Regular            random sharing instead of recency, outdated: model   9.6 ->  13.2 (+38%) | simulation  10.9 ->  12.8 (+18%)
+  Scale Free         random sharing instead of recency, current : model   7.7 ->   4.2 (-45%) | simulation  11.1 ->   5.3 (-52%)
+  Scale Free         random sharing instead of recency, outdated: model   9.8 ->  13.0 (+32%) | simulation  10.8 ->  13.6 (+25%)
+  Scale Free         random sharing: model current beliefs from lowest to highest intake 4.2 -> 4.3 (intake buys nothing)
