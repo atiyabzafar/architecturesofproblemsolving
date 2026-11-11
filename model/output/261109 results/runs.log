@@ -1,0 +1,26 @@
+  20/480 done, 46s
+  40/480 done, 88s
+  60/480 done, 131s
+  80/480 done, 177s
+  100/480 done, 223s
+  120/480 done, 271s
+  140/480 done, 322s
+  160/480 done, 373s
+  180/480 done, 429s
+  200/480 done, 480s
+wrote ablation.npz
+  220/480 done, 490s
+  240/480 done, 511s
+  260/480 done, 531s
+  280/480 done, 552s
+  300/480 done, 570s
+  320/480 done, 592s
+  340/480 done, 612s
+  360/480 done, 634s
+  380/480 done, 654s
+  400/480 done, 675s
+  420/480 done, 696s
+  440/480 done, 715s
+  460/480 done, 736s
+  480/480 done, 755s
+done: 480 runs on 8 workers, 755s

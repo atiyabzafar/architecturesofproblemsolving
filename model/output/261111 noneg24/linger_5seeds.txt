@@ -1,0 +1,10 @@
+Scale Free
+  with negative beliefs (baseline, capacity 120)   constraints believed at retirement 84% | lingers in population: mean   164, median   166, 90% gone by   240 periods (18% still believed when observation ended) | one agent keeps it: mean   58, median   43
+  without, capacity 120                            constraints believed at retirement 86% | lingers in population: mean   523, median   512, 90% gone by   813 periods (40% still believed when observation ended) | one agent keeps it: mean  111, median   78
+  without, capacity 60                             constraints believed at retirement 82% | lingers in population: mean   210, median   201, 90% gone by   346 periods (20% still believed when observation ended) | one agent keeps it: mean   48, median   35
+  without, capacity 24                             constraints believed at retirement 79% | lingers in population: mean    73, median    65, 90% gone by   141 periods (7% still believed when observation ended) | one agent keeps it: mean   17, median   13
+Regular
+  with negative beliefs (baseline, capacity 120)   constraints believed at retirement 84% | lingers in population: mean    95, median    98, 90% gone by   112 periods (11% still believed when observation ended) | one agent keeps it: mean   43, median   38
+  without, capacity 120                            constraints believed at retirement 83% | lingers in population: mean   222, median   185, 90% gone by   357 periods (22% still believed when observation ended) | one agent keeps it: mean   76, median   79
+  without, capacity 60                             constraints believed at retirement 82% | lingers in population: mean   103, median    89, 90% gone by   166 periods (10% still believed when observation ended) | one agent keeps it: mean   32, median   32
+  without, capacity 24                             constraints believed at retirement 77% | lingers in population: mean    37, median    33, 90% gone by    62 periods (4% still believed when observation ended) | one agent keeps it: mean   11, median   11
