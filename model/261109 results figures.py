@@ -28,7 +28,8 @@ VAR = {"full": ("full model", "#0b0b0b", "-"), "norec": ("no recency rule", "#eb
        "noneg120": ("no negative beliefs, memory 120", "#1baf7a", ":"),
        "noneg24": ("no negative beliefs, memory 24", "#1baf7a", "--")}
 INK, SUB, MUTED = "#0b0b0b", "#52514e", "#a3a29c"
-S40, S20 = range(1, 41), range(1, 21)
+NSEEDS=40
+S40, S20 = range(1, NSEEDS+1), range(1, 21)
 plt.rcParams.update({"font.size": 8.5, "axes.titlesize": 9, "axes.spines.top": False, "axes.spines.right": False,
                      "axes.grid": True, "grid.alpha": 0.25, "grid.linewidth": 0.6, "axes.edgecolor": SUB,
                      "xtick.color": SUB, "ytick.color": SUB, "axes.labelcolor": INK, "savefig.bbox": "tight",
@@ -84,16 +85,16 @@ def save(fig, name):
 M = np.load(RUN / "main.npz") if (RUN / "main.npz").exists() else None
 if M is not None:
     G = lambda n, q: np.array([M[f"{n}|{s}|{q}"] for s in S40])
-    print("=" * 100); print("NETWORK LEVEL (40 runs per network; long run = periods 1501-2000)")
+    print("=" * 100); print(f"NETWORK LEVEL ({NSEEDS} runs per network; long run = periods 1501-2000)")
     sel = {}
     for n in NETS:
         avg = G(n, "avgV")[:, 1501:].mean(1); best_tick = G(n, "minV")[:, 1501:].mean(1)
         win = G(n, "win"); kin = G(n, "kin")
         Vsel, Veval = win[:, :10].mean(1), win[:, 10:].mean(1)        # 1001-1500, 1501-2000
-        pos1 = np.array([topk_value(kin[i], Veval[i], 1) for i in range(40)])
-        pos5 = np.array([topk_value(kin[i], Veval[i], 5) for i in range(40)])
-        rec1 = np.array([topk_value(Vsel[i], Veval[i], 1, larger=False) for i in range(40)])
-        rec5 = np.array([topk_value(Vsel[i], Veval[i], 5, larger=False) for i in range(40)])
+        pos1 = np.array([topk_value(kin[i], Veval[i], 1) for i in range(NSEEDS)])
+        pos5 = np.array([topk_value(kin[i], Veval[i], 5) for i in range(NSEEDS)])
+        rec1 = np.array([topk_value(Vsel[i], Veval[i], 1, larger=False) for i in range(NSEEDS)])
+        rec5 = np.array([topk_value(Vsel[i], Veval[i], 5, larger=False) for i in range(NSEEDS)])
         bestmember = Veval.min(1)
         hom = G(n, "hom")[:, 1501:].mean(1)
         sel[n] = dict(avg=avg, tick=best_tick, pos1=pos1, pos5=pos5, rec1=rec1, rec5=rec5, member=bestmember, hom=hom)
@@ -162,11 +163,11 @@ if M is not None:
     for n in NETS:
         win = G(n, "win"); kin = G(n, "kin")
         idx = np.argsort(win[:, :10].mean(1), 1)[:, :5]
-        sel[n]["sel_series"] = np.array([win[i][:, idx[i]].mean(1) for i in range(40)])     # (40, 20 windows)
+        sel[n]["sel_series"] = np.array([win[i][:, idx[i]].mean(1) for i in range(NSEEDS)])     # (40, 20 windows)
         sel[n]["mean_series"] = win.mean(2)
         sel[n]["sel_before"] = np.take_along_axis(win[:, :10].mean(1), idx, 1).mean(1)
         ov = []
-        for i in range(40):
+        for i in range(NSEEDS):
             order = np.lexsort((rngt.random(kin.shape[1]), -kin[i]))
             ov.append(len(set(idx[i]) & set(order[:5])))
         sel[n]["overlap"] = np.array(ov)
@@ -277,7 +278,7 @@ if B is not None:
              "neither": "neither mechanism, capacity 60", "old": "earlier model (observation, no testing)"}
     AGES = (0, 100, 300, 600, 800)
     print("=" * 100)
-    print("SECTION 3.3 RUNS (40 realisations, T = 2000; constraints retired at 1000-1199 followed through their first life;"
+    print(f"SECTION 3.3 RUNS ({NSEEDS} realisations, T = 2000; constraints retired at 1000-1199 followed through their first life;"
           " stocks and violations over periods 1501-2000)")
     coh = {}
     for n in ("even", "uneven"):

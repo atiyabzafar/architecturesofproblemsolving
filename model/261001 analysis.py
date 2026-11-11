@@ -77,12 +77,13 @@ PFX = "261001 quick" if QUICK else "261001"
 
 # ----------------------------------------------------------------- settings
 N, K, ALPHA, TAU = 100, 30, 2, 1
+NSEEDS=40
 BASE = dict(K=K, alpha=ALPHA, obs_prob=0.01, clause_interval=TAU)
 if QUICK:
     T_LONG, T_SHOCK, WINDOW, SEEDS, SHOCK_T, BATCH = 200, 260, 50, [1, 2, 3], 120, 1
     COHORT_START, COHORT_END, COHORT_AGE, SPREAD_AGE = 120, 140, 40, 60
 else:
-    T_LONG, T_SHOCK, WINDOW, SEEDS, SHOCK_T, BATCH = 2000, 2500, 500, list(range(1, 41)), 1500, 10
+    T_LONG, T_SHOCK, WINDOW, SEEDS, SHOCK_T, BATCH = 2000, 2500, 500, list(range(1, NSEEDS+1)), 1500, 10
     COHORT_START, COHORT_END, COHORT_AGE, SPREAD_AGE = 1500, 1700, 300, 150
 SHOCK_FRAC = 1.0          # share of the constraint set replaced at the shock
 WORKERS = max(1, min(16, (os.cpu_count() or 2) - 4))

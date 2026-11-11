@@ -70,7 +70,8 @@ VARIANTS = {   # recency, belief process, memory cap, learning by testing, obser
     "old": (False, "normal", None, False, 0.01),
 }
 T = 2000
-SEEDS = range(1, 41)
+NSEEDS=40
+SEEDS = range(1, NSEEDS+1)
 COH0, COH1 = 1000, 1200
 
 # --- variants of the belief process, without touching the model files
