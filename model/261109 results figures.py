@@ -348,6 +348,7 @@ if M is not None and SIF.exists():
     SG = np.load(SIF)
     GEN = ["random", "smallworld", "scalefree", "layered"]
     SIN = ["even", "smallworld", "random", "layered", "scalefree", "uneven"]        # ordered by spread of intake
+    SIG = ["smallworld", "random", "layered", "scalefree"]                          # plotted: generators only
     SIC = {"random": "#009E73", "smallworld": "#CC79A7", "scalefree": "#D55E00", "layered": "#56B4E9",
            "even": NETC["even"], "uneven": NETC["uneven"]}
     SIM = {"random": "D", "smallworld": "v", "scalefree": "P", "layered": "X", "even": NETM["even"], "uneven": NETM["uneven"]}
@@ -419,7 +420,7 @@ if M is not None and SIF.exists():
 
     # ---------------------------------------------------------------- Figure S2: as Fig. 2, six networks
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(7.08, 3.4), sharey=True, gridspec_kw=dict(width_ratios=[2.1, 1], wspace=0.08))
-    rows = SIN[::-1]
+    rows = SIG[::-1]
     for yi, n in enumerate(rows):
         a1.axhline(yi, color="#dddddd", lw=0.6, zorder=0); a2.axhline(yi, color="#dddddd", lw=0.6, zorder=0)
         vals = [sel[n][q].mean() for q, *_ in mk]
@@ -447,10 +448,9 @@ if M is not None and SIF.exists():
     # ---------------------------------------------------------------- Figure S3: as Figs. 3a, 3c and 4a, six networks
     fig, axs = plt.subplots(2, 2, figsize=(7.08, 5.0), gridspec_kw=dict(wspace=0.38, hspace=0.5))
     s1, s2, s3, s4 = axs.ravel()
-    for n in ["uneven"] + GEN:
+    for n in SIG:
         bb = agent[n]["bins"]
         s1.plot([x["lam"] for x in bb], [x["V"] for x in bb], marker=SIM[n], color=SIC[n], ms=3.2, lw=1.1, label=SHORT[n])
-    s1.plot([1], [agent["even"]["bins"][0]["V"]], NETM["even"], ms=4, color=NETC["even"], label="Regular", zorder=5)
     s1.axhline(V0, color="#777777", lw=0.9, ls=":")
     s1.text(0.23, V0 + 0.12, "No communication", fontsize=6.5, color="#555555", ha="left", va="bottom")
     s1.set_xscale("log"); s1.set_xticks([0.25, 0.5, 1, 2, 4, 8]); s1.set_xticklabels(["0.25", "0.5", "1", "2", "4", "8"])
@@ -458,22 +458,22 @@ if M is not None and SIF.exists():
     s1.set_xlabel("Communication intake, $\\lambda_i$"); s1.set_ylabel("Mean number of violations, $V_i$")
     s1.set_ylim(21.5, 33.2); s1.set_yticks([22, 24, 26, 28, 30, 32])
     s1.legend(loc="lower left", handletextpad=0.4, labelspacing=0.2, borderaxespad=0.1, fontsize=6.5); letter(s1, "a")
-    ys = np.arange(len(SIN))[::-1]
-    t_ = np.array([iq[n]["true"].mean() for n in SIN]); o_ = np.array([iq[n]["stale"].mean() for n in SIN])
+    ys = np.arange(len(SIG))[::-1]
+    t_ = np.array([iq[n]["true"].mean() for n in SIG]); o_ = np.array([iq[n]["stale"].mean() for n in SIG])
     s2.barh(ys, t_, color=CUR, height=0.62, label="Current"); s2.barh(ys, o_, left=t_, color=OUTD, height=0.62, label="Outdated")
     for y, a, b in zip(ys, t_, o_):
         s2.text(a / 2, y, f"{a:.1f}", ha="center", va="center", fontsize=6.5, color="white")
         s2.text(a + b / 2, y, f"{b:.1f}", ha="center", va="center", fontsize=6.5, color="#000000")
-    s2.set_yticks(ys); s2.set_yticklabels([SHORT[n] for n in SIN]); s2.tick_params(axis="y", length=0)
+    s2.set_yticks(ys); s2.set_yticklabels([SHORT[n] for n in SIG]); s2.tick_params(axis="y", length=0)
     s2.set_xlim(0, 30); s2.set_xlabel("Positive beliefs per agent")
     s2.legend(loc="upper right", ncol=2, handlelength=1.2, columnspacing=0.8, bbox_to_anchor=(1.0, 1.13)); letter(s2, "b")
     ages = np.arange(501)
     for ax, key, lab, let in ((s3, "hb", "Agents with a positive belief, $\\rho_+$ (%)", "c"),
                               (s4, "nb", "Agents with a negative belief, $\\rho_-$ (%)", "d")):
-        for n in SIN:
+        for n in SIG:
             ax.plot(ages, 100 * life[n][key][:501], color=SIC[n], lw=1.2, marker=SIM[n], markevery=(25, 50), ms=3.2, label=SHORT[n])
         ax.set_xlim(0, 500); ax.set_xlabel("Periods since retirement, $\\tau$"); ax.set_ylabel(lab); letter(ax, let)
     s3.set_ylim(0, 30); s3.set_xlim(0, 300)
-    s4.set_ylim(0, 48)
+    s4.set_ylim(0, 40)
     s4.legend(loc="upper right", fontsize=6.3, labelspacing=0.15, handlelength=2.0, borderaxespad=0.1)
     save300(fig, "figS3_generators")
