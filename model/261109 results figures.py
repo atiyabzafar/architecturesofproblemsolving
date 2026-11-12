@@ -1,13 +1,15 @@
 """Figures and numbers for Section 3 (Results) of the npj draft.
 
 Reads the runs written by "261109 results runs.py" (main.npz, ablation.npz,
-nocomm.npz in RUNDIR) and, for the mass-retraction numbers, the stored shock
-runs in "output/261001 timeseries.npz" (written by "261001 analysis.py" run).
+nocomm.npz and, for Supplementary Note 1, si_generators.npz in RUNDIR) and, for
+the mass-retraction numbers, the stored shock runs in "output/261001 timeseries.npz"
+(written by "261001 analysis.py" run).
 
   python "261109 results figures.py" RUNDIR TIMESERIES
 
-Writes 261109 fig2_selection, fig3_agents, fig4_misinformation (.pdf, .png)
-to RUNDIR and prints every number quoted in the draft.
+Writes 261109 fig2_selection, fig3_agents, fig4_misinformation, and for the
+Supplementary Information figS2_generators and figS3_generators (.pdf, .png)
+to RUNDIR, and prints every number quoted in the draft.
 """
 import sys
 from pathlib import Path
@@ -336,3 +338,121 @@ if B is not None:
     c3.set_xlabel("Periods since retirement, $\\tau$"); c3.set_ylabel("Agents with a positive belief, $\\rho_+$ (%)")
     c3.legend(loc="upper right", handlelength=3.0, labelspacing=0.3, borderaxespad=0.2); letter(c3, "b")
     save300(fig, "fig4_misinformation")
+
+# ============================================================ Supplementary Note 1: the four standard generators
+# Same measures as Sections 3.1-3.3, on Random, Small world, Barabasi-Albert and Layered, with Regular and Scale Free
+# as references. Network-level and agent-level numbers come from main.npz; the life cycle of retired constraints from
+# si_generators.npz ("261109 results runs.py" ... si). Writes 261109 figS2_generators and figS3_generators.
+SIF = RUN / "si_generators.npz"
+if M is not None and SIF.exists():
+    from matplotlib.lines import Line2D
+    SG = np.load(SIF)
+    GEN = ["random", "smallworld", "scalefree", "layered"]
+    SIN = ["even", "smallworld", "random", "layered", "scalefree", "uneven"]        # ordered by spread of intake
+    SIC = {"random": "#009E73", "smallworld": "#CC79A7", "scalefree": "#D55E00", "layered": "#56B4E9",
+           "even": NETC["even"], "uneven": NETC["uneven"]}
+    SIM = {"random": "D", "smallworld": "v", "scalefree": "P", "layered": "X", "even": NETM["even"], "uneven": NETM["uneven"]}
+    Q = lambda n, q: [SG[f"{n}|full|{s}|{q}"] for s in S40]
+
+    def km_median(t, cens):
+        """Kaplan-Meier median of durations t, with cens True where observation ended before the event."""
+        o = np.argsort(t, kind="stable"); t, cens = t[o], cens[o]; n = len(t); s = 1.0; i = 0
+        while i < n:
+            j = i; d = 0
+            while j < n and t[j] == t[i]:
+                d += (not cens[j]); j += 1
+            if d:
+                s *= 1 - d / (n - i)
+                if s <= 0.5:
+                    return float(t[i])
+            i = j
+        return float("nan")
+
+    life = {}
+    for n in SIN:
+        h, g, c = np.array(Q(n, "coh_h")), np.array(Q(n, "coh_n")), np.array(Q(n, "coh_c"))
+        w = c / np.maximum(c.sum(0, keepdims=True), 1)
+        hb = np.nansum(np.nan_to_num(h) * w, 0); nb = np.nansum(np.nan_to_num(g) * w, 0)
+        last = np.concatenate(Q(n, "lin_last")); end = np.concatenate(Q(n, "lin_end")); ok = last >= 0
+        cens = last[ok] >= end[ok] - 1
+        pk = int(np.argmax(nb[:400]))
+        life[n] = dict(hb=hb, nb=nb, med=km_median(last[ok] + 1.0, cens), cens=cens.mean(),
+                       cross=next((a for a in range(1, 400) if nb[a] >= hb[a]), None), pk=pk)
+    if B is not None:                                   # the Regular and Scale Free runs repeat those of Section 3.3
+        same = all(np.allclose(life[n]["hb"][:801], coh[(n, "full")][0][:801]) for n in ("even", "uneven"))
+        print(f"\nSUPPLEMENTARY NOTE 1 (life cycle of Regular and Scale Free identical to Section 3.3 runs: {same})")
+    for n in SIN:
+        kin = G(n, "kin"); cv2 = (kin.var(1) / kin.mean(1) ** 2).mean()
+        s_, q_, L_ = sel[n], iq[n], life[n]
+        d, e = welch(s_["avg"], sel["even"]["avg"])
+        print(f"  {SHORT[n]:16s} Var(k)/<k>^2 {cv2:.2f} | V {ci(s_['avg'])[0]:.2f}+-{ci(s_['avg'])[1]:.2f} (minus Regular {d:+.2f}+-{e:.2f}) | "
+              f"Vmin {ci(s_['tick'])[0]:.2f} | H {ci(s_['hom'])[0]:.3f}+-{ci(s_['hom'])[1]:.3f} | 5 largest in-degree "
+              f"{ci(s_['pos5'])[0]:.2f}+-{ci(s_['pos5'])[1]:.2f} ({(s_['avg'] - s_['pos5']).mean():.2f} below mean) | 5 best of 1001-1500 "
+              f"{s_['sel_before'].mean():.2f} -> {ci(s_['rec5'])[0]:.2f}+-{ci(s_['rec5'])[1]:.2f} ({(s_['avg'] - s_['rec5']).mean():.2f} below mean; "
+              f"{s_['overlap'].mean():.1f} of 5 among largest in-degree)")
+        print(f"  {'':16s} slope per doubling {-agent[n]['slope'] * np.log(2):.2f} | agents with no in-link {agent[n]['n0'] / (100 * NSEEDS):.1%}"
+              + (f" at V {agent[n]['V0']:.2f}" if agent[n]["n0"] else "") + f" | current {q_['true'].mean():.1f}, outdated "
+              f"{q_['stale'].mean():.1f} positive beliefs per agent | rho+(0) {100 * L_['hb'][0]:.1f}%, negatives exceed believers at "
+              f"{L_['cross']} | last believer gone after {L_['med']:.0f} periods (median; {L_['cens']:.0%} of constraints re-entered or "
+              f"outlived the run first) | rho- peak {100 * L_['nb'][L_['pk']]:.1f}% at {L_['pk']}, {100 * L_['nb'][200]:.1f}% at 200")
+    print("  no communication: V {:.2f}".format(V0))
+
+    # ---------------------------------------------------------------- Figure S2: as Fig. 2, six networks
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(7.08, 3.4), sharey=True, gridspec_kw=dict(width_ratios=[2.1, 1], wspace=0.08))
+    rows = SIN[::-1]
+    for yi, n in enumerate(rows):
+        a1.axhline(yi, color="#dddddd", lw=0.6, zorder=0); a2.axhline(yi, color="#dddddd", lw=0.6, zorder=0)
+        vals = [sel[n][q].mean() for q, *_ in mk]
+        a1.plot([min(vals[1:3]), vals[0]], [yi, yi], color=SIC[n], lw=1.6, alpha=0.55, zorder=1, solid_capstyle="butt")
+        for q, lab, m, fc, ec, ms in mk:
+            mu, e = ci(sel[n][q])
+            a1.errorbar([mu], [yi], xerr=[[e], [e]], fmt=m, ms=ms, mfc=(SIC[n] if fc is None else fc),
+                        mec=(SIC[n] if ec is None else ec), mew=1.1, ecolor=(SIC[n] if ec is None else ec),
+                        elinewidth=0.7, capsize=0, zorder=3)
+        mu, e = ci(sel[n]["hom"])
+        a2.errorbar([mu], [yi], xerr=[[e], [e]], fmt="o", ms=5.5, mfc=SIC[n], mec=SIC[n], ecolor=SIC[n],
+                    elinewidth=0.9, capsize=2, zorder=3)
+    a1.set_yticks(range(len(rows))); a1.set_yticklabels([SHORT[n] for n in rows])
+    a1.tick_params(axis="y", length=0); a2.tick_params(axis="y", length=0)
+    a1.set_xlim(19.3, 30.4); a1.set_ylim(-0.6, len(rows) - 0.4)
+    a1.set_xlabel("Mean number of violations, periods 1501–2000")
+    a1.legend([Line2D([], [], marker=m, ls="none", ms=ms, mfc=("#666666" if fc is None else fc), mec=("#666666" if ec is None else ec),
+                      mew=1.1) for q, lab, m, fc, ec, ms in mk],
+              [lab for q, lab, m, fc, ec, ms in mk], loc="upper left", bbox_to_anchor=(-0.27, -0.16), ncol=2, handletextpad=0.4,
+              columnspacing=1.2)
+    letter(a1, "a")
+    a2.set_xlim(0.684, 0.726); a2.set_xticks([0.69, 0.70, 0.71, 0.72]); a2.set_xlabel("Homogeneity, $H$"); letter(a2, "b")
+    save300(fig, "figS2_generators")
+
+    # ---------------------------------------------------------------- Figure S3: as Figs. 3a, 3c and 4a, six networks
+    fig, axs = plt.subplots(2, 2, figsize=(7.08, 5.0), gridspec_kw=dict(wspace=0.38, hspace=0.5))
+    s1, s2, s3, s4 = axs.ravel()
+    for n in ["uneven"] + GEN:
+        bb = agent[n]["bins"]
+        s1.plot([x["lam"] for x in bb], [x["V"] for x in bb], marker=SIM[n], color=SIC[n], ms=3.2, lw=1.1, label=SHORT[n])
+    s1.plot([1], [agent["even"]["bins"][0]["V"]], NETM["even"], ms=4, color=NETC["even"], label="Regular", zorder=5)
+    s1.axhline(V0, color="#777777", lw=0.9, ls=":")
+    s1.text(0.23, V0 + 0.12, "No communication", fontsize=6.5, color="#555555", ha="left", va="bottom")
+    s1.set_xscale("log"); s1.set_xticks([0.25, 0.5, 1, 2, 4, 8]); s1.set_xticklabels(["0.25", "0.5", "1", "2", "4", "8"])
+    s1.xaxis.set_minor_locator(matplotlib.ticker.NullLocator())
+    s1.set_xlabel("Communication intake, $\\lambda_i$"); s1.set_ylabel("Mean number of violations, $V_i$")
+    s1.set_ylim(21.5, 33.2); s1.set_yticks([22, 24, 26, 28, 30, 32])
+    s1.legend(loc="lower left", handletextpad=0.4, labelspacing=0.2, borderaxespad=0.1, fontsize=6.5); letter(s1, "a")
+    ys = np.arange(len(SIN))[::-1]
+    t_ = np.array([iq[n]["true"].mean() for n in SIN]); o_ = np.array([iq[n]["stale"].mean() for n in SIN])
+    s2.barh(ys, t_, color=CUR, height=0.62, label="Current"); s2.barh(ys, o_, left=t_, color=OUTD, height=0.62, label="Outdated")
+    for y, a, b in zip(ys, t_, o_):
+        s2.text(a / 2, y, f"{a:.1f}", ha="center", va="center", fontsize=6.5, color="white")
+        s2.text(a + b / 2, y, f"{b:.1f}", ha="center", va="center", fontsize=6.5, color="#000000")
+    s2.set_yticks(ys); s2.set_yticklabels([SHORT[n] for n in SIN]); s2.tick_params(axis="y", length=0)
+    s2.set_xlim(0, 30); s2.set_xlabel("Positive beliefs per agent")
+    s2.legend(loc="upper right", ncol=2, handlelength=1.2, columnspacing=0.8, bbox_to_anchor=(1.0, 1.13)); letter(s2, "b")
+    ages = np.arange(501)
+    for ax, key, lab, let in ((s3, "hb", "Agents with a positive belief, $\\rho_+$ (%)", "c"),
+                              (s4, "nb", "Agents with a negative belief, $\\rho_-$ (%)", "d")):
+        for n in SIN:
+            ax.plot(ages, 100 * life[n][key][:501], color=SIC[n], lw=1.2, marker=SIM[n], markevery=(25, 50), ms=3.2, label=SHORT[n])
+        ax.set_xlim(0, 500); ax.set_xlabel("Periods since retirement, $\\tau$"); ax.set_ylabel(lab); letter(ax, let)
+    s3.set_ylim(0, 30); s3.set_xlim(0, 300); s4.set_ylim(0, 40)
+    s4.legend(loc="upper right", fontsize=6.5, labelspacing=0.2, handlelength=2.2, ncol=2, columnspacing=0.8)
+    save300(fig, "figS3_generators")

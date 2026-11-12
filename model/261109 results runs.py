@@ -36,11 +36,16 @@ ABLATION (Section 3.3): Regular and Scale Free, seven versions of the belief pro
 NOCOMM: no communication (comm_scale = 0): agents learn only by testing. Network
   violations per period.
 
+SI (Supplementary Note 1): the baseline model ("full") with the life-cycle tracking of
+  ABLATION, on Regular, Scale Free and the four generators. For every tracked rule it
+  also records the last age at which some agent still believed it and the age at which
+  its observation ended (re-entry into the rule set or end of the run).
+
 The activation order of agents (Mesa's own random stream, unseeded in the
 model) is seeded here, so these runs are reproducible.
 Run from the model folder:
-  PYTHONHASHSEED=0 python "261109 results runs.py" OUTDIR [main|abl|nocomm|all]
-Writes main.npz, ablation.npz and nocomm.npz to OUTDIR.
+  PYTHONHASHSEED=0 python "261109 results runs.py" OUTDIR [main|abl|nocomm|si|all]
+Writes main.npz, ablation.npz, nocomm.npz and si_generators.npz to OUTDIR.
 """
 import importlib.util
 import os
@@ -60,6 +65,7 @@ import model_learningbytesting as L  # noqa: E402  (same module object A uses)
 np = A.np
 WORKERS = 8
 NETS = ["even", "uneven", "dense", "random", "smallworld", "scalefree", "layered"]
+SI_NETS = ["even", "uneven", "random", "smallworld", "scalefree", "layered"]
 VARIANTS = {   # recency, belief process, memory cap, learning by testing, observation probability
     "full": (True, "normal", None, True, None),
     "norec": (False, "normal", None, True, None),
@@ -168,6 +174,7 @@ def run_abl(name, variant, seed):
     h_acc = np.zeros(AG); n_acc = np.zeros(AG); c_acc = np.zeros(AG)
     born = {}                                      # tracked rule -> tick it was retired (first life)
     last_gone = {}                                 # clause -> last tick it left the rule set
+    last_b, ended = {}, {}                         # tracked rule -> last age with a believer / age observation ended
     seen_log = 0
     for t in range(1, T + 1):
         m.step()
@@ -182,6 +189,8 @@ def run_abl(name, variant, seed):
                     born[old] = tick
         # first lives only: a tracked rule that re-enters the rule set is dropped for good
         for c in [c for c in born if c in Cs]:
+            if born[c] is not None:
+                ended[c] = t - born[c]
             born[c] = None
         alive = {c for c, t0 in born.items() if t0 is not None}
         if alive:
@@ -200,6 +209,8 @@ def run_abl(name, variant, seed):
             for c in alive:
                 age = t - born[c]
                 h_acc[age] += hb[c] / n; n_acc[age] += nb[c] / n; c_acc[age] += 1
+                if hb[c]:
+                    last_b[c] = age
         if t % 10 == 0:
             k = t // 10; tr = st = ng = 0
             for a in m.agent_list:
@@ -214,7 +225,12 @@ def run_abl(name, variant, seed):
     age_hist = np.bincount(np.array(ages, int), minlength=T + 1)[: T + 1] if ages else np.zeros(T + 1, int)
     with np.errstate(invalid="ignore", divide="ignore"):
         out = dict(coh_h=h_acc / c_acc, coh_n=n_acc / c_acc, coh_c=c_acc)
-    out.update(avgV=avgV, ts_true=ts_true, ts_stale=ts_stale, ts_neg=ts_neg, age_hist=age_hist)
+    for c, t0 in born.items():
+        if t0 is not None:
+            ended[c] = T - t0
+    tracked = list(ended)
+    out.update(avgV=avgV, ts_true=ts_true, ts_stale=ts_stale, ts_neg=ts_neg, age_hist=age_hist,
+               lin_last=np.array([last_b.get(c, -1) for c in tracked]), lin_end=np.array([ended[c] for c in tracked]))
     return ("abl", f"{name}|{variant}", seed), out
 
 
@@ -230,10 +246,13 @@ def run_nocomm(seed):
 
 def run(job):
     kind = job[0]
+    if kind == "si":                               # baseline life cycle on the networks of Supplementary Note 1
+        (_, key, seed), out = run_abl(*job[1:])
+        return ("si", key, seed), out
     return run_main(*job[1:]) if kind == "main" else run_abl(*job[1:]) if kind == "abl" else run_nocomm(*job[1:])
 
 
-FILES = {"main": "main.npz", "abl": "ablation.npz", "nocomm": "nocomm.npz"}
+FILES = {"main": "main.npz", "abl": "ablation.npz", "nocomm": "nocomm.npz", "si": "si_generators.npz"}
 
 if __name__ == "__main__":
     outdir = Path(sys.argv[1]); outdir.mkdir(parents=True, exist_ok=True)
@@ -245,6 +264,8 @@ if __name__ == "__main__":
         jobs += [("nocomm", s) for s in SEEDS]
     if which in ("all", "main"):
         jobs += [("main", nm, s) for s in SEEDS for nm in NETS]
+    if which in ("all", "si"):
+        jobs += [("si", nm, "full", s) for s in SEEDS for nm in SI_NETS]
     t0 = time.time(); res = {k: {} for k in FILES}
     with ProcessPoolExecutor(max_workers=WORKERS) as ex:
         for i, ((kind, key, seed), out) in enumerate(ex.map(run, jobs), 1):
