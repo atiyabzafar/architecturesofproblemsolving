@@ -514,8 +514,8 @@ def fig_longrun(plt, ts, names, stem, vlim=(10, 30.5)):
     ax.set_title("(a) Average and best-agent violations"); ax.set_ylabel("long-run violations")
     key = dict(ls="none", marker="o", ms=7, mew=1.6, color="k")
     ax.legend([plt.Line2D([], [], mfc="k", **key), plt.Line2D([], [], mfc="white", **key)],
-              ["average", "best agent"], loc="center", bbox_to_anchor=(0.5, 12.5), bbox_transform=ax.transData,
-              frameon=False)                    # low, in the empty cell between the first two networks
+              ["average", "best agent"], loc="center left", bbox_to_anchor=(-0.55, 12.5),
+              bbox_transform=ax.transData, frameon=False)    # low, in the empty bottom-left corner
     axes[1].set_title("(b) Homogeneity"); axes[1].set_ylabel("long-run homogeneity")
     fig.tight_layout()
     save(fig, stem)

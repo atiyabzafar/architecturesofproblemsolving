@@ -310,16 +310,16 @@ if B is not None:
               f"halved after {half} periods | new constraints overtake at {cross} | new constraints peak {100 * sp[pk]:.1f}% at {pk}")
 
     fig, (c1, c3) = plt.subplots(1, 2, figsize=(7.08, 2.7), gridspec_kw=dict(wspace=0.3))
-    ages = np.arange(301)
+    ages = np.arange(501)
     for n in ("even", "uneven"):
         hb, nb, _ = coh[(n, "full")]
-        c1.plot(ages, 100 * hb[:301], color=NETC[n], lw=1.4, ls="-")
-        c1.plot(ages, 100 * nb[:301], color=NETC[n], lw=1.2, ls="--")
+        c1.plot(ages, 100 * hb[:501], color=NETC[n], lw=1.4, ls="-")
+        c1.plot(ages, 100 * nb[:501], color=NETC[n], lw=1.2, ls="--")
     c1.legend([Line2D([], [], color=NETC["even"]), Line2D([], [], color=NETC["uneven"]),
                Line2D([], [], color="#555555", ls="-"), Line2D([], [], color="#555555", ls="--")],
               ["Regular", "Scale Free", "Positive belief, $\\rho_+$", "Negative belief, $\\rho_-$"], loc="upper right", ncol=2,
               columnspacing=1.0)
-    c1.set_xlim(0, 300); c1.set_ylim(0, 55)
+    c1.set_xlim(0, 500); c1.set_ylim(0, 55)
     c1.set_xlabel("Periods since retirement, $\\tau$"); c1.set_ylabel("Fraction of agents (%)"); letter(c1, "a")
     n = "uneven"
     show = ["full", "norec", "noneg120", "noneg24", "neither"]
