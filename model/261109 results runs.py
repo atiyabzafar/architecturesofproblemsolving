@@ -41,6 +41,12 @@ SI (Supplementary Note 1): the baseline model ("full") with the life-cycle track
   also records the last age at which some agent still believed it and the age at which
   its observation ended (re-entry into the rule set or end of the run).
 
+Generator networks (Random, Small world, Barabasi-Albert, Layered) are built by the
+model's own generators and then corrected so that every agent has at least one in-link
+(ensure_in_link), and the model is built from the corrected graph. Without the
+correction, agents that never receive a message (up to 8% in Barabasi-Albert) sit at
+the no-communication level and pull the network averages up.
+
 The activation order of agents (Mesa's own random stream, unseeded in the
 model) is seeded here, so these runs are reproducible.
 Run from the model folder:
@@ -63,6 +69,7 @@ spec.loader.exec_module(A)
 import model_learningbytesting as L  # noqa: E402  (same module object A uses)
 
 np = A.np
+nx = A.nx
 WORKERS = 8
 NETS = ["even", "uneven", "dense", "random", "smallworld", "scalefree", "layered"]
 SI_NETS = ["even", "uneven", "random", "smallworld", "scalefree", "layered"]
@@ -117,8 +124,41 @@ L.LearningByTestingPerson._one_test = _one_test
 L.LearningByTestingPerson.belief_cap = _cap
 
 
+def ensure_in_link(G, rng):
+    """Copy of G in which every agent has at least one in-link. For an agent without one, one of its
+    out-links is reversed, chosen among those whose other end keeps an in-link; the number of links and
+    every agent's total degree are unchanged. An agent with no usable out-link instead receives a link
+    redirected from an agent whose target keeps an in-link (rare)."""
+    G = G.copy()
+    for _ in range(20 * G.number_of_nodes()):
+        zero = [v for v in sorted(G) if G.in_degree(v) == 0]
+        if not zero:
+            return G
+        v = zero[0]
+        outs = [w for w in sorted(G.successors(v)) if G.in_degree(w) >= 2]
+        if outs:
+            w = outs[int(rng.integers(len(outs)))]
+            G.remove_edge(v, w); G.add_edge(w, v)
+        else:
+            cand = [(u, x) for u, x in sorted(G.edges()) if u != v and G.in_degree(x) >= 2 and not G.has_edge(u, v)]
+            u, x = cand[int(rng.integers(len(cand)))]
+            G.remove_edge(u, x); G.add_edge(u, v)
+    raise RuntimeError("could not give every agent an in-link")
+
+
+def make_net_model(name, seed, T):
+    """As A.make_model, with the generator networks corrected by ensure_in_link."""
+    if A.SPECS[name]["kind"] != "gen":
+        return A.make_model(name, seed, T)
+    G = ensure_in_link(A.make_model(name, seed, T).network, np.random.default_rng(seed * 7919 + 23))
+    G = nx.relabel_nodes(G, {v: i for i, v in enumerate(sorted(G))})
+    H = nx.DiGraph(); H.add_nodes_from(range(G.number_of_nodes())); H.add_edges_from(G.edges())
+    with A.contextlib.redirect_stdout(A.io.StringIO()):
+        return A.AnalysisModel(N=A.N, R=T, seed=seed, setup_source="graph", input_graph=H, **A.BASE)
+
+
 def build(name, seed, T, variant="full"):
-    m = A.make_model(name, seed, T)
+    m = make_net_model(name, seed, T)
     m.random.seed(1_000_003 * seed + 17)          # agents' activation order (Mesa's stream)
     rec, mode, cap, lbt, obs = VARIANTS[variant]
     m.recency, m.cap_override, m.learning_by_testing = rec, cap, lbt
@@ -160,7 +200,10 @@ def run_main(name, seed):
                 f["vb"][i] += sum(v for b, v in zip(bel, viol) if b)
                 f["vu"][i] += sum(v for b, v in zip(bel, viol) if not b)
     out = {q: f[q] / ns for q in Q}
-    out.update(kin=kin, kout=kout, win=win / 50, avgV=avgV, minV=minV, hom=hom)
+    st = A.network_stats(m.network)                 # structure of this realisation (Table S1)
+    out.update(kin=kin, kout=kout, win=win / 50, avgV=avgV, minV=minV, hom=hom,
+               netstats=np.array([st[k] for k in ("k_mean", "kin_sd", "kin_max", "cv2", "inout_corr", "clustering",
+                                                  "kin_zero", "largest_scc")]))
     return ("main", name, seed), out
 
 

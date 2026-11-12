@@ -4,65 +4,63 @@
   arrmean = um.true_divide(arrmean, div, out=arrmean,
 /Users/fausto/.cache/uv/archive-v0/JMA95sTxo2mmStBo/lib/python3.12/site-packages/numpy/_core/_methods.py:211: RuntimeWarning: invalid value encountered in scalar divide
   ret = ret.dtype.type(ret / rcount)
-/Users/fausto/Library/CloudStorage/GoogleDrive-faustogernone@gmail.com/My Drive/phd works/santafe project/architecturesofproblemsolving/model/261109 results figures.py:143: RuntimeWarning: divide by zero encountered in log
-  x = np.log(lam).ravel(); y = V.ravel(); ok = np.isfinite(x)
 ====================================================================================================
 NETWORK LEVEL (40 runs per network; long run = periods 1501-2000)
   Regular            average  28.59+-0.16 | best each period  19.88 | most-heard 1  28.59+-0.16, 5  28.59+-0.16 | best record 1  28.30+-0.48, 5  28.21+-0.20 | best member ex post  25.45 | homogeneity 0.714
   Scale Free         average  29.55+-0.16 | best each period  19.94 | most-heard 1  23.95+-0.33, 5  25.40+-0.24 | best record 1  24.68+-0.46, 5  26.08+-0.29 | best member ex post  23.81 | homogeneity 0.703
   Scale Free, dense  average  29.58+-0.14 | best each period  20.02 | most-heard 1  24.08+-0.27, 5  25.37+-0.21 | best record 1  24.71+-0.51, 5  25.82+-0.24 | best member ex post  23.95 | homogeneity 0.696
-  Random             average  29.24+-0.16 | best each period  19.99 | most-heard 1  26.91+-0.37, 5  27.41+-0.19 | best record 1  27.84+-0.46, 5  28.00+-0.24 | best member ex post  25.34 | homogeneity 0.705
-  Small world        average  28.98+-0.19 | best each period  20.06 | most-heard 1  27.34+-0.42, 5  27.59+-0.27 | best record 1  28.37+-0.48, 5  28.23+-0.26 | best member ex post  25.25 | homogeneity 0.709
-  Barabási–Albert    average  29.92+-0.14 | best each period  20.21 | most-heard 1  25.32+-0.34, 5  25.91+-0.24 | best record 1  26.22+-0.43, 5  26.56+-0.31 | best member ex post  24.59 | homogeneity 0.693
-  Layered            average  29.37+-0.17 | best each period  20.30 | most-heard 1  27.16+-0.33, 5  27.34+-0.25 | best record 1  28.41+-0.47, 5  28.38+-0.28 | best member ex post  25.44 | homogeneity 0.702
+  Random             average  29.12+-0.20 | best each period  20.03 | most-heard 1  26.66+-0.46, 5  27.08+-0.28 | best record 1  27.88+-0.55, 5  28.06+-0.25 | best member ex post  25.15 | homogeneity 0.703
+  Small world        average  29.11+-0.15 | best each period  20.13 | most-heard 1  27.12+-0.38, 5  27.61+-0.21 | best record 1  27.99+-0.53, 5  28.43+-0.25 | best member ex post  25.38 | homogeneity 0.705
+  Barabási–Albert    average  29.75+-0.15 | best each period  20.16 | most-heard 1  25.19+-0.35, 5  26.00+-0.25 | best record 1  25.82+-0.49, 5  26.82+-0.30 | best member ex post  24.58 | homogeneity 0.695
+  Layered            average  29.07+-0.22 | best each period  19.98 | most-heard 1  26.84+-0.40, 5  27.26+-0.29 | best record 1  27.39+-0.47, 5  27.87+-0.34 | best member ex post  25.20 | homogeneity 0.704
   No communication   average  32.08+-0.10 | value of communication: Regular 3.49, Scale Free 2.53
   Differences from Regular (95% interval):
     Scale Free         average +0.96+-0.23 | best each period +0.05+-0.29 | 5 most-heard -3.19+-0.29 | 5 best record -2.13+-0.35 | most-heard -4.65+-0.36 | best record -3.62+-0.66 | homogeneity -0.012+-0.009
     Scale Free, dense  average +0.99+-0.21 | best each period +0.14+-0.25 | 5 most-heard -3.22+-0.26 | 5 best record -2.40+-0.31 | most-heard -4.51+-0.31 | best record -3.60+-0.70 | homogeneity -0.018+-0.008
-    Random             average +0.65+-0.23 | best each period +0.10+-0.28 | 5 most-heard -1.18+-0.24 | 5 best record -0.22+-0.32 | most-heard -1.68+-0.40 | best record -0.47+-0.66 | homogeneity -0.009+-0.008
-    Small world        average +0.39+-0.25 | best each period +0.18+-0.29 | 5 most-heard -1.00+-0.31 | 5 best record +0.02+-0.33 | most-heard -1.25+-0.45 | best record +0.07+-0.68 | homogeneity -0.006+-0.008
-    Barabási–Albert    average +1.33+-0.21 | best each period +0.33+-0.26 | 5 most-heard -2.68+-0.29 | 5 best record -1.65+-0.37 | most-heard -3.27+-0.37 | best record -2.08+-0.64 | homogeneity -0.021+-0.008
-    Layered            average +0.78+-0.23 | best each period +0.41+-0.28 | 5 most-heard -1.25+-0.29 | 5 best record +0.17+-0.35 | most-heard -1.43+-0.37 | best record +0.11+-0.67 | homogeneity -0.013+-0.009
+    Random             average +0.53+-0.25 | best each period +0.14+-0.30 | 5 most-heard -1.51+-0.32 | 5 best record -0.15+-0.32 | most-heard -1.93+-0.49 | best record -0.43+-0.73 | homogeneity -0.011+-0.008
+    Small world        average +0.52+-0.22 | best each period +0.24+-0.25 | 5 most-heard -0.98+-0.27 | 5 best record +0.22+-0.32 | most-heard -1.47+-0.41 | best record -0.32+-0.72 | homogeneity -0.009+-0.008
+    Barabási–Albert    average +1.16+-0.22 | best each period +0.28+-0.27 | 5 most-heard -2.59+-0.30 | 5 best record -1.39+-0.36 | most-heard -3.40+-0.38 | best record -2.48+-0.69 | homogeneity -0.019+-0.008
+    Layered            average +0.48+-0.27 | best each period +0.10+-0.31 | 5 most-heard -1.33+-0.33 | 5 best record -0.35+-0.39 | most-heard -1.75+-0.43 | best record -0.91+-0.67 | homogeneity -0.010+-0.009
     Regular            5 most-heard beat own average by -0.00; 5 best-record by 0.38
     Scale Free         5 most-heard beat own average by 4.15; 5 best-record by 3.47
     Scale Free, dense  5 most-heard beat own average by 4.21; 5 best-record by 3.77
-    Random             5 most-heard beat own average by 1.82; 5 best-record by 1.24
-    Small world        5 most-heard beat own average by 1.38; 5 best-record by 0.74
-    Barabási–Albert    5 most-heard beat own average by 4.01; 5 best-record by 3.36
-    Layered            5 most-heard beat own average by 2.04; 5 best-record by 0.99
+    Random             5 most-heard beat own average by 2.04; 5 best-record by 1.06
+    Small world        5 most-heard beat own average by 1.50; 5 best-record by 0.68
+    Barabási–Albert    5 most-heard beat own average by 3.75; 5 best-record by 2.93
+    Layered            5 most-heard beat own average by 1.81; 5 best-record by 1.21
 
 INFORMATION QUALITY (per agent, sampled every 10 periods over 1501-2000)
   Regular            current rules believed 14.99 of 60 | true 'rule exists' 14.31 | outdated 'rule exists' 10.87+-0.13 | precision 0.57 | 'rule gone'  94.8 (wrong 2.76) | believed rules violated 26%, unbelieved 55%
   Scale Free         current rules believed 11.58 of 60 | true 'rule exists' 11.07 | outdated 'rule exists' 10.81+-0.14 | precision 0.51 | 'rule gone'  98.1 (wrong 3.35) | believed rules violated 25%, unbelieved 55%
   Scale Free, dense  current rules believed 11.41 of 60 | true 'rule exists' 10.90 | outdated 'rule exists' 10.33+-0.14 | precision 0.51 | 'rule gone'  98.8 (wrong 3.24) | believed rules violated 25%, unbelieved 55%
-  Random             current rules believed 12.14 of 60 | true 'rule exists' 11.63 | outdated 'rule exists' 10.07+-0.12 | precision 0.54 | 'rule gone'  97.1 (wrong 2.96) | believed rules violated 25%, unbelieved 55%
-  Small world        current rules believed 13.17 of 60 | true 'rule exists' 12.62 | outdated 'rule exists' 10.42+-0.13 | precision 0.55 | 'rule gone'  96.5 (wrong 2.92) | believed rules violated 25%, unbelieved 55%
-  Barabási–Albert    current rules believed  9.88 of 60 | true 'rule exists'  9.47 | outdated 'rule exists'  9.31+-0.09 | precision 0.50 | 'rule gone'  95.9 (wrong 3.26) | believed rules violated 24%, unbelieved 55%
-  Layered            current rules believed 12.22 of 60 | true 'rule exists' 11.68 | outdated 'rule exists' 10.03+-0.11 | precision 0.54 | 'rule gone'  97.0 (wrong 3.05) | believed rules violated 25%, unbelieved 55%
+  Random             current rules believed 12.51 of 60 | true 'rule exists' 11.95 | outdated 'rule exists' 10.11+-0.15 | precision 0.54 | 'rule gone'  97.9 (wrong 3.01) | believed rules violated 25%, unbelieved 55%
+  Small world        current rules believed 13.36 of 60 | true 'rule exists' 12.79 | outdated 'rule exists' 10.51+-0.10 | precision 0.55 | 'rule gone'  96.7 (wrong 2.94) | believed rules violated 26%, unbelieved 55%
+  Barabási–Albert    current rules believed 10.39 of 60 | true 'rule exists'  9.94 | outdated 'rule exists'  9.86+-0.10 | precision 0.50 | 'rule gone' 100.2 (wrong 3.46) | believed rules violated 24%, unbelieved 55%
+  Layered            current rules believed 12.53 of 60 | true 'rule exists' 11.97 | outdated 'rule exists' 10.22+-0.12 | precision 0.54 | 'rule gone'  97.8 (wrong 3.03) | believed rules violated 25%, unbelieved 55%
     Scale Free         minus Regular: true -3.24+-0.23, outdated -0.06+-0.19
     Scale Free, dense  minus Regular: true -3.41+-0.23, outdated -0.54+-0.19
-    Random             minus Regular: true -2.68+-0.23, outdated -0.80+-0.18
-    Small world        minus Regular: true -1.69+-0.21, outdated -0.45+-0.18
-    Barabási–Albert    minus Regular: true -4.84+-0.21, outdated -1.56+-0.16
-    Layered            minus Regular: true -2.63+-0.21, outdated -0.84+-0.16
+    Random             minus Regular: true -2.36+-0.23, outdated -0.76+-0.19
+    Small world        minus Regular: true -1.52+-0.21, outdated -0.35+-0.16
+    Barabási–Albert    minus Regular: true -4.37+-0.21, outdated -1.00+-0.16
+    Layered            minus Regular: true -2.34+-0.22, outdated -0.64+-0.17
 
 AGENT LEVEL
   Scale Free         slope per doubling of intake 1.31 (R^2 0.39); agents with no in-link: 0 at nan
   Scale Free, dense  slope per doubling of intake 1.35 (R^2 0.42); agents with no in-link: 0 at nan
-  Random             slope per doubling of intake 1.24 (R^2 0.25); agents with no in-link: 75 at 32.30
-  Small world        slope per doubling of intake 1.24 (R^2 0.20); agents with no in-link: 27 at 32.33
-  Barabási–Albert    slope per doubling of intake 1.22 (R^2 0.40); agents with no in-link: 334 at 32.23
-  Layered            slope per doubling of intake 1.32 (R^2 0.29); agents with no in-link: 83 at 32.23
+  Random             slope per doubling of intake 1.32 (R^2 0.30); agents with no in-link: 0 at nan
+  Small world        slope per doubling of intake 1.30 (R^2 0.24); agents with no in-link: 0 at nan
+  Barabási–Albert    slope per doubling of intake 1.20 (R^2 0.39); agents with no in-link: 0 at nan
+  Layered            slope per doubling of intake 1.27 (R^2 0.28); agents with no in-link: 0 at nan
   Scale Free by intake: 0.25: V 30.9, true 7.3, outdated 13.1, prec 0.36, gone 100; 0.50: V 30.3, true 9.6, outdated 12.2, prec 0.44, gone 98; 0.75: V 29.7, true 11.3, outdated 11.1, prec 0.51, gone 98; 1.08: V 29.0, true 12.9, outdated 9.7, prec 0.57, gone 97; 1.62: V 28.0, true 14.5, outdated 8.1, prec 0.64, gone 97; 2.18: V 27.3, true 15.3, outdated 6.9, prec 0.69, gone 98; 3.22: V 26.3, true 16.2, outdated 5.6, prec 0.74, gone 98; 4.50: V 25.4, true 16.9, outdated 4.6, prec 0.79, gone 99; 7.29: V 24.6, true 17.4, outdated 3.6, prec 0.83, gone 99
 
 FIVE BEST AGENTS OF PERIODS 1001-1500 (selection period), followed over 1501-2000
   Regular             25.81 in 1001-1500 ->  28.21+-0.20 in 1501-2000 | of these 5, 0.2 are among the 5 agents with the largest in-degree
   Scale Free          25.12 in 1001-1500 ->  26.08+-0.29 in 1501-2000 | of these 5, 3.3 are among the 5 agents with the largest in-degree
   Scale Free, dense   25.08 in 1001-1500 ->  25.82+-0.24 in 1501-2000 | of these 5, 3.6 are among the 5 agents with the largest in-degree
-  Random              26.09 in 1001-1500 ->  28.00+-0.24 in 1501-2000 | of these 5, 1.2 are among the 5 agents with the largest in-degree
-  Small world         25.91 in 1001-1500 ->  28.23+-0.26 in 1501-2000 | of these 5, 0.9 are among the 5 agents with the largest in-degree
-  Barabási–Albert     25.34 in 1001-1500 ->  26.56+-0.31 in 1501-2000 | of these 5, 3.1 are among the 5 agents with the largest in-degree
-  Layered             26.02 in 1001-1500 ->  28.38+-0.28 in 1501-2000 | of these 5, 1.2 are among the 5 agents with the largest in-degree
+  Random              26.01 in 1001-1500 ->  28.06+-0.25 in 1501-2000 | of these 5, 1.2 are among the 5 agents with the largest in-degree
+  Small world         26.05 in 1001-1500 ->  28.43+-0.25 in 1501-2000 | of these 5, 0.9 are among the 5 agents with the largest in-degree
+  Barabási–Albert     25.48 in 1001-1500 ->  26.82+-0.30 in 1501-2000 | of these 5, 3.0 are among the 5 agents with the largest in-degree
+  Layered             26.03 in 1001-1500 ->  27.87+-0.34 in 1501-2000 | of these 5, 1.2 are among the 5 agents with the largest in-degree
 
 HOMOGENEITY AND SPREAD OF INDIVIDUAL PERFORMANCE (periods 1501-2000)
   Regular            H 0.714+-0.006 | across-run r(H, V) -0.70 | sd of individual violations 1.38, 10th-90th percentile spread 3.51
@@ -95,16 +93,22 @@ wrote output/261109 results/261109 fig4_misinformation.png
 SUPPLEMENTARY NOTE 1 (life cycle of Regular and Scale Free identical to Section 3.3 runs: True)
   Regular          Var(k)/<k>^2 0.00 | V 28.59+-0.16 (minus Regular +0.00+-0.22) | Vmin 19.88 | H 0.714+-0.006 | 5 largest in-degree 28.59+-0.16 (-0.00 below mean) | 5 best of 1001-1500 25.81 -> 28.21+-0.20 (0.38 below mean; 0.2 of 5 among largest in-degree)
                    slope per doubling nan | agents with no in-link 0.0% | current 14.3, outdated 10.9 positive beliefs per agent | rho+(0) 24.4%, negatives exceed believers at 27 | last believer gone after 98 periods (median; 10% of constraints re-entered or outlived the run first) | rho- peak 33.7% at 99, 20.4% at 200
-  Small world      Var(k)/<k>^2 0.15 | V 28.98+-0.19 (minus Regular +0.39+-0.25) | Vmin 20.06 | H 0.709+-0.005 | 5 largest in-degree 27.59+-0.27 (1.38 below mean) | 5 best of 1001-1500 25.91 -> 28.23+-0.26 (0.74 below mean; 0.9 of 5 among largest in-degree)
-                   slope per doubling 1.24 | agents with no in-link 0.7% at V 32.33 | current 12.6, outdated 10.4 positive beliefs per agent | rho+(0) 21.8%, negatives exceed believers at 29 | last believer gone after 130 periods (median; 14% of constraints re-entered or outlived the run first) | rho- peak 25.9% at 95, 20.2% at 200
-  Random           Var(k)/<k>^2 0.24 | V 29.24+-0.16 (minus Regular +0.65+-0.23) | Vmin 19.99 | H 0.705+-0.004 | 5 largest in-degree 27.41+-0.19 (1.82 below mean) | 5 best of 1001-1500 26.09 -> 28.00+-0.24 (1.24 below mean; 1.2 of 5 among largest in-degree)
-                   slope per doubling 1.24 | agents with no in-link 1.9% at V 32.30 | current 11.6, outdated 10.1 positive beliefs per agent | rho+(0) 20.8%, negatives exceed believers at 30 | last believer gone after 146 periods (median; 15% of constraints re-entered or outlived the run first) | rho- peak 23.7% at 89, 19.5% at 200
-  Layered          Var(k)/<k>^2 0.24 | V 29.37+-0.17 (minus Regular +0.78+-0.23) | Vmin 20.30 | H 0.702+-0.006 | 5 largest in-degree 27.34+-0.25 (2.04 below mean) | 5 best of 1001-1500 26.02 -> 28.38+-0.28 (0.99 below mean; 1.2 of 5 among largest in-degree)
-                   slope per doubling 1.32 | agents with no in-link 2.1% at V 32.23 | current 11.7, outdated 10.0 positive beliefs per agent | rho+(0) 20.5%, negatives exceed believers at 29 | last believer gone after 144 periods (median; 16% of constraints re-entered or outlived the run first) | rho- peak 23.3% at 90, 19.3% at 200
-  Barabási–Albert  Var(k)/<k>^2 1.16 | V 29.92+-0.14 (minus Regular +1.33+-0.21) | Vmin 20.21 | H 0.693+-0.005 | 5 largest in-degree 25.91+-0.24 (4.01 below mean) | 5 best of 1001-1500 25.34 -> 26.56+-0.31 (3.36 below mean; 3.1 of 5 among largest in-degree)
-                   slope per doubling 1.22 | agents with no in-link 8.3% at V 32.23 | current 9.5, outdated 9.3 positive beliefs per agent | rho+(0) 17.2%, negatives exceed believers at 29 | last believer gone after 172 periods (median; 17% of constraints re-entered or outlived the run first) | rho- peak 19.0% at 120, 18.3% at 200
+  Small world      Var(k)/<k>^2 0.14 | V 29.11+-0.15 (minus Regular +0.52+-0.22) | Vmin 20.13 | H 0.705+-0.005 | 5 largest in-degree 27.61+-0.21 (1.50 below mean) | 5 best of 1001-1500 26.05 -> 28.43+-0.25 (0.68 below mean; 0.9 of 5 among largest in-degree)
+                   slope per doubling 1.30 | agents with no in-link 0.0% | current 12.8, outdated 10.5 positive beliefs per agent | rho+(0) 22.0%, negatives exceed believers at 30 | last believer gone after 134 periods (median; 15% of constraints re-entered or outlived the run first) | rho- peak 26.4% at 91, 20.7% at 200
+  Random           Var(k)/<k>^2 0.23 | V 29.12+-0.20 (minus Regular +0.53+-0.25) | Vmin 20.03 | H 0.703+-0.006 | 5 largest in-degree 27.08+-0.28 (2.04 below mean) | 5 best of 1001-1500 26.01 -> 28.06+-0.25 (1.06 below mean; 1.2 of 5 among largest in-degree)
+                   slope per doubling 1.32 | agents with no in-link 0.0% | current 11.9, outdated 10.1 positive beliefs per agent | rho+(0) 20.7%, negatives exceed believers at 29 | last believer gone after 150 periods (median; 15% of constraints re-entered or outlived the run first) | rho- peak 23.6% at 87, 19.7% at 200
+  Layered          Var(k)/<k>^2 0.23 | V 29.07+-0.22 (minus Regular +0.48+-0.27) | Vmin 19.98 | H 0.704+-0.007 | 5 largest in-degree 27.26+-0.29 (1.81 below mean) | 5 best of 1001-1500 26.03 -> 27.87+-0.34 (1.21 below mean; 1.2 of 5 among largest in-degree)
+                   slope per doubling 1.27 | agents with no in-link 0.0% | current 12.0, outdated 10.2 positive beliefs per agent | rho+(0) 20.7%, negatives exceed believers at 29 | last believer gone after 149 periods (median; 16% of constraints re-entered or outlived the run first) | rho- peak 23.7% at 87, 19.9% at 200
+  Barabási–Albert  Var(k)/<k>^2 1.02 | V 29.75+-0.15 (minus Regular +1.16+-0.22) | Vmin 20.16 | H 0.695+-0.005 | 5 largest in-degree 26.00+-0.25 (3.75 below mean) | 5 best of 1001-1500 25.48 -> 26.82+-0.30 (2.93 below mean; 3.0 of 5 among largest in-degree)
+                   slope per doubling 1.20 | agents with no in-link 0.0% | current 9.9, outdated 9.9 positive beliefs per agent | rho+(0) 17.6%, negatives exceed believers at 29 | last believer gone after 190 periods (median; 19% of constraints re-entered or outlived the run first) | rho- peak 19.8% at 148, 19.1% at 200
   Scale Free       Var(k)/<k>^2 1.44 | V 29.55+-0.16 (minus Regular +0.96+-0.23) | Vmin 19.94 | H 0.703+-0.006 | 5 largest in-degree 25.40+-0.24 (4.15 below mean) | 5 best of 1001-1500 25.12 -> 26.08+-0.29 (3.47 below mean; 3.3 of 5 among largest in-degree)
                    slope per doubling 1.31 | agents with no in-link 0.0% | current 11.1, outdated 10.8 positive beliefs per agent | rho+(0) 19.2%, negatives exceed believers at 31 | last believer gone after 165 periods (median; 17% of constraints re-entered or outlived the run first) | rho- peak 21.5% at 135, 20.3% at 200
   no communication: V 32.08
+  Table S1 (means over realisations): <k>, sd k_in, max k_in, Var(k)/<k>^2, corr(k_in,k_out), clustering, no in-link, largest SCC
+    Random           3.9 & 1.9 & 10 & 0.23 & +0.01 & 0.08 & 0\% & 98\%
+    Small world      4.0 & 1.5 & 8 & 0.14 & -0.82 & 0.49 & 0\% & 100\%
+    Barabási–Albert  3.7 & 3.7 & 23 & 1.02 & +0.77 & 0.22 & 0\% & 97\%
+    Layered          3.9 & 1.9 & 10 & 0.23 & +0.02 & 0.10 & 0\% & 98\%
+wrote output/261109 results/261109 figS1_networks.png
 wrote output/261109 results/261109 figS2_generators.png
 wrote output/261109 results/261109 figS3_generators.png

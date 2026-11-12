@@ -1,14 +1,15 @@
-  20/240 done, 19s
-  40/240 done, 33s
-  60/240 done, 52s
-  80/240 done, 67s
-  100/240 done, 87s
-  120/240 done, 102s
-  140/240 done, 123s
-  160/240 done, 137s
-  180/240 done, 158s
-  200/240 done, 174s
-  220/240 done, 195s
-  240/240 done, 210s
+  20/240 done, 40s
+  40/240 done, 66s
+  60/240 done, 101s
+  80/240 done, 125s
+  100/240 done, 161s
+  120/240 done, 185s
+  140/240 done, 220s
+  160/240 done, 244s
+  180/240 done, 277s
+  200/240 done, 303s
+  220/240 done, 337s
+  240/240 done, 361s
 wrote output/261109 results/si_generators.npz
-done: 240 runs on 8 workers, 210s
+done: 240 runs on 8 workers, 362s
+si exit 0

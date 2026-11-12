@@ -8,7 +8,7 @@ the mass-retraction numbers, the stored shock runs in "output/261001 timeseries.
   python "261109 results figures.py" RUNDIR TIMESERIES
 
 Writes 261109 fig2_selection, fig3_agents, fig4_misinformation, and for the
-Supplementary Information figS2_generators and figS3_generators (.pdf, .png)
+Supplementary Information figS1_networks, figS2_generators and figS3_generators (.pdf, .png)
 to RUNDIR, and prints every number quoted in the draft.
 """
 import sys
@@ -193,12 +193,11 @@ if M is not None:
     rows = MAIN3[::-1]
     mk = [("avg", "Population mean", "o", "#000000", "#000000", 5.5),
           ("pos5", "5 agents with the largest in-degree", "D", None, None, 5.0),
-          ("rec5", "5 agents with the fewest violations in periods 1001–1500", "s", "white", None, 5.0),
           ("tick", "Top-performing agent in each period", "o", "white", "#8c8c8c", 5.0)]
     for yi, n in enumerate(rows):
         a1.axhline(yi, color="#dddddd", lw=0.6, zorder=0); a2.axhline(yi, color="#dddddd", lw=0.6, zorder=0)
         vals = [sel[n][q].mean() for q, *_ in mk]
-        a1.plot([min(vals[1:3]), vals[0]], [yi, yi], color=NETC[n], lw=1.6, alpha=0.55, zorder=1, solid_capstyle="butt")
+        a1.plot([vals[1], vals[0]], [yi, yi], color=NETC[n], lw=1.6, alpha=0.55, zorder=1, solid_capstyle="butt")
         for q, lab, m, fc, ec, ms in mk:
             mu, e = ci(sel[n][q])
             a1.errorbar([mu], [yi], xerr=[[e], [e]], fmt=m, ms=ms, mfc=(NETC[n] if fc is None else fc),
@@ -213,7 +212,7 @@ if M is not None:
     a1.set_xlabel("Mean number of violations, periods 1501–2000")
     a1.legend([Line2D([], [], marker=m, ls="none", ms=ms, mfc=("#666666" if fc is None else fc), mec=("#666666" if ec is None else ec),
                       mew=1.1) for q, lab, m, fc, ec, ms in mk],
-              [lab for q, lab, m, fc, ec, ms in mk], loc="upper left", bbox_to_anchor=(-0.27, -0.22), ncol=2, handletextpad=0.4,
+              [lab for q, lab, m, fc, ec, ms in mk], loc="upper left", bbox_to_anchor=(-0.27, -0.22), ncol=3, handletextpad=0.4,
               columnspacing=1.2)
     letter(a1, "a")
     a2.set_xlim(0.684, 0.726); a2.set_xticks([0.69, 0.70, 0.71, 0.72])
@@ -396,6 +395,27 @@ if M is not None and SIF.exists():
               f"{L_['cross']} | last believer gone after {L_['med']:.0f} periods (median; {L_['cens']:.0%} of constraints re-entered or "
               f"outlived the run first) | rho- peak {100 * L_['nb'][L_['pk']]:.1f}% at {L_['pk']}, {100 * L_['nb'][200]:.1f}% at 200")
     print("  no communication: V {:.2f}".format(V0))
+    print("  Table S1 (means over realisations): <k>, sd k_in, max k_in, Var(k)/<k>^2, corr(k_in,k_out), clustering, no in-link, largest SCC")
+    for n in GEN:
+        ns_ = G(n, "netstats").mean(0)
+        print(f"    {SHORT[n]:16s} {ns_[0]:.1f} & {ns_[1]:.1f} & {ns_[2]:.0f} & {ns_[3]:.2f} & {ns_[4]:+.2f} & {ns_[5]:.2f} & "
+              f"{100 * ns_[6]:.0f}\\% & {100 * ns_[7]:.0f}\\%")
+    fig, axs = plt.subplots(2, 4, figsize=(7.08, 3.6), gridspec_kw=dict(wspace=0.35, hspace=0.45))
+    for j, n in enumerate(["random", "smallworld", "scalefree", "layered"]):
+        kin, kout = G(n, "kin")[0], G(n, "kout")[0]                          # one realisation (seed 1)
+        top, bot = axs[0, j], axs[1, j]
+        top.hist(kin, bins=np.arange(-0.5, kin.max() + 1.5), color=SIC[n], edgecolor="white", lw=0.4)
+        top.set_title(SHORT[n], fontsize=7.5); top.set_xlabel("In-degree"); top.set_xlim(left=-0.5)
+        bot.scatter(kin, kout, s=7, color=SIC[n], alpha=0.7, lw=0)
+        mx = max(kin.max(), kout.max()) + 1; bot.set_xlim(-0.5, mx); bot.set_ylim(-0.5, mx)
+        bot.set_xlabel("In-degree")
+        for ax_ in (top, bot):
+            ax_.xaxis.set_major_locator(matplotlib.ticker.MaxNLocator(nbins=4, integer=True))
+            ax_.yaxis.set_major_locator(matplotlib.ticker.MaxNLocator(nbins=4, integer=True))
+        if j == 0:
+            top.set_ylabel("Agents"); bot.set_ylabel("Out-degree")
+    letter(axs[0, 0], "a"); letter(axs[1, 0], "b")
+    save300(fig, "figS1_networks")
 
     # ---------------------------------------------------------------- Figure S2: as Fig. 2, six networks
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(7.08, 3.4), sharey=True, gridspec_kw=dict(width_ratios=[2.1, 1], wspace=0.08))
@@ -403,7 +423,7 @@ if M is not None and SIF.exists():
     for yi, n in enumerate(rows):
         a1.axhline(yi, color="#dddddd", lw=0.6, zorder=0); a2.axhline(yi, color="#dddddd", lw=0.6, zorder=0)
         vals = [sel[n][q].mean() for q, *_ in mk]
-        a1.plot([min(vals[1:3]), vals[0]], [yi, yi], color=SIC[n], lw=1.6, alpha=0.55, zorder=1, solid_capstyle="butt")
+        a1.plot([vals[1], vals[0]], [yi, yi], color=SIC[n], lw=1.6, alpha=0.55, zorder=1, solid_capstyle="butt")
         for q, lab, m, fc, ec, ms in mk:
             mu, e = ci(sel[n][q])
             a1.errorbar([mu], [yi], xerr=[[e], [e]], fmt=m, ms=ms, mfc=(SIC[n] if fc is None else fc),
@@ -418,7 +438,7 @@ if M is not None and SIF.exists():
     a1.set_xlabel("Mean number of violations, periods 1501–2000")
     a1.legend([Line2D([], [], marker=m, ls="none", ms=ms, mfc=("#666666" if fc is None else fc), mec=("#666666" if ec is None else ec),
                       mew=1.1) for q, lab, m, fc, ec, ms in mk],
-              [lab for q, lab, m, fc, ec, ms in mk], loc="upper left", bbox_to_anchor=(-0.27, -0.16), ncol=2, handletextpad=0.4,
+              [lab for q, lab, m, fc, ec, ms in mk], loc="upper left", bbox_to_anchor=(-0.27, -0.16), ncol=3, handletextpad=0.4,
               columnspacing=1.2)
     letter(a1, "a")
     a2.set_xlim(0.684, 0.726); a2.set_xticks([0.69, 0.70, 0.71, 0.72]); a2.set_xlabel("Homogeneity, $H$"); letter(a2, "b")
@@ -453,6 +473,7 @@ if M is not None and SIF.exists():
         for n in SIN:
             ax.plot(ages, 100 * life[n][key][:501], color=SIC[n], lw=1.2, marker=SIM[n], markevery=(25, 50), ms=3.2, label=SHORT[n])
         ax.set_xlim(0, 500); ax.set_xlabel("Periods since retirement, $\\tau$"); ax.set_ylabel(lab); letter(ax, let)
-    s3.set_ylim(0, 30); s3.set_xlim(0, 300); s4.set_ylim(0, 40)
-    s4.legend(loc="upper right", fontsize=6.5, labelspacing=0.2, handlelength=2.2, ncol=2, columnspacing=0.8)
+    s3.set_ylim(0, 30); s3.set_xlim(0, 300)
+    s4.set_ylim(0, 48)
+    s4.legend(loc="upper right", fontsize=6.3, labelspacing=0.15, handlelength=2.0, borderaxespad=0.1)
     save300(fig, "figS3_generators")
