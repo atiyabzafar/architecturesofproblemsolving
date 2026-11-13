@@ -7,7 +7,7 @@ the mass-retraction numbers, the stored shock runs in "output/261001 timeseries.
 
   python "261109 results figures.py" RUNDIR TIMESERIES
 
-Writes 261109 fig2_selection, fig3_agents, fig4_misinformation, and for the
+Writes 261109 fig_networks (Methods), fig2_selection, fig3_agents, fig4_misinformation, and for the
 Supplementary Information figS1_networks, figS2_generators and figS3_generators (.pdf, .png)
 to RUNDIR, and prints every number quoted in the draft.
 """
@@ -17,7 +17,7 @@ import numpy as np
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-RUN = Path(sys.argv[1]); TS = Path(sys.argv[2])
+RUN = Path(sys.argv[1]); TS = Path(sys.argv[2]) if len(sys.argv) > 2 and sys.argv[2] != "none" else None
 OUT = RUN
 NETS = ["even", "uneven", "dense", "random", "smallworld", "scalefree", "layered"]
 MAIN3 = ["even", "uneven", "dense"]
@@ -77,6 +77,21 @@ def topk_value(score, value, k, larger=True):
     return (value[strict].sum() + rest * value[tie].mean()) / k
 
 
+def km_median(t, cens):
+    """Kaplan-Meier median of durations t, with cens True where observation ended before the event."""
+    o = np.argsort(t, kind="stable"); t, cens = t[o], cens[o]; n = len(t); s = 1.0; i = 0
+    while i < n:
+        j = i; d = 0
+        while j < n and t[j] == t[i]:
+            d += (not cens[j]); j += 1
+        if d:
+            s *= 1 - d / (n - i)
+            if s <= 0.5:
+                return float(t[i])
+        i = j
+    return float("nan")
+
+
 def save(fig, name):
     for ext in ("pdf", "png"):
         fig.savefig(OUT / f"261109 {name}.{ext}", dpi=200)
@@ -104,6 +119,13 @@ if M is not None:
               f"most-heard 1 {ci(pos1)[0]:6.2f}+-{ci(pos1)[1]:.2f}, 5 {ci(pos5)[0]:6.2f}+-{ci(pos5)[1]:.2f} | "
               f"best record 1 {ci(rec1)[0]:6.2f}+-{ci(rec1)[1]:.2f}, 5 {ci(rec5)[0]:6.2f}+-{ci(rec5)[1]:.2f} | "
               f"best member ex post {ci(bestmember)[0]:6.2f} | homogeneity {ci(hom)[0]:.3f}")
+        if kin.shape[1] >= 200:                        # larger populations: also the top 5% of agents
+            kk = int(round(0.05 * kin.shape[1]))
+            p5p = np.array([topk_value(kin[i], Veval[i], kk) for i in range(NSEEDS)])
+            r5p = np.array([topk_value(Vsel[i], Veval[i], kk, larger=False) for i in range(NSEEDS)])
+            sel[n].update(pos5p=p5p, rec5p=r5p)
+            print(f"  {'':18s} top 5% ({kk} agents): largest in-degree {ci(p5p)[0]:6.2f}+-{ci(p5p)[1]:.2f} | "
+                  f"fewest violations in 1001-1500, then {ci(r5p)[0]:6.2f}+-{ci(r5p)[1]:.2f} in 1501-2000")
     NC = np.load(RUN / "nocomm.npz")
     V0s = np.array([NC[f"none|{s}|avgV"][1501:].mean() for s in S40]); V0 = V0s.mean()
     print(f"  {'No communication':18s} average {ci(V0s)[0]:6.2f}+-{ci(V0s)[1]:.2f} | value of communication: "
@@ -135,6 +157,8 @@ if M is not None:
 
     print("\nAGENT LEVEL")
     EDGES = [0.12, 0.2, 0.3, 0.45, 0.65, 0.9, 1.25, 1.8, 2.6, 3.8, 5.5, 12]
+    if max((G(n, "kin") / G(n, "kin").mean(1, keepdims=True)).max() for n in NETS) > 12:     # larger populations: bigger hubs
+        EDGES = EDGES[:-1] + [8, 12, 18, 27, 45]
     agent = {}
     for n in NETS:
         kin = G(n, "kin"); lam = kin / kin.mean(1, keepdims=True)
@@ -208,7 +232,8 @@ if M is not None:
                     elinewidth=0.9, capsize=2, zorder=3)
     a1.set_yticks(range(len(rows))); a1.set_yticklabels([SHORT[n] for n in rows])
     a1.tick_params(axis="y", length=0); a2.tick_params(axis="y", length=0)
-    a1.set_xlim(19.3, 30.4); a1.set_ylim(-0.6, len(rows) - 0.4)
+    a1.set_xlim(min(19.3, min(sel[n]["tick"].mean() for n in rows) - 0.5), max(30.4, max(sel[n]["avg"].mean() for n in rows) + 0.6))
+    a1.set_ylim(-0.6, len(rows) - 0.4)
     a1.set_xlabel("Mean number of violations, periods 1501–2000")
     a1.legend([Line2D([], [], marker=m, ls="none", ms=ms, mfc=("#666666" if fc is None else fc), mec=("#666666" if ec is None else ec),
                       mew=1.1) for q, lab, m, fc, ec, ms in mk],
@@ -230,11 +255,14 @@ if M is not None:
     b1.plot([1], [agent["even"]["bins"][0]["V"]], NETM["even"], ms=3, color=NETC["even"], label="Regular", zorder=5)
     b1.axhline(V0, color="#777777", lw=0.9, ls=":")
     b1.text(0.24, V0 + 0.12, "No communication", fontsize=6.5, color="#555555", ha="left", va="bottom")
-    b1.set_xscale("log"); b1.set_xticks([0.25, 0.5, 1, 2, 4, 8]); b1.set_xticklabels(["0.25", "0.5", "1", "2", "4", "8"])
+    XT = [0.25, 0.5, 1, 2, 4, 8] + ([16, 32] if EDGES[-1] > 12 else [])
+    b1.set_xscale("log"); b1.set_xticks(XT); b1.set_xticklabels([f"{x_:g}" for x_ in XT])
     b1.xaxis.set_minor_locator(matplotlib.ticker.NullLocator())
     b1.set_xlabel("Communication intake, $\\lambda_i$"); b1.set_ylabel("Mean number of violations, $V_i$")
-    b1.set_ylim(24.2, 35.2); b1.set_yticks([26, 28, 30, 32])
-    b1.legend(loc="upper right", handletextpad=0.4, labelspacing=0.25, borderaxespad=0.2); letter(b1, "a")
+    b1.set_ylim(min(24.2, min(x["V"] for n in ("uneven", "dense") for x in agent[n]["bins"]) - 0.3), 35.2)
+    b1.set_yticks([v for v in range(16, 34, 2) if v >= b1.get_ylim()[0] + 1.5])
+    b1.legend(loc=("lower left" if EDGES[-1] > 12 else "upper right"), handletextpad=0.4, labelspacing=0.25, borderaxespad=0.2)
+    letter(b1, "a")
     bb = agent["uneven"]["bins"]; xs = np.arange(len(bb))
     tr = np.array([x["true"] for x in bb]); st = np.array([x["stale"] for x in bb])
     b2.bar(xs, tr, color=CUR, width=0.7, label="Current")
@@ -257,14 +285,19 @@ if M is not None:
             mu = ser.mean(0); e = 1.96 * ser.std(0, ddof=1) / np.sqrt(ser.shape[0])
             b4.fill_between(tt, mu - e, mu + e, color=NETC[n], alpha=0.12, lw=0, zorder=1)
             b4.plot(tt, mu, color=NETC[n], ls=ls, lw=1.3, zorder=2)
-    b4.text(1250, 30.05, "Selection period", ha="center", fontsize=6.8, color="#333333")
-    b4.text(1750, 30.05, "Following period", ha="center", fontsize=6.8, color="#333333")
+    lo4 = min(24, min(sel[n]["sel_series"].mean(0).min() for n in ("even", "uneven")) - 0.4)
+    hi4 = max(30.6, max(sel[n]["mean_series"].mean(0).max() for n in ("even", "uneven")) + 0.6)
+    b4.text(1250, hi4 - 0.55, "Selection period", ha="center", fontsize=6.8, color="#333333")
+    b4.text(1750, hi4 - 0.55, "Following period", ha="center", fontsize=6.8, color="#333333")
     end = lambda n, q: sel[n][q].mean(0)[-4:].mean()
     b4.text(2015, end("uneven", "mean_series"), "Scale Free,\npopulation mean", color=NETC["uneven"], fontsize=6.5, va="center")
-    b4.text(2015, (end("even", "mean_series") + end("even", "sel_series")) / 2 - 0.1, "Regular, selected\nagents and\npopulation mean",
+    y_sf, y_reg = end("uneven", "mean_series"), (end("even", "mean_series") + end("even", "sel_series")) / 2 - 0.1
+    if y_sf - y_reg < 1.0:                       # the two means are close (larger populations): keep the labels apart
+        y_reg = y_sf - 1.75
+    b4.text(2015, y_reg, "Regular, selected\nagents and\npopulation mean",
             color=NETC["even"], fontsize=6.5, va="center")
     b4.text(2015, end("uneven", "sel_series"), "Scale Free,\nselected agents", color=NETC["uneven"], fontsize=6.5, va="center")
-    b4.set_xlim(1000, 2000); b4.set_ylim(24, 30.6); b4.set_xticks([1000, 1250, 1500, 1750, 2000])
+    b4.set_xlim(1000, 2000); b4.set_ylim(lo4, hi4); b4.set_xticks([1000, 1250, 1500, 1750, 2000])
     b4.set_xlabel("Period"); b4.set_ylabel("Mean number of violations")
     letter(b4, "d")
     save300(fig, "fig3_agents")
@@ -300,15 +333,25 @@ if B is not None:
                   + "/".join(str(a) for a in AGES) + ": " + "/".join(f"{100 * hb[a]:.2f}" for a in AGES) +
                   f"% | halves {half}, tenth {tenth}" + (f", negatives exceed believers at {cross}" if cross else "") +
                   f" | outdated beliefs older than 500 periods {1 - cdf[500]:.0%}")
-    T5 = np.load(TS)                    # shock runs: numbers for the text only (not plotted)
-    for n in MAIN3:
-        op = np.nanmean([T5[f"{n}|{s}|shock|old_pos"] for s in S40], 0)
-        sp = np.nanmean([T5[f"{n}|{s}|shock|spread"] for s in S40], 0)
-        half = next(a for a in range(len(op)) if op[a] <= op[0] / 2)
-        cross = next((a for a in range(1, len(op)) if sp[a] >= op[a]), None)
-        pk = int(np.nanargmax(sp))
-        print(f"  shock ({SHORT[n]}, stored 261001 runs, 40 seeds): retired constraints believed by {100 * op[0]:.1f}% at the shock, "
-              f"halved after {half} periods | new constraints overtake at {cross} | new constraints peak {100 * sp[pk]:.1f}% at {pk}")
+            if v == "full":                              # shape of rho_- (Section 3.3, wave paragraph)
+                pk_ = int(np.argmax(nb[:400]))
+                print(f"      rho- peak {100 * nb[pk_]:.1f}% at {pk_}, {100 * nb[200]:.1f}% at 200, between {100 * nb[100:201].min():.1f}% "
+                      f"and {100 * nb[100:201].max():.1f}% over 100-200")
+            if f"{n}|{v}|1|lin_last" in B.files:       # last believer of a retired constraint (median, Kaplan-Meier)
+                last = np.concatenate([B[f"{n}|{v}|{s}|lin_last"] for s in S40])
+                end = np.concatenate([B[f"{n}|{v}|{s}|lin_end"] for s in S40]); ok = last >= 0
+                print(f"      last believer gone after {km_median(last[ok] + 1.0, last[ok] >= end[ok] - 1):.0f} periods "
+                      f"(median over retired constraints)")
+    if TS is not None and TS.exists():  # shock runs: numbers for the text only (not plotted)
+        T5 = np.load(TS)
+        for n in MAIN3:
+            op = np.nanmean([T5[f"{n}|{s}|shock|old_pos"] for s in S40], 0)
+            sp = np.nanmean([T5[f"{n}|{s}|shock|spread"] for s in S40], 0)
+            half = next(a for a in range(len(op)) if op[a] <= op[0] / 2)
+            cross = next((a for a in range(1, len(op)) if sp[a] >= op[a]), None)
+            pk = int(np.nanargmax(sp))
+            print(f"  shock ({SHORT[n]}, stored 261001 runs, 40 seeds): retired constraints believed by {100 * op[0]:.1f}% at the shock, "
+                  f"halved after {half} periods | new constraints overtake at {cross} | new constraints peak {100 * sp[pk]:.1f}% at {pk}")
 
     fig, (c1, c3) = plt.subplots(1, 2, figsize=(7.08, 2.7), gridspec_kw=dict(wspace=0.3))
     ages = np.arange(501)
@@ -401,21 +444,29 @@ if M is not None and SIF.exists():
         ns_ = G(n, "netstats").mean(0)
         print(f"    {SHORT[n]:16s} {ns_[0]:.1f} & {ns_[1]:.1f} & {ns_[2]:.0f} & {ns_[3]:.2f} & {ns_[4]:+.2f} & {ns_[5]:.2f} & "
               f"{100 * ns_[6]:.0f}\\% & {100 * ns_[7]:.0f}\\%")
-    fig, axs = plt.subplots(2, 4, figsize=(7.08, 3.6), gridspec_kw=dict(wspace=0.35, hspace=0.45))
-    for j, n in enumerate(["random", "smallworld", "scalefree", "layered"]):
-        kin, kout = G(n, "kin")[0], G(n, "kout")[0]                          # one realisation (seed 1)
-        top, bot = axs[0, j], axs[1, j]
-        top.hist(kin, bins=np.arange(-0.5, kin.max() + 1.5), color=SIC[n], edgecolor="white", lw=0.4)
-        top.set_title(SHORT[n], fontsize=7.5); top.set_xlabel("In-degree"); top.set_xlim(left=-0.5)
-        bot.scatter(kin, kout, s=7, color=SIC[n], alpha=0.7, lw=0)
-        mx = max(kin.max(), kout.max()) + 1; bot.set_xlim(-0.5, mx); bot.set_ylim(-0.5, mx)
-        bot.set_xlabel("In-degree")
-        for ax_ in (top, bot):
-            ax_.xaxis.set_major_locator(matplotlib.ticker.MaxNLocator(nbins=4, integer=True))
-            ax_.yaxis.set_major_locator(matplotlib.ticker.MaxNLocator(nbins=4, integer=True))
-        if j == 0:
-            top.set_ylabel("Agents"); bot.set_ylabel("Out-degree")
-    letter(axs[0, 0], "a"); letter(axs[1, 0], "b")
+    from collections import Counter
+    fig, axs = plt.subplots(1, 4, figsize=(7.08, 2.3), gridspec_kw=dict(wspace=0.35))
+    NAg = G("smallworld", "kin").shape[1]
+    PER = 4.5 * 100 / NAg                                                  # marker area (pt^2) per agent, scaled to N = 100
+    dmS = max(max(G(n, "kin")[0].max(), G(n, "kout")[0].max()) for n in SIG)
+    TOPS = max(24, dmS + 3); TKS = [0, 1, 4, 16] + ([64] if TOPS > 64 else [])
+    for j, (ax, n) in enumerate(zip(axs, SIG)):
+        kin, kout = G(n, "kin")[0].astype(int), G(n, "kout")[0].astype(int)   # one realisation (seed 1)
+        cnt = Counter(zip(kin.tolist(), kout.tolist()))
+        xy = np.array(list(cnt)); c = np.array(list(cnt.values()))
+        ax.scatter(xy[:, 0], xy[:, 1], s=PER * c, color=SIC[n], alpha=0.75, edgecolor="white", lw=0.4, zorder=3)
+        for sc in (ax.set_xscale, ax.set_yscale):                           # linear below 1 (out-degree 0 exists), log above
+            sc("symlog", base=2, linthresh=1, linscale=0.6)
+        ax.set_xlim(-0.35, TOPS); ax.set_ylim(-0.35, TOPS); ax.set_aspect("equal")
+        ax.set_xticks(TKS); ax.set_yticks(TKS)
+        ax.xaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter()); ax.yaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter())
+        ax.xaxis.set_minor_locator(matplotlib.ticker.NullLocator()); ax.yaxis.set_minor_locator(matplotlib.ticker.NullLocator())
+        ax.set_title(SHORT[n], fontsize=8); ax.set_xlabel("In-degree")
+    axs[0].set_ylabel("Out-degree")
+    LK = [k * NAg // 100 for k in (1, 5, 15)]
+    hs = [axs[0].scatter([], [], s=PER * k, color="#888888", alpha=0.75, edgecolor="white", lw=0.4) for k in LK]
+    fig.legend(hs, [f"{k} agent" + ("s" if k > 1 else "") for k in LK], loc="upper center", bbox_to_anchor=(0.5, 0.0), ncol=3,
+               handlelength=2.2, handletextpad=1.2, columnspacing=3.0, borderpad=0.6, fontsize=7)
     save300(fig, "figS1_networks")
 
     # ---------------------------------------------------------------- Figure S2: as Fig. 2, six networks
@@ -435,7 +486,8 @@ if M is not None and SIF.exists():
                     elinewidth=0.9, capsize=2, zorder=3)
     a1.set_yticks(range(len(rows))); a1.set_yticklabels([SHORT[n] for n in rows])
     a1.tick_params(axis="y", length=0); a2.tick_params(axis="y", length=0)
-    a1.set_xlim(19.3, 30.4); a1.set_ylim(-0.6, len(rows) - 0.4)
+    a1.set_xlim(min(19.3, min(sel[n]["tick"].mean() for n in rows) - 0.5), max(30.4, max(sel[n]["avg"].mean() for n in rows) + 0.6))
+    a1.set_ylim(-0.6, len(rows) - 0.4)
     a1.set_xlabel("Mean number of violations, periods 1501–2000")
     a1.legend([Line2D([], [], marker=m, ls="none", ms=ms, mfc=("#666666" if fc is None else fc), mec=("#666666" if ec is None else ec),
                       mew=1.1) for q, lab, m, fc, ec, ms in mk],
@@ -453,10 +505,11 @@ if M is not None and SIF.exists():
         s1.plot([x["lam"] for x in bb], [x["V"] for x in bb], marker=SIM[n], color=SIC[n], ms=3.2, lw=1.1, label=SHORT[n])
     s1.axhline(V0, color="#777777", lw=0.9, ls=":")
     s1.text(0.23, V0 + 0.12, "No communication", fontsize=6.5, color="#555555", ha="left", va="bottom")
-    s1.set_xscale("log"); s1.set_xticks([0.25, 0.5, 1, 2, 4, 8]); s1.set_xticklabels(["0.25", "0.5", "1", "2", "4", "8"])
+    s1.set_xscale("log"); s1.set_xticks(XT); s1.set_xticklabels([f"{x_:g}" for x_ in XT])
     s1.xaxis.set_minor_locator(matplotlib.ticker.NullLocator())
     s1.set_xlabel("Communication intake, $\\lambda_i$"); s1.set_ylabel("Mean number of violations, $V_i$")
-    s1.set_ylim(21.5, 33.2); s1.set_yticks([22, 24, 26, 28, 30, 32])
+    s1.set_ylim(min(21.5, min(x["V"] for n in SIG for x in agent[n]["bins"]) - 0.8), 33.2)
+    s1.set_yticks([v for v in range(16, 34, 2) if v >= s1.get_ylim()[0] + 0.5])
     s1.legend(loc="lower left", handletextpad=0.4, labelspacing=0.2, borderaxespad=0.1, fontsize=6.5); letter(s1, "a")
     ys = np.arange(len(SIG))[::-1]
     t_ = np.array([iq[n]["true"].mean() for n in SIG]); o_ = np.array([iq[n]["stale"].mean() for n in SIG])
@@ -477,3 +530,33 @@ if M is not None and SIF.exists():
     s4.set_ylim(0, 40)
     s4.legend(loc="upper right", fontsize=6.3, labelspacing=0.15, handlelength=2.0, borderaxespad=0.1)
     save300(fig, "figS3_generators")
+
+# ============================================================ Methods figure: the three networks of the main text
+# Out-degree against in-degree of every agent, first realisation of each network; marker area proportional to the
+# number of agents with the same pair, so the in-degree distribution stays visible without a separate histogram.
+if M is not None:
+    from collections import Counter
+    fig, axs = plt.subplots(1, 3, figsize=(7.08, 2.6), gridspec_kw=dict(wspace=0.3))
+    NAg = G("even", "kin").shape[1]
+    PER = 7.0 * 100 / NAg                                                  # marker area (pt^2) per agent, scaled to N = 100
+    dm = max(max(G(n, "kin")[0].max(), G(n, "kout")[0].max()) for n in MAIN3)
+    TOP = max(128, 2 ** int(np.ceil(np.log2(dm + 1)))); TK = [t_ for t_ in (1, 4, 16, 64, 256, 1024) if t_ < TOP]
+    for ax, n in zip(axs, MAIN3):
+        kin, kout = G(n, "kin")[0].astype(int), G(n, "kout")[0].astype(int)
+        cnt = Counter(zip(kin.tolist(), kout.tolist()))
+        xy = np.array(list(cnt)); c = np.array(list(cnt.values()))
+        ax.scatter(xy[:, 0], xy[:, 1], s=PER * c, color=NETC[n], alpha=0.75, edgecolor="white", lw=0.4, zorder=3)
+        ax.set_xscale("log", base=2); ax.set_yscale("log", base=2)
+        ax.set_xlim(0.75, TOP); ax.set_ylim(0.75, TOP)
+        ax.set_xticks(TK); ax.set_yticks(TK)
+        ax.xaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter()); ax.yaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter())
+        ax.xaxis.set_minor_locator(matplotlib.ticker.NullLocator()); ax.yaxis.set_minor_locator(matplotlib.ticker.NullLocator())
+        ax.set_aspect("equal")
+        ax.set_title(SHORT[n], fontsize=8)
+        ax.set_xlabel("In-degree")
+    axs[0].set_ylabel("Out-degree")
+    LK = [k * NAg // 100 for k in (1, 10, 100)]
+    hs = [axs[0].scatter([], [], s=PER * k, color="#888888", alpha=0.75, edgecolor="white", lw=0.4) for k in LK]
+    fig.legend(hs, [f"{k} agent" + ("s" if k > 1 else "") for k in LK], loc="upper center", bbox_to_anchor=(0.5, 0.0), ncol=3,
+               handlelength=2.6, handletextpad=1.6, columnspacing=3.0, borderpad=0.8, fontsize=7)
+    save300(fig, "fig_networks")

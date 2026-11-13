@@ -50,7 +50,7 @@ the no-communication level and pull the network averages up.
 The activation order of agents (Mesa's own random stream, unseeded in the
 model) is seeded here, so these runs are reproducible.
 Run from the model folder:
-  PYTHONHASHSEED=0 python "261109 results runs.py" OUTDIR [main|abl|nocomm|si|all]
+  PYTHONHASHSEED=0 [NAGENTS=1000] python "261109 results runs.py" OUTDIR [main|abl|nocomm|si|all]
 Writes main.npz, ablation.npz, nocomm.npz and si_generators.npz to OUTDIR.
 """
 import importlib.util
@@ -70,6 +70,22 @@ import model_learningbytesting as L  # noqa: E402  (same module object A uses)
 
 np = A.np
 nx = A.nx
+
+# Population size: N = 100 in the paper's runs; set NAGENTS (e.g. 1000) to rerun at another size. The heavy-tailed
+# sequence keeps its formula (mean in-degree 4, exponent 0.65; capped at N - 1), the dense one is three times it, and
+# the Random and Layered generators scale their link probabilities so that the mean in-degree stays about 4.
+NAG = int(os.environ.get("NAGENTS", A.N))
+if NAG != A.N:
+    _sc = (A.N - 1) / (NAG - 1)
+    A.N = NAG
+    A.KIN4 = A.power_law_sequence(NAG, 4, beta=0.65, kmax=NAG - 1)
+    A.KIN12 = A.scaled_sequence(A.KIN4, 3, kmax=NAG - 1)
+    A.SPECS["even"]["kin"] = np.full(NAG, 4)
+    A.SPECS["uneven"]["kin"] = A.KIN4
+    A.SPECS["dense"]["kin"] = A.KIN12
+    A.SPECS["random"]["gen"]["connect_prob"] *= _sc
+    A.SPECS["layered"]["gen"]["intra_layer_connectance"] *= _sc
+    A.SPECS["layered"]["gen"]["inter_layer_connectance"] *= _sc
 WORKERS = 8
 NETS = ["even", "uneven", "dense", "random", "smallworld", "scalefree", "layered"]
 SI_NETS = ["even", "uneven", "random", "smallworld", "scalefree", "layered"]

@@ -1,0 +1,135 @@
+/Users/fausto/.cache/uv/archive-v0/JMA95sTxo2mmStBo/lib/python3.12/site-packages/numpy/_core/_methods.py:219: RuntimeWarning: Degrees of freedom <= 0 for slice
+  ret = _var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/Users/fausto/.cache/uv/archive-v0/JMA95sTxo2mmStBo/lib/python3.12/site-packages/numpy/_core/_methods.py:178: RuntimeWarning: invalid value encountered in divide
+  arrmean = um.true_divide(arrmean, div, out=arrmean,
+/Users/fausto/.cache/uv/archive-v0/JMA95sTxo2mmStBo/lib/python3.12/site-packages/numpy/_core/_methods.py:211: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+====================================================================================================
+NETWORK LEVEL (40 runs per network; long run = periods 1501-2000)
+  Regular            average  29.38+-0.14 | best each period  18.12 | most-heard 1  29.38+-0.14, 5  29.38+-0.14 | best record 1  28.64+-0.46, 5  29.08+-0.25 | best member ex post  24.90 | homogeneity 0.693
+                     top 5% (50 agents): largest in-degree  29.38+-0.14 | fewest violations in 1001-1500, then  29.21+-0.16 in 1501-2000
+  Scale Free         average  29.79+-0.20 | best each period  17.65 | most-heard 1  22.30+-0.23, 5  23.08+-0.21 | best record 1  22.69+-0.35, 5  23.42+-0.23 | best member ex post  22.16 | homogeneity 0.693
+                     top 5% (50 agents): largest in-degree  25.55+-0.21 | fewest violations in 1001-1500, then  26.16+-0.22 in 1501-2000
+  Scale Free, dense  average  30.04+-0.15 | best each period  17.76 | most-heard 1  22.45+-0.21, 5  23.13+-0.20 | best record 1  22.67+-0.24, 5  23.40+-0.22 | best member ex post  22.26 | homogeneity 0.689
+                     top 5% (50 agents): largest in-degree  25.66+-0.20 | fewest violations in 1001-1500, then  26.32+-0.21 in 1501-2000
+  Random             average  29.55+-0.14 | best each period  17.99 | most-heard 1  26.79+-0.34, 5  27.13+-0.22 | best record 1  28.19+-0.51, 5  28.21+-0.28 | best member ex post  24.47 | homogeneity 0.691
+                     top 5% (50 agents): largest in-degree  27.78+-0.17 | fewest violations in 1001-1500, then  28.53+-0.19 in 1501-2000
+  Small world        average  29.26+-0.15 | best each period  18.12 | most-heard 1  27.22+-0.27, 5  27.56+-0.20 | best record 1  28.28+-0.53, 5  28.21+-0.22 | best member ex post  24.64 | homogeneity 0.692
+                     top 5% (50 agents): largest in-degree  27.94+-0.15 | fewest violations in 1001-1500, then  28.53+-0.17 in 1501-2000
+  Barabási–Albert    average  29.96+-0.12 | best each period  17.83 | most-heard 1  23.41+-0.28, 5  23.99+-0.23 | best record 1  23.93+-0.37, 5  24.52+-0.28 | best member ex post  23.02 | homogeneity 0.687
+                     top 5% (50 agents): largest in-degree  26.15+-0.18 | fewest violations in 1001-1500, then  26.96+-0.16 in 1501-2000
+  Layered            average  29.64+-0.15 | best each period  18.08 | most-heard 1  27.14+-0.36, 5  27.36+-0.23 | best record 1  28.53+-0.51, 5  28.46+-0.28 | best member ex post  24.53 | homogeneity 0.692
+                     top 5% (50 agents): largest in-degree  27.89+-0.18 | fewest violations in 1001-1500, then  28.65+-0.20 in 1501-2000
+  No communication   average  32.14+-0.09 | value of communication: Regular 2.76, Scale Free 2.35
+  Differences from Regular (95% interval):
+    Scale Free         average +0.41+-0.24 | best each period -0.47+-0.29 | 5 most-heard -6.31+-0.25 | 5 best record -5.66+-0.34 | most-heard -7.08+-0.27 | best record -5.96+-0.58 | homogeneity +0.000+-0.008
+    Scale Free, dense  average +0.66+-0.20 | best each period -0.36+-0.30 | 5 most-heard -6.25+-0.24 | 5 best record -5.68+-0.33 | most-heard -6.93+-0.25 | best record -5.97+-0.52 | homogeneity -0.004+-0.006
+    Random             average +0.17+-0.20 | best each period -0.14+-0.29 | 5 most-heard -2.25+-0.26 | 5 best record -0.88+-0.37 | most-heard -2.59+-0.37 | best record -0.46+-0.68 | homogeneity -0.003+-0.006
+    Small world        average -0.12+-0.20 | best each period -0.00+-0.30 | 5 most-heard -1.82+-0.25 | 5 best record -0.87+-0.33 | most-heard -2.16+-0.30 | best record -0.37+-0.70 | homogeneity -0.001+-0.007
+    Barabási–Albert    average +0.58+-0.19 | best each period -0.29+-0.30 | 5 most-heard -5.39+-0.27 | 5 best record -4.57+-0.38 | most-heard -5.97+-0.32 | best record -4.71+-0.59 | homogeneity -0.007+-0.006
+    Layered            average +0.26+-0.21 | best each period -0.04+-0.28 | 5 most-heard -2.02+-0.27 | 5 best record -0.62+-0.37 | most-heard -2.24+-0.38 | best record -0.11+-0.68 | homogeneity -0.002+-0.006
+    Regular            5 most-heard beat own average by -0.00; 5 best-record by 0.30
+    Scale Free         5 most-heard beat own average by 6.71; 5 best-record by 6.37
+    Scale Free, dense  5 most-heard beat own average by 6.92; 5 best-record by 6.65
+    Random             5 most-heard beat own average by 2.42; 5 best-record by 1.35
+    Small world        5 most-heard beat own average by 1.71; 5 best-record by 1.05
+    Barabási–Albert    5 most-heard beat own average by 5.97; 5 best-record by 5.45
+    Layered            5 most-heard beat own average by 2.28; 5 best-record by 1.18
+
+INFORMATION QUALITY (per agent, sampled every 10 periods over 1501-2000)
+  Regular            current rules believed 11.31 of 60 | true 'rule exists' 10.83 | outdated 'rule exists'  8.99+-0.06 | precision 0.55 | 'rule gone' 100.2 (wrong 3.16) | believed rules violated 24%, unbelieved 55%
+  Scale Free         current rules believed 10.01 of 60 | true 'rule exists'  9.56 | outdated 'rule exists' 10.22+-0.08 | precision 0.48 | 'rule gone' 100.2 (wrong 3.59) | believed rules violated 24%, unbelieved 55%
+  Scale Free, dense  current rules believed  9.49 of 60 | true 'rule exists'  9.07 | outdated 'rule exists'  9.60+-0.07 | precision 0.49 | 'rule gone' 101.3 (wrong 3.62) | believed rules violated 24%, unbelieved 55%
+  Random             current rules believed 10.36 of 60 | true 'rule exists'  9.89 | outdated 'rule exists'  8.91+-0.07 | precision 0.53 | 'rule gone' 101.2 (wrong 3.33) | believed rules violated 23%, unbelieved 55%
+  Small world        current rules believed 12.34 of 60 | true 'rule exists' 11.85 | outdated 'rule exists'  9.86+-0.07 | precision 0.55 | 'rule gone'  98.3 (wrong 3.09) | believed rules violated 25%, unbelieved 55%
+  Barabási–Albert    current rules believed  9.13 of 60 | true 'rule exists'  8.72 | outdated 'rule exists'  9.01+-0.05 | precision 0.49 | 'rule gone' 102.3 (wrong 3.60) | believed rules violated 23%, unbelieved 55%
+  Layered            current rules believed 10.43 of 60 | true 'rule exists'  9.96 | outdated 'rule exists'  8.98+-0.06 | precision 0.53 | 'rule gone' 101.1 (wrong 3.36) | believed rules violated 23%, unbelieved 55%
+    Scale Free         minus Regular: true -1.27+-0.12, outdated +1.23+-0.10
+    Scale Free, dense  minus Regular: true -1.76+-0.13, outdated +0.61+-0.09
+    Random             minus Regular: true -0.94+-0.11, outdated -0.08+-0.09
+    Small world        minus Regular: true +1.02+-0.12, outdated +0.86+-0.09
+    Barabási–Albert    minus Regular: true -2.11+-0.11, outdated +0.02+-0.07
+    Layered            minus Regular: true -0.87+-0.11, outdated -0.01+-0.09
+
+AGENT LEVEL
+  Scale Free         slope per doubling of intake 1.18 (R^2 0.36); agents with no in-link: 0 at nan
+  Scale Free, dense  slope per doubling of intake 1.19 (R^2 0.37); agents with no in-link: 0 at nan
+  Random             slope per doubling of intake 1.08 (R^2 0.22); agents with no in-link: 0 at nan
+  Small world        slope per doubling of intake 1.22 (R^2 0.20); agents with no in-link: 0 at nan
+  Barabási–Albert    slope per doubling of intake 1.13 (R^2 0.34); agents with no in-link: 0 at nan
+  Layered            slope per doubling of intake 1.05 (R^2 0.21); agents with no in-link: 0 at nan
+  Scale Free by intake: 0.25: V 31.0, true 6.8, outdated 12.2, prec 0.36, gone 101; 0.50: V 30.3, true 8.7, outdated 11.2, prec 0.44, gone 100; 0.75: V 29.8, true 10.1, outdated 10.2, prec 0.50, gone 100; 1.09: V 29.1, true 11.4, outdated 8.9, prec 0.56, gone 100; 1.60: V 28.3, true 12.7, outdated 7.5, prec 0.63, gone 100; 2.20: V 27.5, true 13.6, outdated 6.3, prec 0.68, gone 100; 3.15: V 26.7, true 14.4, outdated 5.1, prec 0.74, gone 100; 4.61: V 25.8, true 15.2, outdated 4.1, prec 0.79, gone 101; 6.68: V 24.9, true 15.7, outdated 3.4, prec 0.82, gone 101; 9.84: V 24.2, true 16.1, outdated 2.8, prec 0.85, gone 101; 14.21: V 23.6, true 16.4, outdated 2.4, prec 0.87, gone 101; 21.07: V 22.9, true 16.6, outdated 2.1, prec 0.89, gone 101; 38.00: V 22.3, true 16.9, outdated 1.8, prec 0.91, gone 101
+
+FIVE BEST AGENTS OF PERIODS 1001-1500 (selection period), followed over 1501-2000
+  Regular             25.26 in 1001-1500 ->  29.08+-0.25 in 1501-2000 | of these 5, 0.1 are among the 5 agents with the largest in-degree
+  Scale Free          23.01 in 1001-1500 ->  23.42+-0.23 in 1501-2000 | of these 5, 3.4 are among the 5 agents with the largest in-degree
+  Scale Free, dense   22.65 in 1001-1500 ->  23.40+-0.22 in 1501-2000 | of these 5, 3.5 are among the 5 agents with the largest in-degree
+  Random              24.95 in 1001-1500 ->  28.21+-0.28 in 1501-2000 | of these 5, 0.6 are among the 5 agents with the largest in-degree
+  Small world         25.01 in 1001-1500 ->  28.21+-0.22 in 1501-2000 | of these 5, 0.2 are among the 5 agents with the largest in-degree
+  Barabási–Albert     23.73 in 1001-1500 ->  24.52+-0.28 in 1501-2000 | of these 5, 3.1 are among the 5 agents with the largest in-degree
+  Layered             25.06 in 1001-1500 ->  28.46+-0.28 in 1501-2000 | of these 5, 0.3 are among the 5 agents with the largest in-degree
+
+HOMOGENEITY AND SPREAD OF INDIVIDUAL PERFORMANCE (periods 1501-2000)
+  Regular            H 0.693+-0.004 | across-run r(H, V) -0.57 | sd of individual violations 1.53, 10th-90th percentile spread 3.91
+  Scale Free         H 0.693+-0.007 | across-run r(H, V) -0.87 | sd of individual violations 2.12, 10th-90th percentile spread 5.27
+  Scale Free, dense  H 0.689+-0.005 | across-run r(H, V) -0.82 | sd of individual violations 2.14, 10th-90th percentile spread 5.30
+  pooled over the three networks: r(H, V) = -0.73
+wrote output/261113 results N1000/261109 fig2_selection.png
+wrote output/261113 results N1000/261109 fig3_agents.png
+====================================================================================================
+SECTION 3.3 RUNS (40 realisations, T = 2000; constraints retired at 1000-1199 followed through their first life; stocks and violations over periods 1501-2000)
+  Regular    baseline model                             V 29.38+-0.14 (minus baseline +0.00+-0.20) | outdated   9.0 current  10.8 negative 100.2 per agent | believers at age 0/100/300/600/800: 19.44/0.83/0.00/0.00/0.00% | halves 52, tenth 92, negatives exceed believers at 31 | outdated beliefs older than 500 periods 0%
+      rho- peak 26.7% at 99, 17.6% at 200, between 17.6% and 26.7% over 100-200
+      last believer gone after 110 periods (median over retired constraints)
+  Regular    no recency rule                            V 31.17+-0.14 (minus baseline +1.79+-0.20) | outdated  12.1 current   5.3 negative 102.6 per agent | believers at age 0/100/300/600/800: 9.41/5.47/1.34/0.17/0.04% | halves 123, tenth 350, negatives exceed believers at 29 | outdated beliefs older than 500 periods 2%
+      last believer gone after 543 periods (median over retired constraints)
+  Regular    no negative beliefs, capacity 120          V 26.40+-0.21 (minus baseline -2.98+-0.25) | outdated  82.0 current  37.7 negative   0.0 per agent | believers at age 0/100/300/600/800: 65.30/41.69/5.53/1.06/0.39% | halves 117, tenth 268 | outdated beliefs older than 500 periods 2%
+      last believer gone after 196 periods (median over retired constraints)
+  Regular    no negative beliefs, capacity 60           V 25.96+-0.23 (minus baseline -3.42+-0.27) | outdated  31.4 current  28.4 negative   0.0 per agent | believers at age 0/100/300/600/800: 49.61/9.83/0.69/0.03/0.00% | halves 51, tenth 136 | outdated beliefs older than 500 periods 0%
+      last believer gone after 103 periods (median over retired constraints)
+  Regular    no negative beliefs, capacity 24           V 26.15+-0.19 (minus baseline -3.23+-0.24) | outdated   7.8 current  16.1 negative   0.0 per agent | believers at age 0/100/300/600/800: 28.30/1.65/0.03/0.00/0.00% | halves 18, tenth 77 | outdated beliefs older than 500 periods 0%
+      last believer gone after 52 periods (median over retired constraints)
+  Regular    neither mechanism, capacity 60             V 30.92+-0.11 (minus baseline +1.54+-0.18) | outdated  50.0 current   9.7 negative   0.0 per agent | believers at age 0/100/300/600/800: 16.54/11.58/7.57/5.34/4.52% | halves 244, tenth None | outdated beliefs older than 500 periods 32%
+      last believer gone after nan periods (median over retired constraints)
+  Regular    earlier model (observation, no testing)    V 32.08+-0.08 (minus baseline +2.70+-0.16) | outdated  55.2 current   4.8 negative   0.0 per agent | believers at age 0/100/300/600/800: 8.27/8.25/7.95/7.54/7.41% | halves None, tenth None | outdated beliefs older than 500 periods 50%
+      last believer gone after nan periods (median over retired constraints)
+  Scale Free baseline model                             V 29.79+-0.20 (minus baseline +0.00+-0.28) | outdated  10.2 current   9.6 negative 100.2 per agent | believers at age 0/100/300/600/800: 16.83/4.34/0.00/0.00/0.00% | halves 56, tenth 150, negatives exceed believers at 30 | outdated beliefs older than 500 periods 0%
+      rho- peak 20.0% at 162, 19.4% at 200, between 18.7% and 20.0% over 100-200
+      last believer gone after 259 periods (median over retired constraints)
+  Scale Free no recency rule                            V 31.33+-0.15 (minus baseline +1.54+-0.25) | outdated  12.9 current   5.1 negative 102.0 per agent | believers at age 0/100/300/600/800: 9.01/6.34/1.52/0.17/0.04% | halves 152, tenth 373, negatives exceed believers at 12 | outdated beliefs older than 500 periods 2%
+      last believer gone after 502 periods (median over retired constraints)
+  Scale Free no negative beliefs, capacity 120          V 28.97+-0.21 (minus baseline -0.82+-0.29) | outdated  74.5 current  23.2 negative   0.0 per agent | believers at age 0/100/300/600/800: 39.64/31.67/11.45/1.89/0.54% | halves 192, tenth 483 | outdated beliefs older than 500 periods 3%
+      last believer gone after 743 periods (median over retired constraints)
+  Scale Free no negative beliefs, capacity 60           V 28.33+-0.19 (minus baseline -1.46+-0.27) | outdated  32.5 current  19.4 negative   0.0 per agent | believers at age 0/100/300/600/800: 33.34/14.08/2.13/0.12/0.03% | halves 85, tenth 254 | outdated beliefs older than 500 periods 1%
+      last believer gone after 330 periods (median over retired constraints)
+  Scale Free no negative beliefs, capacity 24           V 27.57+-0.17 (minus baseline -2.22+-0.26) | outdated   8.5 current  14.8 negative   0.0 per agent | believers at age 0/100/300/600/800: 25.27/1.64/0.01/0.00/0.00% | halves 26, tenth 83 | outdated beliefs older than 500 periods 0%
+      last believer gone after 132 periods (median over retired constraints)
+  Scale Free neither mechanism, capacity 60             V 30.90+-0.15 (minus baseline +1.11+-0.25) | outdated  38.7 current   9.5 negative   0.0 per agent | believers at age 0/100/300/600/800: 15.93/11.04/6.51/3.47/2.31% | halves 215, tenth 968 | outdated beliefs older than 500 periods 19%
+      last believer gone after 919 periods (median over retired constraints)
+  Scale Free earlier model (observation, no testing)    V 32.27+-0.14 (minus baseline +2.48+-0.24) | outdated  55.2 current   4.8 negative   0.0 per agent | believers at age 0/100/300/600/800: 8.20/8.63/8.31/7.56/6.81% | halves None, tenth None | outdated beliefs older than 500 periods 47%
+      last believer gone after nan periods (median over retired constraints)
+wrote output/261113 results N1000/261109 fig4_misinformation.png
+
+SUPPLEMENTARY NOTE 1 (life cycle of Regular and Scale Free identical to Section 3.3 runs: True)
+  Regular          Var(k)/<k>^2 0.00 | V 29.38+-0.14 (minus Regular +0.00+-0.20) | Vmin 18.12 | H 0.693+-0.004 | 5 largest in-degree 29.38+-0.14 (-0.00 below mean) | 5 best of 1001-1500 25.26 -> 29.08+-0.25 (0.30 below mean; 0.1 of 5 among largest in-degree)
+                   slope per doubling nan | agents with no in-link 0.0% | current 10.8, outdated 9.0 positive beliefs per agent | rho+(0) 19.4%, negatives exceed believers at 31 | last believer gone after 110 periods (median; 12% of constraints re-entered or outlived the run first) | rho- peak 26.7% at 99, 17.6% at 200
+  Small world      Var(k)/<k>^2 0.14 | V 29.26+-0.15 (minus Regular -0.12+-0.20) | Vmin 18.12 | H 0.692+-0.005 | 5 largest in-degree 27.56+-0.20 (1.71 below mean) | 5 best of 1001-1500 25.01 -> 28.21+-0.22 (1.05 below mean; 0.2 of 5 among largest in-degree)
+                   slope per doubling 1.22 | agents with no in-link 0.0% | current 11.8, outdated 9.9 positive beliefs per agent | rho+(0) 20.7%, negatives exceed believers at 30 | last believer gone after 221 periods (median; 22% of constraints re-entered or outlived the run first) | rho- peak 24.5% at 93, 19.5% at 200
+  Random           Var(k)/<k>^2 0.24 | V 29.55+-0.14 (minus Regular +0.17+-0.20) | Vmin 17.99 | H 0.691+-0.005 | 5 largest in-degree 27.13+-0.22 (2.42 below mean) | 5 best of 1001-1500 24.95 -> 28.21+-0.28 (1.35 below mean; 0.6 of 5 among largest in-degree)
+                   slope per doubling 1.08 | agents with no in-link 0.0% | current 9.9, outdated 8.9 positive beliefs per agent | rho+(0) 17.8%, negatives exceed believers at 30 | last believer gone after 240 periods (median; 23% of constraints re-entered or outlived the run first) | rho- peak 20.5% at 98, 17.7% at 200
+  Layered          Var(k)/<k>^2 0.24 | V 29.64+-0.15 (minus Regular +0.26+-0.21) | Vmin 18.08 | H 0.692+-0.005 | 5 largest in-degree 27.36+-0.23 (2.28 below mean) | 5 best of 1001-1500 25.06 -> 28.46+-0.28 (1.18 below mean; 0.3 of 5 among largest in-degree)
+                   slope per doubling 1.05 | agents with no in-link 0.0% | current 10.0, outdated 9.0 positive beliefs per agent | rho+(0) 17.9%, negatives exceed believers at 31 | last believer gone after 241 periods (median; 23% of constraints re-entered or outlived the run first) | rho- peak 20.5% at 97, 17.7% at 200
+  Barabási–Albert  Var(k)/<k>^2 1.76 | V 29.96+-0.12 (minus Regular +0.58+-0.19) | Vmin 17.83 | H 0.687+-0.004 | 5 largest in-degree 23.99+-0.23 (5.97 below mean) | 5 best of 1001-1500 23.73 -> 24.52+-0.28 (5.45 below mean; 3.1 of 5 among largest in-degree)
+                   slope per doubling 1.13 | agents with no in-link 0.0% | current 8.7, outdated 9.0 positive beliefs per agent | rho+(0) 15.8%, negatives exceed believers at 30 | last believer gone after 255 periods (median; 25% of constraints re-entered or outlived the run first) | rho- peak 18.3% at 156, 17.8% at 200
+  Scale Free       Var(k)/<k>^2 3.82 | V 29.79+-0.20 (minus Regular +0.41+-0.24) | Vmin 17.65 | H 0.693+-0.007 | 5 largest in-degree 23.08+-0.21 (6.71 below mean) | 5 best of 1001-1500 23.01 -> 23.42+-0.23 (6.37 below mean; 3.4 of 5 among largest in-degree)
+                   slope per doubling 1.18 | agents with no in-link 0.0% | current 9.6, outdated 10.2 positive beliefs per agent | rho+(0) 16.8%, negatives exceed believers at 30 | last believer gone after 259 periods (median; 24% of constraints re-entered or outlived the run first) | rho- peak 20.0% at 162, 19.4% at 200
+  no communication: V 32.14
+  Table S1 (means over realisations): <k>, sd k_in, max k_in, Var(k)/<k>^2, corr(k_in,k_out), clustering, no in-link, largest SCC
+    Random           4.0 & 2.0 & 12 & 0.24 & +0.02 & 0.01 & 0\% & 98\%
+    Small world      4.0 & 1.5 & 9 & 0.14 & -0.82 & 0.48 & 0\% & 100\%
+    Barabási–Albert  3.9 & 5.2 & 69 & 1.76 & +0.87 & 0.05 & 0\% & 98\%
+    Layered          4.0 & 2.0 & 12 & 0.24 & +0.03 & 0.01 & 0\% & 98\%
+wrote output/261113 results N1000/261109 figS1_networks.png
+wrote output/261113 results N1000/261109 figS2_generators.png
+wrote output/261113 results N1000/261109 figS3_generators.png
+wrote output/261113 results N1000/261109 fig_networks.png

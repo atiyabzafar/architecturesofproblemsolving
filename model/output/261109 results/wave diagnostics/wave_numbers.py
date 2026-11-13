@@ -5,12 +5,13 @@ for f in sys.argv[1:]:
     for n in ("even", "uneven", "dense", "uneven_eq", "uneven_same"):
         if f"{n}|1|hold" not in D: continue
         tot = lambda q: np.sum([D[f"{n}|{s}|{q}"] for s in S], 0)
+        NA = len(D[f"{n}|1|kin"])
         hold, cacc, ev, first = tot("hold"), tot("cacc"), tot("ev"), tot("first")
         ncl = np.array([D[f"{n}|{s}|ncl_in"] for s in S]).mean(0)
-        rp = hold[:, 0].sum(1) / cacc / 100; rm = hold[:, 1].sum(1) / cacc / 100
+        rp = hold[:, 0].sum(1) / cacc / NA; rm = hold[:, 1].sum(1) / cacc / NA
         a = np.arange(len(rp)); pk = int(np.argmax(rm[:400]))
         half = next(x for x in a if rp[x] <= rp[0] / 2); one = next(x for x in a if rp[x] < 0.01)
-        reach = np.cumsum(first.sum(1) / cacc) / 100
+        reach = np.cumsum(first.sum(1) / cacc) / NA
         e = (ev[1:301] / cacc[1:301, None, None]).sum(0)
         newshare = e[2].sum() / (e[0].sum() + e[1].sum() + e[2].sum())
         evp = e[7].sum() / (e[0].sum() + e[1].sum() + e[7].sum())

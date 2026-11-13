@@ -72,6 +72,7 @@ wrote output/261109 results/261109 fig3_agents.png
 ====================================================================================================
 SECTION 3.3 RUNS (40 realisations, T = 2000; constraints retired at 1000-1199 followed through their first life; stocks and violations over periods 1501-2000)
   Regular    baseline model                             V 28.59+-0.16 (minus baseline +0.00+-0.22) | outdated  10.9 current  14.3 negative  94.8 per agent | believers at age 0/100/300/600/800: 24.40/1.13/0.00/0.00/0.00% | halves 44, tenth 92, negatives exceed believers at 27 | outdated beliefs older than 500 periods 0%
+      rho- peak 33.7% at 99, 20.4% at 200, between 20.4% and 33.7% over 100-200
   Regular    no recency rule                            V 31.27+-0.16 (minus baseline +2.68+-0.23) | outdated  12.8 current   5.5 negative 101.7 per agent | believers at age 0/100/300/600/800: 9.46/5.68/1.50/0.20/0.05% | halves 129, tenth 369, negatives exceed believers at 33 | outdated beliefs older than 500 periods 2%
   Regular    no negative beliefs, capacity 120          V 26.81+-0.28 (minus baseline -1.78+-0.32) | outdated  83.4 current  36.4 negative   0.0 per agent | believers at age 0/100/300/600/800: 62.61/41.84/6.17/1.12/0.37% | halves 121, tenth 298 | outdated beliefs older than 500 periods 2%
   Regular    no negative beliefs, capacity 60           V 25.69+-0.26 (minus baseline -2.90+-0.30) | outdated  30.4 current  29.4 negative   0.0 per agent | believers at age 0/100/300/600/800: 50.45/8.79/0.20/0.00/0.00% | halves 53, tenth 127 | outdated beliefs older than 500 periods 0%
@@ -79,6 +80,7 @@ SECTION 3.3 RUNS (40 realisations, T = 2000; constraints retired at 1000-1199 fo
   Regular    neither mechanism, capacity 60             V 31.03+-0.16 (minus baseline +2.44+-0.23) | outdated  49.9 current   9.8 negative   0.0 per agent | believers at age 0/100/300/600/800: 16.59/12.08/8.27/5.57/4.22% | halves 298, tenth None | outdated beliefs older than 500 periods 27%
   Regular    earlier model (observation, no testing)    V 32.17+-0.16 (minus baseline +3.58+-0.22) | outdated  55.0 current   5.0 negative   0.0 per agent | believers at age 0/100/300/600/800: 8.43/8.84/8.57/7.54/6.78% | halves 999, tenth None | outdated beliefs older than 500 periods 45%
   Scale Free baseline model                             V 29.55+-0.16 (minus baseline +0.00+-0.23) | outdated  10.8 current  11.1 negative  98.1 per agent | believers at age 0/100/300/600/800: 19.22/4.30/0.00/0.00/0.00% | halves 51, tenth 138, negatives exceed believers at 31 | outdated beliefs older than 500 periods 0%
+      rho- peak 21.5% at 135, 20.3% at 200, between 20.3% and 21.5% over 100-200
   Scale Free no recency rule                            V 31.49+-0.17 (minus baseline +1.93+-0.24) | outdated  13.6 current   5.2 negative 101.2 per agent | believers at age 0/100/300/600/800: 9.23/6.55/1.55/0.18/0.05% | halves 151, tenth 371, negatives exceed believers at 12 | outdated beliefs older than 500 periods 2%
   Scale Free no negative beliefs, capacity 120          V 28.62+-0.23 (minus baseline -0.94+-0.28) | outdated  83.4 current  25.5 negative   0.0 per agent | believers at age 0/100/300/600/800: 42.94/36.48/12.74/1.49/0.32% | halves 209, tenth 459 | outdated beliefs older than 500 periods 2%
   Scale Free no negative beliefs, capacity 60           V 27.89+-0.28 (minus baseline -1.66+-0.32) | outdated  34.8 current  21.3 negative   0.0 per agent | believers at age 0/100/300/600/800: 36.06/15.91/1.39/0.05/0.00% | halves 89, tenth 221 | outdated beliefs older than 500 periods 0%
@@ -112,3 +114,4 @@ SUPPLEMENTARY NOTE 1 (life cycle of Regular and Scale Free identical to Section 
 wrote output/261109 results/261109 figS1_networks.png
 wrote output/261109 results/261109 figS2_generators.png
 wrote output/261109 results/261109 figS3_generators.png
+wrote output/261109 results/261109 fig_networks.png
