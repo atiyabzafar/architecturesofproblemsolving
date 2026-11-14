@@ -1,0 +1,12 @@
+  20/200 done, 46s
+  40/200 done, 93s
+  60/200 done, 137s
+  80/200 done, 185s
+  100/200 done, 232s
+  120/200 done, 281s
+  140/200 done, 331s
+  160/200 done, 385s
+  180/200 done, 438s
+  200/200 done, 487s
+wrote ablation_nofals.npz
+done: 200 runs on 8 workers, 487s

@@ -1,0 +1,26 @@
+{
+ "uneven|full": {
+  "cur_new": 340641,
+  "cur_flip": 38100,
+  "out_new": 29661,
+  "out_flip": 8862,
+  "neg_ok": 1570039,
+  "neg_bad": 10776,
+  "fired": 1998079,
+  "empty": 0,
+  "V": 29.553815000000004,
+  "same": true
+ },
+ "uneven|noneg24": {
+  "cur_new": 1438135,
+  "cur_flip": 0,
+  "out_new": 559460,
+  "out_flip": 0,
+  "neg_ok": 0,
+  "neg_bad": 0,
+  "fired": 1997846,
+  "empty": 251,
+  "V": 27.326769999999996,
+  "same": true
+ }
+}

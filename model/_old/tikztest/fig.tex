@@ -1,0 +1,28 @@
+\documentclass[border=8pt]{standalone}
+\usepackage{tikz}\usepackage{xcolor}
+\usetikzlibrary{shapes,arrows,positioning,calc}
+\definecolor{auditblue}{RGB}{20,80,180}
+\newcommand{\audit}[1]{{\color{auditblue}#1}}
+\begin{document}
+\tikzset{
+  block/.style={draw, fill=white, rectangle, minimum height=3em, minimum width=3em},
+  input/.style = {coordinate},
+}
+\begin{tikzpicture}[auto, node distance=3cm, >=latex']
+  \node[input, name=input] (input) {};
+  \node [block, right of=input, node distance=1.5cm] (T) {$T_k(t)$};
+  \node [block, right of=T] (S) {$S_k(t)$};
+  \node [block, below right of=T] (N) {$N_k(t)$};
+  \node [input, above of=T, node distance=1.5cm] (topT) {};
+  \node [input, above of=S, node distance=1.5cm] (topS) {};
+  \node [input, left of=N, node distance=1.5cm] (leftN) {};
+  \draw [->] (input) --node{$D_k$} (T);
+  \draw [->] (T) --node{$R_k$} (S);
+  \draw [->] (S) --node{$\phi_k$} (N);
+  \draw [->, dashed] (topT) -- node[right] {$C_{T,k}$} (T);
+  \draw [->, dashed] (topS) -- node[right] {$C_{S,k}$} (S);
+  \draw [->, dashed] (leftN) -- node[above] {$C_{N,k}$} (N);
+  \draw [->, auditblue, thick] (S) to[bend left=35] node[below]{\audit{$\Phi^{SN}_k$}} (N);
+  \draw [->, auditblue, thick] (N) to[bend right=20] node[right]{\audit{$\Phi^{NS}_k,\ \Phi^{NT}_k$}} (S);
+\end{tikzpicture}
+\end{document}

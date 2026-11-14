@@ -1,0 +1,17 @@
+  20/280 done, 20s
+  40/280 done, 33s
+  60/280 done, 51s
+  80/280 done, 66s
+  100/280 done, 84s
+  120/280 done, 100s
+  140/280 done, 122s
+  160/280 done, 142s
+  180/280 done, 168s
+  200/280 done, 189s
+  220/280 done, 215s
+  240/280 done, 236s
+  260/280 done, 264s
+  280/280 done, 285s
+wrote output/261109 results/main.npz
+done: 280 runs on 8 workers, 286s
+main exit 0
