@@ -7,9 +7,9 @@ the mass-retraction numbers, the stored shock runs in "output/261001 timeseries.
 
   python "261109 results figures.py" RUNDIR TIMESERIES
 
-Writes 261109 fig_networks (Methods), fig2_selection, fig3_agents, fig4_misinformation, and for the
-Supplementary Information figS1_networks, figS2_generators and figS3_generators (.pdf, .png)
-to RUNDIR, and prints every number quoted in the draft.
+Writes 261109 fig_networks (Methods), fig2_performance (and its earlier version fig2_selection), fig3_agents,
+fig4_misinformation, and for the Supplementary Information figS1_networks, figS2_generators and
+figS3_generators (.pdf, .png) to RUNDIR, and prints every number quoted in the draft.
 """
 import sys
 from pathlib import Path
@@ -213,63 +213,81 @@ if M is not None:
     print(f"  pooled over the three networks: r(H, V) = {np.corrcoef(Hp, Vp)[0, 1]:+.2f}")
 
     from matplotlib.lines import Line2D
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(7.08, 2.55), sharey=True, gridspec_kw=dict(width_ratios=[2.1, 1], wspace=0.08))
+    XT = [0.25, 0.5, 1, 2, 4, 8] + ([16, 32] if EDGES[-1] > 12 else [])     # intake ticks (also Supplementary Fig. S3)
     rows = MAIN3[::-1]
     mk = [("avg", "Population mean", "o", "#000000", "#000000", 5.5),
           ("pos5", "5 agents with the largest in-degree", "D", None, None, 5.0),
           ("tick", "Top-performing agent in each period", "o", "white", "#8c8c8c", 5.0)]
+
+    def selection_panel(a1, legend_anchor):
+        """Population mean, the 5 agents with the largest in-degree and the top-performing agent, per network."""
+        for yi, n in enumerate(rows):
+            a1.axhline(yi, color="#dddddd", lw=0.6, zorder=0)
+            vals = [sel[n][q].mean() for q, *_ in mk]
+            a1.plot([vals[1], vals[0]], [yi, yi], color=NETC[n], lw=1.6, alpha=0.55, zorder=1, solid_capstyle="butt")
+            for q, lab, m, fc, ec, ms in mk:
+                mu, e = ci(sel[n][q])
+                a1.errorbar([mu], [yi], xerr=[[e], [e]], fmt=m, ms=ms, mfc=(NETC[n] if fc is None else fc),
+                            mec=(NETC[n] if ec is None else ec), mew=1.1, ecolor=(NETC[n] if ec is None else ec),
+                            elinewidth=0.7, capsize=0, zorder=3)
+        a1.set_yticks(range(len(rows))); a1.set_yticklabels([SHORT[n] for n in rows])
+        a1.tick_params(axis="y", length=0)
+        a1.set_xlim(min(19.3, min(sel[n]["tick"].mean() for n in rows) - 0.5), max(30.4, max(sel[n]["avg"].mean() for n in rows) + 0.6))
+        a1.set_ylim(-0.6, len(rows) - 0.4)
+        a1.set_xlabel("Mean number of violations, periods 1501–2000")
+        a1.legend([Line2D([], [], marker=m, ls="none", ms=ms, mfc=("#666666" if fc is None else fc), mec=("#666666" if ec is None else ec),
+                          mew=1.1) for q, lab, m, fc, ec, ms in mk],
+                  [lab for q, lab, m, fc, ec, ms in mk], loc="upper left", bbox_to_anchor=legend_anchor, ncol=3, handletextpad=0.4,
+                  columnspacing=1.2)
+        letter(a1, "a")
+
+    def intake_panel(b1):
+        """Mean number of violations of an agent against its communication intake (Scale Free networks; Regular as a point)."""
+        for n, ls in (("uneven", "-"), ("dense", "--")):
+            bb = agent[n]["bins"]
+            b1.plot([x["lam"] for x in bb], [x["V"] for x in bb], ls=ls, marker=NETM[n], color=NETC[n], ms=2, lw=1.2, label=SHORT[n])
+            b1.errorbar([x["lam"] for x in bb], [x["V"] for x in bb], [x["Vci"] for x in bb], fmt="none", ecolor=NETC[n],
+                        elinewidth=1, capsize=2)
+        b1.plot([1], [agent["even"]["bins"][0]["V"]], NETM["even"], ms=3, color=NETC["even"], label="Regular", zorder=5)
+        b1.axhline(V0, color="#777777", lw=0.9, ls=":")
+        b1.text(0.24, V0 + 0.12, "No communication", fontsize=6.5, color="#555555", ha="left", va="bottom")
+        b1.set_xscale("log"); b1.set_xticks(XT); b1.set_xticklabels([f"{x_:g}" for x_ in XT])
+        b1.xaxis.set_minor_locator(matplotlib.ticker.NullLocator())
+        b1.set_xlabel("Communication intake, $\\lambda_i$"); b1.set_ylabel("Mean number of violations, $V_i$")
+        b1.set_ylim(min(24.2, min(x["V"] for n in ("uneven", "dense") for x in agent[n]["bins"]) - 0.3), 35.2)
+        b1.set_yticks([v for v in range(16, 34, 2) if v >= b1.get_ylim()[0] + 1.5])
+        b1.legend(loc=("lower left" if EDGES[-1] > 12 else "upper right"), handletextpad=0.4, labelspacing=0.25, borderaxespad=0.2)
+        letter(b1, "b")
+
+    # Earlier version of Figure 2, with homogeneity in panel b (no longer in the main text).
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(7.08, 2.55), sharey=True, gridspec_kw=dict(width_ratios=[2.1, 1], wspace=0.08))
+    selection_panel(a1, (-0.27, -0.22))
     for yi, n in enumerate(rows):
-        a1.axhline(yi, color="#dddddd", lw=0.6, zorder=0); a2.axhline(yi, color="#dddddd", lw=0.6, zorder=0)
-        vals = [sel[n][q].mean() for q, *_ in mk]
-        a1.plot([vals[1], vals[0]], [yi, yi], color=NETC[n], lw=1.6, alpha=0.55, zorder=1, solid_capstyle="butt")
-        for q, lab, m, fc, ec, ms in mk:
-            mu, e = ci(sel[n][q])
-            a1.errorbar([mu], [yi], xerr=[[e], [e]], fmt=m, ms=ms, mfc=(NETC[n] if fc is None else fc),
-                        mec=(NETC[n] if ec is None else ec), mew=1.1, ecolor=(NETC[n] if ec is None else ec),
-                        elinewidth=0.7, capsize=0, zorder=3)
+        a2.axhline(yi, color="#dddddd", lw=0.6, zorder=0)
         mu, e = ci(sel[n]["hom"])
         a2.errorbar([mu], [yi], xerr=[[e], [e]], fmt="o", ms=5.5, mfc=NETC[n], mec=NETC[n], ecolor=NETC[n],
                     elinewidth=0.9, capsize=2, zorder=3)
-    a1.set_yticks(range(len(rows))); a1.set_yticklabels([SHORT[n] for n in rows])
-    a1.tick_params(axis="y", length=0); a2.tick_params(axis="y", length=0)
-    a1.set_xlim(min(19.3, min(sel[n]["tick"].mean() for n in rows) - 0.5), max(30.4, max(sel[n]["avg"].mean() for n in rows) + 0.6))
-    a1.set_ylim(-0.6, len(rows) - 0.4)
-    a1.set_xlabel("Mean number of violations, periods 1501–2000")
-    a1.legend([Line2D([], [], marker=m, ls="none", ms=ms, mfc=("#666666" if fc is None else fc), mec=("#666666" if ec is None else ec),
-                      mew=1.1) for q, lab, m, fc, ec, ms in mk],
-              [lab for q, lab, m, fc, ec, ms in mk], loc="upper left", bbox_to_anchor=(-0.27, -0.22), ncol=3, handletextpad=0.4,
-              columnspacing=1.2)
-    letter(a1, "a")
+    a2.tick_params(axis="y", length=0)
     a2.set_xlim(0.684, 0.726); a2.set_xticks([0.69, 0.70, 0.71, 0.72])
     a2.set_xlabel("Homogeneity, $H$")
     letter(a2, "b")
     save300(fig, "fig2_selection")
 
+    # Figure 2 of the main text: performance of the population and its best members (a) and of individual agents (b).
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(7.08, 2.55), gridspec_kw=dict(width_ratios=[1.45, 1], wspace=0.3))
+    selection_panel(a1, (-0.36, -0.22))
+    intake_panel(a2)
+    save300(fig, "fig2_performance")
+
     # ---------------------------------------------------------------- Figure 3 (main networks only)
-    fig, axs3 = plt.subplots(2, 2, figsize=(7.08, 5.0), gridspec_kw=dict(wspace=0.38, hspace=0.62))
-    b1, b2, b3, b4 = axs3.ravel()
-    for n, ls in (("uneven", "-"), ("dense", "--")):
-        bb = agent[n]["bins"]
-        b1.plot([x["lam"] for x in bb], [x["V"] for x in bb], ls=ls, marker=NETM[n], color=NETC[n], ms=2, lw=1.2, label=SHORT[n])
-        b1.errorbar([x["lam"] for x in bb], [x["V"] for x in bb],[x["Vci"] for x in bb],ls=ls,lw=1,ecolor=NETC[n],elinewidth=1, capsize=2)
-    b1.plot([1], [agent["even"]["bins"][0]["V"]], NETM["even"], ms=3, color=NETC["even"], label="Regular", zorder=5)
-    b1.axhline(V0, color="#777777", lw=0.9, ls=":")
-    b1.text(0.24, V0 + 0.12, "No communication", fontsize=6.5, color="#555555", ha="left", va="bottom")
-    XT = [0.25, 0.5, 1, 2, 4, 8] + ([16, 32] if EDGES[-1] > 12 else [])
-    b1.set_xscale("log"); b1.set_xticks(XT); b1.set_xticklabels([f"{x_:g}" for x_ in XT])
-    b1.xaxis.set_minor_locator(matplotlib.ticker.NullLocator())
-    b1.set_xlabel("Communication intake, $\\lambda_i$"); b1.set_ylabel("Mean number of violations, $V_i$")
-    b1.set_ylim(min(24.2, min(x["V"] for n in ("uneven", "dense") for x in agent[n]["bins"]) - 0.3), 35.2)
-    b1.set_yticks([v for v in range(16, 34, 2) if v >= b1.get_ylim()[0] + 1.5])
-    b1.legend(loc=("lower left" if EDGES[-1] > 12 else "upper right"), handletextpad=0.4, labelspacing=0.25, borderaxespad=0.2)
-    letter(b1, "a")
+    fig, (b2, b3, b4) = plt.subplots(1, 3, figsize=(7.08, 2.45), gridspec_kw=dict(width_ratios=[1.15, 1, 1.1], wspace=0.42))
     bb = agent["uneven"]["bins"]; xs = np.arange(len(bb))
     tr = np.array([x["true"] for x in bb]); st = np.array([x["stale"] for x in bb])
     b2.bar(xs, tr, color=CUR, width=0.7, label="Current")
     b2.bar(xs, st, bottom=tr, color=OUTD, width=0.7, label="Outdated")
-    b2.set_xticks(xs); b2.set_xticklabels([f"{x['lam']:.2g}" for x in bb], rotation=45, ha="right")
+    b2.set_xticks(xs); b2.set_xticklabels([f"{x['lam']:.2g}" for x in bb], rotation=90, fontsize=6.8)
     b2.set_xlabel("Communication intake, $\\lambda_i$ (Scale Free)"); b2.set_ylabel("Positive beliefs per agent")
-    b2.set_ylim(0, 27); b2.legend(loc="upper left", ncol=2, handlelength=1.2, columnspacing=0.8); letter(b2, "b")
+    b2.set_ylim(0, 27); b2.legend(loc="upper left", ncol=2, handlelength=1.2, columnspacing=0.8); letter(b2, "a")
     order = ["even", "uneven", "dense"]; ys = np.arange(len(order))[::-1]
     t_ = np.array([iq[n]["true"].mean() for n in order]); s_ = np.array([iq[n]["stale"].mean() for n in order])
     b3.barh(ys, t_, color=CUR, height=0.6); b3.barh(ys, s_, left=t_, color=OUTD, height=0.6)
@@ -277,7 +295,7 @@ if M is not None:
         b3.text(a / 2, y, f"{a:.1f}", ha="center", va="center", fontsize=6.8, color="white")
         b3.text(a + b / 2, y, f"{b:.1f}", ha="center", va="center", fontsize=6.8, color="#000000")
     b3.set_yticks(ys); b3.set_yticklabels([SHORT[n].replace(", ", ",\n") for n in order]); b3.set_xlim(0, 27)
-    b3.set_xlabel("Positive beliefs per agent"); letter(b3, "c")
+    b3.set_xlabel("Positive beliefs per agent"); letter(b3, "b")
     tt = np.arange(20) * 50 + 1025
     b4.axvspan(1000, 1500, color="#ececec", lw=0, zorder=0)
     for n in ("even", "uneven"):
@@ -286,9 +304,9 @@ if M is not None:
             b4.fill_between(tt, mu - e, mu + e, color=NETC[n], alpha=0.12, lw=0, zorder=1)
             b4.plot(tt, mu, color=NETC[n], ls=ls, lw=1.3, zorder=2)
     lo4 = min(24, min(sel[n]["sel_series"].mean(0).min() for n in ("even", "uneven")) - 0.4)
-    hi4 = max(30.6, max(sel[n]["mean_series"].mean(0).max() for n in ("even", "uneven")) + 0.6)
-    b4.text(1250, hi4 - 0.55, "Selection period", ha="center", fontsize=6.8, color="#333333")
-    b4.text(1750, hi4 - 0.55, "Following period", ha="center", fontsize=6.8, color="#333333")
+    hi4 = max(30.6, max(sel[n]["mean_series"].mean(0).max() for n in ("even", "uneven")) + 0.9)
+    b4.text(1250, hi4 - 0.42, "Selection period", ha="center", fontsize=6, color="#333333")
+    b4.text(1750, hi4 - 0.42, "Following period", ha="center", fontsize=6, color="#333333")
     end = lambda n, q: sel[n][q].mean(0)[-4:].mean()
     b4.text(2015, end("uneven", "mean_series"), "Scale Free,\npopulation mean", color=NETC["uneven"], fontsize=6.5, va="center")
     y_sf, y_reg = end("uneven", "mean_series"), (end("even", "mean_series") + end("even", "sel_series")) / 2 - 0.1
@@ -297,9 +315,9 @@ if M is not None:
     b4.text(2015, y_reg, "Regular, selected\nagents and\npopulation mean",
             color=NETC["even"], fontsize=6.5, va="center")
     b4.text(2015, end("uneven", "sel_series"), "Scale Free,\nselected agents", color=NETC["uneven"], fontsize=6.5, va="center")
-    b4.set_xlim(1000, 2000); b4.set_ylim(lo4, hi4); b4.set_xticks([1000, 1250, 1500, 1750, 2000])
+    b4.set_xlim(1000, 2000); b4.set_ylim(lo4, hi4); b4.set_xticks([1000, 1500, 2000])
     b4.set_xlabel("Period"); b4.set_ylabel("Mean number of violations")
-    letter(b4, "d")
+    letter(b4, "c")
     save300(fig, "fig3_agents")
 
 # ============================================================ Section 3.3 runs (2,000 periods, 40 realisations)

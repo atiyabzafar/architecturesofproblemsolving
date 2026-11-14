@@ -75,6 +75,7 @@ HOMOGENEITY AND SPREAD OF INDIVIDUAL PERFORMANCE (periods 1501-2000)
   Scale Free, dense  H 0.689+-0.005 | across-run r(H, V) -0.82 | sd of individual violations 2.14, 10th-90th percentile spread 5.30
   pooled over the three networks: r(H, V) = -0.73
 wrote output/261113 results N1000/261109 fig2_selection.png
+wrote output/261113 results N1000/261109 fig2_performance.png
 wrote output/261113 results N1000/261109 fig3_agents.png
 ====================================================================================================
 SECTION 3.3 RUNS (40 realisations, T = 2000; constraints retired at 1000-1199 followed through their first life; stocks and violations over periods 1501-2000)
