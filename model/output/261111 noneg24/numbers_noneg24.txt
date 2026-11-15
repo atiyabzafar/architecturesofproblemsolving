@@ -1,0 +1,57 @@
+====================================================================================================
+NETWORK LEVEL (40 runs per network; long run = periods 1501-2000)
+  Regular            average  25.67+-0.24 | best each period  18.42 | most-heard 1  25.67+-0.24, 5  25.67+-0.24 | best record 1  25.69+-0.38, 5  25.65+-0.30 | best member ex post  23.58 | homogeneity 0.759
+  Scale Free         average  27.33+-0.22 | best each period  19.31 | most-heard 1  24.11+-0.28, 5  24.62+-0.26 | best record 1  24.42+-0.33, 5  24.92+-0.25 | best member ex post  23.91 | homogeneity 0.751
+  Scale Free, dense  average  26.76+-0.17 | best each period  18.81 | most-heard 1  23.20+-0.20, 5  23.79+-0.17 | best record 1  23.60+-0.30, 5  24.05+-0.23 | best member ex post  23.00 | homogeneity 0.750
+  No communication   average  32.16+-0.10 | value of communication: Regular 6.49, Scale Free 4.83
+  Differences from Regular (95% interval):
+    Scale Free         average +1.65+-0.32 | best each period +0.89+-0.32 | 5 most-heard -1.05+-0.35 | 5 best record -0.73+-0.39 | most-heard -1.56+-0.37 | best record -1.28+-0.51 | homogeneity -0.007+-0.009
+    Scale Free, dense  average +1.09+-0.29 | best each period +0.39+-0.29 | 5 most-heard -1.88+-0.29 | 5 best record -1.60+-0.37 | most-heard -2.47+-0.31 | best record -2.10+-0.49 | homogeneity -0.008+-0.008
+    Regular            5 most-heard beat own average by -0.00; 5 best-record by 0.02
+    Scale Free         5 most-heard beat own average by 2.70; 5 best-record by 2.40
+    Scale Free, dense  5 most-heard beat own average by 2.97; 5 best-record by 2.71
+
+INFORMATION QUALITY (per agent, sampled every 10 periods over 1501-2000)
+  Regular            current rules believed 18.23 of 60 | true 'rule exists' 17.47 | outdated 'rule exists'  6.46+-0.09 | precision 0.73 | 'rule gone'   0.0 (wrong 0.00) | believed rules violated 24%, unbelieved 51%
+  Scale Free         current rules believed 16.01 of 60 | true 'rule exists' 15.21 | outdated 'rule exists'  8.34+-0.14 | precision 0.65 | 'rule gone'   0.0 (wrong 0.00) | believed rules violated 23%, unbelieved 54%
+  Scale Free, dense  current rules believed 17.29 of 60 | true 'rule exists' 16.55 | outdated 'rule exists'  7.07+-0.13 | precision 0.70 | 'rule gone'   0.0 (wrong 0.00) | believed rules violated 23%, unbelieved 53%
+    Scale Free         minus Regular: true -2.26+-0.18, outdated +1.88+-0.16
+    Scale Free, dense  minus Regular: true -0.92+-0.17, outdated +0.61+-0.16
+
+AGENT LEVEL
+  Scale Free         slope per doubling of intake 1.09 (R^2 0.43); agents with no in-link: 0 at nan
+  Scale Free, dense  slope per doubling of intake 1.25 (R^2 0.54); agents with no in-link: 0 at nan
+  Scale Free by intake: 0.25: V 29.2, true 12.3, outdated 9.2, prec 0.57, gone 0; 0.50: V 27.9, true 14.8, outdated 8.8, prec 0.63, gone 0; 0.75: V 27.2, true 15.6, outdated 8.2, prec 0.66, gone 0; 1.08: V 26.6, true 16.1, outdated 7.8, prec 0.67, gone 0; 1.62: V 25.9, true 16.6, outdated 7.4, prec 0.69, gone 0; 2.18: V 25.5, true 16.8, outdated 7.2, prec 0.70, gone 0; 3.22: V 25.0, true 17.1, outdated 6.9, prec 0.71, gone 0; 4.50: V 24.6, true 17.2, outdated 6.8, prec 0.72, gone 0; 7.29: V 24.3, true 17.4, outdated 6.6, prec 0.73, gone 0
+
+FIVE BEST AGENTS OF PERIODS 1001-1500 (selection period), followed over 1501-2000
+  Regular             23.87 in 1001-1500 ->  25.65+-0.30 in 1501-2000 | of these 5, 0.2 are among the 5 agents with the largest in-degree
+  Scale Free          24.28 in 1001-1500 ->  24.92+-0.25 in 1501-2000 | of these 5, 3.0 are among the 5 agents with the largest in-degree
+  Scale Free, dense   23.32 in 1001-1500 ->  24.05+-0.23 in 1501-2000 | of these 5, 3.3 are among the 5 agents with the largest in-degree
+
+HOMOGENEITY AND SPREAD OF INDIVIDUAL PERFORMANCE (periods 1501-2000)
+  Regular            H 0.759+-0.006 | across-run r(H, V) -0.78 | sd of individual violations 0.86, 10th-90th percentile spread 2.18
+  Scale Free         H 0.751+-0.006 | across-run r(H, V) -0.64 | sd of individual violations 1.53, 10th-90th percentile spread 3.84
+  Scale Free, dense  H 0.750+-0.006 | across-run r(H, V) -0.65 | sd of individual violations 1.63, 10th-90th percentile spread 4.10
+  pooled over the three networks: r(H, V) = -0.60
+wrote output/261111 noneg24/261111 noneg24 fig2_selection.png
+wrote output/261111 noneg24/261111 noneg24 fig3_agents.png
+====================================================================================================
+SECTION 3.3 RUNS (40 realisations, T = 2000; constraints retired at 1000-1199 followed through their first life; stocks and violations over periods 1501-2000)
+  Regular    baseline model                             V 28.59+-0.16 (minus baseline +0.00+-0.22) | outdated  10.9 current  14.3 negative  94.8 per agent | believers at age 0/100/300/600/800: 24.40/1.13/0.00/0.00/0.00% | halves 44, tenth 92, negatives exceed believers at 27 | outdated beliefs older than 500 periods 0%
+  Regular    no recency rule                            V 31.27+-0.16 (minus baseline +2.68+-0.23) | outdated  12.8 current   5.5 negative 101.7 per agent | believers at age 0/100/300/600/800: 9.46/5.68/1.50/0.20/0.05% | halves 129, tenth 369, negatives exceed believers at 33 | outdated beliefs older than 500 periods 2%
+  Regular    no negative beliefs, capacity 120          V 26.81+-0.28 (minus baseline -1.78+-0.32) | outdated  83.4 current  36.4 negative   0.0 per agent | believers at age 0/100/300/600/800: 62.61/41.84/6.17/1.12/0.37% | halves 121, tenth 298 | outdated beliefs older than 500 periods 2%
+  Regular    no negative beliefs, capacity 60           V 25.69+-0.26 (minus baseline -2.90+-0.30) | outdated  30.4 current  29.4 negative   0.0 per agent | believers at age 0/100/300/600/800: 50.45/8.79/0.20/0.00/0.00% | halves 53, tenth 127 | outdated beliefs older than 500 periods 0%
+  Regular    no negative beliefs, capacity 24           V 25.67+-0.24 (minus baseline -2.92+-0.28) | outdated   6.5 current  17.5 negative   0.0 per agent | believers at age 0/100/300/600/800: 30.20/0.24/0.00/0.00/0.00% | halves 18, tenth 49 | outdated beliefs older than 500 periods 0%
+  Regular    neither mechanism, capacity 60             V 31.03+-0.16 (minus baseline +2.44+-0.23) | outdated  49.9 current   9.8 negative   0.0 per agent | believers at age 0/100/300/600/800: 16.59/12.08/8.27/5.57/4.22% | halves 298, tenth None | outdated beliefs older than 500 periods 27%
+  Regular    earlier model (observation, no testing)    V 32.17+-0.16 (minus baseline +3.58+-0.22) | outdated  55.0 current   5.0 negative   0.0 per agent | believers at age 0/100/300/600/800: 8.43/8.84/8.57/7.54/6.78% | halves 999, tenth None | outdated beliefs older than 500 periods 45%
+  Scale Free baseline model                             V 29.55+-0.16 (minus baseline +0.00+-0.23) | outdated  10.8 current  11.1 negative  98.1 per agent | believers at age 0/100/300/600/800: 19.22/4.30/0.00/0.00/0.00% | halves 51, tenth 138, negatives exceed believers at 31 | outdated beliefs older than 500 periods 0%
+  Scale Free no recency rule                            V 31.49+-0.17 (minus baseline +1.93+-0.24) | outdated  13.6 current   5.2 negative 101.2 per agent | believers at age 0/100/300/600/800: 9.23/6.55/1.55/0.18/0.05% | halves 151, tenth 371, negatives exceed believers at 12 | outdated beliefs older than 500 periods 2%
+  Scale Free no negative beliefs, capacity 120          V 28.62+-0.23 (minus baseline -0.94+-0.28) | outdated  83.4 current  25.5 negative   0.0 per agent | believers at age 0/100/300/600/800: 42.94/36.48/12.74/1.49/0.32% | halves 209, tenth 459 | outdated beliefs older than 500 periods 2%
+  Scale Free no negative beliefs, capacity 60           V 27.89+-0.28 (minus baseline -1.66+-0.32) | outdated  34.8 current  21.3 negative   0.0 per agent | believers at age 0/100/300/600/800: 36.06/15.91/1.39/0.05/0.00% | halves 89, tenth 221 | outdated beliefs older than 500 periods 0%
+  Scale Free no negative beliefs, capacity 24           V 27.33+-0.22 (minus baseline -2.23+-0.28) | outdated   8.3 current  15.2 negative   0.0 per agent | believers at age 0/100/300/600/800: 26.11/1.20/0.01/0.00/0.00% | halves 27, tenth 76 | outdated beliefs older than 500 periods 0%
+  Scale Free neither mechanism, capacity 60             V 31.02+-0.22 (minus baseline +1.47+-0.27) | outdated  44.3 current   9.4 negative   0.0 per agent | believers at age 0/100/300/600/800: 15.83/12.04/7.81/4.50/3.24% | halves 294, tenth None | outdated beliefs older than 500 periods 22%
+  Scale Free earlier model (observation, no testing)    V 32.19+-0.20 (minus baseline +2.63+-0.26) | outdated  54.9 current   5.1 negative   0.0 per agent | believers at age 0/100/300/600/800: 8.60/9.30/8.65/7.49/6.53% | halves 1000, tenth None | outdated beliefs older than 500 periods 44%
+  shock (Regular, stored 261001 runs, 40 seeds): retired constraints believed by 25.5% at the shock, halved after 46 periods | new constraints overtake at 31 | new constraints peak 39.7% at 106
+  shock (Scale Free, stored 261001 runs, 40 seeds): retired constraints believed by 19.2% at the shock, halved after 52 periods | new constraints overtake at 31 | new constraints peak 29.8% at 135
+  shock (Scale Free, dense, stored 261001 runs, 40 seeds): retired constraints believed by 18.9% at the shock, halved after 50 periods | new constraints overtake at 30 | new constraints peak 31.0% at 148
+wrote output/261111 noneg24/261111 noneg24 fig4a_misinformation.png

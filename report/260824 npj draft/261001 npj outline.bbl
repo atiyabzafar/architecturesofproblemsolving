@@ -1,0 +1,715 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{bala1998learning}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=ca67c1bc8dcfed9027323b5412711ba7}{%
+           family={Bala},
+           familyi={B\bibinitperiod},
+           given={Venkatesh},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c73d913f39a667bcea3aa21ada9afb5e}{%
+           family={Goyal},
+           familyi={G\bibinitperiod},
+           given={Sanjeev},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b33c950d5c411c4e0f611ae1daabda7f}
+      \strng{fullhash}{b33c950d5c411c4e0f611ae1daabda7f}
+      \strng{bibnamehash}{b33c950d5c411c4e0f611ae1daabda7f}
+      \strng{authorbibnamehash}{b33c950d5c411c4e0f611ae1daabda7f}
+      \strng{authornamehash}{b33c950d5c411c4e0f611ae1daabda7f}
+      \strng{authorfullhash}{b33c950d5c411c4e0f611ae1daabda7f}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Review of Economic Studies}
+      \field{number}{3}
+      \field{title}{Learning from Neighbours}
+      \field{volume}{65}
+      \field{year}{1998}
+      \field{dateera}{ce}
+      \field{pages}{595\bibrangedash 621}
+      \range{pages}{27}
+    \endentry
+    \entry{barkoczi2016social}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=6eada04e671dcaf04f7e0f90988df373}{%
+           family={Barkoczi},
+           familyi={B\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c774748847f5e8d475f0cdcac4465ca8}{%
+           family={Galesic},
+           familyi={G\bibinitperiod},
+           given={Mirta},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d201f6d77b0dc3b28ddebd5228a948ab}
+      \strng{fullhash}{d201f6d77b0dc3b28ddebd5228a948ab}
+      \strng{bibnamehash}{d201f6d77b0dc3b28ddebd5228a948ab}
+      \strng{authorbibnamehash}{d201f6d77b0dc3b28ddebd5228a948ab}
+      \strng{authornamehash}{d201f6d77b0dc3b28ddebd5228a948ab}
+      \strng{authorfullhash}{d201f6d77b0dc3b28ddebd5228a948ab}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature Communications}
+      \field{title}{Social Learning Strategies Modify the Effect of Network Structure on Group Performance}
+      \field{volume}{7}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{pages}{13109}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/ncomms13109
+      \endverb
+    \endentry
+    \entry{berekmeri2020optimal}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2e8232e9fd546441bdc7706d188a3095}{%
+           family={Berekméri},
+           familyi={B\bibinitperiod},
+           given={Evelin},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4af59bdb097e3088c137805dc385d822}{%
+           family={Zafeiris},
+           familyi={Z\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group UK London}%
+      }
+      \strng{namehash}{ae278138c75ed8fcdd1f09a2211884ff}
+      \strng{fullhash}{ae278138c75ed8fcdd1f09a2211884ff}
+      \strng{bibnamehash}{ae278138c75ed8fcdd1f09a2211884ff}
+      \strng{authorbibnamehash}{ae278138c75ed8fcdd1f09a2211884ff}
+      \strng{authornamehash}{ae278138c75ed8fcdd1f09a2211884ff}
+      \strng{authorfullhash}{ae278138c75ed8fcdd1f09a2211884ff}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scientific Reports}
+      \field{number}{1}
+      \field{title}{Optimal collective decision making: Consensus, accuracy and the effects of limited access to information}
+      \field{volume}{10}
+      \field{year}{2020}
+      \field{pages}{16997}
+      \range{pages}{1}
+    \endentry
+    \entry{bolton1994firm}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=c1a2f9104e4ba44a2ef110554d9812ba}{%
+           family={Bolton},
+           familyi={B\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f93bc70671e6788d2d440ccab2da636e}{%
+           family={Dewatripont},
+           familyi={D\bibinitperiod},
+           given={Mathias},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a5ad82aabe13e6522cc3034e3cfec4d3}
+      \strng{fullhash}{a5ad82aabe13e6522cc3034e3cfec4d3}
+      \strng{bibnamehash}{a5ad82aabe13e6522cc3034e3cfec4d3}
+      \strng{authorbibnamehash}{a5ad82aabe13e6522cc3034e3cfec4d3}
+      \strng{authornamehash}{a5ad82aabe13e6522cc3034e3cfec4d3}
+      \strng{authorfullhash}{a5ad82aabe13e6522cc3034e3cfec4d3}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Quarterly Journal of Economics}
+      \field{number}{4}
+      \field{title}{The Firm as a Communication Network}
+      \field{volume}{109}
+      \field{year}{1994}
+      \field{dateera}{ce}
+      \field{pages}{809\bibrangedash 839}
+      \range{pages}{31}
+    \endentry
+    \entry{fang2010balancing}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=34d0c9b1e5f8ce6c97249f114fc1be94}{%
+           family={Fang},
+           familyi={F\bibinitperiod},
+           given={Christina},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5a3accafc88026f2169b3e6b73c16990}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Jeho},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cd7ba17eeebf78ea3875d06b984b1bda}{%
+           family={Schilling},
+           familyi={S\bibinitperiod},
+           given={Melissa\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d1d50e67636a85a1dc1d0e055a14b85b}
+      \strng{fullhash}{bf8f71f3ad1d6912cedf61b4556e542b}
+      \strng{bibnamehash}{bf8f71f3ad1d6912cedf61b4556e542b}
+      \strng{authorbibnamehash}{bf8f71f3ad1d6912cedf61b4556e542b}
+      \strng{authornamehash}{d1d50e67636a85a1dc1d0e055a14b85b}
+      \strng{authorfullhash}{bf8f71f3ad1d6912cedf61b4556e542b}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Organization Science}
+      \field{number}{3}
+      \field{title}{Balancing Exploration and Exploitation through Structural Design: The Isolation of Subgroups and Organizational Learning}
+      \field{volume}{21}
+      \field{year}{2010}
+      \field{dateera}{ce}
+      \field{pages}{625\bibrangedash 642}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1287/orsc.1090.0468
+      \endverb
+    \endentry
+    \entry{garg2026synergy}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=4251871ff8deb0beec44eea11c54ea54}{%
+           family={Garg},
+           familyi={G\bibinitperiod},
+           given={Ketika},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8d424ceeabf7191f78bd11709ac8fdd2}{%
+           family={Moser},
+           familyi={M\bibinitperiod},
+           given={Cody},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b94e6e75b67f1898aab48dfc7983d18a}{%
+           family={Dromiack},
+           familyi={D\bibinitperiod},
+           given={Hannah},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7828ec1486cf47816d83b0b9ad536437}{%
+           family={Anwarzai},
+           familyi={A\bibinitperiod},
+           given={Zara},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a6d53db47b1d6f552d2f6ed4f9c31880}{%
+           family={Ramos-Fernandez},
+           familyi={R\bibinithyphendelim F\bibinitperiod},
+           given={Gabriel},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{4f63e0c284220d9afc467cff9a56ae7c}
+      \strng{fullhash}{373ed8cc874901a367b700dec685dcaf}
+      \strng{bibnamehash}{4f63e0c284220d9afc467cff9a56ae7c}
+      \strng{authorbibnamehash}{4f63e0c284220d9afc467cff9a56ae7c}
+      \strng{authornamehash}{4f63e0c284220d9afc467cff9a56ae7c}
+      \strng{authorfullhash}{373ed8cc874901a367b700dec685dcaf}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{npj Complexity}
+      \field{title}{Synergy drives collective performance in networks}
+      \field{year}{2026}
+      \verb{doi}
+      \verb 10.1038/s44260-026-00084-0
+      \endverb
+    \endentry
+    \entry{hebert2025governance}{article}{}
+      \name{author}{9}{}{%
+        {{un=0,uniquepart=base,hash=feb95087d1b7af4bd73ff3d92a3a0d55}{%
+           family={Hébert-Dufresne},
+           familyi={H\bibinithyphendelim D\bibinitperiod},
+           given={Laurent},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=41491e2206f725d1feee0089fe45641b}{%
+           family={Landry},
+           familyi={L\bibinitperiod},
+           given={Nicholas\bibnamedelima W},
+           giveni={N\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f35c9c9f6e0380be76eeea62bfac481a}{%
+           family={Lovato},
+           familyi={L\bibinitperiod},
+           given={Juniper},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5b90b35a7c79429ddf171d0f9ba82aad}{%
+           family={St-Onge},
+           familyi={S\bibinithyphendelim O\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=db3133adc3745333ae8621d0136acc8a}{%
+           family={Young},
+           familyi={Y\bibinitperiod},
+           given={Jean-Gabriel},
+           giveni={J\bibinithyphendelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=76158ddb7bffc56f03478c28f1f8d6ac}{%
+           family={Couture-Ménard},
+           familyi={C\bibinithyphendelim M\bibinitperiod},
+           given={Marie-Ève},
+           giveni={M\bibinithyphendelim È\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=088df64e45eefd22167e7d7dc79181fc}{%
+           family={Bernatchez},
+           familyi={B\bibinitperiod},
+           given={Stéphane},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fe5ab5ccf04ac3b8c9cf4c3115897cee}{%
+           family={Choquette},
+           familyi={C\bibinitperiod},
+           given={Catherine},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=21fdfb7aba99baa3de743ac1bc27190a}{%
+           family={Cohen},
+           familyi={C\bibinitperiod},
+           given={Alan\bibnamedelima A},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group UK London}%
+      }
+      \strng{namehash}{eb349d945efd81cedf47e9d3052d7246}
+      \strng{fullhash}{b049e5c4f10c0be7c497456d50cde5ae}
+      \strng{bibnamehash}{eb349d945efd81cedf47e9d3052d7246}
+      \strng{authorbibnamehash}{eb349d945efd81cedf47e9d3052d7246}
+      \strng{authornamehash}{eb349d945efd81cedf47e9d3052d7246}
+      \strng{authorfullhash}{b049e5c4f10c0be7c497456d50cde5ae}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{npj Complexity}
+      \field{number}{1}
+      \field{title}{Governance as a complex, networked, democratic, satisfiability problem}
+      \field{volume}{2}
+      \field{year}{2025}
+      \field{pages}{14}
+      \range{pages}{1}
+    \endentry
+    \entry{jackson2011overview}{incollection}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=58ecd23f1e0d430312f3373e749f8326}{%
+           family={Jackson},
+           familyi={J\bibinitperiod},
+           given={Matthew\bibnamedelima O.},
+           giveni={M\bibinitperiod\bibinitdelim O\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{3}{}{%
+        {{hash=49f1988679d0b20a26952e2fe6fb82fd}{%
+           family={Benhabib},
+           familyi={B\bibinitperiod},
+           given={Jess},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9a5fa2722fca2d15ed7bb64c5fae221f}{%
+           family={Bisin},
+           familyi={B\bibinitperiod},
+           given={Alberto},
+           giveni={A\bibinitperiod}}}%
+        {{hash=58ecd23f1e0d430312f3373e749f8326}{%
+           family={Jackson},
+           familyi={J\bibinitperiod},
+           given={Matthew\bibnamedelima O.},
+           giveni={M\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {North-Holland}%
+      }
+      \strng{namehash}{58ecd23f1e0d430312f3373e749f8326}
+      \strng{fullhash}{58ecd23f1e0d430312f3373e749f8326}
+      \strng{bibnamehash}{58ecd23f1e0d430312f3373e749f8326}
+      \strng{authorbibnamehash}{58ecd23f1e0d430312f3373e749f8326}
+      \strng{authornamehash}{58ecd23f1e0d430312f3373e749f8326}
+      \strng{authorfullhash}{58ecd23f1e0d430312f3373e749f8326}
+      \strng{editorbibnamehash}{842af2e5050c120e4988fd4febab8428}
+      \strng{editornamehash}{a986bcfcb28dad633276e7caa77ebf7b}
+      \strng{editorfullhash}{842af2e5050c120e4988fd4febab8428}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Handbook of Social Economics}
+      \field{title}{An Overview of Social Networks and Economic Applications}
+      \field{volume}{1}
+      \field{year}{2011}
+      \field{dateera}{ce}
+      \field{pages}{511\bibrangedash 585}
+      \range{pages}{75}
+    \endentry
+    \entry{lazer2007network}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b997d645b4a929780c2c78606bf2ff98}{%
+           family={Lazer},
+           familyi={L\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1081aa3bec8a2353b166a2c55323a837}{%
+           family={Friedman},
+           familyi={F\bibinitperiod},
+           given={Allan},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{31abfd1d14c80ec7571930a1662120da}
+      \strng{fullhash}{31abfd1d14c80ec7571930a1662120da}
+      \strng{bibnamehash}{31abfd1d14c80ec7571930a1662120da}
+      \strng{authorbibnamehash}{31abfd1d14c80ec7571930a1662120da}
+      \strng{authornamehash}{31abfd1d14c80ec7571930a1662120da}
+      \strng{authorfullhash}{31abfd1d14c80ec7571930a1662120da}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Administrative Science Quarterly}
+      \field{number}{4}
+      \field{title}{The Network Structure of Exploration and Exploitation}
+      \field{volume}{52}
+      \field{year}{2007}
+      \field{dateera}{ce}
+      \field{pages}{667\bibrangedash 694}
+      \range{pages}{28}
+    \endentry
+    \entry{marchpons2026symmetry}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=93d3383d17bcbb95c941f0caef96e7f8}{%
+           family={March-Pons},
+           familyi={M\bibinithyphendelim P\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c393ec202f2fc7875421592989acbc18}{%
+           family={Pastor-Satorras},
+           familyi={P\bibinithyphendelim S\bibinitperiod},
+           given={Romualdo},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=586c5cdb9a5bf7ef6ccebe82e9de269b}{%
+           family={Miguel},
+           familyi={M\bibinitperiod},
+           given={M.\bibnamedelimi Carmen},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{481ff73a02b8f34db52681a1988327ec}
+      \strng{fullhash}{e6d63654f3b2adf4a121432ad59d5f45}
+      \strng{bibnamehash}{e6d63654f3b2adf4a121432ad59d5f45}
+      \strng{authorbibnamehash}{e6d63654f3b2adf4a121432ad59d5f45}
+      \strng{authornamehash}{481ff73a02b8f34db52681a1988327ec}
+      \strng{authorfullhash}{e6d63654f3b2adf4a121432ad59d5f45}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{npj Complexity}
+      \field{title}{Symmetry breaking in collective decision-making through higher-order interactions}
+      \field{volume}{3}
+      \field{year}{2026}
+      \field{pages}{7}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/s44260-026-00071-5
+      \endverb
+    \endentry
+    \entry{mason2008propagation}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=420f4b22edc88d50941697f26fd15e02}{%
+           family={Mason},
+           familyi={M\bibinitperiod},
+           given={Winter\bibnamedelima A.},
+           giveni={W\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=754ef483cc118651dbbe70d1a2879764}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e0dc18c849b9a7a35e2f9e0f7b2c5bc3}{%
+           family={Goldstone},
+           familyi={G\bibinitperiod},
+           given={Robert\bibnamedelima L.},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9f21ba067d88517ecf818790ff16599a}
+      \strng{fullhash}{5f9790ff911d5bff550f230394c2e6f9}
+      \strng{bibnamehash}{5f9790ff911d5bff550f230394c2e6f9}
+      \strng{authorbibnamehash}{5f9790ff911d5bff550f230394c2e6f9}
+      \strng{authornamehash}{9f21ba067d88517ecf818790ff16599a}
+      \strng{authorfullhash}{5f9790ff911d5bff550f230394c2e6f9}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Experimental Psychology: General}
+      \field{number}{3}
+      \field{title}{Propagation of Innovations in Networked Groups}
+      \field{volume}{137}
+      \field{year}{2008}
+      \field{dateera}{ce}
+      \field{pages}{422\bibrangedash 433}
+      \range{pages}{12}
+    \endentry
+    \entry{noorazar2020classical}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=d0cd2ca884d62739616844cef8a18182}{%
+           family={Noorazar},
+           familyi={N\bibinitperiod},
+           given={Hossein},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4fe9aee8b0ecfa0ff25f6062fbddb192}{%
+           family={Vixie},
+           familyi={V\bibinitperiod},
+           given={Kevin\bibnamedelima R},
+           giveni={K\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b30c36e8b8a651b279457dc77e1d4a96}{%
+           family={Talebanpour},
+           familyi={T\bibinitperiod},
+           given={Arghavan},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ef8b241c4c62106fbe853a6a6f8f7bd7}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Yunfeng},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {World Scientific}%
+      }
+      \strng{namehash}{ea8d71151be9fbb79767340df0af5744}
+      \strng{fullhash}{630e899a839958ea66383c9f242e2da3}
+      \strng{bibnamehash}{ea8d71151be9fbb79767340df0af5744}
+      \strng{authorbibnamehash}{ea8d71151be9fbb79767340df0af5744}
+      \strng{authornamehash}{ea8d71151be9fbb79767340df0af5744}
+      \strng{authorfullhash}{630e899a839958ea66383c9f242e2da3}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Modern Physics C}
+      \field{number}{07}
+      \field{title}{From classical to modern opinion dynamics}
+      \field{volume}{31}
+      \field{year}{2020}
+      \field{pages}{2050101}
+      \range{pages}{1}
+    \endentry
+    \entry{oszabo2026coordination}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=1bc7dd3e392e9dc637f5ded34a92cb07}{%
+           family={O'Szabo},
+           familyi={O\bibinitperiod},
+           given={Rebeka},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5f5cfd49a76730203523fd36604a8436}{%
+           family={Deritei},
+           familyi={D\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7a574765b1ddc61b69879d4d92ae6e95}{%
+           family={Battiston},
+           familyi={B\bibinitperiod},
+           given={Federico},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3de77e45fdb5fed9c81d353aa5bcd867}
+      \strng{fullhash}{106a16851341ab79119bb9245be749b3}
+      \strng{bibnamehash}{106a16851341ab79119bb9245be749b3}
+      \strng{authorbibnamehash}{106a16851341ab79119bb9245be749b3}
+      \strng{authornamehash}{3de77e45fdb5fed9c81d353aa5bcd867}
+      \strng{authorfullhash}{106a16851341ab79119bb9245be749b3}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{npj Complexity}
+      \field{title}{Coordination and balanced communication support collective problem-solving in organic teams}
+      \field{year}{2026}
+      \verb{doi}
+      \verb 10.1038/s44260-026-00099-7
+      \endverb
+    \endentry
+    \entry{radner1993organization}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=99ab0353e5625cbc71e020db0a680119}{%
+           family={Radner},
+           familyi={R\bibinitperiod},
+           given={Roy},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{99ab0353e5625cbc71e020db0a680119}
+      \strng{fullhash}{99ab0353e5625cbc71e020db0a680119}
+      \strng{bibnamehash}{99ab0353e5625cbc71e020db0a680119}
+      \strng{authorbibnamehash}{99ab0353e5625cbc71e020db0a680119}
+      \strng{authornamehash}{99ab0353e5625cbc71e020db0a680119}
+      \strng{authorfullhash}{99ab0353e5625cbc71e020db0a680119}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Econometrica}
+      \field{number}{5}
+      \field{title}{The Organization of Decentralized Information Processing}
+      \field{volume}{61}
+      \field{year}{1993}
+      \field{dateera}{ce}
+      \field{pages}{1109\bibrangedash 1146}
+      \range{pages}{38}
+    \endentry
+    \entry{shore2015facts}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=ad39ddb4373b84afebde04c2f59c5cb5}{%
+           family={Shore},
+           familyi={S\bibinitperiod},
+           given={Jesse},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cee1e4887d6f0ffc21db1a1319548c0b}{%
+           family={Bernstein},
+           familyi={B\bibinitperiod},
+           given={Ethan\bibnamedelima S.},
+           giveni={E\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b997d645b4a929780c2c78606bf2ff98}{%
+           family={Lazer},
+           familyi={L\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{de49ee4bc0ae11a02571ca72fe113094}
+      \strng{fullhash}{b655ded1477c0a982bb1da18ceabaaa7}
+      \strng{bibnamehash}{b655ded1477c0a982bb1da18ceabaaa7}
+      \strng{authorbibnamehash}{b655ded1477c0a982bb1da18ceabaaa7}
+      \strng{authornamehash}{de49ee4bc0ae11a02571ca72fe113094}
+      \strng{authorfullhash}{b655ded1477c0a982bb1da18ceabaaa7}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Organization Science}
+      \field{number}{5}
+      \field{title}{Facts and Figuring: An Experimental Investigation of Network Structure and Performance in Information and Solution Spaces}
+      \field{volume}{26}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{pages}{1432\bibrangedash 1446}
+      \range{pages}{15}
+    \endentry
+    \entry{simon1962architecture}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=09c462602325128c408aa39c70c6ae62}{%
+           family={Simon},
+           familyi={S\bibinitperiod},
+           given={Herbert\bibnamedelima A.},
+           giveni={H\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{09c462602325128c408aa39c70c6ae62}
+      \strng{fullhash}{09c462602325128c408aa39c70c6ae62}
+      \strng{bibnamehash}{09c462602325128c408aa39c70c6ae62}
+      \strng{authorbibnamehash}{09c462602325128c408aa39c70c6ae62}
+      \strng{authornamehash}{09c462602325128c408aa39c70c6ae62}
+      \strng{authorfullhash}{09c462602325128c408aa39c70c6ae62}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the American Philosophical Society}
+      \field{number}{6}
+      \field{title}{The Architecture of Complexity}
+      \field{volume}{106}
+      \field{year}{1962}
+      \field{dateera}{ce}
+      \field{pages}{467\bibrangedash 482}
+      \range{pages}{16}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

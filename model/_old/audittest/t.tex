@@ -1,0 +1,11 @@
+\documentclass{article}\usepackage{xcolor}
+\definecolor{auditblue}{RGB}{20,80,180}
+\newcommand{\audit}[1]{\textcolor{auditblue}{#1}}          % current definition
+\newcommand{\auditFIX}[1]{{\color{auditblue}#1}}           % proposed definition
+\begin{document}
+\auditFIX{First paragraph.
+
+Second paragraph after a blank line.
+\begin{itemize}\item a list item\end{itemize}
+And more text.}
+\end{document}

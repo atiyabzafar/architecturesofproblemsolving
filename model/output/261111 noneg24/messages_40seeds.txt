@@ -1,0 +1,4 @@
+even   full      V 28.59 (identical to stored runs: True) | messages delivered per agent per period 1.00 | cur_new 21% cur_flip 2% out_new 2% out_flip 0% neg_ok 74% neg_bad 0% | current constraints learned per agent per period 0.231
+even   noneg24   V 25.67 (identical to stored runs: True) | messages delivered per agent per period 1.00 | cur_new 80% cur_flip 0% out_new 20% out_flip 0% neg_ok 0% neg_bad 0% | current constraints learned per agent per period 0.803
+uneven full      V 29.55 (identical to stored runs: True) | messages delivered per agent per period 1.00 | cur_new 17% cur_flip 2% out_new 1% out_flip 0% neg_ok 79% neg_bad 1% | current constraints learned per agent per period 0.189
+uneven noneg24   V 27.33 (identical to stored runs: True) | messages delivered per agent per period 1.00 | cur_new 72% cur_flip 0% out_new 28% out_flip 0% neg_ok 0% neg_bad 0% | current constraints learned per agent per period 0.719
